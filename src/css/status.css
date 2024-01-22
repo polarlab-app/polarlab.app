@@ -1,0 +1,96 @@
+body {
+    overflow: hidden;
+    height: 100vh;
+    background-color: rgb(15, 15, 22);
+    position: relative;
+    color: #91909c;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: left;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    font-size: 14px;
+    background: radial-gradient(ellipse at bottom, #120349 0%, rgb(15, 15, 22) 100%);
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+.main {
+    overflow: scroll;
+    display: flex;
+    width: 50%;
+    margin-left: 25%;
+    flex-direction: column;
+}
+.tablewrapper {
+    width: 50%;
+}
+.statustable {
+    margin-top: 8%;
+    border: 1px solid #707070;
+    border-radius: 7px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+.tablehead {
+    padding: 2%;
+    padding-right: 10%;
+    border-bottom: 1px solid #707070;
+}
+
+.tablerow {
+    padding: 1%;
+    justify-content: center;
+}
+
+.headicon {
+    height: 0.8rem;
+    margin-right: 3%;
+}
+
+/* Status Classes */
+.rowicon {
+    width: 0.8rem;
+    margin-right: 3%;
+}
+
+.online {
+    color: #00e09c;
+}
+.minor {
+    color: #fdb822;
+}
+.major {
+    color: #fe424d;
+}
+.beta {
+    color: #818ef9;
+}
+.offline {
+    color: #b7b9bd;
+}
+
+.footercontainer {
+    display: none;
+}
+
+@media screen and (max-width: 480px) {
+    .main {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+@media screen and (min-width: 481px) and (max-width: 767px) {
+    .main {
+        width: 90%;
+        margin-left: 5%;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .main {
+        width: 80%;
+        margin-left: 10%;
+    }
+}

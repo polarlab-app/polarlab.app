@@ -1,0 +1,186 @@
+a {
+    text-decoration: none;
+}
+
+.footercontainer {
+    background-color: #16151c;
+    border-top: 1px solid #505050;
+    border-radius: 10px 10px 0px 0px;
+    margin-top: 10vh;
+    margin-bottom: 0;
+    z-index: 255;
+}
+
+.footer {
+    width: 66%;
+    margin-left: 17%;
+    margin-top: 2%;
+    border-bottom: 1px solid #505050;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.footertop {
+    width: 100%;
+}
+
+.footerlogo {
+    width: 3.2rem;
+    float: left;
+    padding-top: 1%;
+}
+
+.footerheader {
+    float: left;
+    margin-left: 1%;
+    color: white;
+}
+
+.list {
+    display: inline-block;
+    margin-left: 1vw;
+}
+
+.listcontainer {
+    list-style: none;
+}
+
+.lists {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.listheader {
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-align: left;
+    color: white;
+}
+
+.listcontent {
+    color: #91909c;
+    font-size: 0.9rem;
+    margin-top: 12%;
+    text-align: left;
+    transition: all 600ms ease;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.listcontent:hover {
+    color: #e2e2e2;
+    transition: all 600ms ease;
+}
+
+.dbtn {
+    padding: 12px 24px;
+    border: 1px solid #505050;
+    border-radius: 5px;
+    font-weight: 600;
+    color: #91909c;
+    transition: all 600ms ease;
+    cursor: pointer;
+    float: right;
+    margin-top: 1%;
+}
+
+.dbtn:hover {
+    background-color: #1b1b1d;
+    color: #e2e2e2;
+    transition: all 600ms ease;
+}
+
+.footer2 {
+    width: 66%;
+    margin-left: 17%;
+    margin-top: 2%;
+    height: 7vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.copyr {
+    float: left;
+    color: #919191;
+    font-weight: 600;
+    transition: all 600ms ease;
+}
+
+.copyr:hover {
+    color: #e5e5e5;
+    transition: all 600ms ease;
+}
+
+.status {
+    display: inline-flex;
+    border-radius: 7px;
+    border: 1px solid #505050;
+    width: fit-content;
+    height: 60%;
+    padding: 0px 20px;
+    color: #91909c;
+    font-size: 13px;
+    font-weight: 600;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    background-color: #1b1b1d;
+}
+
+.product {
+    color: #91909c;
+}
+
+.statusicon {
+    width: 14px;
+    align-items: center;
+    margin-left: 0.3rem;
+    margin-right: 0.2rem;
+}
+
+.statustext {
+    display: inline;
+    color: #818ef9;
+}
+
+.discordlogo {
+    width: 2rem;
+    float: right;
+    margin-left: 1vw;
+}
+
+@media screen and (max-width: 480px) {
+    .footer,
+    .footer2 {
+        width: 100%;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .status {
+        height: 50%;
+    }
+
+    .footerlogo,
+    .footerheader,
+    .socials,
+    .copyr,
+    .dbtn {
+        display: none;
+    }
+    .list {
+        margin-left: 0;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .footer,
+    .footer2 {
+        width: 90%;
+        margin-left: 5%;
+    }
+}

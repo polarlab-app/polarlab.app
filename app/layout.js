@@ -1,6 +1,7 @@
 import '../src/global.css';
 import NavBar from './NavBar.jsx';
 import Footer from './footer.jsx';
+require('dotenv').config();
 
 export const metadata = {
     title: 'Create Next App',

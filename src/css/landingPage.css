@@ -10,6 +10,7 @@
         margin-top: 3vh;
         grid-column: span 6;
         grid-row: span 2;
+        height: 45vh;
     }
     .gridimg {
         height: 40%;
@@ -32,35 +33,28 @@
         width: 100%;
         margin: 0;
     }
-    .gridrowtwothirds {
-        .gridimg {
-            width: 50%;
-        }
+    .featuregrid {
+        grid-template-rows: 16%;
     }
-    .gridrowthird {
-        .gridheader {
-            width: 100%;
-        }
-        .gridcontent {
-            width: 100%;
-        }
-        .gridtextcontainer {
-            width: 90%;
-        }
+    .griditem {
+        margin-top: 3vh;
+        grid-column: span 6;
+        grid-row: span 2;
+        height: 45vh;
     }
-    .gridrowhalf {
-        display: flex;
-        flex-direction: column;
+    .gridimg {
+        height: 40%;
+        position: absolute;
+        bottom: 3%;
+        right: 10%;
+    }
+    .gridheader {
+        width: 220%;
         text-align: center;
-        .gridtextcontainer {
-            width: 90%;
-        }
-        .gridimg {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            height: 50%;
-        }
+    }
+    .gridcontent {
+        float: none;
+        width: 230%;
     }
 }
 

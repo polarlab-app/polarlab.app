@@ -40,17 +40,17 @@ a {
 
 .list {
     display: inline-block;
-    margin-left: 1vw;
 }
 
 .listcontainer {
     list-style: none;
+    padding: 0
 }
 
 .lists {
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .listheader {
@@ -172,9 +172,6 @@ a {
     .dbtn {
         display: none;
     }
-    .list {
-        margin-left: 0;
-    }
 }
 
 @media screen and (min-width: 481px) and (max-width: 768px) {
@@ -182,5 +179,14 @@ a {
     .footer2 {
         width: 90%;
         margin-left: 5%;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .lists {
+        justify-content: center;
+    }
+    .listcontainer {
+        margin-left: 4vw;
     }
 }

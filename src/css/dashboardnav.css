@@ -1,0 +1,119 @@
+.dashboardnav {
+    display: flex;
+    float: left;
+    width: 18%;
+    height: 99vh;
+    flex-direction: column;
+    text-align: left;
+    color: white;
+    border-right: 1px solid #505050;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #16151c;
+}
+.sidenavtop {
+    height: 10vh;
+    position: relative;
+    display: flex;
+    margin-left: 10%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 6px;
+}
+.tagcontainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 110%;
+}
+.tag {
+    border-radius: 8px;
+    height: 30%;
+    width: 20%;
+    text-align: center;
+    line-height: .1;
+    background: linear-gradient(135deg, #ac59ff, #5959ff);
+    font-size: 12px;
+    font-weight: 700;
+    margin: 0 1vh;
+    margin-top: .4vh;
+}
+.toplogout {
+    margin-right: 10%;
+    width: 1.5vw;
+}
+
+
+
+
+
+
+
+
+.sidenavselection {
+    margin-top: 5%;
+    height: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    overflow: scroll;
+}
+
+.navsectionheader {
+    font-weight: 700;
+    font-size: .7rem;
+}
+
+.navsectionitem {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 12px;
+    width: 90%;
+    height: 5vh;
+}
+.navsectionitem:hover {
+    background-color: #2A2A33;
+    transition: all 600ms ease;
+}
+.navsectiontext {
+    color: #9D9BA9;
+    font-weight: 600;
+}
+.navsectionimg {
+    width: 9%;
+    margin: 0 1vw 0 0;
+}
+
+
+
+
+
+
+
+.sidenavbottom {
+    margin-left: 10%;
+    margin-right: 10%;
+    display: flex;
+    flex-direction: column;
+    height: 5%;
+}
+
+.logout {
+    height: 5vh;
+    border-radius: 12px;
+    width: 100%;
+    color: #fe424d;
+    background-color: hsl(356.49, 98.95%, 62.75%, .2);
+    border: 1px solid rgba(255, 85, 96, 0.402);
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 2.3;
+    transition: all 600ms ease;
+}
+.logout:hover {
+    transition: all 600ms ease;
+    background-color: hsl(356.49, 98.95%, 62.75%, .3);
+}

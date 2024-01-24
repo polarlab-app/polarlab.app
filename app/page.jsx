@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import '../src/css/landingPage.css';
+import Link from 'next/link';
 
 export default function Home() {
     return (
@@ -49,9 +50,9 @@ export default function Home() {
                                         test beta, and be a part of shaping the future of this dynamic Discord bot!
                                     </span>
                                 </p>
-                                <a className='gridbutton' href='/polaris'>
+                                <Link className='gridbutton' href='/polaris'>
                                     Check It Out
-                                </a>
+                                </Link>
                             </div>
                             <img
                                 className='gridimg'
@@ -68,9 +69,9 @@ export default function Home() {
                                         landscapes!
                                     </span>
                                 </p>
-                                <a className='gridbutton' href='/polarmc'>
+                                <Link className='gridbutton' href='/polarmc'>
                                     Check It Out
-                                </a>
+                                </Link>
                             </div>
                             <img
                                 className='gridimg'
@@ -87,7 +88,7 @@ export default function Home() {
                                         more!
                                     </span>
                                 </p>
-                                <a className='gridbutton'>Check It Out</a>
+                                <Link className='gridbutton' href='/gdk'>Check It Out</Link>
                             </div>
                             <img
                                 className='gridimg'

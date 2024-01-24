@@ -1,0 +1,93 @@
+.mainwrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.logincontainer {
+    margin-top: 10vh;
+    width: 25vw;
+    height: 60vh;
+    border: 1px solid #505050;
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.022), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.loginwrapper {
+    width: 90%;
+    margin: 5%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.logintextcontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5% 0;
+}
+
+.logintexttopcontainer {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.loginheader {
+    margin: 0;
+    color: white;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.logininputcontainer {
+    width: 100%;
+    margin: 7% 0;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+.inputheader {
+    color: white;
+    font-weight: 700;
+    font-size: .7rem;
+}
+.logininput {
+    background-color: #2a2933;
+    border-radius: 8px;
+    border: none;
+    padding: 3%;
+    color: white;
+}
+.logininput:focus {
+   outline: none;
+}
+
+.loginbuttoncontainer {
+    height: 20%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.loginbutton {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid #505050;
+    background-color: #2a2933;
+    margin: 1% 0;
+    font-weight: 600;
+}
+
+.discordlogin {
+    background-color: #5533ff;
+}
+footer {
+    display: none;
+}

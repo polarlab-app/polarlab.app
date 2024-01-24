@@ -1,0 +1,65 @@
+body {
+    margin: 0;
+}
+nav {
+    display: none;
+}
+
+.mainwrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.dashboard {
+    width: 75%;
+    float: right;
+    margin: 2%;
+    display: flex;
+}
+.dashboardtopbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 10vh;
+}
+.topbarlinkcontainer {
+    display: flex;
+    justify-content: space-evenly;
+    font-weight: 600;
+    width: 20%;
+    font-size: 1rem;
+    height: min-content;
+}
+.topbarlink {
+    transition: all 600ms ease;
+}
+.topbarlink:hover {
+    color: #9d9ba9;
+    transition: all 600ms ease;
+}
+
+.profilecontainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.username {
+    color: #505050;
+    font-weight: 700;
+    margin-left: 1vw;
+}
+.profilepicture {
+    height: 6vh;
+    border-radius: 100000px;
+}
+
+nav {
+    display: none;
+}
+
+footer {
+    display: none;
+}

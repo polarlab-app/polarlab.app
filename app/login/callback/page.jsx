@@ -12,14 +12,13 @@ export default function Callback() {
 
     useEffect(() => {
         const data = qs.stringify({
-            client_id: process.env.clientID,
-            client_secret: process.env.clientSecret,
+            client_id: process.env.NEXT_PUBLIC_clientID,
+            client_secret: process.env.NEXT_PUBLIC_clientSecret,
             code,
             grant_type: 'authorization_code',
-            redirect_uri: process.env.callbackUri,
-            scope: 'identify',
+            redirect_uri: process.env.NEXT_PUBLIC_callbackUri,
+            scope: 'identify guilds',
         });
-
         axios
             .request({
                 method: 'POST',
@@ -52,5 +51,5 @@ export default function Callback() {
             });
     }, []);
 
-    redirect('/dashboard');
+    //redirect('/dashboard');
 }

@@ -3,19 +3,37 @@
 import '../../src/css/dashboardnav.css';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 export default function DashboardNav() {
-    const [user, setUser] = useState(null);
-
-    useEffect(() => {
+    const [user, setUser] = useState(() => {
         const userCookie = document.cookie
-            .split('; ')
+            .split(';')
             .find((row) => row.startsWith('user='))
             .split('=')[1];
-        const userData = JSON.parse(decodeURIComponent(userCookie));
+        return userCookie ? JSON.parse(decodeURIComponent(userCookie)) : null;
+    });
 
-        setUser(userData);
-    }, []);
+    const [servers, setServers] = useState([]);
+    const [selectedServer, setSelectedServer] = useState(null);
+
+    useEffect(() => {
+        if (user) {
+            axios
+                .get('https://discord.com/api/users/@me/guilds', {
+                    headers: {
+                        Authorization: `Bearer ${user.token}`,
+                    },
+                })
+                .then((response) => {
+                    setServers(response.data);
+                    setSelectedServer(response.data[0]);
+                })
+                .catch((error) => {
+                    console.error('Lmao what now?', error);
+                });
+        }
+    }, [user]);
 
     return (
         <div className='dashboardnav'>
@@ -29,6 +47,7 @@ export default function DashboardNav() {
                             </div>
                         </div>
                         <img className='toplogout' src='https://cdn.polarlab.app/src/icons/colorless/log-out.png'></img>
+                        <div className='guildselector'></div>
                     </div>
                     <div className='sidenavselection'>
                         <div className='navsection'>
@@ -69,13 +88,19 @@ export default function DashboardNav() {
                                 <img
                                     className='navsectionimg'
                                     src='https://cdn.polarlab.app/src/icons/colorless/settings.png'></img>
-                                <p className='navsectiontext'>Overview</p>
+                                <p className='navsectiontext'>Giveaways</p>
                             </Link>
                             <Link className='navsectionitem' href='/'>
                                 <img
                                     className='navsectionimg'
                                     src='https://cdn.polarlab.app/src/icons/colorless/settings.png'></img>
-                                <p className='navsectiontext'>Overview</p>
+                                <p className='navsectiontext'>Birthdays</p>
+                            </Link>
+                            <Link className='navsectionitem' href='/'>
+                                <img
+                                    className='navsectionimg'
+                                    src='https://cdn.polarlab.app/src/icons/colorless/settings.png'></img>
+                                <p className='navsectiontext'>Social Notifications</p>
                             </Link>
                         </div>
                     </div>

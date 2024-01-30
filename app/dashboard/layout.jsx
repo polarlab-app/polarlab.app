@@ -10,7 +10,7 @@ export default function DashboardLayout({ children }) {
 
     useEffect(() => {
         const userCookie = document.cookie
-            .split('; ')
+            .split(';')
             .find((row) => row.startsWith('user='))
             .split('=')[1];
         const userData = JSON.parse(decodeURIComponent(userCookie));
@@ -27,7 +27,7 @@ export default function DashboardLayout({ children }) {
                         <Link href='/' className='topbarlink'>
                             Home
                         </Link>
-                        <Link href='https://docs.polarlab.app' className='topbarlink'>
+                        <Link href='https://docs.polarlab.app/polaris' className='topbarlink'>
                             Docs
                         </Link>
                         <Link href='/discord' className='topbarlink'>

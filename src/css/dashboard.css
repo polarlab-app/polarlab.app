@@ -1,51 +1,56 @@
 body {
     margin: 0;
+    overflow: hidden;
 }
 nav {
+    display: none;
+}
+::-webkit-scroll {
     display: none;
 }
 
 .mainwrapper {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     overflow: hidden;
 }
 
 .dashboard {
-    width: 75%;
+    width: 82%;
     float: right;
-    margin: 2%;
+    margin: 0;
     display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 .dashboardtopbar {
     width: 100%;
-    display: flex;
-    justify-content: space-between;
     height: 10vh;
-}
-.topbarlinkcontainer {
+    border-bottom: 1px solid #505050;
+    margin-left: 0;
+    text-align: left;
     display: flex;
-    justify-content: space-evenly;
-    font-weight: 600;
-    width: 20%;
-    font-size: 1rem;
-    height: min-content;
+    align-items: center;
 }
-.topbarlink {
-    transition: all 600ms ease;
+.topbarheader {
+    margin-left: 3%;
+    color: white;
 }
-.topbarlink:hover {
+.topbardivider {
+    background-color: #28272e;
+    font-size: 2rem;
+    height: 40%;
+    width: 0.1vw;
+    border: none;
+    border-radius: 12px;
+    margin: 0 2%;
+}
+.topbardescription {
     color: #9d9ba9;
-    transition: all 600ms ease;
+    font-weight: 600;
+    margin: 0;
 }
-
-.profilecontainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-}
-
 .username {
     color: #505050;
     font-weight: 700;
@@ -54,6 +59,22 @@ nav {
 .profilepicture {
     height: 6vh;
     border-radius: 100000px;
+}
+
+.dashboardwrapper {
+    margin: 1% 5%;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    height: 90vh;
+}
+
+.smallinfocard {
+    background-color: #16151c;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 12px;
 }
 
 nav {

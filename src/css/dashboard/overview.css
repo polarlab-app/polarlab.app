@@ -1,0 +1,38 @@
+.hometop {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.smallinfocard {
+    width: 30%;
+    height: 12vh;
+}
+
+.smallinfotextcontainer {
+    margin: 5%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: space-between;
+}
+
+.smallinfoheader {
+    color: white;
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin: 0 0 2% 0;
+}
+
+.smallinfoimg {
+    margin-right: 5%;
+    padding: 0.7rem;
+    background-color: #28272e;
+    border-radius: 12px;
+    width: 2rem;
+}
+
+.smallinfodescription {
+    margin: 2% 0 0 0;
+    color: #9d9ba9;
+    font-weight: 600;
+}

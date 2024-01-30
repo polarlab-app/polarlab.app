@@ -11,36 +11,25 @@ export default function Callback() {
     const [user, setUser] = useState('');
 
     async function thisLoginShitDoesntWork(event) {
-        const response = await fetch('/api/login', {
+        const request = await fetch('/api/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({ code: code }),
         });
+        const result = await request.json();
 
-        if (response.ok) {
-            const accessToken = response.access_token;
-            document.cookie = `token=${accessToken}; max-age=${60 * 60 * 60}; path=/`;
-            axios
-                .get('https://discord.com/api/users/@me', {
-                    headers: {
-                        Authorization: `Bearer ${accessToken}`,
-                    },
-                })
-                .then((userResponse) => {
-                    const userData = userResponse.data;
-
-                    document.cookie = `user=${JSON.stringify(userData)}; max-age=${60 * 60}; path=/`;
-
-                    setUser(userData);
-                })
-                .catch((error) => {
-                    console.log(error);
-                });
-            //window.location.assign('/dashboard');
+        if (request.ok) {
+            const accessToken = result.response.access_token;
+            const userData = result.userData;
+            document.cookie = `user=${JSON.stringify(userData)}; max-age=${
+                60 * 60 * 60 * 24
+            }; path=/; Secure; SameSite=Lax`;
+            document.cookie = `token=${accessToken}; max-age=${60 * 60 * 60 * 24}; path=/; Secure; SameSite=Lax`;
+            window.location.assign('/dashboard');
         } else {
-            const error = await response.text();
+            const error = await result.text();
             alert(`Failed to log in: ${error}`);
         }
     }

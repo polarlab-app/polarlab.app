@@ -8,7 +8,7 @@ import axios from 'axios';
 export default function DashboardNav() {
     const [user, setUser] = useState(() => {
         const userCookie = document.cookie
-            .split(';')
+            .split('; ')
             .find((row) => row.startsWith('user='))
             .split('=')[1];
         return userCookie ? JSON.parse(decodeURIComponent(userCookie)) : null;
@@ -51,13 +51,13 @@ export default function DashboardNav() {
                     </div>
                     <div className='sidenavselection'>
                         <div className='navsection'>
-                            <Link className='navsectionitem' href='/'>
+                            <Link className='navsectionitem' href='/dashboard'>
                                 <img
                                     className='navsectionimg'
                                     src='https://cdn.polarlab.app/src/icons/colorless/settings.png'></img>
                                 <p className='navsectiontext'>Overview</p>
                             </Link>
-                            <Link className='navsectionitem' href='/'>
+                            <Link className='navsectionitem' href='/dashboard/settings'>
                                 <img
                                     className='navsectionimg'
                                     src='https://cdn.polarlab.app/src/icons/colorless/settings.png'></img>

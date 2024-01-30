@@ -21,32 +21,7 @@ export default function DashboardLayout({ children }) {
     return (
         <>
             <DashboardNav />
-            <div className='dashboard'>
-                <div className='dashboardtopbar'>
-                    <div className='topbarlinkcontainer'>
-                        <Link href='/' className='topbarlink'>
-                            Home
-                        </Link>
-                        <Link href='https://docs.polarlab.app/polaris' className='topbarlink'>
-                            Docs
-                        </Link>
-                        <Link href='/discord' className='topbarlink'>
-                            Support
-                        </Link>
-                    </div>
-                    {user ? (
-                        <div className='profilecontainer'>
-                            <p className='username'>{user.username}</p>
-                            <img
-                                src={`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`}
-                                className='profilepicture'></img>
-                        </div>
-                    ) : (
-                        <p>Loading..</p>
-                    )}
-                </div>
-                {children}
-            </div>
+            <div className='dashboard'>{children}</div>
         </>
     );
 }

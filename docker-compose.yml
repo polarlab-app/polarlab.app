@@ -1,0 +1,20 @@
+version: '3'
+services:
+    web:
+        container_name: polarlab-app
+        build: .
+        ports:
+            - '3000:3000'
+        volumes:
+            - /opt/polarlab.app:/opt/polarlab.app
+        command: bash -c "git pull && npm install && npm run build && npx next telemetry disable && npm run start"
+        deploy:
+            resources:
+                limits:
+                    cpus: '0.5'
+                    memory: 1G
+            restart_policy:
+                condition: on-failure
+                delay: 5s
+                max_attempts: 3
+                window: 120s

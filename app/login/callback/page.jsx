@@ -2,13 +2,10 @@
 
 import { useEffect, useState } from 'react';
 import { useSearchParams, redirect } from 'next/navigation';
-import axios from 'axios';
 
-export default function Callback() {
+export default function Page() {
     const searchParams = useSearchParams();
     const code = searchParams.get('code');
-
-    const [user, setUser] = useState('');
 
     async function thisLoginShitDoesntWork(event) {
         const request = await fetch('/api/login', {
@@ -21,20 +18,17 @@ export default function Callback() {
         const result = await request.json();
 
         if (request.ok) {
-            const accessToken = result.response.access_token;
-            const userData = result.userData;
-            document.cookie = `user=${JSON.stringify(userData)}; max-age=${
+            //const accessToken = result.response.access_token;
+            //const userData = result.userData;
+            /*document.cookie = `user=${JSON.stringify(userData)}; max-age=${
                 60 * 60 * 60 * 24
             }; path=/; Secure; SameSite=Lax`;
-            document.cookie = `token=${accessToken}; max-age=${60 * 60 * 60 * 24}; path=/; Secure; SameSite=Lax`;
+            document.cookie = `token=${accessToken}; max-age=${60 * 60 * 60 * 24}; path=/; Secure; SameSite=Lax`;*/
             window.location.assign('/dashboard');
         } else {
-            const error = await result.text();
-            alert(`Failed to log in: ${error}`);
+            console.log(result);
         }
     }
 
-    useEffect(() => {
-        thisLoginShitDoesntWork();
-    }, []);
+    thisLoginShitDoesntWork();
 }

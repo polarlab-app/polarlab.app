@@ -1,11 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import axios from 'axios';
 import qs from 'qs';
+import { cookies } from 'next/headers';
 
 export const dynamic = 'force-dynamic';
 
 export async function POST(req) {
     const { code } = await req.json();
+    console.log(code);
     try {
         const response = await axios.post(
             'https://discord.com/api/oauth2/token',
@@ -34,6 +36,9 @@ export async function POST(req) {
                 console.log(error);
             });
 
+        await cookies().set('accessToken', response.data.access_token); //{ secure: true, path: '/' });
+        await cookies().set('userData', userData.data); //{ secure: true, path: '/' });
+        console.log(userData.data);
         return await NextResponse.json({ response: response.data, userData: userData.data });
     } catch (error) {
         console.error('Failed to exchange authorization code for access token', error);

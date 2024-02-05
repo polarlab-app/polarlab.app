@@ -2,10 +2,6 @@ import '../../src/css/login.css';
 import Link from 'next/link';
 
 export default function Page() {
-    function login() {
-
-    }
-
     return (
         <>
             <div className='logincontainer'>
@@ -24,8 +20,14 @@ export default function Page() {
                     </div>
 
                     <div className='loginbuttoncontainer'>
-                        <button className='loginbutton' onClick=''>Log In</button>
-                        <Link className='loginbutton discordlogin' href='https://discord.com/api/oauth2/authorize?client_id=1065350226757554237&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Flogin%2Fcallback&scope=identify+guilds'>Log in with Discord</Link>
+                        <button className='loginbutton' onClick=''>
+                            Log In
+                        </button>
+                        <Link
+                            className='loginbutton discordlogin'
+                            href='https://discord.com/api/oauth2/authorize?client_id=1065350226757554237&response_type=code&redirect_uri=https%3A%2F%2Flocalhost%3A3000%2Flogin%2Fcallback&scope=identify+guilds'>
+                            Log in with Discord
+                        </Link>
                     </div>
                 </div>
             </div>

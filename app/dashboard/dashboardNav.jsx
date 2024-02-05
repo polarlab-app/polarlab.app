@@ -1,43 +1,16 @@
-'use client';
+'use server';
 
 import '../../src/css/dashboardnav.css';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { cookies } from 'next/headers';
 
-export default function DashboardNav() {
-    const [user, setUser] = useState(() => {
-        const userCookie = document.cookie
-            .split('; ')
-            .find((row) => row.startsWith('user='))
-            .split('=')[1];
-        return userCookie ? JSON.parse(decodeURIComponent(userCookie)) : null;
-    });
-
-    const [servers, setServers] = useState([]);
-    const [selectedServer, setSelectedServer] = useState(null);
-
-    useEffect(() => {
-        if (user) {
-            axios
-                .get('https://discord.com/api/users/@me/guilds', {
-                    headers: {
-                        Authorization: `Bearer ${user.token}`,
-                    },
-                })
-                .then((response) => {
-                    setServers(response.data);
-                    setSelectedServer(response.data[0]);
-                })
-                .catch((error) => {
-                    console.error('Lmao what now?', error);
-                });
-        }
-    }, [user]);
+export default async function DashboardNav() {
+    const cookieStore = cookies();
+    const accessToken = cookieStore.get('accessToken');
 
     return (
         <div className='dashboardnav'>
-            {user ? (
+            {accessToken ? (
                 <>
                     <div className='sidenavtop'>
                         <div className='tagcontainer'>

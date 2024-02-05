@@ -1,22 +1,11 @@
-'use client';
+'use server';
 
-import { useEffect, useState } from 'react';
 import '../../src/css/dashboard/overview.css';
-import image from './550gen.png';
+import { cookies } from 'next/headers';
 
-export default function Page() {
-    const [user, setUser] = useState(null);
-
-    useEffect(() => {
-        const userCookie = document.cookie
-            .split('; ')
-            .find((row) => row.startsWith('user='))
-            .split('=')[1];
-        const userData = JSON.parse(decodeURIComponent(userCookie));
-
-        setUser(userData);
-    }, []);
-
+export default async function Page() {
+    const cookieStore = cookies();
+    const userData = await cookieStore.get('userData');
     return (
         <>
             <div className='dashboardtopbar'>
@@ -47,7 +36,7 @@ export default function Page() {
                     <div className='smallinfocard'>
                         <div className='smallinfotextcontainer'>
                             <p className='smallinfoheader'>27,890</p>
-                            <p className='smallinfodescription'>Messages sent in the past 24h</p>
+                            <p className='smallinfodescription'>{JSON.stringify(userData.value).username}</p>
                         </div>
                         <img
                             className='smallinfoimg'

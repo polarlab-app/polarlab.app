@@ -64,7 +64,7 @@ export default function Page() {
                                 <h4 className='gridheader'>Compatibility</h4>
                                 <p className='gridcontent'>
                                     <span>
-                                        Want to play your favorite survival server when you're not at home? No problem!
+                                        Want to play your favorite survival server when youre not at home? No problem!
                                         You can join PolarMC from your mobile devices and bind your accounts, so you can
                                         proceed wherever you left off. You can also join Polar MC without having a
                                         minecraft Java account at all! All bedrock, console and mobile players welcome!

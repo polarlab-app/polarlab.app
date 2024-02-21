@@ -36,7 +36,6 @@ a {
 .main {
     width: 70%;
     margin-left: 15%;
-    scroll-snap-type: y mandatory;
 }
 
 .topsection {
@@ -46,6 +45,8 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 .stars {
     width: 1px;
@@ -368,12 +369,12 @@ a {
 }
 
 .sitesection {
+    scroll-snap-align: start;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
     margin-top: 10vh;
-    scroll-snap-align: start;
 }
 
 .sectionheader {

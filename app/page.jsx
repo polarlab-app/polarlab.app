@@ -1,6 +1,6 @@
 'use client';
+
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
 import '../src/css/landingPage.css';
 import Link from 'next/link';
 
@@ -88,7 +88,9 @@ export default function Home() {
                                         more!
                                     </span>
                                 </p>
-                                <Link className='gridbutton' href='/gdk'>Check It Out</Link>
+                                <Link className='gridbutton' href='/gdk'>
+                                    Check It Out
+                                </Link>
                             </div>
                             <img
                                 className='gridimg'

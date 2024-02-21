@@ -29,5 +29,5 @@ export async function GET(req) {
             return guild.id;
         });
 
-    console.log(ownerGuilds);
+    return await NextResponse.json({ guilds: ownerGuilds });
 }

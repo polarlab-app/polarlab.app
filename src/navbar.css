@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
 nav {
+    font-family: 'Nunito';
     width: 100%;
     height: 8vh;
     position: sticky;
@@ -48,7 +51,7 @@ nav {
 .navlink {
     font-size: 14px;
     color: #91909c;
-    font-weight: 600;
+    font-weight: 700;
     transition: all 600ms ease;
     margin: auto;
     margin-top: 1%;
@@ -72,7 +75,7 @@ nav {
     padding: 12px 24px;
     border: 1px solid #505050;
     border-radius: 5px;
-    font-weight: 600;
+    font-weight: 700;
     color: #91909c;
     transition: all 600ms ease;
     cursor: pointer;

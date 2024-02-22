@@ -1,5 +1,5 @@
 import DashboardNav from './dashboardNav.jsx';
-import '../../src/css/dashboard.css';
+import '../../src/css/dashboard/dashboard.css';
 
 export default function DashboardLayout({ children }) {
     return (

@@ -1,6 +1,6 @@
 'use server';
 
-import '../../src/css/dashboardnav.css';
+import '../../src/css/dashboard/dashboardnav.css';
 import Link from 'next/link';
 import { cookies } from 'next/headers';
 

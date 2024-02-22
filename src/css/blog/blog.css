@@ -1,0 +1,103 @@
+.main {
+    display: grid;
+    /*grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));*/
+    grid-template-columns: repeat(3, 28%);
+    grid-template-rows: auto;
+    row-gap: 5%;
+    column-gap: 3%;
+    width: 70%;
+    height: 100%;
+    text-align: center;
+    margin-left: 18%;
+    margin-top: 2%;
+}
+
+.post {
+    height: 50vh;
+    border-radius: 10px;
+    background-color: #16151c;
+    margin: 0;
+    margin-top: 2vh;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 600ms ease;
+    border: 1px solid #232323;
+}
+
+.post:hover {
+    scale: 1.03;
+    transition: all 600ms ease;
+    box-shadow: 5px 5px 20px rgb(89, 89, 255, 0.4);
+}
+
+.postimgcontainer {
+    height: 60%;
+    width: 100%;
+    transition: transform 600ms;
+    overflow: hidden;
+}
+
+.postimg {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px 10px 0px 0px;
+    margin: 0;
+    transition: transform 600ms;
+}
+
+.post:hover .postimg {
+    transform: scale(1.2);
+}
+
+.pfp {
+    width: 2rem;
+    float: left;
+    border-radius: 50px;
+    margin-right: 4%;
+}
+
+.posttext {
+    height: 40%;
+    width: 100%;
+    border-radius: 0px 0px 10px 10px;
+    margin: 0;
+}
+
+.toptextcontainer {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.textcontainer {
+    margin-top: 5%;
+    width: 80%;
+    height: 80%;
+    text-align: left;
+    margin-left: 10%;
+    font-weight: 600;
+    line-height: 2.5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.author {
+    color: #5d5c64;
+    font-size: 0.8rem;
+}
+
+.title {
+    margin-top: 4%;
+    margin-bottom: 4%;
+    font-weight: 650;
+    color: #eeeeee;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+.date {
+    color: #5d5c64;
+    font-size: 0.75rem;
+    line-height: 2.5;
+}

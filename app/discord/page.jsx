@@ -1,5 +1,5 @@
-import { redirect } from 'next/navigation'
+import { redirect } from 'next/navigation';
 
 export default function Page() {
-    redirect('https://discord.gg')
+    redirect('https://discord.gg/2t6JBJQy7c');
 }

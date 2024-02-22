@@ -44,7 +44,7 @@ a {
 
 .listcontainer {
     list-style: none;
-    padding: 0
+    padding: 0;
 }
 
 .lists {
@@ -54,7 +54,7 @@ a {
 }
 
 .listheader {
-    font-weight: 600;
+    font-weight: 700;
     font-size: 0.9rem;
     text-align: left;
     color: white;
@@ -67,7 +67,7 @@ a {
     text-align: left;
     transition: all 600ms ease;
     cursor: pointer;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .listcontent:hover {
@@ -79,7 +79,7 @@ a {
     padding: 12px 24px;
     border: 1px solid #505050;
     border-radius: 5px;
-    font-weight: 600;
+    font-weight: 700;
     color: #91909c;
     transition: all 600ms ease;
     cursor: pointer;
@@ -132,6 +132,7 @@ a {
 
 .product {
     color: #91909c;
+    font-weight: 700;
 }
 
 .statusicon {
@@ -144,6 +145,7 @@ a {
 .statustext {
     display: inline;
     color: #818ef9;
+    font-weight: 700;
 }
 
 .discordlogo {

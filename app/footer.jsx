@@ -1,4 +1,4 @@
-import '../src/footer.css';
+import '../src/css/core/footer.css';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -7,11 +7,7 @@ export default function Footer() {
         <footer className='footercontainer'>
             <div className='footer'>
                 <div className='footertop'>
-                    <img
-                        src='https://cdn.polarlab.app/src/img/polarlogo.png'
-                        className='footerlogo'
-                        alt='alt'
-                    />
+                    <img src='https://cdn.polarlab.app/src/img/polarlogo.png' className='footerlogo' alt='alt' />
                     <h1 className='footerheader'>Polar Lab</h1>
                     <a className='dbtn' href='/discord'>
                         Discord
@@ -89,18 +85,22 @@ export default function Footer() {
                     <Link className='product' href='/status'>
                         Polaris Status:
                     </Link>
-                    <img
-                        src='https://cdn.polarlab.app/src/main/img/discordlogo.png'
-                        className='statusicon'
-                        alt='alt'
-                    />
+                    <img src='https://cdn.polarlab.app/src/main/img/discordlogo.png' className='statusicon' alt='alt' />
                     <Link className='statustext' href='/status'>
                         Online
                     </Link>
                 </div>
                 <div className='socials'>
-                    <img src='https://cdn.polarlab.app/src/main/img/discordlogo.png' className='discordlogo' alt='alt' />
-                    <img src='https://cdn.polarlab.app/src/main/img/discordlogo.png' className='discordlogo' alt='alt' />
+                    <img
+                        src='https://cdn.polarlab.app/src/main/img/discordlogo.png'
+                        className='discordlogo'
+                        alt='alt'
+                    />
+                    <img
+                        src='https://cdn.polarlab.app/src/main/img/discordlogo.png'
+                        className='discordlogo'
+                        alt='alt'
+                    />
                 </div>
             </div>
         </footer>

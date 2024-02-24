@@ -37,8 +37,12 @@
 
 .itemheader {
     font-weight: 700;
+    margin-bottom: 1%;
 }
 
+.itemdescription {
+    margin-top: 0;
+}
 .sha {
     color: #424242;
     font-weight: 800;

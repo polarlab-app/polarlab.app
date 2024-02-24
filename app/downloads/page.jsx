@@ -17,7 +17,7 @@ export default function Page() {
                                     key={itemIndex}>
                                     <div className={styles.downloaditemtext}>
                                         <p className={styles.itemheader}>{item.name}</p>
-                                        <p>{item.description}</p>
+                                        <p className={styles.itemdescription}>{item.description}</p>
                                         <p className={styles.sha}>SHA1: {item.sha1}</p>
                                     </div>
                                     <a href={item.href} className={styles.itemimgcontainer} target='_blank'>

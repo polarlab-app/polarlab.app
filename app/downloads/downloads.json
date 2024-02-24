@@ -1,0 +1,115 @@
+[
+    {
+        "Polar MC": [
+            {
+                "name": "Official Modpack",
+                "description": "The official Polar MC performance and QoL modpack",
+                "sha1": "d071b650abe6861a69f195e49a23a264f0b08b56",
+                "href": "https://cdn.polarlab.app/downloads/modpack.zip"
+            },
+            {
+                "name": "Recommended Resourcepack",
+                "description": "The recommended Roundista 128x resource pack",
+                "sha1": "49bfc80b187ea4cd3a3dcaf3dfaba5a9a4f23ca4",
+                "href": "https://cdn.polarlab.app/downloads/Roundista 128x R22.zip?dl=1"
+            },
+            {
+                "name": "Recommended Shaders",
+                "description": "The recommended Complementary Shaders Pack",
+                "sha1": "65c7ef20fef4b5b03aa44afccbfdfdd82574c193",
+                "href": "https://cdn.polarlab.app/downloads/ComplementaryUnbound_r5.1.1.zip?dl=1",
+                "recommended": true
+            }
+        ]
+    },
+    {
+        "Polar Lab Icon Pack": [
+            {
+                "name": "All Icons",
+                "description": "The entire icon pack, 42000+ icons",
+                "sha1": "a7fd373cfde452d71ed44f621de063ef3617b751",
+                "href": "https://cdn.polarlab.app/downloads/icons_all.zip?dl=1",
+                "recommended": true
+            },
+            {
+                "name": "Red Icons",
+                "description": "3200+ Icons in the signature red color (#FE424D)",
+                "sha1": "5bc462ae5b60623aa1053aaf866d8cba2043d3dd",
+                "href": "https://cdn.polarlab.app/downloads/icons_red.zip?dl=1"
+            },
+            {
+                "name": "Green Icons",
+                "description": "3200+ Icons in the signature green color (#00E09C)",
+                "sha1": "186ff2f793c823f40c05bf6ef2f879349ef1b815",
+                "href": "https://cdn.polarlab.app/downloads/icons_green.zip?dl=1"
+            },
+            {
+                "name": "Indigo Icons",
+                "description": "3200+ Icons in the signature indigo color (#818EF9)",
+                "sha1": "a9eb4ee1349a1e7125e6c0a62881107155960db4",
+                "href": "https://cdn.polarlab.app/downloads/icons_indigo.zip?dl=1"
+            },
+            {
+                "name": "Gold Icons",
+                "description": "3200+ Icons in the signature gold color (#FDB822)",
+                "sha1": "83262e0da397b2edc8d3c42a37331bc61b2e15cf",
+                "href": "https://cdn.polarlab.app/downloads/icons_gold.zip?dl=1"
+            },
+            {
+                "name": "Pink Icons",
+                "description": "3200+ Icons in the signature pink color (#F472B5)",
+                "sha1": "4bcbde59af392e543a6dd7538ca12c4e80948e71",
+                "href": "https://cdn.polarlab.app/downloads/icons_pink.zip?dl=1"
+            },
+            {
+                "name": "Aqua Icons",
+                "description": "3200+ Icons in the signature aqua color (#4CCAFD)",
+                "sha1": "975b14b2433fd8c96e0f25dfdefa509098d9aebc",
+                "href": "https://cdn.polarlab.app/downloads/icons_aqua.zip?dl=1"
+            },
+            {
+                "name": "Orange Icons",
+                "description": "3200+ Icons in the signature orange color (#FE7D27)",
+                "sha1": "bab078a0df62b1731d7f0122eca153629ab2f31f",
+                "href": "https://cdn.polarlab.app/downloads/icons_orange.zip?dl=1"
+            },
+            {
+                "name": "Yellow Icons",
+                "description": "3200+ Icons in the signature yellow color (#F8CB14)",
+                "sha1": "8513dc352dd78a364aa825441df7a12b0075355f",
+                "href": "https://cdn.polarlab.app/downloads/icons_yellow.zip?dl=1"
+            },
+            {
+                "name": "Acid Icons",
+                "description": "3200+ Icons in the signature acidic color (#59F000)",
+                "sha1": "a7a35c99d22b0ce2421cb2b30d5f6a0854576d6b",
+                "href": "https://cdn.polarlab.app/downloads/icons_acid.zip?dl=1"
+            },
+            {
+                "name": "Purple Icons",
+                "description": "3200+ Icons in the signature purple color (#A88BF6)",
+                "sha1": "4215ce93c81e57d58e15e7d3baa0935ec9a41948",
+                "href": "https://cdn.polarlab.app/downloads/icons_purple.zip?dl=1"
+            },
+            {
+                "name": "Rose Icons",
+                "description": "3200+ Icons in the signature red color (#F76F6D)",
+                "sha1": "f279cd1213bb34ffb816926b4e52b850a13fafb4",
+                "href": "https://cdn.polarlab.app/downloads/icons_rose.zip?dl=1"
+            },
+            {
+                "name": "Blue Icons",
+                "description": "3200+ Icons in the signature red color (#60A5F8)",
+                "sha1": "812d922a807ff6ee1104f6c363fb7c2dcfd621d0",
+                "href": "https://cdn.polarlab.app/downloads/icons_blue.zip?dl=1"
+            },
+            {
+                "name": "Mono Icons",
+                "description": "3200+ Icons in the signature monochrome theme",
+                "sha1": "8fd285d8ffbc9aec07b95d15373c820c5ff7b6d7",
+                "href": "https://cdn.polarlab.app/downloads/icons_mono.zip?dl=1",
+                "recommended": true
+            }
+        ]
+    }
+]

@@ -1,12 +1,12 @@
 import { BlogPostGrid } from '../../components/blogpost.jsx';
 
-import '../../src/css/blog/blog.css';
+import styles from '../../src/css/blog/blog.module.css';
 import posts from '../../src/posts.json';
 
 export default function Page() {
     return (
         <>
-            <div className='main'>
+            <div className={styles.main}>
                 {posts.map((post, index) => {
                     return (
                         <BlogPostGrid

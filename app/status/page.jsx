@@ -1,171 +1,172 @@
-import '../../src/css/main/status.css';
+import styles from '../../src/css/main/status.module.css';
+import '../../src/css/main/status.global.css';
 
 export default function Page() {
     return (
         <>
             <div className='stars'></div>
-            <div className='main'>
-                <table className='statustable'>
+            <div className={styles.main}>
+                <table className={styles.statustable}>
                     <tbody>
-                        <tr className='table-row'>
-                            <th className='tablehead'>
+                        <tr className={styles.tablerow}>
+                            <th className={styles.tablehead}>
                                 <img
-                                    className='headicon'
-                                    src='https://cdnstylesstylesstylesstylesstyles.polarlabstylesstylesstylesstylesstyles.app/src/icons/colorless/service_tablestylesstylesstylesstylesstyles.png'
+                                    className={styles.headicon}
+                                    src='https://cdn.polarlab.app/src/icons/colorless/service_table.png'
                                 />
                                 Service
                             </th>
-                            <th className='tablehead'>
+                            <th className={styles.tablehead}>
                                 <img
-                                    className='headicon'
-                                    src='https://cdnstylesstylesstylesstylesstyles.polarlabstylesstylesstylesstylesstyles.app/src/icons/colorless/status_tablestylesstylesstylesstylesstyles.png'
+                                    className={styles.headicon}
+                                    src='https://cdn.polarlab.app/src/icons/colorless/status_table.png'
                                 />
                                 Status
                             </th>
-                            <th className='tablehead'>
+                            <th className={styles.tablehead}>
                                 <img
-                                    className='headicon'
-                                    src='https://cdnstylesstylesstylesstylesstyles.polarlabstylesstylesstylesstylesstyles.app/src/icons/colorless/info_tablestylesstylesstylesstylesstyles.png'
+                                    className={styles.headicon}
+                                    src='https://cdn.polarlab.app/src/icons/colorless/info_table.png'
                                 />
                                 Details
                             </th>
                         </tr>
                         <tr className='table-row'>
-                            <td className='tablerow'>Polaris V2</td>
-                            <td className='tablerow beta'>
+                            <td className={styles.tablerow}>Polaris V2</td>
+                            <td className={`${styles.tablerow} ${styles.beta}`}>
                                 <img
-                                    className='rowicon'
-                                    src='https://cdnstylesstylesstylesstylesstyles.polarlabstylesstylesstylesstylesstyles.app/src/icons/status/indigostylesstylesstylesstylesstyles.png'
+                                    className={styles.rowicon}
+                                    src='https://cdn.polarlab.app/src/icons/status/indigo.png'
                                 />
                                 Beta Testing
                             </td>
-                            <td className='tablerow'>PTB Accessible</td>
+                            <td className={styles.tablerow}>PTB Accessible</td>
                         </tr>
                         <tr className='table-row'>
-                            <td className='tablerow'>Polar MC</td>
-                            <td className='tablerow online'>
+                            <td className={styles.tablerow}>Polar MC</td>
+                            <td className={`${styles.tablerow} ${styles.online}`}>
                                 <img
-                                    className='rowicon'
-                                    src='https://cdnstylesstylesstylesstylesstyles.polarlabstylesstylesstylesstylesstyles.app/src/icons/status/greenstylesstylesstylesstylesstyles.png'
+                                    className={styles.rowicon}
+                                    src='https://cdn.polarlab.app/src/icons/status/green.png'
                                 />
                                 Online
                             </td>
-                            <td className='tablerow'>Access Allowed </td>
+                            <td className={styles.tablerow}>Access Allowed </td>
                         </tr>
                         <tr className='table-row'>
-                            <td className='tablerow'>Glorious Development Kit</td>
-                            <td className='tablerow minor'>
+                            <td className={styles.tablerow}>Glorious Development Kit</td>
+                            <td className={`${styles.tablerow} ${styles.minor}`}>
                                 <img
-                                    className='rowicon'
-                                    src='https://cdnstylesstylesstylesstylesstyles.polarlabstylesstylesstylesstylesstyles.app/src/icons/status/goldstylesstylesstylesstylesstyles.png'
+                                    className={styles.rowicon}
+                                    src='https://cdn.polarlab.app/src/icons/status/gold.png'
                                 />
                                 Minor Issues
                             </td>
-                            <td className='tablerow'>All services Operational</td>
+                            <td className={styles.tablerow}>All services Operational</td>
                         </tr>
                         <tr className='table-row'>
-                            <td className='tablerow'>Polaris V1stylesstylesstylesstylesstyles.6</td>
-                            <td className='tablerow offline'>
+                            <td className={styles.tablerow}>Polaris V1</td>
+                            <td className={`${styles.tablerow} ${styles.offline}`}>
                                 <img
-                                    className='rowicon'
-                                    src='https://cdnstylesstylesstylesstylesstyles.polarlabstylesstylesstylesstylesstyles.app/src/icons/status/graystylesstylesstylesstylesstyles.png'
+                                    className={styles.rowicon}
+                                    src='https://cdn.polarlab.app/src/icons/status/gray.png'
                                 />
                                 Offline
                             </td>
-                            <td className='tablerow'>None</td>
+                            <td className={styles.tablerow}>None</td>
                         </tr>
                     </tbody>
                 </table>
-                <table className='statustable'>
+                <table className={styles.statustable}>
                     <tbody>
                         <tr className='table-row'>
-                            <th className='tablehead'>
+                            <th className={styles.tablehead}>
                                 <img
-                                    className='headicon'
-                                    src='https://cdnstylesstylesstylesstylesstyles.polarlabstylesstylesstylesstylesstyles.app/src/icons/colorless/service_tablestylesstylesstylesstylesstyles.png'
+                                    className={styles.headicon}
+                                    src='https://cdn.polarlab.app/src/icons/colorless/service_table.png'
                                 />
                                 Services
                             </th>
-                            <th className='tablehead'>
+                            <th className={styles.tablehead}>
                                 <img
-                                    className='headicon'
-                                    src='https://cdnstylesstylesstylesstylesstyles.polarlabstylesstylesstylesstylesstyles.app/src/icons/colorless/status_tablestylesstylesstylesstylesstyles.png'
+                                    className={styles.headicon}
+                                    src='https://cdn.polarlab.app/src/icons/colorless/status_table.png'
                                 />
                                 Status
                             </th>
-                            <th className='tablehead'>
+                            <th className={styles.tablehead}>
                                 <img
-                                    className='headicon'
-                                    src='https://cdnstylesstylesstylesstylesstyles.polarlabstylesstylesstylesstylesstyles.app/src/icons/colorless/info_tablestylesstylesstylesstylesstyles.png'
+                                    className={styles.headicon}
+                                    src='https://cdn.polarlab.app/src/icons/colorless/info_table.png'
                                 />
                                 Details
                             </th>
                         </tr>
                         <tr className='table-row'>
-                            <td className='tablerow'>Docs</td>
-                            <td className='tablerow online'>
+                            <td className={styles.tablerow}>Docs</td>
+                            <td className={`${styles.tablerow} ${styles.online}`}>
                                 <img
-                                    className='rowicon'
-                                    src='https://cdnstylesstylesstylesstylesstyles.polarlabstylesstylesstylesstylesstyles.app/src/icons/status/greenstylesstylesstylesstylesstyles.png'
+                                    className={styles.rowicon}
+                                    src='https://cdn.polarlab.app/src/icons/status/green.png'
                                 />
                                 Online
                             </td>
-                            <td className='tablerow'>All Services Operational</td>
+                            <td className={styles.tablerow}>All Services Operational</td>
                         </tr>
                         <tr className='table-row'>
-                            <td className='tablerow'>Blog</td>
-                            <td className='tablerow online'>
+                            <td className={styles.tablerow}>Blog</td>
+                            <td className={`${styles.tablerow} ${styles.online}`}>
                                 <img
-                                    className='rowicon'
-                                    src='https://cdnstylesstylesstylesstylesstyles.polarlabstylesstylesstylesstylesstyles.app/src/icons/status/greenstylesstylesstylesstylesstyles.png'
+                                    className={styles.rowicon}
+                                    src='https://cdn.polarlab.app/src/icons/status/green.png'
                                 />
                                 Online
                             </td>
-                            <td className='tablerow'>All Services Operational</td>
+                            <td className={styles.tablerow}>All Services Operational</td>
                         </tr>
                         <tr className='table-row'>
-                            <td className='tablerow'>Landing Page</td>
-                            <td className='tablerow minor'>
+                            <td className={styles.tablerow}>Landing Page</td>
+                            <td className={`${styles.tablerow} ${styles.minor}`}>
                                 <img
-                                    className='rowicon'
-                                    src='https://cdnstylesstylesstylesstylesstyles.polarlabstylesstylesstylesstylesstyles.app/src/icons/status/goldstylesstylesstylesstylesstyles.png'
+                                    className={styles.rowicon}
+                                    src='https://cdn.polarlab.app/src/icons/status/gold.png'
                                 />
                                 Minor Issues
                             </td>
-                            <td className='tablerow'>Incomplete Text</td>
+                            <td className={styles.tablerow}>Incomplete Text</td>
                         </tr>
                         <tr className='table-row'>
-                            <td className='tablerow'>Bug Tracker</td>
-                            <td className='tablerow offline'>
+                            <td className={styles.tablerow}>Bug Tracker</td>
+                            <td className={`${styles.tablerow} ${styles.offline}`}>
                                 <img
-                                    className='rowicon'
-                                    src='https://cdnstylesstylesstylesstylesstyles.polarlabstylesstylesstylesstylesstyles.app/src/icons/status/graystylesstylesstylesstylesstyles.png'
+                                    className={styles.rowicon}
+                                    src='https://cdn.polarlab.app/src/icons/status/gray.png'
                                 />
                                 Offline
                             </td>
-                            <td className='tablerow'>Reconstruction in Progress</td>
+                            <td className={styles.tablerow}>Reconstruction in Progress</td>
                         </tr>
                         <tr className='table-row'>
-                            <td className='tablerow'>Glorious Development Kit</td>
-                            <td className='tablerow offline'>
+                            <td className={styles.tablerow}>Glorious Development Kit</td>
+                            <td className={`${styles.tablerow} ${styles.offline}`}>
                                 <img
-                                    className='rowicon'
-                                    src='https://cdnstylesstylesstylesstylesstyles.polarlabstylesstylesstylesstylesstyles.app/src/icons/status/graystylesstylesstylesstylesstyles.png'
+                                    className={styles.rowicon}
+                                    src='https://cdn.polarlab.app/src/icons/status/gray.png'
                                 />
                                 Offline
                             </td>
-                            <td className='tablerow'>Reconstruction in Progress</td>
+                            <td className={styles.tablerow}>Reconstruction in Progress</td>
                         </tr>
                         <tr className='table-row'>
-                            <td className='tablerow'>Status Page</td>
-                            <td className='tablerow online'>
+                            <td className={styles.tablerow}>Status Page</td>
+                            <td className={`${styles.tablerow} ${styles.online}`}>
                                 <img
-                                    className='rowicon'
-                                    src='https://cdnstylesstylesstylesstylesstyles.polarlabstylesstylesstylesstylesstyles.app/src/icons/status/greenstylesstylesstylesstylesstyles.png'
+                                    className={styles.rowicon}
+                                    src='https://cdn.polarlab.app/src/icons/status/green.png'
                                 />
                                 Online
                             </td>
-                            <td className='tablerow'>Monitoring</td>
+                            <td className={styles.tablerow}>Monitoring</td>
                         </tr>
                     </tbody>
                 </table>

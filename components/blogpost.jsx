@@ -1,5 +1,6 @@
 'use client';
 
+import styles from '../src/css/blog/blog.module.css';
 import { useRouter } from 'next/navigation';
 
 export function BlogPostGrid(props) {
@@ -10,20 +11,20 @@ export function BlogPostGrid(props) {
     }
 
     return (
-        <div href={props.href} className='post' onClick={handleRedirect}>
-            <div className='postimgcontainer'>
-                <img className='postimg' src={props.coverimg} />
+        <div href={props.href} className={styles.post} onClick={handleRedirect}>
+            <div className={styles.postimgcontainer}>
+                <img className={styles.postimg} src={props.coverimg} />
             </div>
-            <div className='posttext'>
-                <div className='textcontainer'>
-                    <div className='toptextcontainer'>
-                        <a className='postauthor'>
-                            <img className='pfp' src={props.pfp} />
+            <div className={styles.posttext}>
+                <div className={styles.textcontainer}>
+                    <div className={styles.toptextcontainer}>
+                        <a className={styles.postauthor}>
+                            <img className={styles.pfp} src={props.pfp} />
                             {props.author}
                         </a>
-                        <div className='title'>{props.title}</div>
+                        <div className={styles.title}>{props.title}</div>
                     </div>
-                    <div className='date'>{props.date}</div>
+                    <div className={styles.date}>{props.date}</div>
                 </div>
             </div>
         </div>

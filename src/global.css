@@ -17,10 +17,13 @@
     display: none;
 }
 
+* {
+    font-family: 'Nunito';
+}
+
 body {
     background-color: rgb(15, 15, 20);
     position: relative;
-    font-family: 'Nunito';
     text-align: center;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;

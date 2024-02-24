@@ -1,7 +1,3 @@
-.mainwrapper {
-    margin: 0;
-}
-
 @media screen and (max-width: 480px) {
     .main {
         width: 100%;

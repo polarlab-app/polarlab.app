@@ -67,7 +67,7 @@ a {
     text-align: left;
     transition: all 600ms ease;
     cursor: pointer;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .listcontent:hover {
@@ -132,7 +132,6 @@ a {
 
 .product {
     color: #91909c;
-    font-weight: 700;
 }
 
 .statusicon {
@@ -145,7 +144,6 @@ a {
 .statustext {
     display: inline;
     color: #818ef9;
-    font-weight: 700;
 }
 
 .discordlogo {

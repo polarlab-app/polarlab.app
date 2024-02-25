@@ -1,7 +1,7 @@
 import { BlogPostGrid } from '../../components/blogpost.jsx';
 
 import styles from '../../src/css/blog/blog.module.css';
-import posts from '../../src/posts.json';
+import posts from './posts.json';
 
 export default function Page() {
     return (

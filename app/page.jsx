@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import '../src/global.css';
 import '../src/css/landingPage.css';
 import Link from 'next/link';
 

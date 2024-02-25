@@ -91,16 +91,20 @@ export default function Footer() {
                     </Link>
                 </div>
                 <div className='socials'>
-                    <img
-                        src='https://cdn.polarlab.app/src/main/img/discordlogo.png'
-                        className='discordlogo'
-                        alt='alt'
-                    />
-                    <img
-                        src='https://cdn.polarlab.app/src/main/img/discordlogo.png'
-                        className='discordlogo'
-                        alt='alt'
-                    />
+                    <a href='/discord'>
+                        <img
+                            src='https://cdn.polarlab.app/src/main/img/discordlogo.png'
+                            className='discordlogo'
+                            alt='alt'
+                        />
+                    </a>
+                    <a href='https://github.com/polarlab-app'>
+                        <img
+                            src='https://cdn.polarlab.app/src/main/img/githublogo.png'
+                            className='discordlogo'
+                            alt='alt'
+                        />
+                    </a>
                 </div>
             </div>
         </footer>

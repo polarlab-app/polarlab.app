@@ -1,3 +1,8 @@
+.main {
+    width: 80%;
+    margin-left: 10%;
+}
+
 .postcontainer {
     width: 100%;
     margin-top: 5%;
@@ -62,6 +67,9 @@
 .postauthoruser {
     color: white;
 }
+.postauthorrole {
+    color: #505050;
+}
 
 .postcontent {
     width: 70%;
@@ -73,4 +81,19 @@
 .sectiontext {
     color: #c0becc;
     font-size: 1.1rem;
+}
+
+@media screen and (max-width: 480px) {
+    .main {
+        width: 96%;
+        margin: 2%;
+    }
+    .postcontainer {
+        width: 100%;
+        margin: 0;
+    }
+    .postcontent {
+        width: 100%;
+        margin: 0;
+    }
 }

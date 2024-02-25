@@ -100,3 +100,30 @@
     font-size: 0.75rem;
     line-height: 2.5;
 }
+
+@media screen and (max-width: 480px) {
+    .main {
+        width: 98%;
+        margin: 0 1%;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: auto;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .main {
+        width: 98%;
+        margin: 0 1%;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1025px) {
+    .main {
+        width: 90%;
+        margin: 0 5%;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+    }
+}

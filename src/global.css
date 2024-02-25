@@ -25,6 +25,7 @@ body {
     background-color: rgb(15, 15, 20);
     position: relative;
     text-align: center;
+    font-family: 'Nunito';
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     font-size: 14px;

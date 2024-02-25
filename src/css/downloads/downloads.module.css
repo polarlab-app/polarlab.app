@@ -42,6 +42,7 @@
 
 .itemdescription {
     margin-top: 0;
+    line-height: 2;
 }
 .sha {
     color: #424242;

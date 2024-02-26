@@ -82,10 +82,10 @@ export default function Page() {
                                 <h4 className='gridheader'>Accessible</h4>
                                 <p className='gridcontent'>
                                     <span>
-                                        Didnt find what you were looking for in Polaris? No problem! You can request it
-                                        be made, or make it directly yourself! Due to the FOSS nature of Polaris we
-                                        allow developers to make their own modules to be officially integrated into
-                                        Polaris for anyone to use!
+                                        Didn&apos;t find what you were looking for in Polaris? No problem! You can
+                                        request it be made, or make it directly yourself! Due to the FOSS nature of
+                                        Polaris we allow developers to make their own modules to be officially
+                                        integrated into Polaris for anyone to use!
                                     </span>
                                 </p>
                                 <Link className='gridbutton' href='/polaris'>

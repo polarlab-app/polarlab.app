@@ -7,16 +7,14 @@ export default function BlogPost() {
                 <Link className='home' href='/blog'>
                     <img className='homeicon' src='https://cdn.polarlab.app/src/icons/colorless/home.png' />
                 </Link>
-                <div className='posttop'>
-                    <h1 className='posttitle'>Introducing: Polar Lab Icon Pack</h1>
-                    <div className='author'>
-                        <img className='postauthorpfp' src='https://cdn.polarlab.app/src/icons/official/pfp.png' />
-                        <div className='authortextcontainer'>
-                            <a className='postauthoruser' href='https://polarlab.app/u/aertic'>
-                                Aertic
-                            </a>
-                            <p className='postauthorrole'>Founder</p>
-                        </div>
+                <h1 className='posttitle'>Introducing: Polar Lab Icon Pack</h1>
+                <div className='author'>
+                    <img className='postauthorpfp' src='https://cdn.polarlab.app/src/icons/official/pfp.png' />
+                    <div className='authortextcontainer'>
+                        <a className='postauthoruser' href='https://polarlab.app/u/aertic'>
+                            Aertic
+                        </a>
+                        <p className='postauthorrole'>Founder</p>
                     </div>
                 </div>
                 <img className='postbanner' src='https://cdn.polarlab.app/src/blog/cover/iconpack.png' />
@@ -40,10 +38,10 @@ export default function BlogPost() {
                     <p className='section'></p>
                     <h3 className='postsection'>Create Your Own</h3>
                     <p className='sectiontext'>
-                        Feel like the official colors don't suit your needs? Have a different icon style in mind? No
-                        problem! We took all of this into account and created a simple program to automate making your
-                        own custom icons. This program is available on your Github, as well as in a web GUI version on
-                        our site under the Glorious Development Kit.
+                        Feel like the official colors don&apos;t suit your needs? Have a different icon style in mind?
+                        No problem! We took all of this into account and created a simple program to automate making
+                        your own custom icons. This program is available on your Github, as well as in a web GUI version
+                        on our site under the Glorious Development Kit.
                     </p>
                     <p className='sectiontext'>
                         All icons created through this program, are yours and have all the legal and copyright rights to

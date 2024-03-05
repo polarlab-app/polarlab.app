@@ -1,0 +1,11 @@
+body {
+    margin: 0;
+    background-color: rgb(14, 14, 14);
+}
+
+footer {
+    display: none;
+}
+nav {
+    display: none;
+}

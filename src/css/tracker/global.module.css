@@ -1,0 +1,9 @@
+.mainwrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.mainsubsection {
+    display: flex;
+    height: 90vh;
+}

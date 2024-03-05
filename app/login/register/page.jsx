@@ -1,6 +1,6 @@
 'use client';
 
-import '../../src/css/login.css';
+import '../../../src/css/login.css';
 import Link from 'next/link';
 import React, { useState } from 'react';
 
@@ -10,28 +10,72 @@ export default function Page() {
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
 
+    const validatePassword = (password) => {
+        const lengthError = 'Password must be at least 12 characters long';
+        const upperCaseError = 'Password must include an uppercase letter';
+        const lowerCaseError = 'Password must include a lowercase letter';
+        const digitError = 'Password must include a number';
+        const symbolError = 'Password must include a special charecter';
+
+        if (password.length < 12) {
+            return lengthError;
+        } else if (!/[A-Z]/.test(password)) {
+            return upperCaseError;
+        } else if (!/[a-z]/.test(password)) {
+            return lowerCaseError;
+        } else if (!/\d/.test(password)) {
+            return digitError;
+        } else if (!/[!@#$%^&*()_+`~{}|:;<>?,.]/.test(password)) {
+            return symbolError;
+        }
+
+        return null;
+    };
+
+    const validateUsername = async (username) => {
+        const response = await fetch('/api/login/usernamecheck', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ username }),
+        });
+
+        const JSONresponse = await response.json();
+        const status = JSONresponse.status;
+
+        if (status == 'available') {
+            return null;
+        }
+        return 'Username unavailable';
+    };
+
     const handleSubmit = async (event) => {
         event.preventDefault();
+        const passwordValidation = await validatePassword(password);
+        const usernameValidation = await validateUsername(username);
+        if (passwordValidation) {
+            setError(passwordValidation);
+            setSuccess(null);
 
-        const loginResponse = await fetch('/api/login/login', {
+            return;
+        } else if (usernameValidation) {
+            setError(usernameValidation);
+            setSuccess(null);
+            return;
+        }
+        setError(null);
+        setSuccess('Username available!');
+
+        const loginResponse = await fetch('/api/login/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({ username, password }),
         });
-        const responseJSON = await loginResponse.json();
 
-        if (responseJSON.status == 'invalidAccount') {
-            setError('The specific username does not exist!');
-            return;
-        } else if (responseJSON.status == 'invalidPassword') {
-            setError('The specific password is incorrect!');
-            return;
-        }
-
-        setError(null);
-        setSuccess('Login Successful!');
+        setSuccess('Registration Successful! Please login!');
     };
 
     return (
@@ -41,7 +85,7 @@ export default function Page() {
                     <div className='logintextcontainer'>
                         <div className='logintexttopcontainer'>
                             <img className='logo' src='https://cdn.polarlab.app/src/img/polarlogo.png'></img>
-                            <p className='loginheader'>Log In to Polar Lab</p>
+                            <p className='loginheader'>Register to Polar Lab</p>
                         </div>
                         <div className='logininputcontainer'>
                             {success && <p className='loginsuccess'>{success}</p>}
@@ -66,10 +110,10 @@ export default function Page() {
                     </div>
                     <div className='loginbuttoncontainer'>
                         <p className='registertext'>
-                            Dont have an account? Register <Link href='/login/register'>here</Link>!
+                            Have an account? Login <Link href='/login'>here</Link>!
                         </p>
                         <button className='loginbutton' type='submit'>
-                            Log In
+                            Register
                         </button>
                         <Link
                             className='loginbutton discordlogin'

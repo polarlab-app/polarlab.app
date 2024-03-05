@@ -1,12 +1,12 @@
-.mainwrapper {
+.main {
     display: flex;
     justify-content: center;
 }
 
 .logincontainer {
-    margin-top: 10vh;
+    margin-top: 12vh;
     width: 25vw;
-    height: 60vh;
+    height: 65vh;
     border: 1px solid #505050;
     border-radius: 10px;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.022), rgba(255, 255, 255, 0));
@@ -27,6 +27,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100%;
     margin: 5% 0;
 }
 
@@ -54,7 +55,7 @@
 .inputheader {
     color: white;
     font-weight: 700;
-    font-size: .7rem;
+    font-size: 0.8rem;
 }
 .logininput {
     background-color: #2a2933;
@@ -64,11 +65,11 @@
     color: white;
 }
 .logininput:focus {
-   outline: none;
+    outline: none;
 }
 
 .loginbuttoncontainer {
-    height: 20%;
+    height: 40%;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -83,11 +84,57 @@
     background-color: #2a2933;
     margin: 1% 0;
     font-weight: 600;
+    transition: all 600ms ease;
+}
+
+.loginbutton:hover {
+    border: 1px solid rgb(43, 45, 57);
+    background-color: rgb(20, 21, 26);
+    cursor: pointer;
+    transition: all 600ms ease;
 }
 
 .discordlogin {
     background-color: #5533ff;
 }
+
+.discordlogin:hover {
+    background-color: #322186;
+    border: 1px solid #322186;
+    transition: all 600ms ease;
+}
+
 footer {
     display: none;
+}
+
+.loginerror {
+    border: 1px solid hsl(356.49, 98.95%, 62.75%, 0.2);
+    background-color: rgba(255, 85, 96, 0.35);
+    color: rgba(255, 85, 96);
+    border-radius: 8px;
+    padding: 1.5vh;
+    margin: 1% 0;
+}
+
+.loginsuccess {
+    border: 1px solid rgb(0, 224, 156, 0.2);
+    background-color: rgb(0, 224, 156, 0.35);
+    color: rgb(0, 224, 156);
+    border-radius: 8px;
+    padding: 1.5vh;
+    margin: 1% 0;
+}
+
+.registertext {
+    color: #505050;
+}
+
+.registertext a {
+    transition: all 600ms ease;
+}
+
+.registertext a:hover {
+    color: #5533ff;
+    transition: all 600ms ease;
 }

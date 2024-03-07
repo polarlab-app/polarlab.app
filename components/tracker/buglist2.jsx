@@ -2,7 +2,6 @@
 
 import styles from '../../src/css/tracker/list.module.css';
 import { useState, useEffect } from 'react';
-
 export default function BugList() {
     const [currentPage, setCurrentPage] = useState(1);
     const [bugs, setBugs] = useState([]);
@@ -27,12 +26,11 @@ export default function BugList() {
         setCurrentPage(page);
     };
 
-    const itemsPerPage = 5;
-    const totalPages = Math.ceil(bugs.length / itemsPerPage);
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    const currentPageBugs = bugs.slice(startIndex, endIndex);
-    console.log('test');
+    let totalPages = Math.ceil(bugs.length / 5);
+
+    let startIndex = (currentPage - 1) * 5;
+    let endIndex = startIndex + 5;
+    let currentPageBugs = bugs.slice(startIndex, endIndex);
 
     return (
         <div className={styles.buglist}>
@@ -46,26 +44,23 @@ export default function BugList() {
                     </ul>
                 </div>
             </div>
-            {currentPageBugs.map((bug) => (
-                <div className={styles.bug} key={bug.id}>
-                    <div className={styles.bugtop}>
-                        <p className={styles.bugheader}>{bug.title}</p>
-                        <div className={`${styles.bugtag} ${styles.bugrepo}`}>{bug.category}</div>
-                        <div className={`${styles.bugtag} ${styles.bugissue}`}>{bug.type}</div>
-                    </div>
-                    <div className={styles.bugbottom}>
-                        <p className={styles.issueid}>#{bug.id}</p>
-                        <p className={styles.issuedescription}>{bug.description}</p>
-                    </div>
+            <div className={styles.bug}>
+                <div className={styles.bugtop}>
+                    <p className={styles.bugheader}>Autoplay Not Working</p>
+                    <div className={`${styles.bugtag} ${styles.bugrepo}`}>Polaris V2</div>
+                    <div className={`${styles.bugtag} ${styles.bugissue}`}>Bug</div>
                 </div>
-            ))}
-            {/* Pagination controls */}
+                <div className={styles.bugbottom}>
+                    <p className={styles.issueid}>#12098hs</p>
+                    <p className={styles.issuedescription}>The autoplay command returns a valule of undefined and</p>
+                </div>
+            </div>
             <div className={styles.pagination}>
                 {[...Array(totalPages).keys()].map((pageNumber) => (
                     <a
                         key={pageNumber}
                         href='#'
-                        className={`${styles.page} ${pageNumber + 1 === currentPage ? styles.active : ''}`}
+                        className={styles.page}
                         onClick={(e) => {
                             e.preventDefault();
                             handlePageChange(pageNumber + 1);

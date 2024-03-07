@@ -1,0 +1,12 @@
+{
+    "id": "2fr136",
+    "title": "Test Issue",
+    "category": "Polaris V2",
+    "type": "Bug",
+    "version": "V2.4",
+    "fixversion": "none",
+    "status": "open",
+    "priority": "critical",
+    "description": "Testing the description of the issues to see how it fits",
+    "reproduce": "Test"
+}

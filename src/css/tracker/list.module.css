@@ -56,9 +56,6 @@
 }
 
 .bugissue {
-    background-color: rgb(247, 111, 109, 0.2);
-    border: 1px solid rgb(247, 111, 109);
-    color: rgb(247, 111, 109);
 }
 
 .bugbottom {
@@ -162,6 +159,7 @@
     font-weight: 700;
     align-items: center;
     height: 7vh;
+    justify-self: flex-end;
 }
 
 .page {
@@ -172,4 +170,10 @@
     color: rgb(129, 142, 249);
     cursor: pointer;
     transition: all 600ms ease;
+}
+
+.Bug {
+    background-color: rgb(247, 111, 109, 0.2);
+    border: 1px solid rgb(247, 111, 109);
+    color: rgb(247, 111, 109);
 }

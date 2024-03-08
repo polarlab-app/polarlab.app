@@ -20,6 +20,7 @@ export async function POST(req) {
             id: id,
             username: username,
             password: hashedPassword,
+            role: 'user',
             token: 'PTKN00',
         });
 

@@ -36,7 +36,7 @@ export default function Page() {
                         <h2 className={styles.price}>
                             $4.99 <span className={styles.period}>/month</span>
                         </h2>
-                        <a className={styles.getbtn}>Get Free</a>
+                        <a className={styles.getbtn}>Get Premium</a>
                     </div>
                     <div className={styles.itembottom}>
                         <div className={styles.advantage}>

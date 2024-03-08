@@ -1,0 +1,89 @@
+.main {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 95%;
+    margin: 1%;
+    width: 70%;
+    color: white;
+    text-align: left;
+}
+
+.bugtitle {
+    font-weight: 700;
+    width: max-content;
+}
+
+.category {
+    display: inline-flex;
+    padding: 5px 24px;
+    background-color: rgb(129, 142, 249, 0.2);
+    border: 1px solid rgb(129, 142, 249);
+    margin-left: 2%;
+    border-radius: 120px;
+    font-weight: 600;
+    color: rgb(129, 142, 249);
+    height: 5%;
+}
+
+.bugtop {
+    display: flex;
+    align-items: center;
+}
+
+.bugdivider {
+    border: 4px solid #232323;
+    width: 10%;
+    margin-left: 0;
+    border-radius: 100px;
+    align-self: flex-end;
+}
+
+.bugbottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bugbottomdetails {
+    width: 25%;
+}
+
+.bugbottomleft {
+    width: 48%;
+}
+
+.sectionheader {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.detailheader {
+    font-weight: 700;
+}
+
+.detaildata {
+    font-weight: 500;
+}
+
+.commentscount {
+    border-radius: 120px;
+    background-color: #232323;
+    padding: 2px 7px;
+    font-size: 0.9rem;
+}
+
+.comments {
+    width: 65%;
+    overflow-y: scroll;
+}
+
+.commentdivider {
+    border: 2px solid #232323;
+    margin-left: 0;
+    width: 50%;
+    border-radius: 12px;
+}
+
+.commentauthor {
+    font-size: 1rem;
+    font-weight: 700;
+}

@@ -5,6 +5,7 @@ let userAccountSchema = new Schema(
         id: String,
         username: String,
         password: String,
+        role: String,
         token: String,
     },
     {

@@ -2,14 +2,17 @@
 
 import styles from '../../src/css/tracker/list.module.css';
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function BugList() {
+    const router = useRouter();
+
     const [currentPage, setCurrentPage] = useState(1);
     const [bugs, setBugs] = useState([]);
 
     useEffect(() => {
         const manageIssues = async () => {
-            const getBugs = await fetch('https://localhost:3000/api/tracker/getall', {
+            const getBugs = await fetch('https://localhost:3000/api/tracker/getbug', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -32,7 +35,6 @@ export default function BugList() {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
     const currentPageBugs = bugs.slice(startIndex, endIndex);
-    console.log('test');
 
     return (
         <div className={styles.buglist}>
@@ -46,20 +48,19 @@ export default function BugList() {
                     </ul>
                 </div>
             </div>
-            {currentPageBugs.map((bug) => (
-                <div className={styles.bug} key={bug.id}>
+            {currentPageBugs.map((issue) => (
+                <div className={styles.bug} key={issue.id} onClick={() => router.push(`/tracker/issue/${issue.id}`)}>
                     <div className={styles.bugtop}>
-                        <p className={styles.bugheader}>{bug.title}</p>
-                        <div className={`${styles.bugtag} ${styles.bugrepo}`}>{bug.category}</div>
-                        <div className={`${styles.bugtag} ${styles.bugissue}`}>{bug.type}</div>
+                        <p className={styles.bugheader}>{issue.title}</p>
+                        <div className={`${styles.bugtag} ${styles.bugrepo}`}>{issue.category}</div>
+                        <div className={`${styles.bugtag} ${styles[issue.type]}`}>{issue.type}</div>
                     </div>
                     <div className={styles.bugbottom}>
-                        <p className={styles.issueid}>#{bug.id}</p>
-                        <p className={styles.issuedescription}>{bug.description}</p>
+                        <p className={styles.issueid}>#{issue.id}</p>
+                        <p className={styles.issuedescription}>{issue.description}</p>
                     </div>
                 </div>
             ))}
-            {/* Pagination controls */}
             <div className={styles.pagination}>
                 {[...Array(totalPages).keys()].map((pageNumber) => (
                     <a

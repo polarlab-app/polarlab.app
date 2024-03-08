@@ -11,13 +11,13 @@ export default function Page() {
     const [success, setSuccess] = useState('');
 
     const validatePassword = (password) => {
-        const lengthError = 'Password must be at least 12 characters long';
+        const lengthError = 'Password must be at least 8 characters long';
         const upperCaseError = 'Password must include an uppercase letter';
         const lowerCaseError = 'Password must include a lowercase letter';
         const digitError = 'Password must include a number';
         const symbolError = 'Password must include a special charecter';
 
-        if (password.length < 12) {
+        if (password.length < 8) {
             return lengthError;
         } else if (!/[A-Z]/.test(password)) {
             return upperCaseError;

@@ -1,8 +1,9 @@
 const { Schema, model, models } = require('mongoose');
 
-let userAccountSchema = new Schema(
+let bugSchema = new Schema(
     {
         id: String,
+        author: String,
         title: String,
         category: String,
         type: String,
@@ -12,14 +13,20 @@ let userAccountSchema = new Schema(
         priority: String,
         description: String,
         reproduce: String,
+        comments: [
+            {
+                username: String,
+                comment: String,
+            },
+        ],
     },
     {
         collection: 'bugs',
     }
 );
 
-if (!models.userAccount) {
-    module.exports = model('userAccount', userAccountSchema);
+if (!models.bugSchema) {
+    module.exports = model('bugSchema', bugSchema);
 } else {
-    module.exports = models.userAccount;
+    module.exports = models.bugSchema;
 }

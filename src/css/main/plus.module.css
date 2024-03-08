@@ -8,6 +8,7 @@
     animation-timeline: view();
     animation-range-start: 20%;
     animation-range-end: 30%;
+    -moz-animation: appear 0.5s linear both;
 }
 .appearanimation:nth-child(2n) {
     animation-delay: 0.1s;

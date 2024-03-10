@@ -4,6 +4,8 @@ import styles from '../../src/css/tracker/list.module.css';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
+import getAllBugs from '@/lib/tracker/getAllBugs';
+
 export default function BugList() {
     const router = useRouter();
 
@@ -12,28 +14,20 @@ export default function BugList() {
 
     useEffect(() => {
         const manageIssues = async () => {
-            const getBugs = await fetch('https://localhost:3000/api/tracker/getbug', {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            });
-            let bugsJSON = await getBugs.json();
-
-            return bugsJSON.bugsArray;
+            const issues = await getAllBugs();
+            return issues;
         };
 
-        manageIssues().then((bugsArray) => setBugs(bugsArray));
+        manageIssues().then((issues) => setBugs(issues));
     }, []);
 
     const handlePageChange = (page) => {
         setCurrentPage(page);
     };
 
-    const itemsPerPage = 5;
-    const totalPages = Math.ceil(bugs.length / itemsPerPage);
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
+    const totalPages = Math.ceil(bugs.length / 5);
+    const startIndex = (currentPage - 1) * 5;
+    const endIndex = startIndex + 5;
     const currentPageBugs = bugs.slice(startIndex, endIndex);
 
     return (

@@ -29,6 +29,7 @@
     display: flex;
     width: 60%;
     justify-content: space-around;
+    font-weight: 600;
 }
 
 .createnewcontainer {
@@ -45,8 +46,10 @@
     margin: 0 10% 0 0;
     cursor: pointer;
     float: right;
+    transition: all 600ms ease;
 }
 .createnew:hover {
     border: 1px solid #212121;
     background-color: #2f3136;
+    transition: all 600ms ease;
 }

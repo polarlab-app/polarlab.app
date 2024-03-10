@@ -17,5 +17,5 @@ export default async function POST(req) {
     if (!userDb) {
         return NextResponse.json({ status: 'invalidToken' });
     }
-    return NextResponse.json({ status: 'success', user: userDb.id });
+    return NextResponse.json({ user: userDb });
 }

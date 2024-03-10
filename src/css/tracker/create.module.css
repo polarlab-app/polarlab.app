@@ -1,0 +1,118 @@
+.main {
+    color: white;
+    text-align: left;
+    width: 70%;
+    margin: 1%;
+    height: 95%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.bugtitle {
+    font-weight: 700;
+    width: max-content;
+}
+
+.bugdivider {
+    border: 4px solid #232323;
+    width: 10%;
+    margin-left: 0;
+    border-radius: 100px;
+    align-self: flex-end;
+}
+
+.dropdownselector {
+    border: 1px solid #343434;
+    background-color: #232323;
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.dropdownoptions {
+    border: 1px solid #343434;
+    background-color: #232323;
+    border-radius: 12px;
+    list-style: none;
+    padding: 0;
+    animation: 0.6s dropdown both;
+    width: 100%;
+}
+
+@keyframes dropdown {
+    from {
+        transform: translate3d(0, -20%, 0);
+        opacity: 0;
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+}
+
+.dropdownoption {
+    border-bottom: 1px solid #343434;
+    margin: 0;
+    padding: 12px 14px;
+    transition: all 600ms ease;
+    cursor: pointer;
+}
+
+.dropdownoption:nth-child(1) {
+    border-radius: 12px 12px 0 0;
+}
+
+.dropdownoption:nth-last-child(1) {
+    border-radius: 0 0 12px 12px;
+}
+.dropdownoption:hover {
+    background-color: #161616;
+    transition: all 600ms ease;
+}
+
+.input {
+    border: 1px solid #343434;
+    background-color: #232323;
+    border-radius: 12px;
+    padding: 12px;
+    color: white;
+}
+
+.input:focus {
+    outline: none;
+}
+
+.large {
+    grid-column: span 3;
+    height: 10vh;
+}
+
+.section {
+    display: grid;
+    grid-template-columns: repeat(3, 30%);
+    grid-template-rows: auto;
+    column-gap: 1vw;
+    row-gap: 1vh;
+}
+
+.section h3 {
+    grid-column: span 3;
+}
+
+.submitbtn {
+    border: 1px solid #343434;
+    background-color: #232323;
+    border-radius: 8px;
+    padding: 12px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    width: 30%;
+    margin: 8% 0 0 0;
+    transition: all 600ms ease;
+}
+
+.submitbtn:hover {
+    border: 1px solid #161616;
+    background-color: #161616;
+    transition: all 600ms ease;
+}

@@ -1,5 +1,6 @@
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
+import Form from '../../components/personal/form.jsx';
 
 import styles from '../../src/css/main/personal.module.css';
 
@@ -11,20 +12,6 @@ export default async function Page() {
         redirect('/login');
     }
 
-    const onSubmit = async (event) => {
-        event.preventDefault();
-
-        const formData = new FormData(event.target);
-        const response = await fetch('/api/submit', {
-            method: 'POST',
-            body: formData,
-        });
-
-        const data = await response.json();
-        // Handle the response, e.g., show a success message
-        console.log(data);
-    };
-
     const userDB = await fetch('https://localhost:3000/api/data/findUser', {
         method: 'POST',
         headers: {
@@ -33,20 +20,14 @@ export default async function Page() {
         body: JSON.stringify({ token }),
     });
 
-    console.log(userDB);
-
-    /*const userDBJ = await userDB.json();
-
-    if (userDBJ.status == 'invalidToken') {
-        redirect('/login');
-    }*/
-
     return (
         <div className={styles.main}>
-            <h1>Personal</h1>
+            <h1 className={styles.header}>Personal</h1>
 
-            <h2>Account Details</h2>
-            <h2>Privacy</h2>
+            <h2 className={styles.subheader}>Account Details</h2>
+            <Form></Form>
+            <h2 className={styles.subheader}>Privacy</h2>
+            <button className={styles.button}>Delete Account</button>
         </div>
     );
 }

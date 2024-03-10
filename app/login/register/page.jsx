@@ -4,76 +4,37 @@ import '../../../src/css/login.css';
 import Link from 'next/link';
 import React, { useState } from 'react';
 
+import validateUsername from '@/lib/auth/validation/validateUsername';
+import validatePassword from '@/lib/auth/validation/validatePassword';
+import register from '@/lib/auth/register';
+
 export default function Page() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
 
-    const validatePassword = (password) => {
-        const lengthError = 'Password must be at least 8 characters long';
-        const upperCaseError = 'Password must include an uppercase letter';
-        const lowerCaseError = 'Password must include a lowercase letter';
-        const digitError = 'Password must include a number';
-        const symbolError = 'Password must include a special charecter';
-
-        if (password.length < 8) {
-            return lengthError;
-        } else if (!/[A-Z]/.test(password)) {
-            return upperCaseError;
-        } else if (!/[a-z]/.test(password)) {
-            return lowerCaseError;
-        } else if (!/\d/.test(password)) {
-            return digitError;
-        } else if (!/[!@#$%^&*()_+`~{}|:;<>?,.]/.test(password)) {
-            return symbolError;
-        }
-
-        return null;
-    };
-
-    const validateUsername = async (username) => {
-        const response = await fetch('/api/login/usernamecheck', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ username }),
-        });
-
-        const JSONresponse = await response.json();
-        const status = JSONresponse.status;
-
-        if (status == 'available') {
-            return null;
-        }
-        return 'Username unavailable';
-    };
-
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const passwordValidation = await validatePassword(password);
-        const usernameValidation = await validateUsername(username);
-        if (passwordValidation) {
-            setError(passwordValidation);
-            setSuccess(null);
-
-            return;
-        } else if (usernameValidation) {
-            setError(usernameValidation);
-            setSuccess(null);
+        const usernameResponse = await validateUsername(username);
+        const passwordReponse = await validatePassword(password);
+        if (usernameResponse == 'fail') {
+            setError('Username Unavailable');
             return;
         }
+        if (passwordReponse != 'success') {
+            setError(passwordReponse);
+            return;
+        }
+
         setError(null);
         setSuccess('Username available!');
 
-        const loginResponse = await fetch('/api/login/register', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ username, password }),
-        });
+        const registerResponse = await register(username, password);
+
+        if (registerResponse == 'fail') {
+            setError('An internal error has occured! Please try again!');
+        }
 
         setSuccess('Registration Successful! Please login!');
     };

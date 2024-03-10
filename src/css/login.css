@@ -138,3 +138,23 @@ footer {
     color: #5533ff;
     transition: all 600ms ease;
 }
+
+@media screen and (max-width: 769px) {
+    .main {
+        width: 90%;
+        margin-left: 5%;
+    }
+    .logincontainer {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 770px) and (max-width: 1025px) {
+    .main {
+        width: 60%;
+        margin-left: 20%;
+    }
+    .logincontainer {
+        width: 100%;
+    }
+}

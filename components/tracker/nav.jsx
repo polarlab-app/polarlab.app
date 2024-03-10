@@ -5,7 +5,9 @@ export default function TrackerBar() {
         <div className={styles.navbar}>
             <div className={styles.navbarlogo}>
                 <img className={styles.logo} src='https://cdn.polarlab.app/src/img/polarlogo.png' alt='alt' />
-                <a className={styles.header}>Polar Lab Bug Tracker</a>
+                <a className={styles.header} href='/'>
+                    Polar Lab Bug Tracker
+                </a>
             </div>
             <div className={styles.navlinks}>
                 <a className={styles.navlink}>Home</a>
@@ -13,7 +15,9 @@ export default function TrackerBar() {
                 <a className={styles.navlink}>Status</a>
             </div>
             <div className={styles.createnewcontainer}>
-                <button className={styles.createnew}>Create New</button>
+                <a className={styles.createnew} href='/tracker/create'>
+                    Create New
+                </a>
             </div>
         </div>
     );

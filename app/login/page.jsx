@@ -4,6 +4,8 @@ import '../../src/css/login.css';
 import Link from 'next/link';
 import React, { useState } from 'react';
 
+import login from '../../lib/auth/login';
+
 export default function Page() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -13,20 +15,10 @@ export default function Page() {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        const loginResponse = await fetch('/api/login/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ username, password }),
-        });
-        const responseJSON = await loginResponse.json();
+        const loginStatus = await login(username, password);
 
-        if (responseJSON.status == 'invalidAccount') {
-            setError('The specific username does not exist!');
-            return;
-        } else if (responseJSON.status == 'invalidPassword') {
-            setError('The specific password is incorrect!');
+        if (loginStatus != 'success') {
+            setError(loginStatus);
             return;
         }
 

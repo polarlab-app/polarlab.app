@@ -1,4 +1,56 @@
 .main {
     width: 70%;
     margin-left: 15%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    color: white;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    border: 1px solid #505050;
+    background-color: transparent;
+    height: 3vh;
+    border-radius: 6px;
+    color: white;
+    margin: 1% 0;
+    width: 30%;
+    padding: 5px;
+}
+
+.button {
+    border: 1px solid rgb(254, 66, 77);
+    border-radius: 8px;
+    background-color: rgb(254, 66, 77, 0.2);
+    width: 15%;
+    color: rgb(254, 66, 77);
+    font-size: 1rem;
+    padding: 5px;
+    transition: all 600ms ease;
+}
+
+.button:hover {
+    background-color: rgb(254, 66, 77, 0.3);
+    border: 1px solid rgb(254, 66, 77, 0.3);
+    transition: all 600ms ease;
+    cursor: pointer;
+}
+
+.submitbtn {
+    border-radius: 8px;
+    padding: 6px;
+    border: 1px solid rgb(0, 224, 156);
+    color: rgb(0, 224, 156);
+    background-color: rgb(0, 224, 156, 0.2);
+    width: 10%;
+    margin: 2% 0 0 0;
+}
+
+.input:focus {
+    outline: none;
 }

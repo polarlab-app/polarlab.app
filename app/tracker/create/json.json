@@ -1,0 +1,101 @@
+[
+    {
+        "id": 1,
+        "type": "Category",
+        "options": [
+            {
+                "name": "Polaris V2"
+            },
+            {
+                "name": "Polar MC"
+            },
+            {
+                "name": "Docs"
+            },
+            {
+                "name": "CDN"
+            },
+            {
+                "name": "Blog"
+            },
+            {
+                "name": "Status"
+            },
+            {
+                "name": "Tracker"
+            },
+            {
+                "name": "Login"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "type": "Type",
+        "options": [
+            {
+                "name": "Bug"
+            },
+            {
+                "name": "Enhancement"
+            },
+            {
+                "name": "Question"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "type": "Priority",
+        "options": [
+            {
+                "name": "Critical"
+            },
+            {
+                "name": "High"
+            },
+            {
+                "name": "Medium"
+            },
+            {
+                "name": "Low"
+            },
+            {
+                "name": "Minimal"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "type": "Version",
+        "options": [
+            {
+                "name": "Latest"
+            },
+            {
+                "name": "Development Version"
+            },
+            {
+                "name": "V2.4"
+            },
+            {
+                "name": "V2.3"
+            },
+            {
+                "name": "V2.2"
+            },
+            {
+                "name": "V2.1"
+            },
+            {
+                "name": "V2"
+            },
+            {
+                "name": "V1"
+            },
+            {
+                "name": "Other (Specify in Description)"
+            }
+        ]
+    }
+]

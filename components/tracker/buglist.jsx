@@ -18,7 +18,7 @@ export default function BugList() {
             return issues;
         };
 
-        manageIssues().then((issues) => setBugs(issues));
+        manageIssues().then((issues) => setBugs(JSON.parse(issues)));
     }, []);
 
     const handlePageChange = (page) => {
@@ -46,8 +46,10 @@ export default function BugList() {
                 <div className={styles.bug} key={issue.id} onClick={() => router.push(`/tracker/issue/${issue.id}`)}>
                     <div className={styles.bugtop}>
                         <p className={styles.bugheader}>{issue.title}</p>
-                        <div className={`${styles.bugtag} ${styles.bugrepo}`}>{issue.category}</div>
-                        <div className={`${styles.bugtag} ${styles[issue.type]}`}>{issue.type}</div>
+                        <div className={styles.bugtags}>
+                            <div className={`${styles.bugtag} ${styles.bugrepo}`}>{issue.category}</div>
+                            <div className={`${styles.bugtag} ${styles[issue.type]}`}>{issue.type}</div>
+                        </div>
                     </div>
                     <div className={styles.bugbottom}>
                         <p className={styles.issueid}>#{issue.id}</p>

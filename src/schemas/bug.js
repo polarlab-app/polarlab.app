@@ -5,14 +5,15 @@ let bugSchema = new Schema(
         id: String,
         author: String,
         title: String,
+        description: String,
+        reproduce: String,
         category: String,
         type: String,
         version: String,
         fixversion: String,
         status: String,
         priority: String,
-        description: String,
-        reproduce: String,
+
         comments: [
             {
                 username: String,

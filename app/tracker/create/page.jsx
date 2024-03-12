@@ -45,17 +45,21 @@ export default function Page() {
         const response = await createIssue(
             selectedTitle,
             selectedDescription,
-            setSelectedReproduce,
+            selectedReproduce,
             selectedCategory,
             selectedType,
             selectedVersion,
             selectedPriority
         );
 
-        if (response != 'success') {
+        console.log(response);
+
+        if (response.startsWith('E')) {
             setError(response);
             return;
         }
+
+        window.location.assign(`https://polarlab.app/tracker/issue/${response}`);
     };
 
     return (
@@ -101,9 +105,14 @@ export default function Page() {
                         <h3>Issue {menu.type}</h3>
                         <p className={styles.dropdownselector}>
                             {variableMap[menu.type] ? variableMap[menu.type] : menu.type}
+                            <img
+                                src='https://cdn.polarlab.app/src/docs/img/rightarrow.png'
+                                className={
+                                    openStatus == menu.type ? styles.dropdownimghidden : styles.dropdownimg
+                                }></img>
                         </p>
                         {openStatus == menu.type ? (
-                            <ul className={`${styles.dropdownoptions} dropdownoptions`}>
+                            <ul className={`${styles.dropdownoptions}`}>
                                 {menu.options.map((option, index) => (
                                     <li
                                         key={index}
@@ -116,7 +125,21 @@ export default function Page() {
                                     </li>
                                 ))}
                             </ul>
-                        ) : null}
+                        ) : (
+                            <ul className={`${styles.dropdownoptions} ${styles.dropdownhidden}`}>
+                                {menu.options.map((option, index) => (
+                                    <li
+                                        key={index}
+                                        className={styles.dropdownoption}
+                                        onClick={() => {
+                                            const actualFunction = functionMap[menu.type];
+                                            actualFunction(option.name);
+                                        }}>
+                                        {option.name}
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
                     </div>
                 ))}
             </div>

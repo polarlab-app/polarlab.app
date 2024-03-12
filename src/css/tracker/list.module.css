@@ -3,6 +3,7 @@
     flex-direction: column;
     width: 25%;
     border-right: 1px solid #505050;
+    justify-content: space-between;
 }
 
 .bug {
@@ -32,7 +33,7 @@
     border-radius: 1000px;
     width: max-content;
     padding: 12px;
-    height: 1%;
+    height: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,7 +44,7 @@
     color: #e5e5e5;
     font-weight: 700;
     margin-left: 4%;
-    width: 50%;
+    width: 40%;
     font-size: 1rem;
     text-align: left;
 }
@@ -52,10 +53,7 @@
     background-color: rgb(129, 142, 249, 0.2);
     border: 1px solid rgb(129, 142, 249);
     color: rgb(129, 142, 249);
-    margin-right: 4%;
-}
-
-.bugissue {
+    margin-right: 2%;
 }
 
 .bugbottom {
@@ -176,4 +174,24 @@
     background-color: rgb(247, 111, 109, 0.2);
     border: 1px solid rgb(247, 111, 109);
     color: rgb(247, 111, 109);
+}
+
+.Question {
+    border: 1px solid rgb(253, 184, 34);
+    color: rgb(253, 184, 34);
+    background-color: rgb(253, 184, 34, 0.2);
+}
+
+.Enhancement {
+    background-color: rgb(168, 139, 246, 0.2);
+    border: 1px solid rgb(168, 139, 246);
+    color: rgb(168, 139, 246);
+}
+
+.bugtags {
+    height: 50%;
+    width: 60%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }

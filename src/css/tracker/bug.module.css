@@ -87,3 +87,27 @@
     font-size: 1rem;
     font-weight: 700;
 }
+
+@media screen and (max-width: 769px) {
+    .main {
+        width: 90%;
+        margin-left: 5%;
+    }
+    .bugtop {
+        flex-direction: column;
+    }
+    .bugbottomleft,
+    .bugbottomdetails {
+        width: 100%;
+    }
+    .bugbottom {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 770px) {
+    .main {
+        width: 100%;
+    }
+}

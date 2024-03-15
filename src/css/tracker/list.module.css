@@ -4,6 +4,7 @@
     width: 25%;
     border-right: 1px solid #505050;
     justify-content: space-between;
+    transition: all 600ms ease;
 }
 
 .bug {
@@ -194,4 +195,11 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+}
+
+@media screen and (max-width: 1025px) {
+    .buglist {
+        width: 0;
+        opacity: 0;
+    }
 }

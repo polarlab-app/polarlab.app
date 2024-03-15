@@ -53,3 +53,72 @@
     background-color: #2f3136;
     transition: all 600ms ease;
 }
+
+.menuicon,
+.closeicon {
+    display: none;
+    height: 2vh;
+    margin-right: 3vw;
+}
+@media screen and (max-width: 1024px) and (min-width: 770px) {
+    .activelist {
+        opacity: 1;
+        width: 40%;
+        background-color: rgb(14, 14, 14);
+        transition: all 600ms ease;
+    }
+
+    .menuicon {
+        display: block;
+    }
+    .block {
+        display: block;
+    }
+
+    .hidden {
+        display: none;
+    }
+    .navlink:nth-child(3) {
+        display: none;
+    }
+    .navbarlogo {
+        width: 40%;
+    }
+    .createnew {
+        padding: 12px;
+    }
+}
+
+@media screen and (max-width: 769px) {
+    .navlink:nth-child(3),
+    .navlink:nth-child(2) {
+        display: none;
+    }
+    .navlinks {
+        width: 10%;
+    }
+    .navbarlogo {
+        width: 50%;
+    }
+    .menuicon {
+        display: block;
+    }
+
+    .activelist {
+        opacity: 1;
+        width: 100vw;
+        background-color: rgb(14, 14, 14);
+        transition: all 600ms ease;
+    }
+
+    .block {
+        display: block;
+    }
+
+    .hidden {
+        display: none;
+    }
+    .hiddenmain {
+        display: none !important;
+    }
+}

@@ -31,7 +31,7 @@ export default function BugList() {
     const currentPageBugs = bugs.slice(startIndex, endIndex);
 
     return (
-        <div className={styles.buglist}>
+        <div className={styles.buglist} id='buglist'>
             <div className={styles.selector}>
                 <input type='search' className={styles.search} placeholder='Search'></input>
                 <div className={styles.filters}>

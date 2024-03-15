@@ -171,3 +171,16 @@
     width: 25%;
     text-align: center;
 }
+
+@media screen and (max-width: 769px) {
+    .main {
+        width: 94%;
+        margin-left: 3%;
+    }
+    .dropdown,
+    .submitbtn,
+    .input {
+        width: 100%;
+        grid-column: span 3;
+    }
+}

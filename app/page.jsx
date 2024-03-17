@@ -1,11 +1,36 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
 import '../src/global.css';
 import '../src/css/landingPage.css';
 import Link from 'next/link';
 
+import $ from 'jquery';
+
 export default function Home() {
+    useEffect(() => {
+        const checkVisibility = () => {
+            $('.griditem, .siteheading').each(function () {
+                const elementTop = $(this).offset().top;
+                const windowTop = $(window).scrollTop();
+                const windowHeight = $(window).height();
+
+                if (elementTop < windowTop + windowHeight * 0.9) {
+                    $(this).addClass('animate');
+                } else {
+                    $(this).removeClass('animate');
+                }
+            });
+        };
+
+        $(window).on('scroll', checkVisibility);
+
+        return () => {
+            $(window).off('scroll', checkVisibility);
+        };
+    }, []);
+
     return (
         <>
             <div className='stars'></div>
@@ -36,10 +61,13 @@ export default function Home() {
                     <p className='scroll'>Scroll</p>
                 </div>
                 <div className='sitesection' id='services section1'>
-                    <h2 className='sectionheaderwrapper'>
-                        <span className='sectionheader'>Our Services</span>
-                    </h2>
-                    <p className='sectionsubheader'>A summary of the services we offer</p>
+                    <div className='siteheading'>
+                        <h2 className='sectionheaderwrapper'>
+                            <span className='sectionheader'>Our Services</span>
+                        </h2>
+                        <p className='sectionsubheader'>A summary of the services we offer</p>
+                    </div>
+
                     <div className='featuregrid'>
                         <motion.div className='griditem gridrowfull'>
                             <div className='gridtextcontainer'>

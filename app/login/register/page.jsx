@@ -17,24 +17,25 @@ export default function Page() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         const usernameResponse = await validateUsername(username);
-        const passwordReponse = await validatePassword(password);
+        const passwordResponse = await validatePassword(password);
         if (usernameResponse == 'fail') {
             setError('Username Unavailable');
             return;
         }
-        if (passwordReponse != 'success') {
-            setError(passwordReponse);
+        if (passwordResponse != 'success') {
+            setError(passwordResponse);
+            return;
+        }
+
+        const registerResponse = await register(username, password);
+
+        if (registerResponse != 'success') {
+            setError(registerResponse);
             return;
         }
 
         setError(null);
         setSuccess('Username available!');
-
-        const registerResponse = await register(username, password);
-
-        if (registerResponse == 'fail') {
-            setError('An internal error has occured! Please try again!');
-        }
 
         setSuccess('Registration Successful! Please login!');
     };

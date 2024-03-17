@@ -4,11 +4,11 @@
     height: 300vh;
 }
 .appearanimation {
-    animation: appear 5s linear both;
+    animation: appear 0.8s linear both;
     animation-timeline: view();
     animation-range-start: 20%;
     animation-range-end: 30%;
-    -moz-animation: appear 0.5s linear both;
+    -moz-animation: appear 0.8s linear both;
 }
 .appearanimation:nth-child(2n) {
     animation-delay: 0.1s;
@@ -22,11 +22,17 @@
 @keyframes appear {
     0% {
         opacity: 0;
-        transform: translate3d(0, 6vh, 0);
+        transform: translate3d(0px, 24px, 0px) scale3d(0.96, 0.96, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+            skew(0deg);
+    }
+    50% {
+        opacity: 0;
+        transform: translate3d(0px, 20px, 0px) scale3d(0.96, 0.96, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+            skew(0deg);
     }
     100% {
         opacity: 1;
-        transform: translate3d(0, 0, 0);
+        transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg);
     }
 }
 .pricingdescription,

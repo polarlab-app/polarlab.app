@@ -3,8 +3,31 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import '../../src/css/landingPage.css';
+import { useEffect } from 'react';
+import $ from 'jquery';
 
 export default function Page() {
+    useEffect(() => {
+        const checkVisibility = () => {
+            $('.griditem, .siteheading').each(function () {
+                const elementTop = $(this).offset().top;
+                const windowTop = $(window).scrollTop();
+                const windowHeight = $(window).height();
+
+                if (elementTop < windowTop + windowHeight * 0.9) {
+                    $(this).addClass('animate');
+                } else {
+                    $(this).removeClass('animate');
+                }
+            });
+        };
+
+        $(window).on('scroll', checkVisibility);
+
+        return () => {
+            $(window).off('scroll', checkVisibility);
+        };
+    }, []);
     return (
         <>
             <div className='stars'></div>;
@@ -35,10 +58,12 @@ export default function Page() {
                     <p className='scroll'>Scroll</p>
                 </div>
                 <div className='sitesection' id='whypolarmc'>
-                    <h2 className='sectionheaderwrapper'>
-                        <span className='sectionheader'>Why Polar MC?</span>
-                    </h2>
-                    <p className='sectionsubheader'>What makes Polar MC special over other servers?</p>
+                    <div className='siteheading'>
+                        <h2 className='sectionheaderwrapper'>
+                            <span className='sectionheader'>Why Polar MC?</span>
+                        </h2>
+                        <p className='sectionsubheader'>What makes Polar MC special over other servers?</p>
+                    </div>
                     <div className='featuregrid'>
                         <div className='griditem gridrowhalf'>
                             <div className='gridtextcontainer'>
@@ -83,10 +108,12 @@ export default function Page() {
                     </div>
                 </div>
                 <div className='sitesection' id='services section1'>
-                    <h2 className='sectionheaderwrapper'>
-                        <span className='sectionheader'>The World</span>
-                    </h2>
-                    <p className='sectionsubheader'>This is everything that the Polar MC world offers</p>
+                    <div className='siteheading'>
+                        <h2 className='sectionheaderwrapper'>
+                            <span className='sectionheader'>The World</span>
+                        </h2>
+                        <p className='sectionsubheader'>This is everything that the Polar MC world offers</p>
+                    </div>
                     <div className='featuregrid'>
                         <div className='griditem gridrowtwothirds'>
                             <div className='gridtextcontainer'>

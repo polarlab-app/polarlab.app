@@ -58,6 +58,7 @@ a {
     height: 1px;
     background: transparent;
     animation: animStar 50s linear infinite;
+    opacity: 0.4;
     box-shadow: 779px 1331px #fff, 324px 42px #fff, 303px 586px #fff, 1312px 276px #fff, 451px 625px #fff,
         521px 1931px #fff, 1087px 1871px #fff, 36px 1546px #fff, 132px 934px #fff, 1698px 901px #fff, 1418px 664px #fff,
         1448px 1157px #fff, 1084px 232px #fff, 347px 1776px #fff, 1722px 243px #fff, 1629px 835px #fff, 479px 969px #fff,
@@ -404,46 +405,39 @@ a {
 }
 
 .griditem {
-    border: 1px solid #505050;
+    border: 1px solid #343434;
+    background-color: rgb(22, 21, 28);
     height: 45vh;
     border-radius: 10px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.022), rgba(255, 255, 255, 0));
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    animation: griditemleft linear both;
-    animation-timeline: view();
-    animation-iteration-count: 1;
+    opacity: 0;
 }
 
-.griditem:nth-child(2n) {
-    animation: griditemright linear both;
-    animation-timeline: view();
-    animation-iteration-count: 1;
+.siteheading.animate,
+.griditem.animate {
+    animation: appear 0.4s linear both;
+    -moz-animation: appear 0.4s linear both;
+    transform-style: preserve-3d;
+    will-change: transform, opacity;
 }
 
-@keyframes griditemright {
+.siteheading {
+    opacity: 0;
+}
+
+@keyframes appear {
     0% {
-        transform: translateX(100%);
         opacity: 0;
-        scale: 0;
+        transform: translate3d(0px, 24px, 0px) scale3d(0.96, 0.96, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+            skew(0deg);
     }
-    50% {
-        transform: translateX(0);
-        opacity: 1;
-        scale: 1;
-    }
-}
-
-@keyframes griditemleft {
-    0% {
-        transform: translateX(-100%);
+    10% {
         opacity: 0;
-        scale: 0;
+        transform: translate3d(0px, 20px, 0px) scale3d(0.96, 0.96, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+            skew(0deg);
     }
-    35% {
-        transform: translateX(0);
+    100% {
         opacity: 1;
-        scale: 1;
+        transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg);
     }
 }
 

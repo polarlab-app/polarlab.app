@@ -1,6 +1,7 @@
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import Form from '../../components/personal/form.jsx';
+import Privacy from '@/components/personal/privacy.jsx';
 
 import styles from '../../src/css/main/personal.module.css';
 import findUser from '@/lib/auth/validation/findUser.js';
@@ -21,7 +22,7 @@ export default async function Page() {
             <h2 className={styles.subheader}>Account Details</h2>
             <Form></Form>
             <h2 className={styles.subheader}>Privacy</h2>
-            <button className={styles.button}>Delete Account</button>
+            <Privacy></Privacy>
         </div>
     );
 }

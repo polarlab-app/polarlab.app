@@ -2,10 +2,16 @@
 
 import '../../src/css/dashboard/overview.css';
 import { cookies } from 'next/headers';
+import { redirect } from 'next/navigation';
 
 export default async function Page() {
-    const cookieStore = cookies();
-    const userData = await cookieStore.get('userData');
+    const userData = await cookies().get('userData');
+    const accessToken = await cookies().get('accessToken');
+
+    if (!accessToken || !userData) {
+        redirect('/login');
+    }
+
     return (
         <>
             <div className='dashboardtopbar'>
@@ -36,7 +42,7 @@ export default async function Page() {
                     <div className='smallinfocard'>
                         <div className='smallinfotextcontainer'>
                             <p className='smallinfoheader'>27,890</p>
-                            <p className='smallinfodescription'>{JSON.stringify(userData.value).username}</p>
+                            <p className='smallinfodescription'>{JSON.stringify(userData.value)}</p>
                         </div>
                         <img
                             className='smallinfoimg'

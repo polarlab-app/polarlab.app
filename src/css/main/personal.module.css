@@ -48,6 +48,7 @@
     align-items: center;
     font-weight: 700;
 }
+.irreversible,
 .button {
     border: 1px solid rgb(254, 66, 77);
     border-radius: 8px;
@@ -104,4 +105,37 @@
     border-radius: 8px;
     padding: 1.5vh;
     margin: 1% 0;
+}
+
+.deletemodal {
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    top: 25%;
+    left: 37.5%;
+    transform: translate(-25%, -25%);
+    background-color: rgb(15, 15, 20);
+    border: 1px solid #232323;
+    border-radius: 12px;
+    animation: modalAnimation 2s linear both;
+}
+
+.innermodal {
+    width: 90%;
+    margin: 5%;
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    margin: 5%;
+}
+
+.innermodal .button {
+    width: 30%;
+    justify-self: flex-end;
+}
+
+.irreversible {
+    width: 40%;
+    text-align: center;
+    padding: 12px 5px;
 }

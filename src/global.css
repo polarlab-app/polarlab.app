@@ -414,8 +414,8 @@ a {
 
 .siteheading.animate,
 .griditem.animate {
-    animation: appear 0.4s linear both;
-    -moz-animation: appear 0.4s linear both;
+    animation: appear 0.6s linear both;
+    -moz-animation: appear 0.6s linear both;
     transform-style: preserve-3d;
     will-change: transform, opacity;
 }

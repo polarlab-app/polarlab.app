@@ -106,6 +106,7 @@ export default function Page() {
                         <p className={styles.dropdownselector}>
                             {variableMap[menu.type] ? variableMap[menu.type] : menu.type}
                             <img
+                                alt='dropdownArrow'
                                 src='https://cdn.polarlab.app/src/docs/img/rightarrow.png'
                                 className={
                                     openStatus == menu.type ? styles.dropdownimghidden : styles.dropdownimg

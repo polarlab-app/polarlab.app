@@ -13,13 +13,13 @@ export function BlogPostGrid(props) {
     return (
         <div href={props.href} className={styles.post} onClick={handleRedirect}>
             <div className={styles.postimgcontainer}>
-                <img className={styles.postimg} src={props.coverimg} />
+                <img className={styles.postimg} src={props.coverimg} alt='alt' />
             </div>
             <div className={styles.posttext}>
                 <div className={styles.textcontainer}>
                     <div className={styles.toptextcontainer}>
                         <a className={styles.postauthor}>
-                            <img className={styles.pfp} src={props.pfp} />
+                            <img className={styles.pfp} src={props.pfp} alt='pfp' />
                             {props.author}
                         </a>
                         <div className={styles.title}>{props.title}</div>

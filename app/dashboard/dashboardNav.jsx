@@ -19,25 +19,31 @@ export default async function DashboardNav() {
                                 <p className='tagtext'>PLUS</p>
                             </div>
                         </div>
-                        <img className='toplogout' src='https://cdn.polarlab.app/src/icons/colorless/log-out.png'></img>
+                        <img
+                            className='toplogout'
+                            src='https://cdn.polarlab.app/src/icons/colorless/log-out.png'
+                            alt='navImg'></img>
                         <div className='guildselector'></div>
                     </div>
                     <div className='sidenavselection'>
                         <div className='navsection'>
                             <Link className='navsectionitem' href='/dashboard'>
                                 <img
+                                    alt='navImg'
                                     className='navsectionimg'
                                     src='https://cdn.polarlab.app/src/icons/colorless/settings.png'></img>
                                 <p className='navsectiontext'>Overview</p>
                             </Link>
                             <Link className='navsectionitem' href='/dashboard/settings'>
                                 <img
+                                    alt='navImg'
                                     className='navsectionimg'
                                     src='https://cdn.polarlab.app/src/icons/colorless/settings.png'></img>
                                 <p className='navsectiontext'>Settings</p>
                             </Link>
                             <Link className='navsectionitem' href='/'>
                                 <img
+                                    alt='navImg'
                                     className='navsectionimg'
                                     src='https://cdn.polarlab.app/src/icons/colorless/settings.png'></img>
                                 <p className='navsectiontext'>Subscription</p>
@@ -47,30 +53,35 @@ export default async function DashboardNav() {
                             <p className='navsectionheader'>ENGAGEMENT</p>
                             <Link className='navsectionitem' href='/'>
                                 <img
+                                    alt='navImg'
                                     className='navsectionimg'
                                     src='https://cdn.polarlab.app/src/icons/colorless/settings.png'></img>
                                 <p className='navsectiontext'>EXP & Levels</p>
                             </Link>
                             <Link className='navsectionitem' href='/'>
                                 <img
+                                    alt='navImg'
                                     className='navsectionimg'
                                     src='https://cdn.polarlab.app/src/icons/colorless/settings.png'></img>
                                 <p className='navsectiontext'>Music</p>
                             </Link>
                             <Link className='navsectionitem' href='/'>
                                 <img
+                                    alt='navImg'
                                     className='navsectionimg'
                                     src='https://cdn.polarlab.app/src/icons/colorless/settings.png'></img>
                                 <p className='navsectiontext'>Giveaways</p>
                             </Link>
                             <Link className='navsectionitem' href='/'>
                                 <img
+                                    alt='navImg'
                                     className='navsectionimg'
                                     src='https://cdn.polarlab.app/src/icons/colorless/settings.png'></img>
                                 <p className='navsectiontext'>Birthdays</p>
                             </Link>
                             <Link className='navsectionitem' href='/'>
                                 <img
+                                    alt='navImg'
                                     className='navsectionimg'
                                     src='https://cdn.polarlab.app/src/icons/colorless/settings.png'></img>
                                 <p className='navsectiontext'>Social Notifications</p>

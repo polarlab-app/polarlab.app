@@ -5,11 +5,15 @@ export default function BlogPost() {
         <>
             <div className='postcontainer'>
                 <Link className='home' href='/blog'>
-                    <img className='homeicon' src='https://cdn.polarlab.app/src/icons/colorless/home.png' />
+                    <img className='homeicon' src='https://cdn.polarlab.app/src/icons/colorless/home.png' alt='alt' />
                 </Link>
                 <h1 className='posttitle'>Introducing: Polar Lab Icon Pack</h1>
                 <div className='author'>
-                    <img className='postauthorpfp' src='https://cdn.polarlab.app/src/icons/official/pfp.png' />
+                    <img
+                        className='postauthorpfp'
+                        src='https://cdn.polarlab.app/src/icons/official/pfp.png'
+                        alt='alt'
+                    />
                     <div className='authortextcontainer'>
                         <a className='postauthoruser' href='https://polarlab.app/u/aertic'>
                             Aertic
@@ -17,7 +21,7 @@ export default function BlogPost() {
                         <p className='postauthorrole'>Founder</p>
                     </div>
                 </div>
-                <img className='postbanner' src='https://cdn.polarlab.app/src/blog/cover/iconpack.png' />
+                <img className='postbanner' src='https://cdn.polarlab.app/src/blog/cover/iconpack.png' alt='alt' />
                 <div className='postcontent'>
                     <h3 className='postsection'>The Polar Lab Icon Pack</h3>
                     <p className='sectiontext'>

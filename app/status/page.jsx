@@ -11,6 +11,7 @@ export default function Page() {
                         <tr className={styles.tablerow}>
                             <th className={styles.tablehead}>
                                 <img
+                                    alt='alt'
                                     className={styles.headicon}
                                     src='https://cdn.polarlab.app/src/icons/colorless/service_table.png'
                                 />
@@ -18,6 +19,7 @@ export default function Page() {
                             </th>
                             <th className={styles.tablehead}>
                                 <img
+                                    alt='alt'
                                     className={styles.headicon}
                                     src='https://cdn.polarlab.app/src/icons/colorless/status_table.png'
                                 />
@@ -25,6 +27,7 @@ export default function Page() {
                             </th>
                             <th className={styles.tablehead}>
                                 <img
+                                    alt='alt'
                                     className={styles.headicon}
                                     src='https://cdn.polarlab.app/src/icons/colorless/info_table.png'
                                 />
@@ -35,6 +38,7 @@ export default function Page() {
                             <td className={styles.tablerow}>Polaris V2</td>
                             <td className={`${styles.tablerow} ${styles.beta}`}>
                                 <img
+                                    alt='alt'
                                     className={styles.rowicon}
                                     src='https://cdn.polarlab.app/src/icons/status/indigo.png'
                                 />
@@ -46,6 +50,7 @@ export default function Page() {
                             <td className={styles.tablerow}>Polar MC</td>
                             <td className={`${styles.tablerow} ${styles.online}`}>
                                 <img
+                                    alt='alt'
                                     className={styles.rowicon}
                                     src='https://cdn.polarlab.app/src/icons/status/green.png'
                                 />
@@ -57,6 +62,7 @@ export default function Page() {
                             <td className={styles.tablerow}>Glorious Development Kit</td>
                             <td className={`${styles.tablerow} ${styles.minor}`}>
                                 <img
+                                    alt='alt'
                                     className={styles.rowicon}
                                     src='https://cdn.polarlab.app/src/icons/status/gold.png'
                                 />
@@ -68,6 +74,7 @@ export default function Page() {
                             <td className={styles.tablerow}>Polaris V1</td>
                             <td className={`${styles.tablerow} ${styles.offline}`}>
                                 <img
+                                    alt='alt'
                                     className={styles.rowicon}
                                     src='https://cdn.polarlab.app/src/icons/status/gray.png'
                                 />
@@ -82,6 +89,7 @@ export default function Page() {
                         <tr className='table-row'>
                             <th className={styles.tablehead}>
                                 <img
+                                    alt='alt'
                                     className={styles.headicon}
                                     src='https://cdn.polarlab.app/src/icons/colorless/service_table.png'
                                 />
@@ -89,6 +97,7 @@ export default function Page() {
                             </th>
                             <th className={styles.tablehead}>
                                 <img
+                                    alt='alt'
                                     className={styles.headicon}
                                     src='https://cdn.polarlab.app/src/icons/colorless/status_table.png'
                                 />
@@ -96,6 +105,7 @@ export default function Page() {
                             </th>
                             <th className={styles.tablehead}>
                                 <img
+                                    alt='alt'
                                     className={styles.headicon}
                                     src='https://cdn.polarlab.app/src/icons/colorless/info_table.png'
                                 />
@@ -106,6 +116,7 @@ export default function Page() {
                             <td className={styles.tablerow}>Docs</td>
                             <td className={`${styles.tablerow} ${styles.online}`}>
                                 <img
+                                    alt='alt'
                                     className={styles.rowicon}
                                     src='https://cdn.polarlab.app/src/icons/status/green.png'
                                 />
@@ -117,6 +128,7 @@ export default function Page() {
                             <td className={styles.tablerow}>Blog</td>
                             <td className={`${styles.tablerow} ${styles.online}`}>
                                 <img
+                                    alt='alt'
                                     className={styles.rowicon}
                                     src='https://cdn.polarlab.app/src/icons/status/green.png'
                                 />
@@ -128,6 +140,7 @@ export default function Page() {
                             <td className={styles.tablerow}>Landing Page</td>
                             <td className={`${styles.tablerow} ${styles.minor}`}>
                                 <img
+                                    alt='alt'
                                     className={styles.rowicon}
                                     src='https://cdn.polarlab.app/src/icons/status/gold.png'
                                 />
@@ -139,6 +152,7 @@ export default function Page() {
                             <td className={styles.tablerow}>Bug Tracker</td>
                             <td className={`${styles.tablerow} ${styles.offline}`}>
                                 <img
+                                    alt='alt'
                                     className={styles.rowicon}
                                     src='https://cdn.polarlab.app/src/icons/status/gray.png'
                                 />
@@ -150,6 +164,7 @@ export default function Page() {
                             <td className={styles.tablerow}>Glorious Development Kit</td>
                             <td className={`${styles.tablerow} ${styles.offline}`}>
                                 <img
+                                    alt='alt'
                                     className={styles.rowicon}
                                     src='https://cdn.polarlab.app/src/icons/status/gray.png'
                                 />
@@ -161,6 +176,7 @@ export default function Page() {
                             <td className={styles.tablerow}>Status Page</td>
                             <td className={`${styles.tablerow} ${styles.online}`}>
                                 <img
+                                    alt='alt'
                                     className={styles.rowicon}
                                     src='https://cdn.polarlab.app/src/icons/status/green.png'
                                 />

@@ -43,11 +43,13 @@ export default function TrackerBar() {
                 </a>
             </div>
             <img
+                alt='alt'
                 src='https://cdn.polarlab.app/src/icons/efive/sidenav.png'
                 className={styles.menuicon}
                 id='menubutton'
                 onClick={handleMobile}></img>
             <img
+                alt='alt'
                 src='https://cdn.polarlab.app/src/icons/efive/close.png'
                 className={styles.closeicon}
                 id='closebutton'

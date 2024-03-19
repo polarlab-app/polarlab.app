@@ -47,17 +47,12 @@ export default function Page() {
                         transition={{ duration: 0.9, type: 'spring' }}>
                         The survival minecraft server that you dreamed of
                     </motion.h2>
-                    <motion.a
-                        className='gdkredirect'
-                        href='/polarmc#whypolarmc'
-                        initial={{ opacity: 0, x: '-100%' }}
-                        animate={{ opacity: ``, x: '0' }}
-                        transition={{ duration: 1, type: 'spring' }}>
-                        Check it out
-                    </motion.a>
+                    <Link href='/polarmc#why-polarmc' className='gdkredirect'>
+                        Check It Out
+                    </Link>
                     <p className='scroll'>Scroll</p>
                 </div>
-                <div className='sitesection' id='whypolarmc'>
+                <div className='sitesection' id='why-polarmc'>
                     <div className='siteheading'>
                         <h2 className='sectionheaderwrapper'>
                             <span className='sectionheader'>Why Polar MC?</span>

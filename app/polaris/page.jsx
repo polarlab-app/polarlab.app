@@ -48,17 +48,12 @@ export default function Page() {
                         transition={{ duration: 0.9, type: 'spring' }}>
                         One Bot To Rule Them All, One Bot To Surpass Them All
                     </motion.h2>
-                    <motion.a
-                        className='gdkredirect'
-                        href='/polarmc#whypolarmc'
-                        initial={{ opacity: 0, x: '-100%' }}
-                        animate={{ opacity: ``, x: '0' }}
-                        transition={{ duration: 1, type: 'spring' }}>
-                        Check it out
-                    </motion.a>
+                    <Link href='/polaris#why-polaris' className='gdkredirect'>
+                        Check It Out
+                    </Link>
                     <p className='scroll'>Scroll</p>
                 </div>
-                <div className='sitesection' id='whypolarmc'>
+                <div className='sitesection' id='why-polaris'>
                     <div className='siteheading'>
                         <h2 className='sectionheaderwrapper'>
                             <span className='sectionheader'>Why Polaris?</span>

@@ -351,7 +351,6 @@ a {
     font-weight: 800;
     transition: all 600ms ease;
     cursor: pointer;
-    z-index: -1;
     font-weight: 700;
 }
 

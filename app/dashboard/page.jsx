@@ -27,6 +27,7 @@ export default async function Page() {
                             <p className='smallinfodescription'>Members in the server</p>
                         </div>
                         <img
+                            alt='dashboardImage'
                             className='smallinfoimg'
                             src='https://cdn.discordapp.com/attachments/1018171583111647313/1183143971736801341/Untitled-2.png?ex=65c7dd30&is=65b56830&hm=2ccfa9d152f7a628825a5b0e8b69cbab77c1d390ce9593960d99ee5cb8cabc62&'></img>
                     </div>
@@ -36,6 +37,7 @@ export default async function Page() {
                             <p className='smallinfodescription'>Members joined in the past 24h</p>
                         </div>
                         <img
+                            alt='dashboardImage'
                             className='smallinfoimg'
                             src='https://cdn.discordapp.com/attachments/1018171583111647313/1183143971736801341/Untitled-2.png?ex=65c7dd30&is=65b56830&hm=2ccfa9d152f7a628825a5b0e8b69cbab77c1d390ce9593960d99ee5cb8cabc62&'></img>
                     </div>
@@ -45,6 +47,7 @@ export default async function Page() {
                             <p className='smallinfodescription'>{JSON.stringify(userData.value)}</p>
                         </div>
                         <img
+                            alt='dashboardImage'
                             className='smallinfoimg'
                             src='https://cdn.discordapp.com/attachments/1018171583111647313/1183143971736801341/Untitled-2.png?ex=65c7dd30&is=65b56830&hm=2ccfa9d152f7a628825a5b0e8b69cbab77c1d390ce9593960d99ee5cb8cabc62&'></img>
                     </div>

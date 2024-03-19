@@ -22,6 +22,7 @@ export default function Page() {
                                     </div>
                                     <a href={item.href} className={styles.itemimgcontainer} target='_blank'>
                                         <img
+                                            alt='download'
                                             src='https://cdn.polarlab.app/src/icons/efive/download.png'
                                             className={styles.itemimg}></img>
                                     </a>

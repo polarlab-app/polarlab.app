@@ -14,11 +14,11 @@ export default async function Page() {
         redirect('/login');
     }
 
-    const user = await findUser(token.value);
+    const user = await JSON.parse(await findUser(token.value));
 
     return (
         <div className={styles.main}>
-            <h1 className={styles.header}>Personal</h1>
+            <h1 className={styles.header}>Welcome Back, {user.username}</h1>
             <h2 className={styles.subheader}>Account Details</h2>
             <Form></Form>
             <h2 className={styles.subheader}>Privacy</h2>

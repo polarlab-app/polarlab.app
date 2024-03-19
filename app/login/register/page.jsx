@@ -46,7 +46,10 @@ export default function Page() {
                 <form className='loginwrapper' onSubmit={handleSubmit}>
                     <div className='logintextcontainer'>
                         <div className='logintexttopcontainer'>
-                            <img className='logo' src='https://cdn.polarlab.app/src/img/polarlogo.png'></img>
+                            <img
+                                className='logo'
+                                src='https://cdn.polarlab.app/src/img/polarlogo.png'
+                                alt='polarlogo'></img>
                             <p className='loginheader'>Register to Polar Lab</p>
                         </div>
                         <div className='logininputcontainer'>

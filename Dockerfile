@@ -1,3 +1,3 @@
-FROM node:20.11.0
+FROM node:21.7.1
 WORKDIR /opt/polarlab.app
 CMD ["npm", "run", "start"]

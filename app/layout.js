@@ -1,6 +1,9 @@
 import '../src/global.css';
 import NavBar from './NavBar.jsx';
 import Footer from './footer.jsx';
+import Loading from './loading.js';
+import { Suspense } from 'react';
+
 require('dotenv').config();
 
 export const metadata = {
@@ -13,7 +16,7 @@ export default function RootLayout({ children }) {
         <html lang='en'>
             <body className='body' id='body'>
                 <NavBar />
-                {children}
+                <Suspense fallback={<Loading />}>{children}</Suspense>
                 <Footer />
             </body>
         </html>

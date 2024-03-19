@@ -76,6 +76,7 @@ export default function Page() {
                                 </Link>
                             </div>
                             <img
+                                alt='gridimg'
                                 className='gridimg'
                                 src='https://cdn.discordapp.com/attachments/1018171583111647313/1162688572718055464/thirdtestactual.png?ex=653cd91d&is=652a641d&hm=bdd165761beb9cacddaac15d20ab3f9af3a58c92fd2681e963b219845c36d3e1&'
                             />
@@ -95,6 +96,7 @@ export default function Page() {
                                 </Link>
                             </div>
                             <img
+                                alt='gridimg'
                                 className='gridimg'
                                 src='https://cdn.discordapp.com/attachments/1018171583111647313/1162688572718055464/thirdtestactual.png?ex=653cd91d&is=652a641d&hm=bdd165761beb9cacddaac15d20ab3f9af3a58c92fd2681e963b219845c36d3e1&'
                             />
@@ -115,6 +117,7 @@ export default function Page() {
                                 </Link>
                             </div>
                             <img
+                                alt='gridimg'
                                 className='gridimg'
                                 src='https://cdn.discordapp.com/attachments/1018171583111647313/1162688572718055464/thirdtestactual.png?ex=653cd91d&is=652a641d&hm=bdd165761beb9cacddaac15d20ab3f9af3a58c92fd2681e963b219845c36d3e1&'
                             />
@@ -133,6 +136,7 @@ export default function Page() {
                                 </Link>
                             </div>
                             <img
+                                alt='gridimg'
                                 className='gridimg'
                                 src='https://cdn.discordapp.com/attachments/1018171583111647313/1162688572718055464/thirdtestactual.png?ex=653cd91d&is=652a641d&hm=bdd165761beb9cacddaac15d20ab3f9af3a58c92fd2681e963b219845c36d3e1&'
                             />
@@ -152,6 +156,7 @@ export default function Page() {
                                 </Link>
                             </div>
                             <img
+                                alt='gridimg'
                                 className='gridimg'
                                 src='https://cdn.discordapp.com/attachments/1018171583111647313/1162688572718055464/thirdtestactual.png?ex=653cd91d&is=652a641d&hm=bdd165761beb9cacddaac15d20ab3f9af3a58c92fd2681e963b219845c36d3e1&'
                             />
@@ -171,6 +176,7 @@ export default function Page() {
                                 </Link>
                             </div>
                             <img
+                                alt='gridimg'
                                 className='gridimg'
                                 src='https://cdn.discordapp.com/attachments/1018171583111647313/1162688572718055464/thirdtestactual.png?ex=653cd91d&is=652a641d&hm=bdd165761beb9cacddaac15d20ab3f9af3a58c92fd2681e963b219845c36d3e1&'
                             />

@@ -22,6 +22,7 @@
     flex-direction: column;
 }
 .palletetable {
+    opacity: 0;
     height: 80%;
     border-radius: 12px;
     color: white;
@@ -36,6 +37,7 @@
     border-bottom: 1px solid #505050;
     color: #717171;
     font-weight: 700;
+    width: 20%;
 }
 
 .tablehead {
@@ -60,4 +62,28 @@
     width: 70%;
     margin-left: 15%;
     text-align: center;
+}
+
+.palletetable.animate {
+    animation: appear 0.7s linear both;
+    -moz-animation: appear 0.7s linear both;
+    transform-style: preserve-3d;
+    will-change: transform, opacity;
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+        transform: translate3d(0px, 24px, 0px) scale3d(0.96, 0.96, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+            skew(0deg);
+    }
+    10% {
+        opacity: 0.1;
+        transform: translate3d(0px, 20px, 0px) scale3d(0.96, 0.96, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+            skew(0deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg);
+    }
 }

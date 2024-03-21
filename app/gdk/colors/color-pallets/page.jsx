@@ -1,12 +1,39 @@
 'use client';
 import { useState, useEffect } from 'react';
 
+import tinycolor from 'tinycolor2';
 import colors from '@/src/data/colors.json';
 import styles from '@/src/css/gdk/colorPallets.module.css';
 import $ from 'jquery';
 
 export default function Page() {
     const [selectedColor, setSelectedColor] = useState('');
+
+    useEffect(() => {
+        const checkVisibility = () => {
+            $(`.${styles.palletetable}`).each(function () {
+                const elementTop = $(this).offset().top;
+                const windowTop = $(window).scrollTop();
+                const windowHeight = $(window).height();
+
+                if (elementTop < windowTop + windowHeight * 0.9) {
+                    $(this).addClass(styles.animate);
+                } else {
+                    $(this).removeClass(styles.animate);
+                }
+            });
+        };
+
+        let innermain = document.querySelector(`.${styles.innermain}`);
+
+        $(innermain).on('scroll', checkVisibility);
+
+        return () => {
+            if (innermain) {
+                $(innermain).off('scroll', checkVisibility);
+            }
+        };
+    }, []);
 
     useEffect(() => {
         const checkVisibilityAndChangeColor = () => {
@@ -29,7 +56,7 @@ export default function Page() {
             });
         };
 
-        const innermain = document.querySelector(`.${styles.innermain}`);
+        let innermain = document.querySelector(`.${styles.innermain}`);
         if (innermain) {
             $(innermain).on('scroll', checkVisibilityAndChangeColor);
         }
@@ -56,31 +83,38 @@ export default function Page() {
                                 <table className={styles.palletetable}>
                                     <thead>
                                         <tr className={styles.tablerow}>
-                                            <th className={styles.tablehead}>
-                                                <div className={styles.innerth}></div>HEX
-                                            </th>
+                                            <th className={styles.tablehead}>HEX</th>
                                             <th className={styles.tablehead}>RGB</th>
+                                            <th className={styles.tablehead}>hsl</th>
                                             <th className={styles.tablehead}>Dark Mode</th>
                                             <th className={styles.tablehead}>Light Mode</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {colors.slice(index, index + 12).map((color, i) => {
+                                        {colors.slice(index, index + 12).map((clr, i) => {
+                                            let rgbVals = clr.backgroundColor.slice(4, -1).split(',');
+                                            let actualColor = tinycolor({
+                                                r: rgbVals[0],
+                                                g: rgbVals[1],
+                                                b: rgbVals[2],
+                                            });
+
                                             return (
                                                 <tr key={i} className={styles.tablerow}>
-                                                    <td className={styles.tablecell}>{color.backgroundColor}</td>
-                                                    <td className={styles.tablecell}>{color.backgroundColor}</td>
+                                                    <td className={styles.tablecell}>{actualColor.toHexString()}</td>
+                                                    <td className={styles.tablecell}>{clr.backgroundColor}</td>
+                                                    <td className={styles.tablecell}>{actualColor.toHslString()}</td>
                                                     <td className={styles.tablecell}>
                                                         <div
                                                             className={styles.darkmode}
-                                                            style={{ color: color.backgroundColor }}>
+                                                            style={{ color: clr.backgroundColor }}>
                                                             Text Color
                                                         </div>
                                                     </td>
                                                     <td className={styles.tablecell}>
                                                         <div
                                                             className={styles.lightmode}
-                                                            style={{ color: color.backgroundColor }}>
+                                                            style={{ color: clr.backgroundColor }}>
                                                             Text Color
                                                         </div>
                                                     </td>

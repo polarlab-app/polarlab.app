@@ -15,22 +15,33 @@
 
 .section {
     scroll-snap-align: center;
-    height: 90%;
+    height: 100%;
     width: 80%;
     margin-left: 10%;
+    display: flex;
+    flex-direction: column;
 }
 .palletetable {
     height: 80%;
     border-radius: 12px;
     color: white;
-    backdrop-filter: blur(12px);
     border: 1px solid #505050;
-    background: rgb(0, 0, 0, 0.15);
+    background: rgb(22, 21, 28);
     width: 100%;
+    transition: all 600ms ease;
+    text-align: left;
 }
 
-.tablerow {
+.tablecell {
     border-bottom: 1px solid #505050;
+    color: #717171;
+    font-weight: 700;
+}
+
+.tablehead {
+    border-bottom: 1px solid #505050;
+    color: #717171;
+    font-weight: 700;
 }
 
 .darkmode {
@@ -39,6 +50,7 @@
     padding: 3px;
     width: 70%;
     margin-left: 15%;
+    text-align: center;
 }
 
 .lightmode {
@@ -47,4 +59,5 @@
     padding: 3px;
     width: 70%;
     margin-left: 15%;
+    text-align: center;
 }

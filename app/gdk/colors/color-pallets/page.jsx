@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 
 import colors from '@/src/data/colors.json';
 import styles from '@/src/css/gdk/colorPallets.module.css';
@@ -16,7 +16,14 @@ export default function Page() {
                 if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
                     const sectionColors = $(section).data('colors');
                     const randomColor = sectionColors[Math.floor(Math.random() * sectionColors.length)].backgroundColor;
-                    $(`.${styles.main}`).css('background', `radial-gradient(${randomColor}, rgb(15, 15, 20) 70%, 0.3)`);
+                    const rgbValues = randomColor.match(/\d+/g);
+                    const rgbaColor = `rgba(${rgbValues[0]}, ${rgbValues[1]}, ${rgbValues[2]}, 0.5)`;
+
+                    $(`.${styles.palletetable}`).css('box-shadow', `5px 5px 80px 2px ${rgbaColor}`);
+                    /*$(`.${styles.palletetable}`).css(
+                        'background-image',
+                        `radial-gradient(${randomColor}, rgb(15, 15, 20) 70%)`
+                    );*/
                     return false;
                 }
             });
@@ -38,39 +45,39 @@ export default function Page() {
         <div className={styles.main}>
             <div className={styles.innermain}>
                 {colors.map((color, index) => {
-                    const sectionIndex = Math.floor(index / 12);
-
-                    if (index % 12 === 0) {
-                        console.log();
+                    const sectionIndex = Math.floor(index / 14);
+                    if (index % 14 === 0) {
                         return (
                             <section
                                 key={sectionIndex}
                                 className={styles.section}
-                                data-colors={JSON.stringify(colors.slice(index, index + 12))}>
+                                data-colors={JSON.stringify(colors.slice(index, index + 14))}>
                                 <h2>Section {sectionIndex + 1}</h2>
                                 <table className={styles.palletetable}>
                                     <thead>
                                         <tr className={styles.tablerow}>
-                                            <th>HEX</th>
-                                            <th>RGB</th>
-                                            <th>Dark Mode</th>
-                                            <th>Light Mode</th>
+                                            <th className={styles.tablehead}>
+                                                <div className={styles.innerth}></div>HEX
+                                            </th>
+                                            <th className={styles.tablehead}>RGB</th>
+                                            <th className={styles.tablehead}>Dark Mode</th>
+                                            <th className={styles.tablehead}>Light Mode</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         {colors.slice(index, index + 12).map((color, i) => {
                                             return (
                                                 <tr key={i} className={styles.tablerow}>
-                                                    <td>{color.backgroundColor}</td>
-                                                    <td>{color.backgroundColor}</td>
-                                                    <td>
+                                                    <td className={styles.tablecell}>{color.backgroundColor}</td>
+                                                    <td className={styles.tablecell}>{color.backgroundColor}</td>
+                                                    <td className={styles.tablecell}>
                                                         <div
                                                             className={styles.darkmode}
                                                             style={{ color: color.backgroundColor }}>
                                                             Text Color
                                                         </div>
                                                     </td>
-                                                    <td>
+                                                    <td className={styles.tablecell}>
                                                         <div
                                                             className={styles.lightmode}
                                                             style={{ color: color.backgroundColor }}>

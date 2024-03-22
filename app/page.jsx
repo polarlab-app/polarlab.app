@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { useEffect } from 'react';
 import '../src/global.css';
 import '../src/css/landingPage.css';
@@ -36,28 +35,28 @@ export default function Home() {
             <div className='stars'></div>
             <div className='main'>
                 <div className='topsection'>
-                    <motion.h1
+                    <h1
                         className='websiteheader'
                         initial={{ opacity: 0, x: '-100%' }}
                         animate={{ opacity: 1, x: '0' }}
                         transition={{ duration: 0.8, type: 'spring' }}>
                         Polar Lab
-                    </motion.h1>
-                    <motion.h2
+                    </h1>
+                    <h2
                         className='subheader'
                         initial={{ opacity: 0, x: '100%' }}
                         animate={{ opacity: 1, x: '0' }}
                         transition={{ duration: 0.9, type: 'spring' }}>
                         Free and open source services to enliven your online experience
-                    </motion.h2>
-                    <motion.a
+                    </h2>
+                    <a
                         className='gdkredirect'
                         href='#services'
                         initial={{ opacity: 0, x: '-100%' }}
                         animate={{ opacity: ``, x: '0' }}
                         transition={{ duration: 1, type: 'spring' }}>
                         Check it out
-                    </motion.a>
+                    </a>
                     <p className='scroll'>Scroll</p>
                 </div>
                 <div className='sitesection' id='services section1'>
@@ -69,7 +68,7 @@ export default function Home() {
                     </div>
 
                     <div className='featuregrid'>
-                        <motion.div className='griditem gridrowfull'>
+                        <div className='griditem gridrowfull'>
                             <div className='gridtextcontainer'>
                                 <h4 className='gridheader'>Polaris V2</h4>
                                 <p className='gridcontent'>
@@ -79,7 +78,7 @@ export default function Home() {
                                         test beta, and be a part of shaping the future of this dynamic Discord bot!
                                     </span>
                                 </p>
-                                <Link className='gridbutton' href='/polaris'>
+                                <Link className='gridbutton' href='/polaris' prefetch={false}>
                                     Check It Out
                                 </Link>
                             </div>
@@ -88,8 +87,8 @@ export default function Home() {
                                 className='gridimg'
                                 src='https://cdn.discordapp.com/attachments/1018171583111647313/1162688572718055464/thirdtestactual.png?ex=653cd91d&is=652a641d&hm=bdd165761beb9cacddaac15d20ab3f9af3a58c92fd2681e963b219845c36d3e1&'
                             />
-                        </motion.div>
-                        <motion.div className='griditem gridrowthird '>
+                        </div>
+                        <div className='griditem gridrowthird '>
                             <div className='gridtextcontainer'>
                                 <h4 className='gridheader'>Polar MC</h4>
                                 <p className='gridcontent'>
@@ -99,7 +98,7 @@ export default function Home() {
                                         landscapes!
                                     </span>
                                 </p>
-                                <Link className='gridbutton' href='/polarmc'>
+                                <Link className='gridbutton' href='/polarmc' prefetch={false}>
                                     Check It Out
                                 </Link>
                             </div>
@@ -108,8 +107,8 @@ export default function Home() {
                                 className='gridimg'
                                 src='https://cdn.discordapp.com/attachments/1018171583111647313/1162688572718055464/thirdtestactual.png?ex=653cd91d&is=652a641d&hm=bdd165761beb9cacddaac15d20ab3f9af3a58c92fd2681e963b219845c36d3e1&'
                             />
-                        </motion.div>
-                        <motion.div className='griditem gridrowtwothirds'>
+                        </div>
+                        <div className='griditem gridrowtwothirds'>
                             <div className='gridtextcontainer'>
                                 <h4 className='gridheader'>Glorious Development Kit</h4>
                                 <p className='gridcontent'>
@@ -119,7 +118,7 @@ export default function Home() {
                                         more!
                                     </span>
                                 </p>
-                                <Link className='gridbutton' href='/gdk'>
+                                <Link className='gridbutton' href='/gdk' prefetch={false}>
                                     Check It Out
                                 </Link>
                             </div>
@@ -128,7 +127,7 @@ export default function Home() {
                                 className='gridimg'
                                 src='https://cdn.discordapp.com/attachments/1018171583111647313/1162688572718055464/thirdtestactual.png?ex=653cd91d&is=652a641d&hm=bdd165761beb9cacddaac15d20ab3f9af3a58c92fd2681e963b219845c36d3e1&'
                             />
-                        </motion.div>
+                        </div>
                     </div>
                 </div>
             </div>

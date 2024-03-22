@@ -28,6 +28,7 @@ a {
 
 .footerlogo {
     width: 3.2rem;
+    height: auto;
     float: left;
     padding-top: 1%;
 }
@@ -139,6 +140,7 @@ a {
     align-items: center;
     margin-left: 0.3rem;
     margin-right: 0.2rem;
+    height: auto;
 }
 
 .statustext {
@@ -150,6 +152,7 @@ a {
     height: 2.5vh;
     float: right;
     margin-left: 1vw;
+    width: auto;
 }
 
 @media screen and (max-width: 480px) {

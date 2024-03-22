@@ -1,7 +1,7 @@
 .main {
     width: 100%;
     height: 90vh;
-    overflow: hidden;
+    overflow: scroll;
     transition: all 600ms ease;
 }
 .innermain {
@@ -31,6 +31,10 @@
     width: 100%;
     transition: all 600ms ease;
     text-align: left;
+}
+
+.palletetable:nth-child(1) {
+    opacity: 1;
 }
 
 .tablecell {
@@ -86,4 +90,38 @@
         opacity: 1;
         transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg);
     }
+}
+
+.top {
+    color: #e7e7e7;
+    height: 90%;
+    width: 80%;
+    margin-left: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    font-weight: 700;
+}
+
+.header {
+    font-size: 2.8rem;
+}
+
+.description {
+    font-size: 1.2rem;
+}
+
+.button {
+    background-color: rgb(22, 21, 28);
+    padding: 15px;
+    width: 10%;
+    border-radius: 12px;
+    transition: all 600ms ease;
+}
+
+.button:hover {
+    scale: 1.1;
+    transition: all 600ms ease;
+    background-color: rgb(36, 35, 44);
 }

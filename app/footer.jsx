@@ -7,11 +7,17 @@ export default function Footer() {
         <footer className='footercontainer'>
             <div className='footer'>
                 <div className='footertop'>
-                    <img src='https://cdn.polarlab.app/src/img/polarlogo.png' className='footerlogo' alt='alt' />
+                    <Image
+                        height='128'
+                        width='128'
+                        src='https://cdn.polarlab.app/src/img/polarlogo.png'
+                        className='footerlogo'
+                        alt='alt'
+                    />
                     <h1 className='footerheader'>Polar Lab</h1>
-                    <a className='dbtn' href='/discord'>
+                    <Link className='dbtn' href='/discord'>
                         Discord
-                    </a>
+                    </Link>
                 </div>
                 <div className='lists'>
                     <div className='list'>
@@ -20,12 +26,12 @@ export default function Footer() {
                                 <p className='listheader'>Products</p>
                             </li>
                             <li className='listcontent'>
-                                <Link className='listcontent' href='/polaris'>
+                                <Link className='listcontent' href='/polaris' prefetch={false}>
                                     Polaris V2
                                 </Link>
                             </li>
                             <li className='listcontent'>
-                                <Link className='listcontent' href='/polarmc'>
+                                <Link className='listcontent' href='/polarmc' prefetch={false}>
                                     Polar MC
                                 </Link>
                             </li>
@@ -37,22 +43,22 @@ export default function Footer() {
                                 <p className='listheader'>Resources</p>
                             </li>
                             <li className='listcontent'>
-                                <Link className='listcontent' href='/blog'>
+                                <Link className='listcontent' href='/blog' prefetch={false}>
                                     Blog
                                 </Link>
                             </li>
                             <li className='listcontent'>
-                                <Link className='listcontent' href='https://docs.polarlab.app'>
+                                <Link className='listcontent' href='https://docs.polarlab.app' prefetch={false}>
                                     Docs
                                 </Link>
                             </li>
                             <li className='listcontent'>
-                                <Link className='listcontent' href='/status'>
+                                <Link className='listcontent' href='/status' prefetch={false}>
                                     Status
                                 </Link>
                             </li>
                             <li className='listcontent'>
-                                <Link className='listcontent' href='/contact'>
+                                <Link className='listcontent' href='/contact' prefetch={false}>
                                     Contact
                                 </Link>
                             </li>
@@ -64,12 +70,12 @@ export default function Footer() {
                                 <p className='listheader'>Legal</p>
                             </li>
                             <li className='listcontent'>
-                                <Link className='listcontent' href='/privacy'>
+                                <Link className='listcontent' href='/privacy' prefetch={false}>
                                     Privacy Policy
                                 </Link>
                             </li>
                             <li className='listcontent'>
-                                <Link className='listcontent' href='/terms'>
+                                <Link className='listcontent' href='/terms' prefetch={false}>
                                     Terms of Service
                                 </Link>
                             </li>
@@ -82,27 +88,37 @@ export default function Footer() {
                     ©️ 2023 Polar Lab
                 </a>
                 <div className='status'>
-                    <Link className='product' href='/status'>
+                    <Link className='product' href='/status' prefetch={false}>
                         Polaris Status:
                     </Link>
-                    <img src='https://cdn.polarlab.app/src/main/img/discordlogo.png' className='statusicon' alt='alt' />
-                    <Link className='statustext' href='/status'>
+                    <Image
+                        src='https://cdn.polarlab.app/src/main/img/discordlogo.png'
+                        className='statusicon'
+                        alt='alt'
+                        width='128'
+                        height='128'
+                    />
+                    <Link className='statustext' href='/status' prefetch={false}>
                         Online
                     </Link>
                 </div>
                 <div className='socials'>
                     <a href='/discord'>
-                        <img
+                        <Image
                             src='https://cdn.polarlab.app/src/main/img/discordlogo.png'
                             className='discordlogo'
                             alt='alt'
+                            width='140'
+                            height='100'
                         />
                     </a>
                     <a href='https://github.com/polarlab-app'>
-                        <img
+                        <Image
                             src='https://cdn.polarlab.app/src/main/img/githublogo.png'
                             className='discordlogo'
                             alt='alt'
+                            width='128'
+                            height='128'
                         />
                     </a>
                 </div>

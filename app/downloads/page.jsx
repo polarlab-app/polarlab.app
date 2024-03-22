@@ -1,6 +1,11 @@
 import styles from '../../src/css/downloads/downloads.module.css';
 import items from './downloads.json';
 
+export const metadata = {
+    title: 'Polar Lab | Downloads',
+    description: 'The official Polar Lab Downloads center',
+};
+
 export default function Page() {
     return (
         <div className={styles.main}>

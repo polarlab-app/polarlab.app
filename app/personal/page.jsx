@@ -6,6 +6,11 @@ import Privacy from '@/components/personal/privacy.jsx';
 import styles from '../../src/css/main/personal.module.css';
 import findUser from '@/lib/auth/validation/findUser.js';
 
+export const metadata = {
+    title: 'Polar Lab | Personal',
+    description: 'The official profile management page for you Polar Lab account',
+};
+
 export default async function Page() {
     const cookieStore = cookies();
     const token = cookieStore.get('accountToken');

@@ -8,6 +8,11 @@ import validateUsername from '@/lib/auth/validation/validateUsername';
 import validatePassword from '@/lib/auth/validation/validatePassword';
 import register from '@/lib/auth/register';
 
+export const metadata = {
+    title: 'Polar Lab | Register',
+    description: 'The official Polar Lab registration page',
+};
+
 export default function Page() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');

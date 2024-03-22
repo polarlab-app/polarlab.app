@@ -1,5 +1,10 @@
 import styles from '../../src/css/main/plus.module.css';
 
+export const metadata = {
+    title: 'Polar Lab | Plus',
+    description: 'The official purchasing page for Polar+',
+};
+
 export default function Page() {
     return (
         <div className={styles.main}>

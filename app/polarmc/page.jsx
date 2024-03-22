@@ -5,6 +5,11 @@ import '../../src/css/landingPage.css';
 import { useEffect } from 'react';
 import $ from 'jquery';
 
+export const metadata = {
+    title: 'Polar MC',
+    description: 'The official Polar MC Season 2 landing page',
+};
+
 export default function Page() {
     useEffect(() => {
         const checkVisibility = () => {

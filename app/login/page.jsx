@@ -6,6 +6,11 @@ import React, { useState } from 'react';
 
 import login from '../../lib/auth/login';
 
+export const metadata = {
+    title: 'Polar Lab | Login',
+    description: 'The official Polar Lab login page',
+};
+
 export default function Page() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');

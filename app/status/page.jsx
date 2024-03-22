@@ -1,6 +1,11 @@
 import styles from '../../src/css/main/status.module.css';
 import '../../src/css/main/status.global.css';
 
+export const metadata = {
+    title: 'Polar Lab | Status',
+    description: 'The official Polar Lab status page',
+};
+
 export default function Page() {
     return (
         <>

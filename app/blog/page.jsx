@@ -3,6 +3,11 @@ import { BlogPostGrid } from '../../components/blogpost.jsx';
 import styles from '../../src/css/blog/blog.module.css';
 import posts from './posts.json';
 
+export const metadata = {
+    title: 'Polar Lab | Blog',
+    description: 'The official Polar Lab blog post center',
+};
+
 export default function Page() {
     return (
         <>

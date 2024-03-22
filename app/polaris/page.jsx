@@ -5,10 +5,10 @@ import '../../src/css/landingPage.css';
 import { useEffect } from 'react';
 import $ from 'jquery';
 
-export const metadata = {
+/*export const metadata = {
     title: 'Polaris V2',
     description: 'One bot to rule them all, one bot to surpass them all',
-};
+};*/
 
 export default function Page() {
     useEffect(() => {

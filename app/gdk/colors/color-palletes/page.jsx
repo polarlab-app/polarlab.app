@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 
 import tinycolor from 'tinycolor2';
 import colors from '@/src/data/colors.json';
@@ -7,8 +7,6 @@ import styles from '@/src/css/gdk/colorPalletes.module.css';
 import $ from 'jquery';
 
 export default function Page() {
-    const [selectedColor, setSelectedColor] = useState('');
-
     useEffect(() => {
         const checkVisibility = () => {
             $(`.${styles.palletetable}`).each(function () {

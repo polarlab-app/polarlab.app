@@ -40,12 +40,14 @@ nav {
     float: left;
     align-items: center;
     margin-right: 1%;
+    width: auto;
 }
 
 .navlinkcontainer {
     display: flex;
     width: 70%;
     z-index: 7;
+    align-items: center;
 }
 
 .navlink {
@@ -68,6 +70,7 @@ nav {
     color: #eeeeee;
     font-weight: 700;
     font-size: 25px;
+    align-self: calc(center - 10px);
 }
 
 .polarplus {

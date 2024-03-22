@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 
 import tinycolor from 'tinycolor2';
 import colors from '@/src/data/colors.json';
-import styles from '@/src/css/gdk/colorPallets.module.css';
+import styles from '@/src/css/gdk/colorPalletes.module.css';
 import $ from 'jquery';
 
 export default function Page() {
@@ -70,7 +70,16 @@ export default function Page() {
 
     return (
         <div className={styles.main}>
-            <div className={styles.innermain}>
+            <div className={styles.top}>
+                <div className={styles.toptext}>
+                    <h1 className={styles.header}>Color Palletes</h1>
+                    <p className={styles.description}>Over 12000 colors ready to enliven your next project</p>
+                </div>
+                <a className={styles.button} href='#colors'>
+                    Take Me There
+                </a>
+            </div>
+            <div className={styles.innermain} id='colors'>
                 {colors.map((color, index) => {
                     const sectionIndex = Math.floor(index / 14);
                     if (index % 14 === 0) {

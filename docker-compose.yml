@@ -7,7 +7,7 @@ services:
             - '3000:3000'
         volumes:
             - /opt/polarlab.app:/opt/polarlab.app
-        command: bash -c "git pull && npm install && npm run build && npx next telemetry disable && npm run start"
+        command: bash -c "git pull && npm install && npm audit fix && npm run build && npx next telemetry disable && npm run start"
         deploy:
             resources:
                 limits:

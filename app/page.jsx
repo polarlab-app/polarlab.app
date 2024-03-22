@@ -35,26 +35,9 @@ export default function Home() {
             <div className='stars'></div>
             <div className='main'>
                 <div className='topsection'>
-                    <h1
-                        className='websiteheader'
-                        initial={{ opacity: 0, x: '-100%' }}
-                        animate={{ opacity: 1, x: '0' }}
-                        transition={{ duration: 0.8, type: 'spring' }}>
-                        Polar Lab
-                    </h1>
-                    <h2
-                        className='subheader'
-                        initial={{ opacity: 0, x: '100%' }}
-                        animate={{ opacity: 1, x: '0' }}
-                        transition={{ duration: 0.9, type: 'spring' }}>
-                        Free and open source services to enliven your online experience
-                    </h2>
-                    <a
-                        className='gdkredirect'
-                        href='#services'
-                        initial={{ opacity: 0, x: '-100%' }}
-                        animate={{ opacity: ``, x: '0' }}
-                        transition={{ duration: 1, type: 'spring' }}>
+                    <h1 className='websiteheader'>Polar Lab</h1>
+                    <h2 className='subheader'>Free and open source services to enliven your online experience</h2>
+                    <a className='gdkredirect' href='#services'>
                         Check it out
                     </a>
                     <p className='scroll'>Scroll</p>

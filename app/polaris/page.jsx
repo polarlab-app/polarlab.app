@@ -33,20 +33,8 @@ export default function Page() {
             <div className='stars'></div>
             <div className='main'>
                 <div className='sitesection topsection '>
-                    <h1
-                        className='websiteheader'
-                        initial={{ opacity: 0, x: '-100%' }}
-                        animate={{ opacity: 1, x: '0' }}
-                        transition={{ duration: 0.8, type: 'spring' }}>
-                        Polaris V2
-                    </h1>
-                    <h2
-                        className='subheader'
-                        initial={{ opacity: 0, x: '100%' }}
-                        animate={{ opacity: 1, x: '0' }}
-                        transition={{ duration: 0.9, type: 'spring' }}>
-                        One Bot To Rule Them All, One Bot To Surpass Them All
-                    </h2>
+                    <h1 className='websiteheader'>Polaris V2</h1>
+                    <h2 className='subheader'>One Bot To Rule Them All, One Bot To Surpass Them All</h2>
                     <Link href='/polaris#why-polaris' className='gdkredirect'>
                         Check It Out
                     </Link>

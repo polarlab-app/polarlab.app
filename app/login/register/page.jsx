@@ -4,9 +4,7 @@ import '../../../src/css/login.css';
 import Link from 'next/link';
 import React, { useState } from 'react';
 
-import validateUsername from '@/lib/auth/validation/validateUsername';
-import validatePassword from '@/lib/auth/validation/validatePassword';
-import register from '@/lib/auth/register';
+import validateRegister from '@/lib/auth/validation/validateRegister';
 
 /*export const metadata = {
     title: 'Polar Lab | Register',
@@ -16,32 +14,21 @@ import register from '@/lib/auth/register';
 export default function Page() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const usernameResponse = await validateUsername(username);
-        const passwordResponse = await validatePassword(password);
-        if (usernameResponse == 'fail') {
-            setError('Username Unavailable');
-            return;
-        }
-        if (passwordResponse != 'success') {
-            setError(passwordResponse);
-            return;
-        }
 
-        const registerResponse = await register(username, password);
+        const registerResponse = await validateRegister(username, email, password);
 
         if (registerResponse != 'success') {
+            setSuccess(null);
             setError(registerResponse);
             return;
         }
-
         setError(null);
-        setSuccess('Username available!');
-
         setSuccess('Registration Successful! Please login!');
     };
 
@@ -60,6 +47,14 @@ export default function Page() {
                         <div className='logininputcontainer'>
                             {success && <p className='loginsuccess'>{success}</p>}
                             {error && <p className='loginerror'>{error}</p>}
+                            <p className='inputheader'>Email</p>
+                            <input
+                                type='text'
+                                className='logininput'
+                                placeholder='Email'
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required></input>
                             <p className='inputheader'>Username</p>
                             <input
                                 type='text'

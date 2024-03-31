@@ -1,0 +1,41 @@
+.wrapper {
+    display: flex;
+    overflow: scroll;
+}
+
+.nav {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    border-radius: 0 20px 20px 0;
+    background-color: rgb(22, 21, 28);
+    border: 1px solid #343434;
+    height: 92vh;
+}
+
+.logo {
+    margin-top: 3vh;
+    width: 3vw;
+    height: auto;
+}
+
+.header {
+    font-size: 1.3rem;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    height: 6%;
+    justify-content: flex-start;
+}
+
+.optiontext {
+}
+
+.optionimg {
+    height: 50%;
+    width: auto;
+}

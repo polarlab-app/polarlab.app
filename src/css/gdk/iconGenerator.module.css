@@ -1,0 +1,88 @@
+.main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 92vh;
+    width: 80%;
+    overflow: scroll;
+}
+
+.workplace {
+    margin-top: 7vh;
+    border-radius: 20px;
+    background-color: rgb(22, 21, 28);
+    border: 1px solid #343434;
+    height: 60%;
+    width: 80%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.icon {
+    aspect-ratio: 1 / 1;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.iconimage {
+    opacity: 1;
+    width: 70%;
+    aspect-ratio: 1 / 1;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.controls {
+    width: 80%;
+    height: 40vh;
+    margin-top: 7vh;
+    color: white;
+    text-align: le;
+    border-radius: 20px;
+    background-color: rgb(22, 21, 28);
+    border: 1px solid #343434;
+}
+
+.inputs {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(3, 25%);
+    column-gap: 8%;
+    row-gap: 5%;
+}
+
+.inputcontainer {
+    margin: 0 3%;
+}
+
+.inputlabel {
+    text-align: left;
+    font-weight: 600;
+}
+.input {
+    width: 100%;
+    border: 1px solid #343434;
+    background-color: #232323;
+    border-radius: 12px;
+    padding: 12px;
+    color: white;
+    transition: all 600ms ease;
+}
+
+.input:focus {
+    outline: none;
+    border: 1px solid #505050;
+    transition: all 600ms ease;
+}

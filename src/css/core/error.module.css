@@ -1,0 +1,53 @@
+.errorcontainer {
+    margin-top: 10vh;
+    width: 60%;
+    margin-left: 20%;
+    height: 60vh;
+    background-color: #16151c;
+    border: 1px solid #505050;
+    border-radius: 12px;
+    color: white;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+}
+
+.left {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.explanation,
+.heading {
+    width: 45%;
+    margin-left: 5%;
+}
+
+.buttons {
+    justify-content: flex-end;
+    width: 45%;
+    margin-left: 5%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5%;
+}
+
+.button {
+    text-align: center;
+    width: 20%;
+    border: 1px solid #343434;
+    background-color: #232323;
+    border-radius: 8px;
+    padding: 12px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 600ms ease;
+}
+
+.button:hover {
+    border: 1px solid rgb(32, 32, 32);
+    background-color: rgb(32, 32, 32);
+    transition: all 600ms ease;
+}

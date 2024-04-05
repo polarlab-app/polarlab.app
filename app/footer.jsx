@@ -58,6 +58,11 @@ export default function Footer() {
                                 </Link>
                             </li>
                             <li className='listcontent'>
+                                <Link className='listcontent' href='/tracker' prefetch={false}>
+                                    Issue Tracker
+                                </Link>
+                            </li>
+                            <li className='listcontent'>
                                 <Link className='listcontent' href='/contact' prefetch={false}>
                                     Contact
                                 </Link>

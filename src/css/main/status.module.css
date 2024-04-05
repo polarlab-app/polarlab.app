@@ -1,18 +1,24 @@
 .main {
     overflow: scroll;
     display: flex;
-    width: 50%;
-    margin-left: 25%;
+    width: 100%;
     flex-direction: column;
+    text-align: left;
+    font-size: 14px;
+    color: #91909c;
+    -webkit-font-smoothing: antialiased;
+    height: 80%;
 }
-.tablewrapper {
-    width: 50%;
-}
+
 .statustable {
-    margin-top: 8%;
+    margin-left: 25%;
+    width: 50%;
+    margin-top: 5%;
     border: 1px solid #707070;
     border-radius: 7px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    /*background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));*/
+    border: 1px solid #343434;
+    background-color: rgb(22, 21, 28);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 }
@@ -40,36 +46,57 @@
 
 .online {
     color: #00e09c;
+    font-weight: 600;
 }
 .minor {
     color: #fdb822;
+    font-weight: 600;
 }
 .major {
     color: #fe424d;
+    font-weight: 600;
 }
 .beta {
     color: #818ef9;
+    font-weight: 600;
 }
 .offline {
     color: #b7b9bd;
+    font-weight: 600;
 }
 
 @media screen and (max-width: 480px) {
-    .main {
+    .statustable {
         width: 100%;
         margin-left: 0;
     }
 }
 @media screen and (min-width: 481px) and (max-width: 767px) {
-    .main {
+    .statustable {
         width: 90%;
         margin-left: 5%;
     }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
-    .main {
+    .statustable {
         width: 80%;
         margin-left: 10%;
     }
+}
+
+.statusgrid {
+    margin-left: 25%;
+    width: 50%;
+    margin-top: 5%;
+    border: 1px solid #707070;
+    border-radius: 7px;
+    /*background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));*/
+    border: 1px solid #343434;
+    background-color: rgb(22, 21, 28);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
 }

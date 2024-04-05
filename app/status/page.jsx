@@ -1,5 +1,6 @@
 import styles from '../../src/css/main/status.module.css';
-import '../../src/css/main/status.global.css';
+//import '../../src/css/main/status.global.css';
+import { pages } from '@data/status.json';
 
 export const metadata = {
     title: 'Polar Lab | Status',
@@ -11,6 +12,9 @@ export default function Page() {
         <>
             <div className='stars'></div>
             <div className={styles.main}>
+                <div className={styles.statusgrid}>
+                    <div className={styles.gridrow}></div>
+                </div>
                 <table className={styles.statustable}>
                     <tbody>
                         <tr className={styles.tablerow}>

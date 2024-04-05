@@ -3,7 +3,9 @@
         "paths": {
             "@/*": ["./*"],
             "@schemas/*": ["./src/schemas/*"],
-            "@css/*": ["./src/css/*"]
+            "@css/*": ["./src/css/*"],
+            "@src/*": ["./src/*"],
+            "@data/*": ["./src/data/*"]
         }
     }
 }

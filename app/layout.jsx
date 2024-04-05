@@ -1,14 +1,12 @@
 import '../src/global.css';
 import NavBar from './NavBar.jsx';
 import Footer from './footer.jsx';
-import Loading from './loading.js';
-import { Suspense } from 'react';
 
 require('dotenv').config();
 
 export const metadata = {
     title: 'Polar Lab',
-    description: 'Foss',
+    description: 'Free and Open Source software',
 };
 
 export default function RootLayout({ children }) {
@@ -16,7 +14,7 @@ export default function RootLayout({ children }) {
         <html lang='en'>
             <body className='body' id='body'>
                 <NavBar />
-                <Suspense fallback={<Loading />}>{children}</Suspense>
+                {children}
                 <Footer />
             </body>
         </html>

@@ -43,20 +43,20 @@
 }
 
 @media screen and (max-width: 480px) {
-    .statustable {
+    .statusgrid {
         width: 100%;
         margin-left: 0;
     }
 }
 @media screen and (min-width: 481px) and (max-width: 767px) {
-    .statustable {
+    .statusgrid {
         width: 90%;
         margin-left: 5%;
     }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
-    .statustable {
+    .statusgrid {
         width: 80%;
         margin-left: 10%;
     }

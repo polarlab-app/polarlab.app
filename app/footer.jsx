@@ -90,7 +90,7 @@ export default function Footer() {
             </div>
             <div className='footer2'>
                 <a className='copyr' href='https://polarlab.app'>
-                    ©️ 2023 Polar Lab
+                    ©️ 2024 Polar Lab
                 </a>
                 <div className='status'>
                     <Link className='product' href='/status' prefetch={false}>

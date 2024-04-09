@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import data from '@data/errors.json';
 import styles from '@css/core/error.module.css';
 
 export default function NotFound() {

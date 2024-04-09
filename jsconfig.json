@@ -5,7 +5,8 @@
             "@schemas/*": ["./src/schemas/*"],
             "@css/*": ["./src/css/*"],
             "@src/*": ["./src/*"],
-            "@data/*": ["./src/data/*"]
+            "@data/*": ["./src/data/*"],
+            "@lib/*": ["./lib/*"]
         }
     }
 }

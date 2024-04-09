@@ -1,5 +1,10 @@
 {
     "pages": {
-        "Blog": "https://polarlab.app/blog"
+        "Docs": "https://docs.polarlab.app/",
+        "Blog": "https://polarlab.app/blog",
+        "Landing Pages": "https://polarlab.app/",
+        "Issue Tracker": "https://polarlab.app/tracker",
+        "Glorious Development Kit": "https://polarlab.app/gdk",
+        "Status": "https://polarlab.app/status"
     }
 }

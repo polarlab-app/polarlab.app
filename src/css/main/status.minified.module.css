@@ -9,18 +9,14 @@
     -webkit-font-smoothing: antialiased;
     height: 80%;
 }
-
 .headicon {
     height: 0.8rem;
     margin-right: 3%;
 }
-
-/* Status Classes */
 .rowicon {
     width: 0.8rem;
     margin-right: 3%;
 }
-
 .online {
     color: #00e09c;
     font-weight: 600;
@@ -41,7 +37,6 @@
     color: #b7b9bd;
     font-weight: 600;
 }
-
 @media screen and (max-width: 480px) {
     .statustable {
         width: 100%;
@@ -54,23 +49,19 @@
         margin-left: 5%;
     }
 }
-
 @media screen and (min-width: 768px) and (max-width: 1024px) {
     .statustable {
         width: 80%;
         margin-left: 10%;
     }
 }
-
 .statusgrid {
     margin-left: 25%;
     width: 50%;
     margin-top: 5%;
-    border: 1px solid #707070;
-    border-radius: 7px;
-    /*background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));*/
     border: 1px solid #343434;
-    background-color: rgb(22, 21, 28);
+    border-radius: 7px;
+    background-color: #16151c;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     display: grid;
@@ -78,7 +69,6 @@
     grid-template-rows: repeat(auto, 2vh);
     column-gap: 3%;
 }
-
 .gridheader {
     column-gap: 3%;
     font-weight: 700;
@@ -90,13 +80,11 @@
     grid-template-columns: repeat(3, 1fr);
     line-height: 1.2;
 }
-
 .headercell {
     display: flex;
     align-items: center;
     margin-left: 5%;
 }
-
 .headericon {
     height: 0.9rem;
     width: auto;
@@ -106,15 +94,12 @@
     display: flex;
     align-items: center;
 }
-
 .gridtext {
     margin: 1vh 0;
 }
-
 .gridcell:nth-child(1n) {
     margin-left: 5%;
 }
-
 .cellicon {
     margin-right: 3%;
     width: 1rem;

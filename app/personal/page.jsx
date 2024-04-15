@@ -1,10 +1,10 @@
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
-import Form from '../../components/personal/form.jsx';
-import Privacy from '@/components/personal/privacy.jsx';
+import Form from '@components/personal/form.jsx';
+import Privacy from '@components/personal/privacy.jsx';
 
-import styles from '../../src/css/main/personal.module.css';
-import findUser from '@/lib/auth/validation/findUser.js';
+import styles from '@css/main/personal.module.css';
+import findUser from '@lib/auth/validation/findUser.js';
 
 export const metadata = {
     title: 'Polar Lab | Personal',

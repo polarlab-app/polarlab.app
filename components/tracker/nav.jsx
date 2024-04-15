@@ -1,6 +1,6 @@
 'use client';
-import styles from '../../src/css/tracker/nav.module.css';
-import secondaryStyles from '@/src/css/tracker/bug.module.css';
+import styles from '@css/tracker/nav.module.css';
+import secondaryStyles from '@css/tracker/bug.module.css';
 
 export default function TrackerBar() {
     async function handleMobile() {

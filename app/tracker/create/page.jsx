@@ -2,10 +2,10 @@
 
 import { useState } from 'react';
 
-import styles from '@/src/css/tracker/create.module.css';
+import styles from '@css/tracker/create.module.css';
 import data from './json.json';
 
-import createIssue from '@/lib/tracker/createIssue';
+import createIssue from '@lib/tracker/createIssue';
 
 export default function Page() {
     const [openStatus, setOpenStatus] = useState(false);

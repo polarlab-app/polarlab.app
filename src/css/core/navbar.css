@@ -55,7 +55,7 @@ nav {
     color: #91909c;
     font-weight: 700;
     transition: all 600ms ease;
-    margin: auto;
+    margin: 1% auto;
     margin-top: 1%;
 }
 
@@ -114,7 +114,7 @@ nav {
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
     .navlinkcontainer {
-        width: 100%;
-        margin-left: 0;
+        width: 90%;
+        margin-left: 5%;
     }
 }

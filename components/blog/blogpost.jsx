@@ -1,9 +1,9 @@
 'use client';
 
-import styles from '../src/css/blog/blog.module.css';
+import styles from '@css/blog/blog.module.css';
 import { useRouter } from 'next/navigation';
 
-export function BlogPostGrid(props) {
+export default function BlogPostGrid(props) {
     const router = useRouter();
 
     function handleRedirect() {

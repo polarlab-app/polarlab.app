@@ -1,4 +1,4 @@
-import styles from '../../src/css/downloads/downloads.module.css';
+import styles from '@css/downloads/downloads.module.css';
 import items from './downloads.json';
 
 export const metadata = {

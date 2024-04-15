@@ -1,10 +1,10 @@
 'use client';
 
-import '../../../src/css/login.css';
+import '@css/login.css';
 import Link from 'next/link';
 import React, { useState } from 'react';
 
-import validateRegister from '@/lib/auth/validation/validateRegister';
+import validateRegister from '@lib/auth/validation/validateRegister';
 
 /*export const metadata = {
     title: 'Polar Lab | Register',

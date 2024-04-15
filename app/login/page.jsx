@@ -1,10 +1,10 @@
 'use client';
 
-import '../../src/css/login.css';
+import '@css/login.css';
 import Link from 'next/link';
 import React, { useState } from 'react';
 
-import login from '../../lib/auth/login';
+import login from '@lib/auth/login';
 
 /*export const metadata = {
     title: 'Polar Lab | Login',

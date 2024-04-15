@@ -1,6 +1,6 @@
 'use client';
 
-import styles from '../../src/css/tracker/list.module.css';
+import styles from '@css/tracker/list.module.css';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 

@@ -15,7 +15,7 @@ export async function generateMetadata({ params }) {
 export default function Page({ params }) {
     const post = params.post;
 
-    const BlogPost = dynamic(() => import(`../../../../components/posts/${post}.jsx`), { suspense: true });
+    const BlogPost = dynamic(() => import(`../../../../components/blog/posts/${post}.jsx`), { suspense: true });
 
     return (
         <Suspense fallback={<p>Loading...</p>}>

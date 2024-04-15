@@ -1,6 +1,6 @@
-import { BlogPostGrid } from '../../components/blogpost.jsx';
+import BlogPostGrid from '@components/blog/blogpost';
 
-import styles from '../../src/css/blog/blog.module.css';
+import styles from '@css/blog/blog.module.css';
 import posts from './posts.json';
 
 export const metadata = {

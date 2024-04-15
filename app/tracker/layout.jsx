@@ -1,8 +1,8 @@
-import TrackerBar from '../../components/tracker/nav.jsx';
-import BugList from '../../components/tracker/buglist.jsx';
+import TrackerBar from '@components/tracker/nav.jsx';
+import BugList from '@components/tracker/buglist.jsx';
 
-import styles from '../../src/css/tracker/global.module.css';
-import '../../src/css/tracker/dis.css';
+import styles from '@css/tracker/global.module.css';
+import '@css/tracker/dis.css';
 
 export const metadata = {
     title: 'Polar Lab | Tracker',

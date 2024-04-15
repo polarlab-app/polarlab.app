@@ -1,4 +1,4 @@
-import styles from '../../../../src/css/tracker/bug.module.css';
+import styles from '@css/tracker/bug.module.css';
 
 import getIssue from '@/lib/tracker/getBug';
 

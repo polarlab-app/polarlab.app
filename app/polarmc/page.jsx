@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import '../../src/css/landingPage.css';
 import { useEffect } from 'react';
 import $ from 'jquery';
 

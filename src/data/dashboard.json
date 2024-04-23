@@ -1,0 +1,13 @@
+{
+    "topBar": {
+        "settings": "The general settings for your server (Module specific settings can be found inside their respective pages)"
+    },
+    "inputs": {
+        "ai-functionality": {
+            "name": "AI Functionality",
+            "description": "Whether to enable AI empowered analytics for your server",
+            "path": "config/general",
+            "placeholder": null
+        }
+    }
+}

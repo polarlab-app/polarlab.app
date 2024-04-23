@@ -1,182 +1,163 @@
-import '../../../src/css/dashboard/settings.css';
+import styles from '@css/dashboard/settings.module.css';
+import TopBar from '@/components/dashboard/topbar';
 
 export default function Page() {
     return (
         <>
-            <div className='dashboardtopbar'>
-                <h1 className='topbarheader'>Settings</h1>
-                <hr className='topbardivider'></hr>
-                <p className='topbardescription'>
-                    The general settings for your server (Module specific settings can be found inside their respective
-                    pages)
-                </p>
-            </div>
+            <TopBar type='settings' />
             <div className='dashboardwrapper'>
-                <div className='togglegroup'>
-                    <div className='toggleswitchcontainer'>
-                        <div className='toggleswitchtext'>
-                            <p className='toggleswitchheader'>AI Functionality</p>
-                            <p className='toggleswitchdescription'>
+                <div className={styles.togglegroup}>
+                    <div className={styles.toggleswitchcontainer}>
+                        <div className={styles.toggleswitchtext}>
+                            <p className={styles.toggleswitchheader}>AI Functionality</p>
+                            <p className={styles.toggleswitchdescription}>
                                 Whether to enable AI empowered analytics for your server
                             </p>
                         </div>
-                        <label className='togglecontainer'>
-                            <input type='checkbox' className='hidden'></input>
-                            <span className='toggle'>
-                                <span className='innertoggle'></span>
+                        <label className={styles.togglecontainer}>
+                            <input type='checkbox' className={styles.hidden}></input>
+                            <span className={styles.toggle}>
+                                <span className={styles.innertoggle}></span>
                             </span>
                         </label>
                     </div>
                 </div>
-                <div className='togglegroup'>
-                    <div className='toggleswitchcontainer'>
-                        <div className='toggleswitchtext'>
-                            <p className='toggleswitchheader'>AI Functionality</p>
-                            <p className='toggleswitchdescription'>
+                <div className={styles.togglegroup}>
+                    <div className={styles.toggleswitchcontainer}>
+                        <div className={styles.toggleswitchtext}>
+                            <p className={styles.toggleswitchheader}>AI Functionality</p>
+                            <p className={styles.toggleswitchdescription}>
                                 Whether to enable AI empowered analytics for your server
                             </p>
                         </div>
-                        <label className='togglecontainer'>
-                            <input type='checkbox' className='hidden'></input>
-                            <span className='toggle'>
-                                <span className='innertoggle'></span>
+                        <label className={styles.togglecontainer}>
+                            <input type='checkbox' className={styles.hidden}></input>
+                            <span className={styles.toggle}>
+                                <span className={styles.innertoggle}></span>
                             </span>
                         </label>
                     </div>
-                    <div className='toggleswitchcontainer'>
-                        <div className='toggleswitchtext'>
-                            <p className='toggleswitchheader'>AI Functionality</p>
-                            <p className='toggleswitchdescription'>
+
+                    <div className={styles.toggleswitchcontainer}>
+                        <div className={styles.toggleswitchtext}>
+                            <p className={styles.toggleswitchheader}>AI Functionality</p>
+                            <p className={styles.toggleswitchdescription}>
                                 Whether to enable AI empowered analytics for your server
                             </p>
                         </div>
-                        <label className='togglecontainer'>
-                            <input type='checkbox' className='hidden'></input>
-                            <span className='toggle'>
-                                <span className='innertoggle'></span>
+                        <label className={styles.togglecontainer}>
+                            <input type='checkbox' className={styles.hidden}></input>
+                            <span className={styles.toggle}>
+                                <span className={styles.innertoggle}></span>
                             </span>
                         </label>
                     </div>
-                    <div className='toggleswitchcontainer'>
-                        <div className='toggleswitchtext'>
-                            <p className='toggleswitchheader'>AI Functionality</p>
-                            <p className='toggleswitchdescription'>
+                    <div className={styles.toggleswitchcontainer}>
+                        <div className={styles.toggleswitchtext}>
+                            <p className={styles.toggleswitchheader}>AI Functionality</p>
+                            <p className={styles.toggleswitchdescription}>
                                 Whether to enable AI empowered analytics for your server
                             </p>
                         </div>
-                        <label className='togglecontainer'>
-                            <input type='checkbox' className='hidden'></input>
-                            <span className='toggle'>
-                                <span className='innertoggle'></span>
+                        <label className={styles.togglecontainer}>
+                            <input type='checkbox' className={styles.hidden}></input>
+                            <span className={styles.toggle}>
+                                <span className={styles.innertoggle}></span>
                             </span>
                         </label>
                     </div>
-                    <div className='toggleswitchcontainer'>
-                        <div className='toggleswitchtext'>
-                            <p className='toggleswitchheader'>AI Functionality</p>
-                            <p className='toggleswitchdescription'>
+                    <div className={styles.toggleswitchcontainer}>
+                        <div className={styles.toggleswitchtext}>
+                            <p className={styles.toggleswitchheader}>AI Functionality</p>
+                            <p className={styles.toggleswitchdescription}>
                                 Whether to enable AI empowered analytics for your server
                             </p>
                         </div>
-                        <label className='togglecontainer'>
-                            <input type='checkbox' className='hidden'></input>
-                            <span className='toggle'>
-                                <span className='innertoggle'></span>
-                            </span>
-                        </label>
-                    </div>
-                    <div className='toggleswitchcontainer'>
-                        <div className='toggleswitchtext'>
-                            <p className='toggleswitchheader'>AI Functionality</p>
-                            <p className='toggleswitchdescription'>
-                                Whether to enable AI empowered analytics for your server
-                            </p>
-                        </div>
-                        <label className='togglecontainer'>
-                            <input type='checkbox' className='hidden'></input>
-                            <span className='toggle'>
-                                <span className='innertoggle'></span>
+                        <label className={styles.togglecontainer}>
+                            <input type='checkbox' className={styles.hidden}></input>
+                            <span className={styles.toggle}>
+                                <span className={styles.innertoggle}></span>
                             </span>
                         </label>
                     </div>
                 </div>
-                <div className='togglegroup'>
-                    <div className='toggleswitchcontainer'>
-                        <div className='toggleswitchtext'>
-                            <p className='toggleswitchheader'>AI Functionality</p>
-                            <p className='toggleswitchdescription'>
+                <div className={styles.togglegroup}>
+                    <div className={styles.toggleswitchcontainer}>
+                        <div className={styles.toggleswitchtext}>
+                            <p className={styles.toggleswitchheader}>AI Functionality</p>
+                            <p className={styles.toggleswitchdescription}>
                                 Whether to enable AI empowered analytics for your server
                             </p>
                         </div>
-                        <label className='togglecontainer'>
-                            <input type='checkbox' className='hidden'></input>
-                            <span className='toggle'>
-                                <span className='innertoggle'></span>
+                        <label className={styles.togglecontainer}>
+                            <input type='checkbox' className={styles.hidden}></input>
+                            <span className={styles.toggle}>
+                                <span className={styles.innertoggle}></span>
                             </span>
                         </label>
                     </div>
-                    <div className='toggleswitchcontainer'>
-                        <div className='toggleswitchtext'>
-                            <p className='toggleswitchheader'>AI Functionality</p>
-                            <p className='toggleswitchdescription'>
+                    <div className={styles.toggleswitchcontainer}>
+                        <div className={styles.toggleswitchtext}>
+                            <p className={styles.toggleswitchheader}>AI Functionality</p>
+                            <p className={styles.toggleswitchdescription}>
                                 Whether to enable AI empowered analytics for your server
                             </p>
                         </div>
-                        <label className='togglecontainer'>
-                            <input type='checkbox' className='hidden'></input>
-                            <span className='toggle'>
-                                <span className='innertoggle'></span>
+                        <label className={styles.togglecontainer}>
+                            <input type='checkbox' className={styles.hidden}></input>
+                            <span className={styles.toggle}>
+                                <span className={styles.innertoggle}></span>
                             </span>
                         </label>
                     </div>
-                    <div className='toggleswitchcontainer'>
-                        <div className='toggleswitchtext'>
-                            <p className='toggleswitchheader'>AI Functionality</p>
-                            <p className='toggleswitchdescription'>
+                    <div className={styles.toggleswitchcontainer}>
+                        <div className={styles.toggleswitchtext}>
+                            <p className={styles.toggleswitchheader}>AI Functionality</p>
+                            <p className={styles.toggleswitchdescription}>
                                 Whether to enable AI empowered analytics for your server
                             </p>
                         </div>
-                        <label className='togglecontainer'>
-                            <input type='checkbox' className='hidden'></input>
-                            <span className='toggle'>
-                                <span className='innertoggle'></span>
+                        <label className={styles.togglecontainer}>
+                            <input type='checkbox' className={styles.hidden}></input>
+                            <span className={styles.toggle}>
+                                <span className={styles.innertoggle}></span>
                             </span>
                         </label>
                     </div>
-                    <div className='toggleswitchcontainer'>
-                        <div className='toggleswitchtext'>
-                            <p className='toggleswitchheader'>AI Functionality</p>
-                            <p className='toggleswitchdescription'>
+                    <div className={styles.toggleswitchcontainer}>
+                        <div className={styles.toggleswitchtext}>
+                            <p className={styles.toggleswitchheader}>AI Functionality</p>
+                            <p className={styles.toggleswitchdescription}>
                                 Whether to enable AI empowered analytics for your server
                             </p>
                         </div>
-                        <label className='togglecontainer'>
-                            <input type='checkbox' className='hidden'></input>
-                            <span className='toggle'>
-                                <span className='innertoggle'></span>
+                        <label className={styles.togglecontainer}>
+                            <input type='checkbox' className={styles.hidden}></input>
+                            <span className={styles.toggle}>
+                                <span className={styles.innertoggle}></span>
                             </span>
                         </label>
                     </div>
-                    <div className='toggleswitchcontainer'>
-                        <div className='toggleswitchtext'>
-                            <p className='toggleswitchheader'>AI Functionality</p>
-                            <p className='toggleswitchdescription'>
+                    <div className={styles.toggleswitchcontainer}>
+                        <div className={styles.toggleswitchtext}>
+                            <p className={styles.toggleswitchheader}>AI Functionality</p>
+                            <p className={styles.toggleswitchdescription}>
                                 Whether to enable AI empowered analytics for your server
                             </p>
                         </div>
-                        <label className='togglecontainer'>
-                            <input type='checkbox' className='hidden'></input>
-                            <span className='toggle'>
-                                <span className='innertoggle'></span>
+                        <label className={styles.togglecontainer}>
+                            <input type='checkbox' className={styles.hidden}></input>
+                            <span className={styles.toggle}>
+                                <span className={styles.innertoggle}></span>
                             </span>
                         </label>
                     </div>
                 </div>
-                <div className='savecontainer'>
-                    <p className='savetext'>Do you want to save your changes?</p>
-                    <div className='savebuttoncontainer'>
-                        <button className='savebutton cancel'>Cancel</button>
-                        <button className='savebutton save'>Save</button>
+                <div className={styles.savecontainer}>
+                    <p className={styles.savetext}>Do you want to save your changes?</p>
+                    <div className={styles.savebuttoncontainer}>
+                        <button className={styles.savebutton + ' ' + styles.cancel}>Cancel</button>
+                        <button className={styles.savebutton + ' ' + styles.save}>Save</button>
                     </div>
                 </div>
             </div>

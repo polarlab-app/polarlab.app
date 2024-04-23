@@ -24,33 +24,7 @@ nav {
     flex-direction: column;
     overflow: hidden;
 }
-.dashboardtopbar {
-    width: 100%;
-    height: 10vh;
-    border-bottom: 1px solid #505050;
-    margin-left: 0;
-    text-align: left;
-    display: flex;
-    align-items: center;
-}
-.topbarheader {
-    margin-left: 3%;
-    color: white;
-}
-.topbardivider {
-    background-color: #28272e;
-    font-size: 2rem;
-    height: 40%;
-    width: 0.1vw;
-    border: none;
-    border-radius: 12px;
-    margin: 0 2%;
-}
-.topbardescription {
-    color: #9d9ba9;
-    font-weight: 600;
-    margin: 0;
-}
+
 .username {
     color: #505050;
     font-weight: 700;

@@ -1,8 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect } from 'react';
-import $ from 'jquery';
+import GridItem from '@/components/main/gridItem';
 
 /*export const metadata = {
     title: 'Polar MC',
@@ -10,27 +9,6 @@ import $ from 'jquery';
 };*/
 
 export default function Page() {
-    useEffect(() => {
-        const checkVisibility = () => {
-            $('.griditem, .siteheading').each(function () {
-                const elementTop = $(this).offset().top;
-                const windowTop = $(window).scrollTop();
-                const windowHeight = $(window).height();
-
-                if (elementTop < windowTop + windowHeight * 0.9) {
-                    $(this).addClass('animate');
-                } else {
-                    $(this).removeClass('animate');
-                }
-            });
-        };
-
-        $(window).on('scroll', checkVisibility);
-
-        return () => {
-            $(window).off('scroll', checkVisibility);
-        };
-    }, []);
     return (
         <>
             <div className='stars'></div>;
@@ -43,6 +21,33 @@ export default function Page() {
                     </Link>
                     <p className='scroll'>Scroll</p>
                 </div>
+                <div className='sitesection' id='why-polarmc'>
+                    <div className='siteheading'>
+                        <h2 className='sectionheaderwrapper'>
+                            <span className='sectionheader'>Why Polar MC?</span>
+                        </h2>
+                        <p className='sectionsubheader'>What makes Polar MC special over other servers?</p>
+                    </div>
+                    <div className='featuregrid'>
+                        <GridItem format='half' type='polarmc-landing-community' />
+                        <GridItem format='half' type='polarmc-landing-compatibility' />
+                    </div>
+                </div>
+                <div className='sitesection' id='why-polarmc'>
+                    <div className='siteheading'>
+                        <h2 className='sectionheaderwrapper'>
+                            <span className='sectionheader'>The World</span>
+                        </h2>
+                        <p className='sectionsubheader'>This is everything that the Polar MC world offers</p>
+                    </div>
+                    <div className='featuregrid'>
+                        <GridItem format='third' type='polarmc-landing-live-map' />
+                        <GridItem format='twothirds' type='polarmc-landing-massive-pregenerated-world' />
+                        <GridItem format='twothirds' type='polarmc-landing-custom-biomes' />
+                        <GridItem format='third' type='polarmc-landing-vanilla-plus-world-generation' />
+                    </div>
+                </div>
+                {/*
                 <div className='sitesection' id='why-polarmc'>
                     <div className='siteheading'>
                         <h2 className='sectionheaderwrapper'>
@@ -189,6 +194,7 @@ export default function Page() {
                         </div>
                     </div>
                 </div>
+                */}
             </div>
         </>
     );

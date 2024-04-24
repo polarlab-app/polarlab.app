@@ -1,0 +1,17 @@
+{
+    "titles": {
+        "main": "Polar Lab",
+        "polaris-v2": "Polaris V2",
+        "polarmc": "Polar MC"
+    },
+    "descriptions": {
+        "main": "Free and open source services to enliven your online experience",
+        "polaris-v2": "One Bot To Rule Them All, One Bot To Surpass Them All",
+        "polarmc": "The survival minecraft server that you dreamed of"
+    },
+    "links": {
+        "main": "#services",
+        "polaris-v2": "/dashboard",
+        "polarmc": "#features"
+    }
+}

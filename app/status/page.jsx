@@ -1,6 +1,5 @@
 import { Suspense } from 'react';
 import styles from '../../src/css/main/status.module.css';
-import Image from 'next/image';
 import StatusGrid from '@/components/status/statusGrid';
 import GridHeader from '@/components/status/gridHeader';
 

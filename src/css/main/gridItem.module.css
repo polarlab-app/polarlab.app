@@ -1,6 +1,7 @@
 .griditem {
     border: 1px solid #343434;
     background-color: rgb(22, 21, 28);
+    backdrop-filter: blur(10px);
     height: 45vh;
     border-radius: 10px;
     opacity: 0;
@@ -14,10 +15,6 @@
     -moz-animation: appear 0.6s linear both;
     transform-style: preserve-3d;
     will-change: transform, opacity;
-}
-
-.siteheading {
-    opacity: 0;
 }
 
 @keyframes appear {
@@ -38,188 +35,163 @@
 }
 
 .gridtextcontainer {
-    float: left;
-    margin-left: 5%;
-    width: 40%;
-    text-align: left;
+    display: flex;
+    flex-direction: column;
+    color: #a1a0a9;
+    margin-left: 4%;
 }
 
 .gridheader {
-    font-size: 1.4rem;
-    color: #e2e2e2;
-    margin-bottom: 2px;
-}
-
-.gridcontent span {
-    color: hsl(0 0% 100% / 0.2);
-    background-clip: text;
-    background-repeat: no-repeat;
-    background-size: 0% 100%;
-    background-image: linear-gradient(90deg, #91909c, #91909c);
-    animation: scroll-reveal linear forwards;
-    animation-timeline: view();
-    animation-range-start: 20vh;
-    animation-range-end: 60vh;
-}
-
-@keyframes scroll-reveal {
-    to {
-        background-size: 100% 100%;
-    }
-}
-
-.gridimg {
-    height: 100%;
-    float: right;
-    border-radius: 4px 10px 10px 4px;
-}
-
-.gridbutton:hover {
-    background-color: #1b1b1d;
-    transition: all 600ms ease;
+    color: white;
+    font-size: 1.6em;
+    color: #e5e5e5;
+    margin-bottom: 0;
 }
 
 .gridbutton {
-    padding: 5px 20px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    line-height: 1.1;
-    font-weight: 500;
+    font-weight: 600;
+    border-radius: 5px;
     background-color: #2a2933;
-    cursor: pointer;
+    padding: 6px 20px;
+    text-align: center;
+    width: 25%;
+    transition: all 600ms ease;
+    width: max-content;
+    z-index: 1289;
+}
+
+.gridbutton:hover {
+    scale: 0.95;
+    background-color: #1b1b2a;
     transition: all 600ms ease;
 }
 
-.gridrowthird {
-    grid-column: span 2;
-    .gridheader {
-        width: 220%;
-        text-align: center;
-    }
-    .gridcontent {
-        float: none;
-        width: 230%;
-    }
-    .gridimg {
-        height: 40%;
-        position: absolute;
-        bottom: 3%;
-        right: 10%;
-    }
-}
-.gridrowhalf {
+.gridrowfull {
+    grid-column: span 6;
     display: flex;
-    flex-direction: column;
-    text-align: center;
-    height: 70vh;
-    grid-row: span 4;
-    grid-column: span 3;
-    position: relative;
+    text-align: left;
+    height: 35vh;
+    justify-content: space-between;
 }
 
-.gridrowhalf .gridtextcontainer {
-    text-align: center;
-    width: 90%;
+.gridrowfull .gridtextcontainer {
+    width: 45%;
+}
+
+.gridrowfull .gridimg {
+    max-height: 100%;
+    max-width: 50%;
+    border-radius: 3px 10px 10px 3px;
+    float: right;
+    align-self: flex-end;
+}
+
+.gridrowhalf {
+    grid-row: span 2;
+    grid-column: span 3;
+    height: 70vh;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+}
+
+.gridrowhalf .gridbutton {
+    align-self: center;
 }
 
 .gridrowhalf .gridimg {
-    height: 50%;
+    max-height: 55%;
+    max-width: 100%;
+    align-self: center;
+    border-radius: 3px 3px 10px 10px;
+}
+
+.gridrowthird {
+    display: flex;
+    flex-direction: column;
+    grid-column: span 2;
+    justify-content: space-between;
+}
+
+.gridrowthird .gridtextcontainer {
+    width: 90%;
+    margin-left: 5%;
+    text-align: left;
+    height: 60%;
+}
+
+.gridrowthird .gridimg {
+    max-height: 40%;
+    align-self: flex-end;
+    border-radius: 3px 3px 10px 3px;
+    height: fit-content;
     position: absolute;
     bottom: 0;
     right: 0;
-    left: 0;
-    margin: 0 auto;
+    max-width: 90%;
 }
 
 .gridrowtwothirds {
     grid-column: span 4;
-    height: 45vh;
-    .gridcontent {
-        width: 110%;
-    }
-}
-.gridrowfull {
-    grid-column: span 6;
-    height: 35vh;
+    text-align: left;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
 }
 
-@media screen and (max-width: 480px) {
-    .main {
-        width: 100%;
-        margin: 0;
-    }
-    .featuregrid {
-        grid-template-rows: 16%;
-    }
-    .griditem {
-        margin-top: 3vh;
-        grid-column: span 6;
-        grid-row: span 2;
-        height: 45vh;
-    }
-    .gridimg {
-        height: 40%;
-        position: absolute;
-        bottom: 3%;
-        right: 10%;
-    }
-    .gridheader {
-        width: 220%;
-        text-align: center;
-    }
-    .gridcontent {
-        float: none;
-        width: 230%;
-    }
+.gridrowtwothirds .gridtextcontainer {
+    width: 50%;
 }
 
-@media screen and (max-width: 768px) and (min-width: 481px) {
-    .main {
-        width: 100%;
-        margin: 0;
-    }
-    .featuregrid {
-        grid-template-rows: 16%;
-    }
-    .griditem {
-        margin-top: 3vh;
-        grid-column: span 6;
-        grid-row: span 2;
-        height: 45vh;
-    }
-    .gridimg {
-        height: 40%;
-        position: absolute;
-        bottom: 3%;
-        right: 10%;
-    }
-    .gridheader {
-        width: 220%;
-        text-align: center;
-    }
-    .gridcontent {
-        float: none;
-        width: 230%;
-    }
+.gridrowtwothirds .gridimg {
+    height: 50%;
+    /*align-self: flex-end;
+    justify-self: flex-end;*/
+    border-radius: 3px 10px 10px 3px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    max-width: 70%;
 }
 
-@media screen and (min-width: 769px) and (max-width: 1025px) {
-    .main {
-        width: 100%;
-        margin: 0;
-    }
-    .gridrowhalf {
+@media screen and (max-width: 768px) {
+    .gridrowfull,
+    .gridrowhalf,
+    .gridrowthird,
+    .gridrowtwothirds {
+        grid-column: 1;
         display: flex;
         flex-direction: column;
+        height: 55vh;
+    }
+
+    .gridrowfull .gridtextcontainer,
+    .gridrowhalf .gridtextcontainer,
+    .gridrowthird .gridtextcontainer,
+    .gridrowtwothirds .gridtextcontainer {
+        width: 90%;
+        margin-left: 5%;
         text-align: center;
-        .gridtextcontainer {
-            width: 90%;
-        }
-        .gridimg {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            height: 60%;
-        }
+        height: 50%;
+    }
+
+    .gridrowfull .gridimg,
+    .gridrowhalf .gridimg,
+    .gridrowthird .gridimg,
+    .gridrowtwothirds .gridimg {
+        border-radius: 10px;
+        max-height: 45%;
+        max-width: 100%;
+        height: auto;
+        align-self: center;
+        position: relative;
+    }
+
+    .gridrowfull .gridbutton,
+    .gridrowhalf .gridbutton,
+    .gridrowthird .gridbutton,
+    .gridrowtwothirds .gridbutton {
+        align-self: center;
+        width: 50%;
     }
 }

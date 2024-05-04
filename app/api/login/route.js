@@ -36,6 +36,7 @@ export async function POST(req) {
             });
 
         await cookies().set('accessToken', response.data.access_token, { secure: true, path: '/', sameSite: true });
+        await cookies().set('refreshToken', response.data.refresh_token, { secure: true, path: '/', sameSite: true });
         await cookies().set('userData', userData.data, { secure: true, path: '/', sameSite: true });
         return await NextResponse.json({ response: response.data, userData: userData.data });
     } catch (error) {

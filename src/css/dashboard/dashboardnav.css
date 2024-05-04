@@ -32,27 +32,19 @@
     height: 30%;
     width: 20%;
     text-align: center;
-    line-height: .1;
+    line-height: 0.1;
     background: linear-gradient(135deg, #ac59ff, #5959ff);
     font-size: 12px;
     font-weight: 700;
     margin: 0 1vh;
-    margin-top: .4vh;
+    margin-top: 0.4vh;
 }
 .toplogout {
     margin-right: 10%;
     width: 1.5vw;
 }
 
-
-
-
-
-
-
-
 .sidenavselection {
-    margin-top: 5%;
     height: 80%;
     margin-left: 10%;
     margin-right: 10%;
@@ -61,7 +53,7 @@
 
 .navsectionheader {
     font-weight: 700;
-    font-size: .7rem;
+    font-size: 0.7rem;
 }
 
 .navsectionitem {
@@ -75,23 +67,17 @@
     transition: all 600ms ease;
 }
 .navsectionitem:hover {
-    background-color: #2A2A33;
+    background-color: #2a2a33;
     transition: all 600ms ease;
 }
 .navsectiontext {
-    color: #9D9BA9;
+    color: #9d9ba9;
     font-weight: 600;
 }
 .navsectionimg {
     width: 9%;
-    margin: 0 1vw 0 .5vw;
+    margin: 0 1vw 0 0.5vw;
 }
-
-
-
-
-
-
 
 .sidenavbottom {
     margin-left: 10%;
@@ -106,7 +92,7 @@
     border-radius: 12px;
     width: 100%;
     color: #fe424d;
-    background-color: hsl(356.49, 98.95%, 62.75%, .2);
+    background-color: hsl(356.49, 98.95%, 62.75%, 0.2);
     border: 1px solid rgba(255, 85, 96, 0.402);
     text-align: center;
     font-size: 1rem;
@@ -116,5 +102,5 @@
 }
 .logout:hover {
     transition: all 600ms ease;
-    background-color: hsl(356.49, 98.95%, 62.75%, .3);
+    background-color: hsl(356.49, 98.95%, 62.75%, 0.3);
 }

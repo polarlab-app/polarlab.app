@@ -24,7 +24,6 @@ export default function StatusGrid() {
             for (const [key, url] of Object.entries(statusFile.pages)) {
                 const status = await checkStatus(url);
                 newStatuses[key] = status;
-                console.log(newStatuses);
             }
             setStatuses(newStatuses);
         };

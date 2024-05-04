@@ -15,7 +15,7 @@ export default function NotFound() {
                     <h1 className={styles.heading}>404 Not Found</h1>
                     <p className={styles.explanation}>
                         It appears that the page you are trying to access is not currently available. Please try again
-                        or choose a new destination from the buttons on the right!
+                        later or choose a new destination from the buttons on the right!
                     </p>
                 </div>
 

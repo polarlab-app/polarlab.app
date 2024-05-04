@@ -1,0 +1,20 @@
+{
+    "headings": {
+        "our-services": "Our Services",
+        "why-polaris": "Why Polaris?",
+        "why-polar-mc": "Why Polar MC?",
+        "polar-mc-world": "The World"
+    },
+    "descriptions": {
+        "our-services": "A summary of the services we offer",
+        "why-polaris": "Why should you choose Polaris V2 for your server?",
+        "why-polar-mc": "What makes Polar MC special over other servers?",
+        "polar-mc-world": "This is everything that the Polar MC world offers"
+    },
+    "ids": {
+        "our-services": "services",
+        "why-polaris": "why-polaris",
+        "why-polar-mc": "why-polar-mc",
+        "polar-mc-world": "polar-mc-world"
+    }
+}

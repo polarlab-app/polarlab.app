@@ -35,10 +35,10 @@ export async function POST(req) {
                 console.log(error);
             });
 
-        await cookies().set('accessToken', response.data.access_token, { secure: true, path: '/', sameSite: true });
-        await cookies().set('refreshToken', response.data.refresh_token, { secure: true, path: '/', sameSite: true });
-        await cookies().set('userData', userData.data, { secure: true, path: '/', sameSite: true });
-        return await NextResponse.json({ response: response.data, userData: userData.data });
+        cookies().set('accessToken', response.data.access_token, { secure: true, path: '/', sameSite: true });
+        cookies().set('refreshToken', response.data.refresh_token, { secure: true, path: '/', sameSite: true });
+        cookies().set('userData', userData.data, { secure: true, path: '/', sameSite: true });
+        return NextResponse.json({ response: response.data, userData: userData.data });
     } catch (error) {
         console.error('Failed to exchange authorization code for access token', error);
         return new NextResponse.error(500, 'Failed to exchange authorization code for access token');

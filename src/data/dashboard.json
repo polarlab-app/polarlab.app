@@ -1,6 +1,7 @@
 {
     "topBar": {
-        "settings": "The general settings for your server (Module specific settings can be found inside their respective pages)"
+        "settings": "The general settings for your server (Module specific settings can be found inside their respective pages)",
+        "overview": "General information about your server"
     },
     "inputs": {
         "ai-functionality": {

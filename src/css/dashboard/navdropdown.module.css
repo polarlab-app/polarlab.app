@@ -4,7 +4,7 @@
 
 .dropdownselector {
     border: 1px solid #343434;
-    background-color: #232323;
+    background-color: #28272e;
     border-radius: 12px;
     padding: 12px;
     display: flex;
@@ -15,7 +15,7 @@
 
 .dropdownoptions {
     border: 1px solid #343434;
-    background-color: #232323;
+    background-color: #28272e;
     border-radius: 12px;
     list-style: none;
     padding: 0;

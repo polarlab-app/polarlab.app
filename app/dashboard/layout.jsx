@@ -1,5 +1,6 @@
 import DashboardNav from './dashboardNav.jsx';
-import '../../src/css/dashboard/dashboard.css';
+import '@css/dashboard/dashboard.css';
+import { GuildProvider } from './guildContext';
 
 export const metadata = {
     title: 'Polar Lab | Polaris Dashboard',
@@ -8,9 +9,9 @@ export const metadata = {
 
 export default function DashboardLayout({ children }) {
     return (
-        <>
+        <GuildProvider>
             <DashboardNav />
-            <div className='dashboard'>{children}</div>
-        </>
+            {children}
+        </GuildProvider>
     );
 }

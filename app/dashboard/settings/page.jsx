@@ -1,11 +1,16 @@
+'use client';
 import styles from '@css/dashboard/settings.module.css';
-import TopBar from '@/components/dashboard/topbar';
+import TopBar from '@components/dashboard/topbar';
+import { useGuild } from '../guildContext';
 
 export default function Page() {
+    const { selectedGuild, setSelectedGuild } = useGuild();
+
     return (
-        <>
+        <div className='dashboard'>
             <TopBar type='settings' />
             <div className='dashboardwrapper'>
+                <p>{selectedGuild.id}</p>
                 <div className={styles.togglegroup}>
                     <div className={styles.toggleswitchcontainer}>
                         <div className={styles.toggleswitchtext}>
@@ -161,6 +166,6 @@ export default function Page() {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
 }

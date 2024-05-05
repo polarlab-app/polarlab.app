@@ -1,24 +1,17 @@
-'use server';
+'use client';
 
-import '../../src/css/dashboard/overview.css';
-import { cookies } from 'next/headers';
-import { redirect } from 'next/navigation';
+import '@css/dashboard/overview.css';
+import TopBar from '@/components/dashboard/topbar';
+import { useGuild } from './guildContext';
 
 export default async function Page() {
-    const userData = await cookies().get('userData');
-    const accessToken = await cookies().get('accessToken');
-
-    if (!accessToken || !userData) {
-        redirect('/login');
-    }
+    const { selectedGuild, setSelectedGuild } = useGuild();
+    console.log(selectedGuild);
 
     return (
-        <>
-            <div className='dashboardtopbar'>
-                <h1 className='topbarheader'>Overview</h1>
-                <hr className='topbardivider'></hr>
-                <p className='topbardescription'>General information about your server</p>
-            </div>
+        <div className='dashboard'>
+            <TopBar type='overview' />
+            <p>{selectedGuild.id}</p>
             <div className='dashboardwrapper'>
                 <div className='hometop'>
                     <div className='smallinfocard'>
@@ -44,7 +37,7 @@ export default async function Page() {
                     <div className='smallinfocard'>
                         <div className='smallinfotextcontainer'>
                             <p className='smallinfoheader'>27,890</p>
-                            <p className='smallinfodescription'>{JSON.stringify(userData.value)}</p>
+                            <p className='smallinfodescription'></p>
                         </div>
                         <img
                             alt='dashboardImage'
@@ -55,6 +48,6 @@ export default async function Page() {
                 <div className='overviewgraphs'></div>
                 <div className='overviewdata'></div>
             </div>
-        </>
+        </div>
     );
 }

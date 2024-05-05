@@ -10,7 +10,6 @@ export default function Page() {
         <div className='dashboard'>
             <TopBar type='settings' />
             <div className='dashboardwrapper'>
-                <p>{selectedGuild.id}</p>
                 <div className={styles.togglegroup}>
                     <div className={styles.toggleswitchcontainer}>
                         <div className={styles.toggleswitchtext}>

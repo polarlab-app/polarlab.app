@@ -24,7 +24,7 @@ export default function DashboardNav() {
             }
         }
         fetchGuilds();
-    }, []);
+    }, [setSelectedGuild]);
 
     return (
         <div className={styles.dashboardnav}>

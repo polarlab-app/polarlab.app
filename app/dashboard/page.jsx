@@ -4,14 +4,13 @@ import '@css/dashboard/overview.css';
 import TopBar from '@/components/dashboard/topbar';
 import { useGuild } from './guildContext';
 
-export default async function Page() {
+export default function Page() {
     const { selectedGuild, setSelectedGuild } = useGuild();
     console.log(selectedGuild);
 
     return (
         <div className='dashboard'>
             <TopBar type='overview' />
-            <p>{selectedGuild.id}</p>
             <div className='dashboardwrapper'>
                 <div className='hometop'>
                     <div className='smallinfocard'>

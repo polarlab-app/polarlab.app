@@ -134,6 +134,37 @@ export default function DashboardNav() {
                                 <p className={styles.navsectiontext}>Social Notifications</p>
                             </Link>
                         </div>
+                        <div className={styles.navsection}>
+                            <p className={styles.navsectionheader}>MODERATION</p>
+                            <Link className={styles.navsectionitem} href='/'>
+                                <img
+                                    alt='navImg'
+                                    className={styles.navsectionimg}
+                                    src='https://cdn.polarlab.app/src/icons/colorless/settings.png'></img>
+                                <p className={styles.navsectiontext}>Moderation</p>
+                            </Link>
+                            <Link className={styles.navsectionitem} href='/logging'>
+                                <img
+                                    alt='navImg'
+                                    className={styles.navsectionimg}
+                                    src='https://cdn.polarlab.app/src/icons/colorless/settings.png'></img>
+                                <p className={styles.navsectiontext}>Logging</p>
+                            </Link>
+                            <Link className={styles.navsectionitem} href='/logging'>
+                                <img
+                                    alt='navImg'
+                                    className={styles.navsectionimg}
+                                    src='https://cdn.polarlab.app/src/icons/colorless/settings.png'></img>
+                                <p className={styles.navsectiontext}>Auto Moderator</p>
+                            </Link>
+                            <Link className={styles.navsectionitem} href='/'>
+                                <img
+                                    alt='navImg'
+                                    className={styles.navsectionimg}
+                                    src='https://cdn.polarlab.app/src/icons/colorless/settings.png'></img>
+                                <p className={styles.navsectiontext}>Server Guard</p>
+                            </Link>
+                        </div>
                     </div>
                     <div className={styles.sidenavbottom}>
                         <Link className={styles.logout} href='/dashboard/login/logout'>

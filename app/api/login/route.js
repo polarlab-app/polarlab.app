@@ -1,18 +1,18 @@
-'use server';
-
 import axios from 'axios';
 import qs from 'qs';
 import { cookies } from 'next/headers';
+import { NextResponse } from 'next/server';
 
-export default async function discordLogin(code) {
+export async function POST(req) {
     try {
+        const { code } = await req.json();
         const response = await axios.post(
             'https://discord.com/api/oauth2/token',
             qs.stringify({
                 client_id: process.env.CLIENT_ID,
                 client_secret: process.env.CLIENT_SECRET,
                 grant_type: 'authorization_code',
-                code: code,
+                code,
                 redirect_uri: process.env.CALLBACK_URI,
                 scope: 'identify guilds',
             }),
@@ -27,21 +27,21 @@ export default async function discordLogin(code) {
             cookies().set('accessToken', response.data.access_token, {
                 secure: true,
                 path: '/',
-                sameSite: true,
+                sameSite: 'strict',
             });
             cookies().set('refreshToken', response.data.refresh_token, {
                 secure: true,
                 path: '/',
-                sameSite: true,
+                sameSite: 'strict',
             });
 
-            return;
+            return NextResponse.json({ result: 'success' }, { status: '200' });
         } else {
-            console.error('Failed to retrieve access token from Discord', response.data);
-            return null;
+            console.log('Failed to retrieve access token from Discord', response.data);
+            return NextResponse.json({ result: 'fail' }, { status: '500' });
         }
     } catch (error) {
         console.error('Error contacting Discord OAuth2 server', error);
-        return null;
+        return NextResponse.json({ result: 'fail' }, { status: '500' });
     }
 }

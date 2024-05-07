@@ -6,7 +6,6 @@ import { useGuild } from './guildContext';
 
 export default function Page() {
     const { selectedGuild, setSelectedGuild } = useGuild();
-    console.log(selectedGuild);
 
     return (
         <div className='dashboard'>

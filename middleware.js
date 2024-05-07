@@ -1,30 +1,32 @@
 'use server';
-import { NextRequest, NextResponse } from 'next/server';
-import axios from 'axios';
+import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
+import xior from 'xior';
 
 export async function middleware(req) {
-    const accessToken = cookies().get('accessToken').value;
-    const refreshToken = cookies().get('refreshToken').value;
-
-    console.log(accessToken);
-    console.log(refreshToken);
+    const accessToken = cookies().get('accessToken');
+    const refreshToken = cookies().get('refreshToken');
 
     if (!accessToken) {
-        return NextResponse.redirect(new URL('/login', req.url));
+        console.log('No AccessToken found');
+        return NextResponse.redirect(new URL('/polaris', req.url));
     }
 
     try {
-        const validationResponse = await axios.get('https://discord.com/api/users/@me', {
-            headers: { Authorization: `Bearer ${accessToken}` },
+        const validationResponse = await xior.get('https://discord.com/api/users/@me', {
+            headers: {
+                Authorization: `Bearer ${accessToken.value}`,
+            },
         });
 
-        if (validationResponse.status === 200) {
+        if (validationResponse.status == 200) {
+            console.log('validated');
             return NextResponse.next();
         }
     } catch (error) {
+        console.error(error);
         try {
-            const refreshResponse = await axios.post(
+            const refreshResponse = await xior.post(
                 'https://discord.com/api/oauth2/token',
                 new URLSearchParams({
                     client_id: process.env.CLIENT_ID,
@@ -53,7 +55,7 @@ export async function middleware(req) {
                 return NextResponse.next();
             }
         } catch (refreshError) {
-            return NextResponse.redirect(new URL('/login', req.url));
+            return NextResponse.redirect(new URL('/polarmc', req.url));
         }
     }
 

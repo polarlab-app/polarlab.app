@@ -28,7 +28,9 @@
     padding: 0.7rem;
     background-color: #28272e;
     border-radius: 12px;
-    width: 2rem;
+    width: 2vw;
+    height: auto;
+    aspect-ratio: 1 /1;
 }
 
 .smallinfodescription {

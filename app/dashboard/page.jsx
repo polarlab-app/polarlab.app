@@ -3,9 +3,22 @@
 import '@css/dashboard/overview.css';
 import TopBar from '@/components/dashboard/topbar';
 import { useGuild } from './guildContext';
+import getGuildData from '@/lib/dashboard/getGuildData';
+import { useEffect, useState } from 'react';
 
 export default function Page() {
     const { selectedGuild, setSelectedGuild } = useGuild();
+    const [guildData, setGuildData] = useState(null);
+
+    useEffect(() => {
+        if (selectedGuild) {
+            const fetchGuildData = async () => {
+                const data = await getGuildData(selectedGuild.id);
+                setGuildData(JSON.parse(data));
+            };
+            fetchGuildData();
+        }
+    }, [selectedGuild]);
 
     return (
         <div className='dashboard'>
@@ -14,7 +27,7 @@ export default function Page() {
                 <div className='hometop'>
                     <div className='smallinfocard'>
                         <div className='smallinfotextcontainer'>
-                            <p className='smallinfoheader'>1,929</p>
+                            <p className='smallinfoheader'>{guildData ? guildData.data.memberCount : 'Loading'}</p>
                             <p className='smallinfodescription'>Members in the server</p>
                         </div>
                         <img

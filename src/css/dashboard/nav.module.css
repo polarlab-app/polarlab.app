@@ -42,6 +42,9 @@
     margin-right: 10%;
     width: 1.5vw;
 }
+.sidenavselection::-webkit-scrollbar {
+    display: none;
+}
 
 .sidenavselection {
     height: 80%;
@@ -61,10 +64,22 @@
     justify-content: flex-start;
     align-items: center;
     border-radius: 6px;
-    width: 90%;
-    height: 5vh;
+    width: 100%;
+    height: 4.5vh;
+    transition: all 600ms ease;
+    margin: 3% 0;
+}
+
+.navsectionitem.active {
+    background-color: #2a2a33;
     transition: all 600ms ease;
 }
+
+.navsectionitem.active .navsectiontext {
+    color: white;
+    transition: all 600ms ease;
+}
+
 .navsectionitem:hover {
     background-color: #2a2a33;
     transition: all 600ms ease;
@@ -72,9 +87,11 @@
 .navsectiontext {
     color: #9d9ba9;
     font-weight: 600;
+    transition: all 600ms ease;
 }
 .navsectionimg {
-    width: 9%;
+    height: 50%;
+    width: auto;
     margin: 0 1vw 0 0.5vw;
 }
 

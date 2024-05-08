@@ -1,7 +1,7 @@
 import styles from '@css/dashboard/topbar.module.css';
 const { topBar } = require('@data/dashboard.json');
 
-export default async function TopBar({ type }) {
+export default function TopBar({ type }) {
     return (
         <div className={styles.dashboardtopbar}>
             <h1 className={styles.topbarheader}>{type.charAt(0).toUpperCase() + type.slice(1)}</h1>

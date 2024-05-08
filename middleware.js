@@ -8,8 +8,7 @@ export async function middleware(req) {
     const refreshToken = cookies().get('refreshToken');
 
     if (!accessToken) {
-        console.log('No AccessToken found');
-        return NextResponse.redirect(new URL('/polaris', req.url));
+        return NextResponse.redirect(new URL('/login', req.url));
     }
 
     try {
@@ -20,7 +19,6 @@ export async function middleware(req) {
         });
 
         if (validationResponse.status == 200) {
-            console.log('validated');
             return NextResponse.next();
         }
     } catch (error) {
@@ -55,7 +53,7 @@ export async function middleware(req) {
                 return NextResponse.next();
             }
         } catch (refreshError) {
-            return NextResponse.redirect(new URL('/polarmc', req.url));
+            return NextResponse.redirect(new URL('/login', req.url));
         }
     }
 

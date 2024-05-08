@@ -14,14 +14,13 @@ import validateRegister from '@lib/auth/validation/validateRegister';
 export default function Page() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [email, setEmail] = useState('');
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
 
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        const registerResponse = await validateRegister(username, email, password);
+        const registerResponse = await validateRegister(username, password);
 
         if (registerResponse != 'success') {
             setSuccess(null);
@@ -47,14 +46,6 @@ export default function Page() {
                         <div className='logininputcontainer'>
                             {success && <p className='loginsuccess'>{success}</p>}
                             {error && <p className='loginerror'>{error}</p>}
-                            <p className='inputheader'>Email</p>
-                            <input
-                                type='text'
-                                className='logininput'
-                                placeholder='Email'
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                required></input>
                             <p className='inputheader'>Username</p>
                             <input
                                 type='text'

@@ -2,29 +2,35 @@
 import styles from '@css/dashboard/settings.module.css';
 import TopBar from '@components/dashboard/topbar';
 import { useGuild } from '../guildContext';
+import CheckboxInput from '@/components/dashboard/inputs/checkbox';
+import { useState } from 'react';
 
 export default function Page() {
     const { selectedGuild, setSelectedGuild } = useGuild();
+    const [newData, setNewData] = useState([]);
+
+    const handleCheckboxChange = (id, value) => {
+        const updatedCheckboxValues = [...newData];
+        const index = updatedCheckboxValues.findIndex((item) => item.id === id);
+
+        if (index !== -1) {
+            updatedCheckboxValues[index] = { id, value };
+        } else {
+            updatedCheckboxValues.push({ id, value });
+        }
+        setNewData(updatedCheckboxValues);
+    };
 
     return (
         <div className='dashboard'>
             <TopBar type='settings' />
             <div className='dashboardwrapper'>
                 <div className={styles.togglegroup}>
-                    <div className={styles.toggleswitchcontainer}>
-                        <div className={styles.toggleswitchtext}>
-                            <p className={styles.toggleswitchheader}>AI Functionality</p>
-                            <p className={styles.toggleswitchdescription}>
-                                Whether to enable AI empowered analytics for your server
-                            </p>
-                        </div>
-                        <label className={styles.togglecontainer}>
-                            <input type='checkbox' className={styles.hidden}></input>
-                            <span className={styles.toggle}>
-                                <span className={styles.innertoggle}></span>
-                            </span>
-                        </label>
-                    </div>
+                    <CheckboxInput
+                        type='ai-functionality'
+                        value={true}
+                        onChange={(e) => handleCheckboxChange(e.target.id, e.target.checked)}
+                    />
                 </div>
                 <div className={styles.togglegroup}>
                     <div className={styles.toggleswitchcontainer}>
@@ -155,13 +161,6 @@ export default function Page() {
                                 <span className={styles.innertoggle}></span>
                             </span>
                         </label>
-                    </div>
-                </div>
-                <div className={styles.savecontainer}>
-                    <p className={styles.savetext}>Do you want to save your changes?</p>
-                    <div className={styles.savebuttoncontainer}>
-                        <button className={styles.savebutton + ' ' + styles.cancel}>Cancel</button>
-                        <button className={styles.savebutton + ' ' + styles.save}>Save</button>
                     </div>
                 </div>
             </div>

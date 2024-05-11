@@ -28,7 +28,12 @@ export default function Page() {
                     <div className='smallinfocard'>
                         <div className='smallinfotextcontainer'>
                             <p className='smallinfoheader'>{guildData ? guildData.data.memberCount : 'Loading'}</p>
-                            <p className='smallinfodescription'>Members in the server</p>
+                            <p
+                                className='smallinfodescription'
+                                test='test1'
+                                onClick={(e) => console.log(e.target.getAttribute('test'))}>
+                                Members in the server
+                            </p>
                         </div>
                         <svg
                             xmlns='http://www.w3.org/2000/svg'

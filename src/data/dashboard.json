@@ -8,7 +8,7 @@
         "ai-functionality": {
             "name": "AI Functionality",
             "description": "Whether to enable AI empowered analytics for your server",
-            "path": "config/general",
+            "path": "config/general/ai-functionality",
             "placeholder": null
         }
     }

@@ -1,0 +1,70 @@
+.toggleswitchcontainer {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toggleswitchtext {
+    margin-left: 1.5%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.toggleswitchheader {
+    color: white;
+    font-size: 1.2rem;
+    margin: 0;
+    font-weight: 700;
+}
+.toggleswitchdescription {
+    color: #9d9ba9;
+    margin: 0;
+}
+
+.togglecontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 7%;
+    position: relative;
+}
+
+.hidden {
+    visibility: hidden !important;
+    transition: all 600ms ease;
+    position: absolute;
+}
+
+.toggle {
+    height: 40%;
+    aspect-ratio: 1/1;
+    border-radius: 8px;
+    background-color: #28272e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 600ms ease;
+    cursor: pointer;
+    position: absolute;
+}
+
+.innertoggle {
+    width: 60%;
+    height: 60%;
+    border-radius: 2px;
+    transition: all 600ms ease;
+}
+.hidden:checked + .toggle .innertoggle {
+    background-color: #5959ff;
+    transition: all 600ms ease;
+}
+
+.hidden:hover + .toggle {
+    border: 1px solid #5959ff;
+    transition: all 600ms ease;
+}

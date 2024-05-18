@@ -1,54 +1,7 @@
 .togglegroup {
-    background-color: #16151c;
+    background-color: #1b1c24;
     border-radius: 12px;
     display: flex;
     flex-direction: column;
     margin: 2vh 0;
-    width: 96%;
-}
-
-.savecontainer {
-    display: flex;
-    justify-content: space-between;
-    background-color: #16151c;
-    height: 7vh;
-    border-radius: 12px;
-    align-items: center;
-    width: 90%;
-    position: sticky;
-    margin: 0 0 0 5%;
-    z-index: 90;
-    bottom: 5vh;
-    border: 1px solid #505050;
-}
-
-.savetext {
-    color: #9d9ba9;
-    font-weight: 600;
-    margin-left: 1%;
-}
-
-.savebuttoncontainer {
-    margin-right: 1%;
-    display: flex;
-    width: 20%;
-    justify-content: space-between;
-}
-
-.savebutton {
-    background-color: #00e09c/ 0.2;
-    padding: 1vh 2vw;
-    border-radius: 8px;
-    font-weight: 600;
-    color: white;
-}
-
-.save {
-    background-color: hsl(161.79, 100%, 43.92%, 30%);
-    border: 1px solid #00e09c;
-}
-
-.cancel {
-    border: 1px solid #505050;
-    background-color: hsl(0, 0%, 31.37%, 30%);
 }

@@ -2,13 +2,13 @@
     display: flex;
     float: left;
     width: 18%;
-    height: 99vh;
+    height: 100 * vh;
     flex-direction: column;
     text-align: left;
     color: white;
-    border-right: 1px solid #505050;
+    border-right: 1px solid #1f2129;
     overflow: hidden;
-    background-color: #16151c;
+    background-color: #1b1c24;
 }
 .sidenavtop {
     height: 10vh;
@@ -85,7 +85,7 @@
     transition: all 600ms ease;
 }
 .navsectiontext {
-    color: #9d9ba9;
+    color: #9a9ba9;
     font-weight: 600;
     transition: all 600ms ease;
 }

@@ -12,16 +12,17 @@ nav {
 .mainwrapper {
     display: flex;
     justify-content: flex-start;
-    overflow: hidden;
+    overflow: scroll;
 }
 
 .dashboard {
-    width: 80%;
+    width: 82%;
     float: left;
     margin: 0;
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    background-color: #16151c;
 }
 
 .username {

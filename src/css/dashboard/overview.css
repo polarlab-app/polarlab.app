@@ -6,6 +6,7 @@
 .smallinfocard {
     width: 30%;
     height: 12vh;
+    background-color: #1b1c24;
 }
 
 .smallinfotextcontainer {
@@ -26,7 +27,7 @@
 .smallinfoimg {
     margin-right: 5%;
     padding: 0.7rem;
-    background-color: #28272e;
+    background-color: #2c2d36;
     border-radius: 12px;
     width: 2vw;
     height: auto;

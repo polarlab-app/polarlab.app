@@ -1,6 +1,7 @@
+'use server';
 import Link from 'next/link';
 
-export default function BlogPost() {
+export default async function BlogPost() {
     return (
         <>
             <div className='postcontainer'>

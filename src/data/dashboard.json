@@ -25,6 +25,7 @@
         }
     },
     "paths": {
-        "ai-functionality": "/"
+        "ai-functionality": "/config/general/status",
+        "ai-functionality2": "/config/general/channelId"
     }
 }

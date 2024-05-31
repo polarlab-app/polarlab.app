@@ -1,8 +1,9 @@
+'use server';
 import data from '@data/landing.json';
 import styles from '@css/main/landing.module.css';
 import Link from 'next/link';
 
-export default function Landing({ type }) {
+export default async function Landing({ type }) {
     return (
         <div className={styles.top}>
             <h1 className={styles.header}>{data.headings[type]}</h1>

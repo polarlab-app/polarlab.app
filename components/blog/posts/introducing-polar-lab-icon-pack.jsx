@@ -1,7 +1,8 @@
+'use server';
 import Link from 'next/link';
 import styles from '@css/blog/post.module.css';
 
-export default function BlogPost() {
+export default async function BlogPost() {
     return (
         <>
             <div className={styles.postcontainer}>

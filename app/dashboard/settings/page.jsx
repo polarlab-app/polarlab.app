@@ -5,10 +5,12 @@ import { useGuild } from '../guildContext';
 import CheckboxInput from '@/components/dashboard/inputs/checkbox';
 import { useState } from 'react';
 import SaveButton from '@/components/dashboard/saveButton';
+import DiscardButton from '@/components/dashboard/discardButton';
 import saveData from '@/lib/dashboard/saveData';
 
 export default function Page() {
     const { selectedGuild, setSelectedGuild } = useGuild();
+    console.log(selectedGuild);
     const [newData, setNewData] = useState({});
 
     const handleCheckboxChange = (id, value) => {
@@ -17,11 +19,30 @@ export default function Page() {
         setNewData(updatedCheckboxValues);
     };
 
+    const discardChanges = () => {
+        setNewData({});
+    };
+
+    const saveTrigger = async () => {
+        const response = await saveData(newData || 0, selectedGuild.id || 0);
+        if (response === 'success') {
+            setNewData({});
+        } else {
+            alert('fail');
+        }
+    };
+
     return (
         <div className='dashboard'>
             <TopBar type='settings'>
-                <SaveButton onClick={() => saveData(newData)} />
+                {Object.keys(newData).length > 0 && (
+                    <>
+                        <DiscardButton onClick={() => discardChanges()} />
+                        <SaveButton onClick={() => saveTrigger()} />
+                    </>
+                )}
             </TopBar>
+
             <div className='dashboardwrapper'>
                 <div className={styles.togglegroup}>
                     <CheckboxInput

@@ -1,5 +1,6 @@
+'use server';
 import styles from '@css/main/stars.module.css';
 
-export default function Stars() {
+export default async function Stars() {
     return <div className={styles.stars}></div>;
 }

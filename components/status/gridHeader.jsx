@@ -1,7 +1,8 @@
+'use server';
 import Image from 'next/image';
 import styles from '@css/main/status.module.css';
 
-export default function GridHeader() {
+export default async function GridHeader() {
     return (
         <div className={styles.gridheader}>
             <div className={styles.headercell}>

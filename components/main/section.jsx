@@ -1,7 +1,8 @@
+'use server';
 import styles from '@css/main/section.module.css';
 import data from '@data/sections.json';
 
-export default function Section({ children, name }) {
+export default async function Section({ children, name }) {
     return (
         <div className={styles.sitesection} id={data.ids[name]}>
             <div className={styles.siteheading}>

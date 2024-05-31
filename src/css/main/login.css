@@ -1,0 +1,160 @@
+.main {
+    display: flex;
+    justify-content: center;
+}
+
+.logincontainer {
+    margin-top: 12vh;
+    width: 25vw;
+    height: 65vh;
+    border: 1px solid #505050;
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.022), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.loginwrapper {
+    width: 90%;
+    margin: 5%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.logintextcontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    margin: 5% 0;
+}
+
+.logintexttopcontainer {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.loginheader {
+    margin: 0;
+    color: white;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.logininputcontainer {
+    width: 100%;
+    margin: 7% 0;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+.inputheader {
+    color: white;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+.logininput {
+    background-color: #2a2933;
+    border-radius: 8px;
+    border: none;
+    padding: 3%;
+    color: white;
+}
+.logininput:focus {
+    outline: none;
+}
+
+.loginbuttoncontainer {
+    height: 40%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.loginbutton {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid #505050;
+    background-color: #2a2933;
+    margin: 1% 0;
+    font-weight: 600;
+    transition: all 600ms ease;
+}
+
+.loginbutton:hover {
+    border: 1px solid rgb(43, 45, 57);
+    background-color: rgb(20, 21, 26);
+    cursor: pointer;
+    transition: all 600ms ease;
+}
+
+.discordlogin {
+    background-color: #5533ff;
+}
+
+.discordlogin:hover {
+    background-color: #322186;
+    border: 1px solid #322186;
+    transition: all 600ms ease;
+}
+
+footer {
+    display: none;
+}
+
+.loginerror {
+    border: 1px solid hsl(356.49, 98.95%, 62.75%, 0.2);
+    background-color: rgba(255, 85, 96, 0.35);
+    color: rgba(255, 85, 96);
+    border-radius: 8px;
+    padding: 1.5vh;
+    margin: 1% 0;
+}
+
+.loginsuccess {
+    border: 1px solid rgb(0, 224, 156, 0.2);
+    background-color: rgb(0, 224, 156, 0.35);
+    color: rgb(0, 224, 156);
+    border-radius: 8px;
+    padding: 1.5vh;
+    margin: 1% 0;
+}
+
+.registertext {
+    color: #505050;
+}
+
+.registertext a {
+    transition: all 600ms ease;
+}
+
+.registertext a:hover {
+    color: #5533ff;
+    transition: all 600ms ease;
+}
+
+@media screen and (max-width: 769px) {
+    .main {
+        width: 90%;
+        margin-left: 5%;
+    }
+    .logincontainer {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 770px) and (max-width: 1025px) {
+    .main {
+        width: 60%;
+        margin-left: 20%;
+    }
+    .logincontainer {
+        width: 100%;
+    }
+}

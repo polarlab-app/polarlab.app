@@ -10,6 +10,21 @@
             "description": "Whether to enable AI empowered analytics for your server",
             "path": "config/general/ai-functionality",
             "placeholder": null
+        },
+        "ai-functionality2": {
+            "name": "AI Functionality",
+            "description": "Whether to enable AI empowered analytics for your server",
+            "path": "config/general/ai-functionality",
+            "placeholder": null
+        },
+        "ai-functionality3": {
+            "name": "AI Functionality",
+            "description": "Whether to enable AI empowered analytics for your server",
+            "path": "config/general/ai-functionality",
+            "placeholder": null
         }
+    },
+    "paths": {
+        "ai-functionality": "/"
     }
 }

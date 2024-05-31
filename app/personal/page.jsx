@@ -15,7 +15,7 @@ export default async function Page() {
     const cookieStore = cookies();
     const token = cookieStore.get('accountToken');
 
-    if (!token.value) {
+    if (!token) {
         redirect('/login');
     }
 

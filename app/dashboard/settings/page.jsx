@@ -4,26 +4,24 @@ import TopBar from '@components/dashboard/topbar';
 import { useGuild } from '../guildContext';
 import CheckboxInput from '@/components/dashboard/inputs/checkbox';
 import { useState } from 'react';
+import SaveButton from '@/components/dashboard/saveButton';
+import saveData from '@/lib/dashboard/saveData';
 
 export default function Page() {
     const { selectedGuild, setSelectedGuild } = useGuild();
-    const [newData, setNewData] = useState([]);
+    const [newData, setNewData] = useState({});
 
     const handleCheckboxChange = (id, value) => {
-        const updatedCheckboxValues = [...newData];
-        const index = updatedCheckboxValues.findIndex((item) => item.id === id);
-
-        if (index !== -1) {
-            updatedCheckboxValues[index] = { id, value };
-        } else {
-            updatedCheckboxValues.push({ id, value });
-        }
+        const updatedCheckboxValues = { ...newData };
+        updatedCheckboxValues[id] = value;
         setNewData(updatedCheckboxValues);
     };
 
     return (
         <div className='dashboard'>
-            <TopBar type='settings' />
+            <TopBar type='settings'>
+                <SaveButton onClick={() => saveData(newData)} />
+            </TopBar>
             <div className='dashboardwrapper'>
                 <div className={styles.togglegroup}>
                     <CheckboxInput
@@ -33,35 +31,17 @@ export default function Page() {
                     />
                 </div>
                 <div className={styles.togglegroup}>
-                    <div className={styles.toggleswitchcontainer}>
-                        <div className={styles.toggleswitchtext}>
-                            <p className={styles.toggleswitchheader}>AI Functionality</p>
-                            <p className={styles.toggleswitchdescription}>
-                                Whether to enable AI empowered analytics for your server
-                            </p>
-                        </div>
-                        <label className={styles.togglecontainer}>
-                            <input type='checkbox' className={styles.hidden}></input>
-                            <span className={styles.toggle}>
-                                <span className={styles.innertoggle}></span>
-                            </span>
-                        </label>
-                    </div>
+                    <CheckboxInput
+                        type='ai-functionality2'
+                        value={true}
+                        onChange={(e) => handleCheckboxChange(e.target.id, e.target.checked)}
+                    />
 
-                    <div className={styles.toggleswitchcontainer}>
-                        <div className={styles.toggleswitchtext}>
-                            <p className={styles.toggleswitchheader}>AI Functionality</p>
-                            <p className={styles.toggleswitchdescription}>
-                                Whether to enable AI empowered analytics for your server
-                            </p>
-                        </div>
-                        <label className={styles.togglecontainer}>
-                            <input type='checkbox' className={styles.hidden}></input>
-                            <span className={styles.toggle}>
-                                <span className={styles.innertoggle}></span>
-                            </span>
-                        </label>
-                    </div>
+                    <CheckboxInput
+                        type='ai-functionality3'
+                        value={true}
+                        onChange={(e) => handleCheckboxChange(e.target.id, e.target.checked)}
+                    />
                     <div className={styles.toggleswitchcontainer}>
                         <div className={styles.toggleswitchtext}>
                             <p className={styles.toggleswitchheader}>AI Functionality</p>

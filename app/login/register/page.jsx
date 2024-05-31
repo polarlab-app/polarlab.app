@@ -1,6 +1,6 @@
 'use client';
 
-import '@css/login.css';
+import '@css/main/login.css';
 import Link from 'next/link';
 import React, { useState } from 'react';
 
@@ -72,7 +72,7 @@ export default function Page() {
                             Register
                         </button>
                         <Link
-                            className='loginbutton discordlogin'
+                            className='discordlogin'
                             href='https://discord.com/api/oauth2/authorize?client_id=1065350226757554237&response_type=code&redirect_uri=https%3A%2F%2Flocalhost%3A3000%2Flogin%2Fcallback&scope=identify+guilds'>
                             Log in with Discord
                         </Link>

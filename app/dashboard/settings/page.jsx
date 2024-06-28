@@ -10,7 +10,6 @@ import saveData from '@/lib/dashboard/saveData';
 
 export default function Page() {
     const { selectedGuild, setSelectedGuild } = useGuild();
-    console.log(selectedGuild);
     const [newData, setNewData] = useState({});
 
     const handleCheckboxChange = (id, value) => {

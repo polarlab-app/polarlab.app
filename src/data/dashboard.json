@@ -22,10 +22,94 @@
             "description": "Whether to enable AI empowered analytics for your server",
             "path": "config/general/ai-functionality",
             "placeholder": null
+        },
+        "channel-logs-status": {
+            "name": "Channel Logs",
+            "description": "Whether to enable channel logs for your server",
+            "path": "config/logs/channelLogs/status",
+            "placeholder": null
+        },
+        "channel-logs-channel": {
+            "name": "Channel Logs Channel ID",
+            "description": "The channel ID for channel logs",
+            "path": "config/logs/channelLogs/channelId",
+            "placeholder": 1131195719676596229
+        },
+        "role-logs-status": {
+            "name": "Role Logs",
+            "description": "Whether to enable role logs for your server",
+            "path": "config/logs/roleLogs/status",
+            "placeholder": null
+        },
+        "role-logs-channel": {
+            "name": "Role Logs Channel ID",
+            "description": "The channel ID for role logs",
+            "path": "config/logs/roleLogs/channelId",
+            "placeholder": 1131195719676596229
+        },
+        "message-logs-status": {
+            "name": "Message Logs",
+            "description": "Whether to enable message logs for your server",
+            "path": "config/logs/messageLogs/status",
+            "placeholder": null
+        },
+        "message-logs-channel": {
+            "name": "Message Logs Channel ID",
+            "description": "The channel ID for message logs",
+            "path": "config/logs/messageLogs/channelId",
+            "placeholder": 1131195719676596229
+        },
+        "member-logs-status": {
+            "name": "Member Logs",
+            "description": "Whether to enable member logs for your server",
+            "path": "config/logs/memberLogs/status",
+            "placeholder": null
+        },
+        "member-logs-channel": {
+            "name": "Member Logs Channel ID",
+            "description": "The channel ID for member logs",
+            "path": "config/logs/memberLogs/channelId",
+            "placeholder": 1131195719676596229
+        },
+        "emoji-logs-status": {
+            "name": "Emoji Logs",
+            "description": "Whether to enable emoji logs for your server",
+            "path": "config/logs/emojiLogs/status",
+            "placeholder": null
+        },
+        "emoji-logs-channel": {
+            "name": "Emoji Logs Channel ID",
+            "description": "The channel ID for emoji logs",
+            "path": "config/logs/emojiLogs/channelId",
+            "placeholder": 1131195719676596229
+        },
+        "server-logs-status": {
+            "name": "Server Logs",
+            "description": "Whether to enable server logs for your server",
+            "path": "config/logs/serverLogs/status",
+            "placeholder": null
+        },
+        "server-logs-channel": {
+            "name": "Server Logs Channel ID",
+            "description": "The channel ID for server logs",
+            "path": "config/logs/serverLogs/channelId",
+            "placeholder": 1131195719676596229
         }
     },
     "paths": {
-        "ai-functionality": "/config/general/status",
-        "ai-functionality2": "/config/general/channelId"
+        "ai-functionality": "config/general/status",
+        "ai-functionality2": "config/general/channelId",
+        "channel-logs-status": "config/logs/channelLogs/status",
+        "channel-logs-channel": "config/logs/channelLogs/channelId",
+        "role-logs-status": "config/logs/roleLogs/status",
+        "role-logs-channel": "config/logs/roleLogs/channelId",
+        "message-logs-status": "config/logs/messageLogs/status",
+        "message-logs-channel": "config/logs/messageLogs/channelId",
+        "member-logs-status": "config/logs/memberLogs/status",
+        "member-logs-channel": "config/logs/memberLogs/channelId",
+        "emoji-logs-status": "config/logs/emojiLogs/status",
+        "emoji-logs-channel": "config/logs/emojiLogs/channelId",
+        "server-logs-status": "config/logs/serverLogs/status",
+        "server-logs-channel": "config/logs/serverLogs/channelId"
     }
 }

@@ -1,38 +1,38 @@
-import '../src/css/core/navbar.css';
+import styles from '../src/css/core/navbar.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
 
 export default function NavBar() {
     return (
-        <nav>
-            <div className='navlinkcontainer'>
+        <nav className={styles.nav}>
+            <div className={styles.navlinkcontainer}>
                 <Image
-                    className='logo'
+                    className={styles.logo}
                     src='https://cdn.polarlab.app/src/img/polarlogo.png'
                     alt='alt'
                     width='128'
                     height='128'
                 />
-                <Link className='logolink' href='https://polarlab.app/' prefetch={false}>
+                <Link className={styles.logolink} href='https://polarlab.app/' prefetch={false}>
                     Polar Lab
                 </Link>
-                <Link className='navlink' href='/'>
+                <Link className={styles.navlink} href='/'>
                     Home
                 </Link>
-                <Link className='navlink' href='https://docs.polarlab.app' prefetch={false}>
+                <Link className={styles.navlink} href='https://docs.polarlab.app' prefetch={false}>
                     Docs
                 </Link>
-                <Link className='navlink' href='/blog' prefetch={false}>
+                <Link className={styles.navlink} href='/blog' prefetch={false}>
                     Blog
                 </Link>
-                <Link className='navlink' href='/discord' prefetch={false}>
+                <Link className={styles.navlink} href='/discord' prefetch={false}>
                     Discord
                 </Link>
-                <Link className='polarplus' href='/plus' prefetch={false}>
+                <Link className={styles.polarplus} href='/plus' prefetch={false}>
                     Polar+
                 </Link>
             </div>
-            {/*(<div className='border-bottom'></div>/*/}
+            {/*(<div className={styles.borderBottom}></div>/*/}
         </nav>
     );
 }

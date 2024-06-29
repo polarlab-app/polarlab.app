@@ -1,10 +1,6 @@
-a {
-    text-decoration: none;
-}
-
 .footercontainer {
-    background-color: #16151c;
-    border-top: 1px solid #505050;
+    border: 1px solid #343434;
+    background-color: rgb(22, 21, 28);
     border-radius: 10px 10px 0px 0px;
     margin-top: 10vh;
     margin-bottom: 0;
@@ -118,7 +114,6 @@ a {
 .status {
     display: inline-flex;
     border-radius: 7px;
-    border: 1px solid #505050;
     width: fit-content;
     height: 60%;
     padding: 0px 20px;
@@ -128,7 +123,7 @@ a {
     align-items: center;
     text-align: center;
     justify-content: center;
-    background-color: #1b1b1d;
+    background-color: #2a2933;
 }
 
 .product {

@@ -34,7 +34,7 @@ const nextConfig = {
                         key: 'Content-Security-Policy',
                         value: `
                             default-src 'self';
-                            script-src 'self' 'unsafe-eval' 'unsafe-inline' https://cdn.polarlab.app https://cdn.discordapp.com;
+                            script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.polarlab.app ;
                             style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
                             img-src 'self' data: https://cdn.polarlab.app https://cdn.discordapp.com https://placehold.co;
                             font-src 'self' https://fonts.gstatic.com;

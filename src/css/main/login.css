@@ -139,6 +139,11 @@ footer {
     transition: all 600ms ease;
 }
 
+.logo {
+    height:  5vh;
+    width: auto;
+}
+
 @media screen and (max-width: 769px) {
     .main {
         width: 90%;

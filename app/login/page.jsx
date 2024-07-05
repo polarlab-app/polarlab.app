@@ -26,18 +26,40 @@ export default function Page() {
             />
             <h1 className={styles.heading}>Login To Polar Lab</h1>
           </div>
-          <button className={`${styles.loginbtn} ${styles.button}`}>
-            Login to Polar Lab
-          </button>
-          <button
-            className={`${styles.discordloginbtn} ${styles.button}`}
-            onClick={() => {
-              window.location.href =
-                "https://discord.com/api/oauth2/authorize?client_id=1065350226757554237&response_type=code&redirect_uri=https%3A%2F%2Flocalhost%3A3000%2Flogin%2Fcallback&scope=identify+guilds";
-            }}
-          >
-            Login With Discord
-          </button>
+          <div className={styles.inputs}>
+            <div className={styles.inputcontainer}>
+              <p className={styles.inputlabel}>Username</p>
+              <input
+                type="text"
+                placeholder="Username"
+                onChange={(e) => setUsername(e.target.value)}
+                value={username}
+              ></input>
+            </div>
+            <div className={styles.inputcontainer}>
+              <p className={styles.inputlabel}>Password</p>
+              <input
+                type="password"
+                placeholder="********"
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+              ></input>
+            </div>
+          </div>
+          <div className={styles.buttoncontainer}>
+            <button className={`${styles.loginbtn} ${styles.button}`}>
+              Login to Polar Lab
+            </button>
+            <button
+              className={`${styles.discordloginbtn} ${styles.button}`}
+              onClick={() => {
+                window.location.href =
+                  "https://discord.com/api/oauth2/authorize?client_id=1065350226757554237&response_type=code&redirect_uri=https%3A%2F%2Flocalhost%3A3000%2Flogin%2Fcallback&scope=identify+guilds";
+              }}
+            >
+              Login With Discord
+            </button>
+          </div>
         </div>
         <div className={styles.right}></div>
       </div>

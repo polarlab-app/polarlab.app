@@ -1,14 +1,14 @@
-"use client";
-import React, { useState } from "react";
-import Link from "next/link";
-import login from "@lib/auth/login";
-import Image from "next/image";
+'use client';
+import React, { useState } from 'react';
+import Link from 'next/link';
+import login from '@lib/auth/login';
+import Image from 'next/image';
 
-import styles from "@css/main/login.module.css";
+import styles from '@css/main/login.module.css';
 
 export default function Page() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
 
@@ -34,6 +34,7 @@ export default function Page() {
                 placeholder="Username"
                 onChange={(e) => setUsername(e.target.value)}
                 value={username}
+                className={styles.input}
               ></input>
             </div>
             <div className={styles.inputcontainer}>
@@ -43,6 +44,7 @@ export default function Page() {
                 placeholder="********"
                 onChange={(e) => setPassword(e.target.value)}
                 value={password}
+                className={styles.input}
               ></input>
             </div>
           </div>
@@ -54,7 +56,7 @@ export default function Page() {
               className={`${styles.discordloginbtn} ${styles.button}`}
               onClick={() => {
                 window.location.href =
-                  "https://discord.com/api/oauth2/authorize?client_id=1065350226757554237&response_type=code&redirect_uri=https%3A%2F%2Flocalhost%3A3000%2Flogin%2Fcallback&scope=identify+guilds";
+                  'https://discord.com/api/oauth2/authorize?client_id=1065350226757554237&response_type=code&redirect_uri=https%3A%2F%2Flocalhost%3A3000%2Flogin%2Fcallback&scope=identify+guilds';
               }}
             >
               Login With Discord

@@ -91,6 +91,7 @@
 
 .icon {
   width: 2rem;
+  height: auto;
   border-radius: 3px;
   margin-right: 12px;
 }

@@ -6,6 +6,7 @@ import Link from 'next/link';
 import getGuilds from '@lib/dashboard/getGuilds';
 import styles2 from '@css/dashboard/navdropdown.module.css';
 import { useGuild } from './guildContext';
+import Image from 'next/image';
 
 export default function DashboardNav() {
   const [guilds, setGuilds] = useState(null);
@@ -78,12 +79,23 @@ export default function DashboardNav() {
                     }}
                   >
                     {guild.icon ? (
-                      <img
+                      <Image
+                        width={128}
+                        height={128}
                         src={`https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.png`}
-                        alt={`${guild.name} icon`}
+                        alt={`<i>`}
                         className={styles2.icon}
                       />
-                    ) : null}
+                    ) : (
+                      <Image
+                        width={128}
+                        height={128}
+                        src={`https://placehold.co/128x128`}
+                        alt={`<i>`}
+                        className={styles2.icon}
+                        unoptimized
+                      />
+                    )}
                     {guild.name}
                   </li>
                 ))}
@@ -94,7 +106,7 @@ export default function DashboardNav() {
                       'https://discord.com/oauth2/authorize?client_id=1065350226757554237&permissions=8&response_type=code&redirect_uri=https%3A%2F%2Flocalhost%3A3000%2Flogin%2Fcallback&integration_type=0&scope=identify+guilds+bot';
                   }}
                 >
-                  Add Server
+                  Add Server...
                 </li>
               </ul>
             </div>

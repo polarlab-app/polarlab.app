@@ -55,8 +55,7 @@ export default function Page() {
             <button
               className={`${styles.discordloginbtn} ${styles.button}`}
               onClick={() => {
-                window.location.href =
-                  'https://discord.com/api/oauth2/authorize?client_id=1065350226757554237&response_type=code&redirect_uri=https%3A%2F%2Flocalhost%3A3000%2Flogin%2Fcallback&scope=identify+guilds';
+                window.location.href = process.env.AUTH_URI;
               }}
             >
               Login With Discord

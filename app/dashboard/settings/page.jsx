@@ -32,8 +32,8 @@ export default function Page() {
     };
 
     return (
-        <div className='dashboard'>
-            <TopBar type='settings'>
+        <div className="dashboard">
+            <TopBar type="settings">
                 {Object.keys(newData).length > 0 && (
                     <>
                         <DiscardButton onClick={() => discardChanges()} />
@@ -42,35 +42,47 @@ export default function Page() {
                 )}
             </TopBar>
 
-            <div className='dashboardwrapper'>
+            <div className="dashboardwrapper">
                 <div className={styles.togglegroup}>
                     <CheckboxInput
-                        type='ai-functionality'
+                        id="ai-functionality"
                         value={true}
-                        onChange={(e) => handleCheckboxChange(e.target.id, e.target.checked)}
+                        onChange={(e) =>
+                            handleCheckboxChange(e.target.id, e.target.checked)
+                        }
                     />
                 </div>
                 <div className={styles.togglegroup}>
                     <CheckboxInput
-                        type='ai-functionality2'
+                        id="ai-functionality2"
                         value={true}
-                        onChange={(e) => handleCheckboxChange(e.target.id, e.target.checked)}
+                        onChange={(e) =>
+                            handleCheckboxChange(e.target.id, e.target.checked)
+                        }
                     />
 
                     <CheckboxInput
-                        type='ai-functionality3'
+                        id="ai-functionality3"
                         value={true}
-                        onChange={(e) => handleCheckboxChange(e.target.id, e.target.checked)}
+                        onChange={(e) =>
+                            handleCheckboxChange(e.target.id, e.target.checked)
+                        }
                     />
                     <div className={styles.toggleswitchcontainer}>
                         <div className={styles.toggleswitchtext}>
-                            <p className={styles.toggleswitchheader}>AI Functionality</p>
+                            <p className={styles.toggleswitchheader}>
+                                AI Functionality
+                            </p>
                             <p className={styles.toggleswitchdescription}>
-                                Whether to enable AI empowered analytics for your server
+                                Whether to enable AI empowered analytics for
+                                your server
                             </p>
                         </div>
                         <label className={styles.togglecontainer}>
-                            <input type='checkbox' className={styles.hidden}></input>
+                            <input
+                                type="checkbox"
+                                className={styles.hidden}
+                            ></input>
                             <span className={styles.toggle}>
                                 <span className={styles.innertoggle}></span>
                             </span>
@@ -78,13 +90,19 @@ export default function Page() {
                     </div>
                     <div className={styles.toggleswitchcontainer}>
                         <div className={styles.toggleswitchtext}>
-                            <p className={styles.toggleswitchheader}>AI Functionality</p>
+                            <p className={styles.toggleswitchheader}>
+                                AI Functionality
+                            </p>
                             <p className={styles.toggleswitchdescription}>
-                                Whether to enable AI empowered analytics for your server
+                                Whether to enable AI empowered analytics for
+                                your server
                             </p>
                         </div>
                         <label className={styles.togglecontainer}>
-                            <input type='checkbox' className={styles.hidden}></input>
+                            <input
+                                type="checkbox"
+                                className={styles.hidden}
+                            ></input>
                             <span className={styles.toggle}>
                                 <span className={styles.innertoggle}></span>
                             </span>
@@ -94,13 +112,19 @@ export default function Page() {
                 <div className={styles.togglegroup}>
                     <div className={styles.toggleswitchcontainer}>
                         <div className={styles.toggleswitchtext}>
-                            <p className={styles.toggleswitchheader}>AI Functionality</p>
+                            <p className={styles.toggleswitchheader}>
+                                AI Functionality
+                            </p>
                             <p className={styles.toggleswitchdescription}>
-                                Whether to enable AI empowered analytics for your server
+                                Whether to enable AI empowered analytics for
+                                your server
                             </p>
                         </div>
                         <label className={styles.togglecontainer}>
-                            <input type='checkbox' className={styles.hidden}></input>
+                            <input
+                                type="checkbox"
+                                className={styles.hidden}
+                            ></input>
                             <span className={styles.toggle}>
                                 <span className={styles.innertoggle}></span>
                             </span>
@@ -108,13 +132,19 @@ export default function Page() {
                     </div>
                     <div className={styles.toggleswitchcontainer}>
                         <div className={styles.toggleswitchtext}>
-                            <p className={styles.toggleswitchheader}>AI Functionality</p>
+                            <p className={styles.toggleswitchheader}>
+                                AI Functionality
+                            </p>
                             <p className={styles.toggleswitchdescription}>
-                                Whether to enable AI empowered analytics for your server
+                                Whether to enable AI empowered analytics for
+                                your server
                             </p>
                         </div>
                         <label className={styles.togglecontainer}>
-                            <input type='checkbox' className={styles.hidden}></input>
+                            <input
+                                type="checkbox"
+                                className={styles.hidden}
+                            ></input>
                             <span className={styles.toggle}>
                                 <span className={styles.innertoggle}></span>
                             </span>
@@ -122,13 +152,19 @@ export default function Page() {
                     </div>
                     <div className={styles.toggleswitchcontainer}>
                         <div className={styles.toggleswitchtext}>
-                            <p className={styles.toggleswitchheader}>AI Functionality</p>
+                            <p className={styles.toggleswitchheader}>
+                                AI Functionality
+                            </p>
                             <p className={styles.toggleswitchdescription}>
-                                Whether to enable AI empowered analytics for your server
+                                Whether to enable AI empowered analytics for
+                                your server
                             </p>
                         </div>
                         <label className={styles.togglecontainer}>
-                            <input type='checkbox' className={styles.hidden}></input>
+                            <input
+                                type="checkbox"
+                                className={styles.hidden}
+                            ></input>
                             <span className={styles.toggle}>
                                 <span className={styles.innertoggle}></span>
                             </span>
@@ -136,13 +172,19 @@ export default function Page() {
                     </div>
                     <div className={styles.toggleswitchcontainer}>
                         <div className={styles.toggleswitchtext}>
-                            <p className={styles.toggleswitchheader}>AI Functionality</p>
+                            <p className={styles.toggleswitchheader}>
+                                AI Functionality
+                            </p>
                             <p className={styles.toggleswitchdescription}>
-                                Whether to enable AI empowered analytics for your server
+                                Whether to enable AI empowered analytics for
+                                your server
                             </p>
                         </div>
                         <label className={styles.togglecontainer}>
-                            <input type='checkbox' className={styles.hidden}></input>
+                            <input
+                                type="checkbox"
+                                className={styles.hidden}
+                            ></input>
                             <span className={styles.toggle}>
                                 <span className={styles.innertoggle}></span>
                             </span>
@@ -150,13 +192,19 @@ export default function Page() {
                     </div>
                     <div className={styles.toggleswitchcontainer}>
                         <div className={styles.toggleswitchtext}>
-                            <p className={styles.toggleswitchheader}>AI Functionality</p>
+                            <p className={styles.toggleswitchheader}>
+                                AI Functionality
+                            </p>
                             <p className={styles.toggleswitchdescription}>
-                                Whether to enable AI empowered analytics for your server
+                                Whether to enable AI empowered analytics for
+                                your server
                             </p>
                         </div>
                         <label className={styles.togglecontainer}>
-                            <input type='checkbox' className={styles.hidden}></input>
+                            <input
+                                type="checkbox"
+                                className={styles.hidden}
+                            ></input>
                             <span className={styles.toggle}>
                                 <span className={styles.innertoggle}></span>
                             </span>

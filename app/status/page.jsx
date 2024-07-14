@@ -1,7 +1,8 @@
 import { Suspense } from 'react';
-import styles from '../../src/css/main/status.module.css';
-import StatusGrid from '@/components/status/statusGrid';
-import GridHeader from '@/components/status/gridHeader';
+import styles from '@css/main/status.module.css';
+import StatusGrid from '@components/status/statusGrid';
+import GridHeader from '@components/status/gridHeader';
+import Stars from '@components/main/stars';
 
 export const metadata = {
     title: 'Polar Lab | Status',
@@ -11,7 +12,7 @@ export const metadata = {
 export default function Page() {
     return (
         <>
-            <div className='stars'></div>
+            <Stars />
             <div className={styles.main}>
                 <div className={styles.statusgrid}>
                     <GridHeader />

@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import login from '@lib/auth/login';
+import register from '@lib/auth/register';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
@@ -12,8 +13,10 @@ export default function Page() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(null);
+    const [page, setPage] = useState('login');
 
     const router = useRouter();
+
     return (
         <div className={styles.wrapper}>
             <div className={styles.container}>
@@ -26,7 +29,11 @@ export default function Page() {
                             height={512}
                             width={512}
                         />
-                        <h1 className={styles.heading}>Login To Polar Lab</h1>
+                        <h1 className={styles.heading}>
+                            {page === 'login'
+                                ? 'Login To Polar Lab'
+                                : 'Register To Polar Lab'}
+                        </h1>
                     </div>
                     <div className={styles.inputs}>
                         <div className={styles.inputcontainer}>
@@ -51,24 +58,57 @@ export default function Page() {
                         </div>
                     </div>
                     <div className={styles.buttoncontainer}>
+                        {page === 'login' ? (
+                            <p className={styles.switchtext}>
+                                Dont have an account? Register
+                                <span
+                                    className={styles.switchbutton}
+                                    onClick={() => setPage('register')}
+                                >
+                                    here
+                                </span>
+                            </p>
+                        ) : (
+                            <p className={styles.switchtext}>
+                                Already have an account? Login
+                                <span
+                                    className={styles.switchbutton}
+                                    onClick={() => setPage('login')}
+                                >
+                                    here
+                                </span>
+                            </p>
+                        )}
                         <button
                             className={`${styles.loginbtn} ${styles.button}`}
+                            onClick={() => {
+                                page === 'login'
+                                    ? login(username, password)
+                                    : register(username, password);
+                            }}
                         >
-                            Login to Polar Lab
+                            {page === 'login'
+                                ? 'Login to Polar Lab'
+                                : 'Register for Polar Lab'}
                         </button>
                         <button
                             className={`${styles.discordloginbtn} ${styles.button}`}
                             onClick={() => {
-                                window.location.href = router.push(
-                                    '/oauth2/login/discord'
-                                );
+                                router.push('/oauth2/login/discord');
                             }}
                         >
-                            Login With Discord
+                            Login with Discord
                         </button>
                     </div>
                 </div>
-                <div className={styles.right}></div>
+                <div className={styles.right}>
+                    <h2 className={styles.header}>By logging in you get:</h2>
+                    <ul>
+                        <li>Access to the Polaris Dashboard</li>
+                        <li>Access to the Content Delivery Network</li>
+                        <li>Access to the Bug Tracker</li>
+                    </ul>
+                </div>
             </div>
         </div>
     );

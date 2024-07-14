@@ -11,11 +11,15 @@
     -webkit-backdrop-filter: blur(5px);
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0));
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.01),
+        rgba(255, 255, 255, 0)
+    );
     z-index: 7;
     flex-direction: column;
     justify-content: space-around;
-    border-bottom: 1px solid #505050;
+    border-bottom: 1px solid #2a2933;
 }
 
 /*.border-bottom {

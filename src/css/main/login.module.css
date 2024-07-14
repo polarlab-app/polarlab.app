@@ -1,122 +1,145 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
 .wrapper {
-  height: 80vh;
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    height: 80vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .container {
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  width: 60%;
-  border: 1px solid #343434;
-  background-color: rgb(22, 21, 28);
-  border-radius: 10px;
-  height: 80%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 60%;
+    border: 1px solid #2a2933;
+    background-color: rgb(22, 21, 28);
+    border-radius: 10px;
+    height: 80%;
 }
 
 .logo {
-  height: 5vh;
-  width: auto;
-  margin: 0 3%;
+    height: 5vh;
+    width: auto;
+    margin: 0 3%;
 }
 
 .header {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  color: white;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    color: white;
 }
 
 .inputs {
-  width: 100%;
-  margin: 3% 0;
-  height: 50%;
+    width: 100%;
+    margin: 3% 0;
+    height: 50%;
 }
 
 .inputcontainer {
-  text-align: left;
-  margin: 2% 3%;
+    text-align: left;
+    margin: 2% 3%;
 }
 
 .inputlabel {
-  color: white;
-  margin: 0;
-  font-weight: 700;
-  margin: 2% 0;
+    color: white;
+    margin: 0;
+    font-weight: 700;
+    margin: 2% 0;
 }
 
 .input {
-  width: 93%;
-  border-radius: 5px;
-  font-family: 'Nunito';
-  height: 45%;
-  height: 5vh;
-  background-color: #2a2933;
-  color: white;
-  font-weight: 600;
-  outline: none;
-  border: none;
-  transition: all 600ms ease;
+    width: 87%;
+    border-radius: 5px;
+    font-family: 'Nunito';
+    height: 45%;
+    height: 5vh;
+    background-color: #2a2933;
+    color: white;
+    font-weight: 600;
+    outline: none;
+    border: 1px solid #2a2933;
+    padding: 0 3%;
+    transition: all 600ms ease;
+}
+
+.input:focus {
+    border: 1px solid #4b4ee7;
+    transition: all 600ms ease;
 }
 
 .buttoncontainer {
-  width: 94%;
-  margin: 3% 0;
+    width: 94%;
+    margin: 2% 0;
+}
+
+.switchtext {
+    color: white;
+}
+
+.switchbutton {
+    font-weight: 600;
+    color: rgb(207, 185, 253);
+    transition: all 600ms ease;
+    margin-left: 0.8%;
+}
+
+.switchbutton:hover {
+    color: #4b4ee7;
+    cursor: pointer;
+    transition: all 600ms ease;
 }
 
 .button {
-  width: 93%;
-  margin: 1% 3%;
-  border-radius: 5px;
-  font-family: 'Nunito';
-  height: 45%;
-  height: 5vh;
-  border: none;
-  color: white;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 600ms ease;
+    width: 93%;
+    margin: 1% 3%;
+    border-radius: 5px;
+    font-family: 'Nunito';
+    height: 45%;
+    height: 5vh;
+    border: none;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 600ms ease;
 }
 
 .loginbtn:hover {
-  scale: 0.95;
-  background-color: #1b1b2a;
-  transition: all 600ms ease;
+    scale: 0.95;
+    background-color: #1b1b2a;
+    transition: all 600ms ease;
 }
 
 .discordloginbtn:hover {
-  scale: 0.95;
-  background-color: #1b1b2a;
-  transition: all 600ms ease;
-  background-color: #27288f;
+    scale: 0.95;
+    background-color: #1b1b2a;
+    transition: all 600ms ease;
+    background-color: #27288f;
 }
 
 .loginbtn {
-  background-color: #2a2933;
+    background-color: #2a2933;
 }
 
 .discordloginbtn {
-  background-color: #4b4ee7;
+    background-color: #4b4ee7;
 }
 
 .left {
-  height: 100%;
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
 .right {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
 }

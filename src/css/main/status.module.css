@@ -66,10 +66,8 @@
     margin-left: 25%;
     width: 50%;
     margin-top: 5%;
-    border: 1px solid #707070;
     border-radius: 7px;
-    /*background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));*/
-    border: 1px solid #343434;
+    border: 1px solid #2a2933;
     background-color: rgb(22, 21, 28);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -84,7 +82,7 @@
     font-weight: 700;
     font-size: 0.9rem;
     grid-column: span 3;
-    border-bottom: 1px solid #343434;
+    border-bottom: 1px solid #2a2933;
     display: grid;
     grid-template-rows: 1;
     grid-template-columns: repeat(3, 1fr);

@@ -21,7 +21,7 @@
     cursor: pointer;
     overflow: hidden;
     transition: all 600ms ease;
-    border: 1px solid #232323;
+    border: 1px solid #2a2933;
 }
 
 .post:hover {

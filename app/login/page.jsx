@@ -17,6 +17,25 @@ export default function Page() {
 
     const router = useRouter();
 
+    const handleLogin = async (username, password) => {
+        const res = await login(username, password);
+        if (res !== 'success') {
+            setError(res);
+        } else {
+            setSuccess('Successfully logged in!');
+            router.push('/personal');
+        }
+    };
+    const handleRegister = async (username, password) => {
+        const res = await register(username, password);
+        if (res !== 'success') {
+            setError(res);
+        } else {
+            setSuccess(res);
+            router.push('/login');
+        }
+    };
+
     return (
         <div className={styles.wrapper}>
             <div className={styles.container}>
@@ -36,13 +55,17 @@ export default function Page() {
                         </h1>
                     </div>
                     <div className={styles.inputs}>
+                        <p className={styles.success}>
+                            {success ? success : ''}
+                        </p>
+                        <p className={styles.error}>{error ? error : ''}</p>
                         <div className={styles.inputcontainer}>
                             <p className={styles.inputlabel}>Username</p>
                             <input
                                 type="text"
                                 placeholder="Username"
                                 onChange={(e) => setUsername(e.target.value)}
-                                value={username}
+                                value={username ? username : ''}
                                 className={styles.input}
                             ></input>
                         </div>
@@ -52,7 +75,7 @@ export default function Page() {
                                 type="password"
                                 placeholder="********"
                                 onChange={(e) => setPassword(e.target.value)}
-                                value={password}
+                                value={password ? password : ''}
                                 className={styles.input}
                             ></input>
                         </div>
@@ -83,8 +106,8 @@ export default function Page() {
                             className={`${styles.loginbtn} ${styles.button}`}
                             onClick={() => {
                                 page === 'login'
-                                    ? login(username, password)
-                                    : register(username, password);
+                                    ? handleLogin(username, password)
+                                    : handleRegister(username, password);
                             }}
                         >
                             {page === 'login'
@@ -103,10 +126,18 @@ export default function Page() {
                 </div>
                 <div className={styles.right}>
                     <h2 className={styles.header}>By logging in you get:</h2>
-                    <ul>
-                        <li>Access to the Polaris Dashboard</li>
-                        <li>Access to the Content Delivery Network</li>
-                        <li>Access to the Bug Tracker</li>
+                    <ul className={styles.benefits}>
+                        <li className={styles.benefit}>
+                            Access to the Polaris Dashboard
+                        </li>
+                        <li className={styles.benefit}>
+                            Access to the Content Delivery Network
+                        </li>
+                        <li className={styles.benefit}>
+                            Access to the Bug Tracker
+                        </li>
+                        <li className={styles.benefit}>Access to Polar Link</li>
+                        <li className={styles.benefit}>Access to Polar +</li>
                     </ul>
                 </div>
             </div>

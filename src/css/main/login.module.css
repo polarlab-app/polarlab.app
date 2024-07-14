@@ -59,9 +59,9 @@
     background-color: #2a2933;
     color: white;
     font-weight: 600;
-    outline: none;
-    border: 1px solid #2a2933;
     padding: 0 3%;
+    border: 1px solid #2a2933;
+    outline: none;
     transition: all 600ms ease;
 }
 
@@ -114,7 +114,6 @@
 
 .discordloginbtn:hover {
     scale: 0.95;
-    background-color: #1b1b2a;
     transition: all 600ms ease;
     background-color: #27288f;
 }
@@ -137,9 +136,19 @@
 }
 
 .right {
+    height: 100%;
     width: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: flex-start;
+    color: white;
+}
+
+.benefits {
+    line-height: 2;
+    text-align: left;
+    font-size: 0.95rem;
+    font-weight: 600;
+    list-style: disc;
 }

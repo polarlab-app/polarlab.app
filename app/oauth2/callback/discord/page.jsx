@@ -2,6 +2,7 @@
 
 import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
+import discordLogin from '@lib/auth/discordLogin';
 
 export default function Page() {
     const searchParams = useSearchParams();
@@ -10,21 +11,15 @@ export default function Page() {
     useEffect(() => {
         async function handleLogin() {
             if (code) {
-                const request = await fetch('/api/login', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ code: code }),
-                });
-                if (request.ok) {
+                const response = await discordLogin(code);
+                console.log(response);
+                if (response === 'success') {
                     window.location.assign('/dashboard');
                 } else {
-                    console.error('Login failed:', request);
+                    console.error('Login failed:', response);
                 }
             }
         }
-
         handleLogin();
-    }, []);
+    });
 }

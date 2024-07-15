@@ -8,6 +8,13 @@ let userAccountSchema = new Schema(
         pfp: String,
         role: String,
         token: String,
+        connections: [
+            {
+                id: String,
+                name: String,
+                secret: String,
+            },
+        ],
     },
     {
         collection: 'accounts',

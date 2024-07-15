@@ -11,33 +11,10 @@
     -webkit-backdrop-filter: blur(5px);
     display: flex;
     align-items: center;
-    background: linear-gradient(
-        135deg,
-        rgba(255, 255, 255, 0.01),
-        rgba(255, 255, 255, 0)
-    );
     z-index: 7;
-    flex-direction: column;
     justify-content: space-around;
     border-bottom: 1px solid #2a2933;
 }
-
-/*.border-bottom {
-    width: 100%;
-    background-color: #505050;
-    height: 0.1vh;
-    box-shadow: 0 0 10px 1px #a2a2a2;
-    scale: 0 1;
-    animation: scroll-shower linear forwards;
-    animation-timeline: scroll();
-    transform-origin: left;
-}
-
-@keyframes scroll-shower {
-    to {
-        scale: 1 1;
-    }
-} */
 
 .logo {
     height: 2.4rem;
@@ -50,7 +27,6 @@
 .navlinkcontainer {
     display: flex;
     width: 70%;
-    z-index: 7;
     align-items: center;
 }
 
@@ -77,21 +53,53 @@
     align-self: calc(center - 10px);
 }
 
-.polarplus {
-    align-self: center;
-    padding: 12px 24px;
-    border: 1px solid #505050;
+.button {
+    font-weight: 600;
     border-radius: 5px;
-    font-weight: 700;
-    color: #91909c;
+    background-color: #2a2933;
+    padding: 6px 24px;
+    text-align: center;
+    width: 25%;
     transition: all 600ms ease;
+    width: max-content;
+    z-index: 1289;
     cursor: pointer;
-    margin-left: auto;
 }
 
-.polarplus:hover {
-    background-color: #1b1b1d;
-    color: #e2e2e2;
+.button:hover {
+    scale: 0.95;
+    background-color: #1b1b2a;
+    transition: all 600ms ease;
+}
+
+.welcome {
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 14%;
+}
+
+.pfp {
+    height: 6vh;
+    width: auto;
+    border-radius: 50%;
+}
+
+.welcometext {
+    margin: 0;
+    color: #91909c;
+    font-weight: 600;
+}
+
+.personal {
+    font-weight: 700;
+    transition: all 600ms ease;
+}
+
+.personal:hover {
+    cursor: pointer;
+    color: #4b4ee7;
     transition: all 600ms ease;
 }
 

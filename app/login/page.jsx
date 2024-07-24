@@ -1,6 +1,5 @@
 'use client';
 import React, { useState } from 'react';
-import Link from 'next/link';
 import login from '@lib/auth/login';
 import register from '@lib/auth/register';
 import Image from 'next/image';

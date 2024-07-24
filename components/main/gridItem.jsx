@@ -1,6 +1,11 @@
 'use client';
 
-const { titles, descriptions, images, buttons } = require('@data/gridItems.json');
+const {
+    titles,
+    descriptions,
+    images,
+    buttons,
+} = require('@data/gridItems.json');
 import styles from '@css/main/gridItem.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -37,11 +42,15 @@ export default function GridItem({ format, type }) {
                 <p className={styles.gridcontent}>
                     <span>{descriptions[type]}</span>
                 </p>
-                <Link className={styles.gridbutton} href={buttons[type]}>
+                <Link
+                    className={styles.gridbutton}
+                    href={buttons[type]}
+                    prefetch={false}
+                >
                     Check It Out
                 </Link>
             </div>
-            <img alt='gridimg' className={styles.gridimg} src={images[type]} />
+            <img alt="gridimg" className={styles.gridimg} src={images[type]} />
         </div>
     );
 }

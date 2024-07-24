@@ -61,7 +61,11 @@ export default async function NavBar() {
                         />
                         <div className={styles.text}>
                             <p className={styles.welcometext}>Welcome Back,</p>
-                            <Link className={styles.personal} href="/personal">
+                            <Link
+                                className={styles.personal}
+                                href="/personal"
+                                prefetch={false}
+                            >
                                 {username.value}
                             </Link>
                         </div>

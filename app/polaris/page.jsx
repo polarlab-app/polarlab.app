@@ -12,15 +12,30 @@ export default function Page() {
     return (
         <>
             <Stars />
-            <div className='main'>
-                <Landing type='polaris' />
-                <Section name='why-polaris'>
-                    <GridItem format='third' type='polaris-landing-freemium' />
-                    <GridItem format='third' type='polaris-landing-open-source' />
-                    <GridItem format='third' type='polaris-landing-accessible' />
-                    <GridItem format='third' type='polaris-landing-web-dashboard' />
-                    <GridItem format='third' type='polaris-landing-ease-of-use' />
-                    <GridItem format='third' type='polaris-landing-professional-execution' />
+            <div className="main">
+                <Landing type="polaris" />
+                <Section name="why-polaris">
+                    <GridItem format="third" type="polaris-landing-freemium" />
+                    <GridItem
+                        format="third"
+                        type="polaris-landing-open-source"
+                    />
+                    <GridItem
+                        format="third"
+                        type="polaris-landing-accessible"
+                    />
+                    <GridItem
+                        format="third"
+                        type="polaris-landing-web-dashboard"
+                    />
+                    <GridItem
+                        format="third"
+                        type="polaris-landing-ease-of-use"
+                    />
+                    <GridItem
+                        format="third"
+                        type="polaris-landing-professional-execution"
+                    />
                 </Section>
             </div>
         </>

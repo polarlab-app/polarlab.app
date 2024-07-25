@@ -1,8 +1,6 @@
-import '../src/global.css';
+import '@src/global.css';
 import NavBar from './NavBar.jsx';
 import Footer from './footer.jsx';
-
-require('dotenv').config();
 
 export const metadata = {
     title: 'Polar Lab',
@@ -11,8 +9,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
     return (
-        <html lang='en'>
-            <body className='body' id='body'>
+        <html lang="en">
+            <body className="body" id="body">
                 <NavBar />
                 {children}
                 <Footer />

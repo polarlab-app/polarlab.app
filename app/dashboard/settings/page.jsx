@@ -2,11 +2,11 @@
 import styles from '@css/dashboard/settings.module.css';
 import TopBar from '@components/dashboard/topbar';
 import { useGuild } from '../guildContext';
-import CheckboxInput from '@/components/dashboard/inputs/checkbox';
+import CheckboxInput from '@components/dashboard/inputs/checkbox';
 import { useState } from 'react';
-import SaveButton from '@/components/dashboard/saveButton';
-import DiscardButton from '@/components/dashboard/discardButton';
-import saveData from '@/lib/dashboard/saveData';
+import SaveButton from '@components/dashboard/saveButton';
+import DiscardButton from '@components/dashboard/discardButton';
+import saveData from '@lib/dashboard/saveData';
 
 export default function Page() {
     const { selectedGuild, setSelectedGuild } = useGuild();

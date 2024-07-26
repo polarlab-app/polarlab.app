@@ -150,3 +150,29 @@
     font-weight: 600;
     list-style: disc;
 }
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    .left {
+        width: 100%;
+    }
+
+    .right {
+        display: none;
+    }
+    .buttoncontainer {
+        width: 100%;
+    }
+    .input {
+        width: 94%;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .container {
+        width: 80%;
+    }
+}

@@ -25,6 +25,7 @@ export default function Page() {
             router.push('/personal');
         }
     };
+
     const handleRegister = async (username, password) => {
         const res = await register(username, password);
         if (res !== 'success') {

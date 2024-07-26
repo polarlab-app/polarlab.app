@@ -10,8 +10,8 @@ import styles from '@css/login/login.module.css';
 export default function Page() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState(null);
-    const [success, setSuccess] = useState(null);
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
     const [page, setPage] = useState('login');
 
     const router = useRouter();
@@ -21,7 +21,7 @@ export default function Page() {
         if (res !== 'success') {
             setError(res);
         } else {
-            setSuccess('Successfully logged in!');
+            setSuccess('You have successfully logged in!');
             router.push('/personal');
         }
     };
@@ -29,9 +29,11 @@ export default function Page() {
     const handleRegister = async (username, password) => {
         const res = await register(username, password);
         if (res !== 'success') {
+            setSuccess('');
             setError(res);
         } else {
-            setSuccess(res);
+            setError('');
+            setSuccess('You have successfully registered to Polar Lab!');
             router.push('/login');
         }
     };
@@ -56,10 +58,12 @@ export default function Page() {
                         </h1>
                     </div>
                     <div className={styles.inputs}>
-                        <p className={styles.success}>
-                            {success ? success : ''}
-                        </p>
-                        <p className={styles.error}>{error ? error : ''}</p>
+                        {success ? (
+                            <p className={styles.success}>{success}</p>
+                        ) : null}
+                        {error ? (
+                            <p className={styles.error}>ERROR: {error}</p>
+                        ) : null}
                         <div className={styles.inputcontainer}>
                             <p className={styles.inputlabel}>Username</p>
                             <input
@@ -87,7 +91,11 @@ export default function Page() {
                                 Dont have an account? Register
                                 <span
                                     className={styles.switchbutton}
-                                    onClick={() => setPage('register')}
+                                    onClick={() => {
+                                        setPage('register');
+                                        setError('');
+                                        setSuccess('');
+                                    }}
                                 >
                                     here
                                 </span>
@@ -97,7 +105,11 @@ export default function Page() {
                                 Already have an account? Login
                                 <span
                                     className={styles.switchbutton}
-                                    onClick={() => setPage('login')}
+                                    onClick={() => {
+                                        setPage('login');
+                                        setError('');
+                                        setSuccess('');
+                                    }}
                                 >
                                     here
                                 </span>

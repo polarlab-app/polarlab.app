@@ -8,11 +8,13 @@ let userAccountSchema = new Schema(
         pfp: String,
         role: String,
         token: String,
+        discordId: String,
         connections: [
             {
                 id: String,
                 name: String,
                 secret: String,
+                redirect_uri: String,
             },
         ],
     },

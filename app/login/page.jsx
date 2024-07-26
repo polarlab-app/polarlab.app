@@ -5,7 +5,7 @@ import register from '@lib/auth/register';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
-import styles from '@css/main/login.module.css';
+import styles from '@css/login/login.module.css';
 
 export default function Page() {
     const [username, setUsername] = useState('');
@@ -47,6 +47,7 @@ export default function Page() {
                             className={styles.logo}
                             height={512}
                             width={512}
+                            unoptimized={true}
                         />
                         <h1 className={styles.heading}>
                             {page === 'login'

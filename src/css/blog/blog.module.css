@@ -27,7 +27,7 @@
 .post:hover {
     scale: 1.03;
     transition: all 600ms ease;
-    box-shadow: 5px 5px 20px rgb(89, 89, 255, 0.4);
+    box-shadow: 5px 5px 20px rgba(109, 109, 144, 0.4);
 }
 
 .postimgcontainer {

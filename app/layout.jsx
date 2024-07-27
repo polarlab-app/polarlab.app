@@ -1,7 +1,7 @@
 import '@src/global.css';
 import '@src/icons.css';
-import NavBar from './NavBar.jsx';
-import Footer from './footer.jsx';
+import NavBar from '@components/core/NavBar.jsx/index.js';
+import Footer from '@components/core/footer.jsx';
 
 export const metadata = {
     title: 'Polar Lab',

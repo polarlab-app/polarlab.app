@@ -1,6 +1,6 @@
 import '@src/global.css';
 import '@src/icons.css';
-import NavBar from '@components/core/NavBar.jsx/index.js';
+import NavBar from '@components/core/NavBar.jsx';
 import Footer from '@components/core/footer.jsx';
 
 export const metadata = {

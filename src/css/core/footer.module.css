@@ -102,13 +102,13 @@
 
 .copyr {
     float: left;
-    color: #919191;
+    color: #91909c;
     font-weight: 600;
     transition: all 600ms ease;
 }
 
 .copyr:hover {
-    color: #e5e5e5;
+    color: white;
     transition: all 600ms ease;
 }
 

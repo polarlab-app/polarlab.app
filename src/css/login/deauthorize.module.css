@@ -1,0 +1,70 @@
+.wrapper {
+    height: 80vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.container {
+    width: 50%;
+    margin-top: 15vh;
+    height: 15vh;
+    border: 1px solid #2a2933;
+    background-color: rgb(22, 21, 28);
+    border-radius: 10px;
+    padding: 3vh;
+    position: relative;
+}
+
+.bold {
+    font-weight: 700;
+    color: white;
+}
+
+.text,
+.heading {
+    text-align: left;
+    margin-top: 0;
+}
+
+.text {
+    color: #a1a0a9;
+    font-size: 1rem;
+}
+
+.button {
+    float: right;
+    color: white;
+    background-color: #4b4ee7;
+    height: 5vh;
+    border: none;
+    border-radius: 6px;
+    padding: 0 30px;
+    transition: all 600ms ease;
+    cursor: pointer;
+    margin-right: 3%;
+    animation: appear 0.6s ease-out forwards;
+    font-weight: 600;
+    margin-right: 0;
+}
+
+.button:hover {
+    background-color: #27288f;
+    transition: all 600ms ease;
+}
+
+.gethelp {
+    left: 3vh;
+    bottom: 2vh;
+    color: #2a2933;
+    position: absolute;
+    text-decoration: underline;
+    transition: all 600ms ease;
+}
+
+.gethelp:hover {
+    color: white;
+    cursor: pointer;
+    transition: all 600ms ease;
+}

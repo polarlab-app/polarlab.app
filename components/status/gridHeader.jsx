@@ -6,33 +6,17 @@ export default async function GridHeader() {
     return (
         <div className={styles.gridheader}>
             <div className={styles.headercell}>
-                <Image
-                    alt='alt'
-                    src='https://cdn.polarlab.app/src/icons/colorless/service_table.png'
-                    className={styles.headericon}
-                    width='128'
-                    height='128'
-                />
+                <i className={`icon-grid-2 ${styles.headericon}`}></i>
                 <p className={styles.headertext}>Service</p>
             </div>
             <div className={styles.headercell}>
-                <Image
-                    alt='alt'
-                    src='https://cdn.polarlab.app/src/icons/colorless/status_table.png'
-                    className={styles.headericon}
-                    width='128'
-                    height='128'
-                />
+                <i className={`icon-signal-bars ${styles.headericon}`}></i>
+
                 <p className={styles.headertext}>Status</p>
             </div>
             <div className={styles.headercell}>
-                <Image
-                    alt='alt'
-                    src='https://cdn.polarlab.app/src/icons/colorless/info_table.png'
-                    className={styles.headericon}
-                    width='128'
-                    height='128'
-                />
+                <i className={`icon-circle-info ${styles.headericon}`}></i>
+
                 <p className={styles.headertext}>Details</p>
             </div>
         </div>

@@ -18,64 +18,43 @@ export default async function NavBar() {
             <div className={styles.navlinkcontainer}>
                 <Image
                     className={styles.logo}
-                    src="https://cdn.polarlab.app/src/img/polarlogo.png"
-                    alt="alt"
-                    width="128"
-                    height="128"
+                    src='https://cdn.polarlab.app/src/img/polarlogo.png'
+                    alt='alt'
+                    width='128'
+                    height='128'
                 />
-                <Link
-                    className={styles.logolink}
-                    href="https://polarlab.app/"
-                    prefetch={false}
-                >
+                <Link className={styles.logolink} href='https://polarlab.app/' prefetch={false}>
                     Polar Lab
                 </Link>
-                <Link className={styles.navlink} href="/">
+                <Link className={styles.navlink} href='/'>
                     Home
                 </Link>
-                <Link
-                    className={styles.navlink}
-                    href="https://docs.polarlab.app"
-                    prefetch={false}
-                >
+                <Link className={styles.navlink} href='https://docs.polarlab.app' prefetch={false}>
                     Docs
                 </Link>
-                <Link className={styles.navlink} href="/blog" prefetch={false}>
+                <Link className={styles.navlink} href='/blog' prefetch={false}>
                     Blog
                 </Link>
-                <Link
-                    className={styles.navlink}
-                    href="/discord"
-                    prefetch={false}
-                >
+                <Link className={styles.navlink} href='/discord' prefetch={false}>
                     Discord
                 </Link>
                 {user ? (
                     <div className={styles.welcome}>
-                        <img
-                            alt="pfp"
-                            className={styles.pfp}
-                            src={
-                                user.pfp ? user.pfp : 'https://placehold.co/128'
-                            }
-                        />
+                        {user.pfp ? (
+                            <img alt='pfp' className={styles.pfp} src={user.pfp} />
+                        ) : (
+                            <i className={`icon-user ${styles.icon}`}></i>
+                        )}
+
                         <div className={styles.text}>
                             <p className={styles.welcometext}>Welcome Back,</p>
-                            <Link
-                                className={styles.personal}
-                                href="/personal"
-                                prefetch={false}
-                            >
+                            <Link className={styles.personal} href='/personal' prefetch={false}>
                                 {username.value}
                             </Link>
                         </div>
                     </div>
                 ) : (
-                    <Link
-                        className={styles.button}
-                        href="/login"
-                        prefetch={false}
-                    >
+                    <Link className={styles.button} href='/login' prefetch={false}>
                         Login
                     </Link>
                 )}

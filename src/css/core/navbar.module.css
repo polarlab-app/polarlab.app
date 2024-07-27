@@ -84,6 +84,12 @@
     border-radius: 50%;
 }
 
+.icon {
+    font-size: 3.5vh;
+    color: white;
+    margin-left: 12%;
+}
+
 .welcometext {
     margin: 0;
     color: #91909c;

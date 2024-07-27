@@ -1,4 +1,5 @@
 import '@src/global.css';
+import '@src/icons.css';
 import NavBar from './NavBar.jsx';
 import Footer from './footer.jsx';
 
@@ -27,8 +28,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
     return (
-        <html lang="en">
-            <body className="body" id="body">
+        <html lang='en'>
+            <body className='body' id='body'>
                 <NavBar />
                 {children}
                 <Footer />

@@ -42,26 +42,6 @@
     font-weight: 600;
 }
 
-@media screen and (max-width: 480px) {
-    .statusgrid {
-        width: 100%;
-        margin-left: 0;
-    }
-}
-@media screen and (min-width: 481px) and (max-width: 767px) {
-    .statusgrid {
-        width: 90%;
-        margin-left: 5%;
-    }
-}
-
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-    .statusgrid {
-        width: 80%;
-        margin-left: 10%;
-    }
-}
-
 .statusgrid {
     margin-left: 25%;
     width: 50%;
@@ -96,9 +76,8 @@
 }
 
 .headericon {
-    height: 0.9rem;
-    width: auto;
     margin-right: 3%;
+    font-size: 0.9rem;
 }
 .gridcell {
     display: flex;
@@ -117,4 +96,24 @@
     margin-right: 3%;
     width: 1rem;
     height: auto;
+}
+
+@media screen and (max-width: 480px) {
+    .statusgrid {
+        width: 96%;
+        margin-left: 2%;
+    }
+}
+@media screen and (min-width: 481px) and (max-width: 767px) {
+    .statusgrid {
+        width: 90%;
+        margin-left: 5%;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .statusgrid {
+        width: 80%;
+        margin-left: 10%;
+    }
 }

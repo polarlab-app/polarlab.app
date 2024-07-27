@@ -1,34 +1,50 @@
-import { cookies } from 'next/headers';
+'use client';
+
 import { redirect } from 'next/navigation';
-import Form from '@components/personal/form.jsx';
-import Privacy from '@components/personal/privacy.jsx';
-
-import styles from '@css/main/personal.module.css';
+import { useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import styles from '@css/personal/personal.module.css';
 import findUser from '@lib/personal/findUser.js';
+import NavBar from '@/components/personal/nav';
 
-export const metadata = {
+/*export const metadata = {
     title: 'Polar Lab | Personal',
-    description:
-        'The official profile management page for you Polar Lab account',
-};
+    description: 'The official profile management page for you Polar Lab account',
+};*/
 
-export default async function Page() {
-    const cookieStore = cookies();
-    const token = cookieStore.get('accountToken');
+export default function Page() {
+    const searchParams = useSearchParams();
+    const [section, setSection] = useState('accountDetails');
 
-    if (!token) {
-        redirect('/login');
-    }
-
-    const user = await JSON.parse(await findUser(token.value));
+    useEffect(() => {
+        const page = searchParams.get('page');
+        if (page) {
+            setSection(page);
+        }
+    }, [searchParams]);
 
     return (
-        <div className={styles.main}>
-            <h1 className={styles.header}>Welcome Back, {user.username}</h1>
-            <h2 className={styles.subheader}>Account Details</h2>
-            <Form></Form>
-            <h2 className={styles.subheader}>Privacy</h2>
-            <Privacy></Privacy>
+        <div className={styles.container}>
+            {section === 'accountDetails' && <AccountDetails />}
+            {section === 'apps' && <Apps />}
+            {section === 'authorizedApps' && <AuthorizedApps />}
+            {section === 'dangerZone' && <DangerZone />}
         </div>
     );
+}
+
+function AccountDetails() {
+    return <div>Account Details Section</div>;
+}
+
+function Apps() {
+    return <div>Apps Section</div>;
+}
+
+function AuthorizedApps() {
+    return <div>Authorized Apps Section</div>;
+}
+
+function DangerZone() {
+    return <div>Danger Zone Section</div>;
 }

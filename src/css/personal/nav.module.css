@@ -1,0 +1,66 @@
+.nav {
+    width: 20%;
+    background-color: rebeccapurple;
+    margin: 0;
+    border-right: 1px solid #2a2933;
+    background-color: #1b1c24;
+    color: white;
+    position: relative;
+}
+
+.navitem {
+    width: 85%;
+    margin-left: 7.5%;
+    display: flex;
+    align-items: center;
+    transition: all 600ms ease;
+    margin-bottom: 3%;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #a1a0a9;
+    font-weight: 700;
+}
+
+.navitem.active,
+.navitem:hover {
+    background-color: #2a2a33;
+    transition: all 600ms ease;
+    color: white;
+}
+
+.navitem:hover .navicon {
+    color: white;
+    transition: all 600ms ease;
+}
+
+.navicon {
+    margin: 0 5%;
+    font-size: 18px;
+    transition: all 600ms ease;
+}
+
+.logout {
+    color: #d86464;
+    background-color: #2c2d36;
+    height: 4vh;
+    border: none;
+    border-radius: 5px;
+    padding: 0 15px;
+    transition: all 600ms ease;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: 1%;
+    animation: appear 0.6s ease-out forwards;
+    font-weight: 600;
+    width: 80%;
+    margin-left: 10%;
+    position: absolute;
+    left: 0;
+    bottom: 3%;
+}
+
+.logout:hover {
+    background-color: #212127;
+    transition: all 600ms ease;
+    scale: 0.96;
+}

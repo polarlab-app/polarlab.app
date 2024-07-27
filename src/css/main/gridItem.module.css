@@ -19,18 +19,17 @@
 @keyframes appear {
     0% {
         opacity: 0;
-        transform: translate3d(0px, 24px, 0px) scale3d(0.96, 0.96, 1)
-            rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg);
+        transform: translate3d(0px, 24px, 0px) scale3d(0.96, 0.96, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+            skew(0deg);
     }
     10% {
         opacity: 0;
-        transform: translate3d(0px, 20px, 0px) scale3d(0.96, 0.96, 1)
-            rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg);
+        transform: translate3d(0px, 20px, 0px) scale3d(0.96, 0.96, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+            skew(0deg);
     }
     100% {
         opacity: 1;
-        transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg)
-            rotateY(0deg) rotateZ(0deg) skew(0deg);
+        transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg);
     }
 }
 
@@ -44,7 +43,7 @@
 .gridheader {
     color: white;
     font-size: 1.6em;
-    color: #e5e5e5;
+    color: white;
     margin-bottom: 0;
 }
 

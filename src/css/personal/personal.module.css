@@ -1,0 +1,7 @@
+.wrapper {
+    height: 92vh;
+    width: 100vw;
+    overflow: hidden;
+    margin: 0;
+    display: flex;
+}

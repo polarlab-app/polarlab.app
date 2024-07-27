@@ -22,7 +22,7 @@ body {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    background-color: #16151c;
+    background-color: #13141a;
 }
 
 .username {

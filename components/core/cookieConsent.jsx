@@ -2,6 +2,7 @@
 import styles from '@css/core/cookies.module.css';
 import Link from 'next/link';
 import updateConsent from '@lib/privacy/cookieConsent';
+
 export default function CookieConsent() {
     return (
         <div className={styles.container}>

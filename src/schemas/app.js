@@ -3,6 +3,7 @@ const { Schema, model, models } = require('mongoose');
 let appSchema = new Schema(
     {
         id: String,
+        ownerId: String,
         pfp: String,
         name: String,
         secret: String,

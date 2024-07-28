@@ -1,0 +1,10 @@
+{
+    "inputs": {
+        "deleteAccount": {
+            "name": "Delete Account",
+            "description": "Warning: This action is irreversible! All of your account data and activity will be deleted.",
+            "path": null,
+            "placeholder": "Delete Account"
+        }
+    }
+}

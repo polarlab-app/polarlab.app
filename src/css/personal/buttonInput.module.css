@@ -1,0 +1,84 @@
+@property --border-angle {
+    syntax: '<angle>';
+    inherits: true;
+    initial-value: 0turn;
+}
+
+.inputcontainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.inputtext {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.inputheader {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 0;
+    margin-top: 1%;
+}
+
+.inputdescription {
+    color: #a1a0a9;
+}
+.button {
+    height: 4vh;
+    width: 15%;
+    color: #d86464;
+    background-color: #2a2933;
+    padding: 0 15px;
+    cursor: pointer;
+    font-weight: 700;
+    position: relative;
+    border: none;
+    border-radius: 5px;
+    transition: all 600ms ease;
+    overflow: hidden;
+}
+
+.button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 5px;
+    padding: 2px;
+    background: conic-gradient(from var(--border-angle), transparent 25%, #d86464, #ff9999 99%, transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.button:hover::before {
+    opacity: 1;
+    animation: bg-spin 3s linear infinite;
+}
+
+.button:not(:hover)::before {
+    animation: bg-spin-complete 3s linear forwards;
+}
+
+.button:hover {
+    background-color: #1b1b2a;
+    scale: 0.96;
+}
+
+@keyframes bg-spin {
+    to {
+        --border-angle: 1turn;
+    }
+}
+
+@keyframes bg-spin-complete {
+    to {
+        --border-angle: 1turn;
+        opacity: 0;
+    }
+}

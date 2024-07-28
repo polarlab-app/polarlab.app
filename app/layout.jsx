@@ -30,7 +30,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
     const cookieConsent = cookies().get('consent');
-    console.log(cookieConsent);
+
     return (
         <html lang='en'>
             <body className='body' id='body'>

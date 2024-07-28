@@ -5,7 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import styles from '@css/personal/personal.module.css';
 import findUser from '@lib/personal/findUser.js';
-import NavBar from '@/components/personal/nav';
+import ButtonInput from '@/components/personal/buttonInput';
 
 /*export const metadata = {
     title: 'Polar Lab | Personal',
@@ -34,7 +34,7 @@ export default function Page() {
 }
 
 function AccountDetails() {
-    return <div>Account Details Section</div>;
+    return <div className={styles.main}></div>;
 }
 
 function Apps() {
@@ -46,5 +46,11 @@ function AuthorizedApps() {
 }
 
 function DangerZone() {
-    return <div>Danger Zone Section</div>;
+    return (
+        <div className={styles.main}>
+            <div className={styles.inputwrapper}>
+                <ButtonInput type='deleteAccount' />
+            </div>
+        </div>
+    );
 }

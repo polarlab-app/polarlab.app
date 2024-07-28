@@ -17,29 +17,47 @@
     line-height: 1em;
 }
 .icon-arrow-right:before {
-    content: '\e800';
-}
+    content: '\e809';
+} /* '' */
 .icon-check-double:before {
-    content: '\e801';
-}
+    content: '\e80a';
+} /* '' */
 .icon-circle-info:before {
-    content: '\e802';
-}
+    content: '\e80b';
+} /* '' */
 .icon-copy:before {
-    content: '\e803';
-}
+    content: '\e80c';
+} /* '' */
+.icon-discord:before {
+    content: '\e80d';
+} /* '' */
 .icon-download:before {
-    content: '\e804';
-}
+    content: '\e80e';
+} /* '' */
+.icon-github:before {
+    content: '\e80f';
+} /* '' */
 .icon-grid-2:before {
-    content: '\e805';
-}
+    content: '\e810';
+} /* '' */
+.icon-house:before {
+    content: '\e811';
+} /* '' */
+.icon-music:before {
+    content: '\e812';
+} /* '' */
+.icon-shield-check:before {
+    content: '\e813';
+} /* '' */
 .icon-signal-bars:before {
-    content: '\e806';
-}
+    content: '\e814';
+} /* '' */
 .icon-sparkles:before {
-    content: '\e807';
-}
+    content: '\e815';
+} /* '' */
+.icon-triangle-exclamation:before {
+    content: '\e816';
+} /* '' */
 .icon-user:before {
-    content: '\e808';
-}
+    content: '\e817';
+} /* '' */

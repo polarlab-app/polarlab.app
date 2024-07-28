@@ -125,8 +125,13 @@
     text-align: center;
     justify-content: center;
     background-color: #2a2933;
+    transition: all 600ms ease;
 }
 
+.status:hover .product {
+    color: white;
+    transition: all 600ms ease;
+}
 .product {
     color: #91909c;
 }
@@ -145,10 +150,17 @@
 }
 
 .discordlogo {
-    height: 2.5vh;
+    font-size: 2.5vh;
     float: right;
     margin-left: 1vw;
     width: auto;
+    color: #91909c;
+    transition: all 600ms ease;
+}
+
+.discordlogo:hover {
+    color: white;
+    transition: all 600ms ease;
 }
 
 @media screen and (max-width: 480px) {

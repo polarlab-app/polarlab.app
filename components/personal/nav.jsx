@@ -26,7 +26,7 @@ export default function NavBar() {
                 className={`${styles.navitem} ${activeItem === 'authorizedApps' ? styles.active : ''}`}
                 onClick={() => handleNavItemClick('authorizedApps')}
             >
-                <i className={`icon-lock ${styles.navicon}`}></i>
+                <i className={`icon-shield-check ${styles.navicon}`}></i>
                 <p className={styles.navtext}>Authorized Apps</p>
             </div>
             <div
@@ -41,7 +41,7 @@ export default function NavBar() {
                 className={`${styles.navitem} ${activeItem === 'dangerZone' ? styles.active : ''}`}
                 onClick={() => handleNavItemClick('dangerZone')}
             >
-                <i className={`icon-warning ${styles.navicon}`}></i>
+                <i className={`icon-triangle-exclamation ${styles.navicon}`}></i>
                 <p className={styles.navtext}>Danger Zone</p>
             </div>
             <button className={styles.logout}>Log Out</button>

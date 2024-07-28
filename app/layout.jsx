@@ -2,6 +2,8 @@ import '@src/global.css';
 import '@src/icons.css';
 import NavBar from '@components/core/NavBar.jsx';
 import Footer from '@components/core/footer.jsx';
+import { cookies } from 'next/headers';
+import CookieConsent from '@/components/core/cookieConsent';
 
 export const metadata = {
     title: 'Polar Lab',
@@ -27,10 +29,13 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+    const cookieConsent = cookies().get('consent');
+    console.log(cookieConsent);
     return (
         <html lang='en'>
             <body className='body' id='body'>
                 <NavBar />
+                {cookieConsent ? '' : <CookieConsent />}
                 {children}
                 <Footer />
             </body>

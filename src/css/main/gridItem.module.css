@@ -53,10 +53,12 @@
     background-color: #2a2933;
     padding: 6px 20px;
     text-align: center;
-    width: 25%;
     transition: all 600ms ease;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    position: relative;
     width: max-content;
-    z-index: 1289;
 }
 
 .gridbutton:hover {

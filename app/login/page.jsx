@@ -1,10 +1,9 @@
 'use client';
 import React, { useState } from 'react';
-import login from '@lib/auth/login';
+import login from '@lib/auth/sessionManagement/login';
 import register from '@lib/auth/register';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-
 import styles from '@css/login/login.module.css';
 
 export default function Page() {
@@ -19,8 +18,10 @@ export default function Page() {
     const handleLogin = async (username, password) => {
         const res = await login(username, password);
         if (res !== 'success') {
+            setSuccess('');
             setError(res);
         } else {
+            setError('');
             setSuccess('You have successfully logged in!');
             router.push('/personal');
         }
@@ -44,31 +45,25 @@ export default function Page() {
                 <div className={styles.left}>
                     <div className={styles.header}>
                         <Image
-                            src="https://cdn.polarlab.app/src/img/polarlogo.png"
-                            alt="polarlogo"
+                            src='https://cdn.polarlab.app/src/img/polarlogo.png'
+                            alt='polarlogo'
                             className={styles.logo}
                             height={512}
                             width={512}
                             unoptimized={true}
                         />
                         <h1 className={styles.heading}>
-                            {page === 'login'
-                                ? 'Login To Polar Lab'
-                                : 'Register To Polar Lab'}
+                            {page === 'login' ? 'Login To Polar Lab' : 'Register To Polar Lab'}
                         </h1>
                     </div>
                     <div className={styles.inputs}>
-                        {success ? (
-                            <p className={styles.success}>{success}</p>
-                        ) : null}
-                        {error ? (
-                            <p className={styles.error}>ERROR: {error}</p>
-                        ) : null}
+                        {success ? <p className={styles.success}>{success}</p> : null}
+                        {error ? <p className={styles.error}>ERROR: {error}</p> : null}
                         <div className={styles.inputcontainer}>
                             <p className={styles.inputlabel}>Username</p>
                             <input
-                                type="text"
-                                placeholder="Username"
+                                type='text'
+                                placeholder='Username'
                                 onChange={(e) => setUsername(e.target.value)}
                                 value={username ? username : ''}
                                 className={styles.input}
@@ -77,8 +72,8 @@ export default function Page() {
                         <div className={styles.inputcontainer}>
                             <p className={styles.inputlabel}>Password</p>
                             <input
-                                type="password"
-                                placeholder="********"
+                                type='password'
+                                placeholder='********'
                                 onChange={(e) => setPassword(e.target.value)}
                                 value={password ? password : ''}
                                 className={styles.input}
@@ -118,14 +113,10 @@ export default function Page() {
                         <button
                             className={`${styles.loginbtn} ${styles.button}`}
                             onClick={() => {
-                                page === 'login'
-                                    ? handleLogin(username, password)
-                                    : handleRegister(username, password);
+                                page === 'login' ? handleLogin(username, password) : handleRegister(username, password);
                             }}
                         >
-                            {page === 'login'
-                                ? 'Login to Polar Lab'
-                                : 'Register for Polar Lab'}
+                            {page === 'login' ? 'Login to Polar Lab' : 'Register for Polar Lab'}
                         </button>
                         <button
                             className={`${styles.discordloginbtn} ${styles.button}`}
@@ -140,15 +131,9 @@ export default function Page() {
                 <div className={styles.right}>
                     <h2 className={styles.header}>By logging in you get:</h2>
                     <ul className={styles.benefits}>
-                        <li className={styles.benefit}>
-                            Access to the Polaris Dashboard
-                        </li>
-                        <li className={styles.benefit}>
-                            Access to the Content Delivery Network
-                        </li>
-                        <li className={styles.benefit}>
-                            Access to the Bug Tracker
-                        </li>
+                        <li className={styles.benefit}>Access to the Polaris Dashboard</li>
+                        <li className={styles.benefit}>Access to the Content Delivery Network</li>
+                        <li className={styles.benefit}>Access to the Bug Tracker</li>
                         <li className={styles.benefit}>Access to Polar Link</li>
                         <li className={styles.benefit}>Access to Polar +</li>
                     </ul>

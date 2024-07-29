@@ -1,4 +1,5 @@
-const { Schema, model, models } = require('mongoose');
+import mongoose from 'mongoose';
+const { Schema, model, models } = mongoose;
 
 let userAccountSchema = new Schema(
     {
@@ -9,7 +10,7 @@ let userAccountSchema = new Schema(
         role: String,
         token: String,
         discordId: String,
-        connections: [
+        authorized_apps: [
             {
                 id: String,
                 name: String,
@@ -23,8 +24,5 @@ let userAccountSchema = new Schema(
     }
 );
 
-if (!models.userAccount) {
-    module.exports = model('userAccount', userAccountSchema);
-} else {
-    module.exports = models.userAccount;
-}
+const userAccount = models.userAccount || model('userAccount', userAccountSchema);
+export default userAccount;

@@ -1,6 +1,7 @@
-const { Schema, model, models } = require('mongoose');
+import mongoose from 'mongoose';
+const { Schema, model, models } = mongoose;
 
-let appSchema = new Schema(
+const appSchema = new Schema(
     {
         id: String,
         ownerId: String,
@@ -14,8 +15,5 @@ let appSchema = new Schema(
     }
 );
 
-if (!models.app) {
-    module.exports = model('appSchema', appSchema);
-} else {
-    module.exports = models.app;
-}
+const app = models.app || model('app', appSchema);
+export default app;

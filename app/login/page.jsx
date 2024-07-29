@@ -17,7 +17,7 @@ export default function Page() {
 
     const handleLogin = async (username, password) => {
         const res = await login(username, password);
-        if (res !== 'success') {
+        if (res !== true) {
             setSuccess('');
             setError(res);
         } else {
@@ -29,7 +29,7 @@ export default function Page() {
 
     const handleRegister = async (username, password) => {
         const res = await register(username, password);
-        if (res !== 'success') {
+        if (res !== true) {
             setSuccess('');
             setError(res);
         } else {

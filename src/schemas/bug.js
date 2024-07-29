@@ -1,6 +1,7 @@
-const { Schema, model, models } = require('mongoose');
+import mongoose from 'mongoose';
+const { Schema, model, models } = mongoose;
 
-let bugSchema = new Schema(
+const bugSchema = new Schema(
     {
         id: String,
         author: String,
@@ -26,8 +27,5 @@ let bugSchema = new Schema(
     }
 );
 
-if (!models.bugSchema) {
-    module.exports = model('bugSchema', bugSchema);
-} else {
-    module.exports = models.bugSchema;
-}
+const bug = models.bug || model('bug', bugSchema);
+export default bug;

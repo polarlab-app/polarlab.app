@@ -1,6 +1,7 @@
-const { Schema, model, models } = require('mongoose');
+import mongoose from 'mongoose';
+const { Schema, model, models } = mongoose;
 
-let guildData = new Schema(
+const guildDataSchema = new Schema(
     {
         id: String,
         name: String,
@@ -14,8 +15,5 @@ let guildData = new Schema(
     }
 );
 
-if (!models.guildData) {
-    module.exports = model('guildData', guildData);
-} else {
-    module.exports = models.guildData;
-}
+const guildData = models.guildDataSchema || model('guildData', guildDataSchema);
+export default guildData;

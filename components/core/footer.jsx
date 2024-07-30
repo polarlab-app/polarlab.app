@@ -90,7 +90,7 @@ export default function Footer() {
             </div>
             <div className={styles.footer2}>
                 <a className={styles.copyr} href='https://polarlab.app'>
-                    ©️ 2024 Polar Lab
+                    <i className={`${styles.icon} icon-copyright`}></i> 2024 Polar Lab
                 </a>
                 <div className={styles.status}>
                     <Link className={styles.product} href='/status' prefetch={false}>

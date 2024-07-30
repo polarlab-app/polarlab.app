@@ -2,7 +2,7 @@
 
 import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
-import discordLogin from '@lib/auth/discordLogin';
+import discordLogin from '@lib/auth/sessionManagement/discordLogin';
 
 export default function Page() {
     const searchParams = useSearchParams();
@@ -13,7 +13,7 @@ export default function Page() {
             if (code) {
                 const response = await discordLogin(code);
                 console.log(response);
-                if (response === 'success') {
+                if (response === true) {
                     window.location.assign('/dashboard');
                 } else {
                     console.error('Login failed:', response);

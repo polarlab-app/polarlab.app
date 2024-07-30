@@ -15,5 +15,5 @@ const guildDataSchema = new Schema(
     }
 );
 
-const guildData = models.guildDataSchema || model('guildData', guildDataSchema);
+const guildData = models.guildData || model('guildData', guildDataSchema);
 export default guildData;

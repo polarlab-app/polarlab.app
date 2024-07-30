@@ -7,11 +7,7 @@ export default async function BlogPost() {
         <>
             <div className={styles.postcontainer}>
                 <Link className={styles.home} href='/blog'>
-                    <img
-                        className={styles.homeicon}
-                        src='https://cdn.polarlab.app/src/icons/colorless/home.png'
-                        alt='alt'
-                    />
+                    <i className={`icon-house ${styles.homeicon}`}></i>
                 </Link>
                 <h1 className={styles.posttitle}>Introducing: Polar Lab Icon Pack</h1>
                 <div className={styles.author}>

@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import login from '@lib/auth/sessionManagement/login';
 import register from '@lib/auth/register';
 import Image from 'next/image';
@@ -9,6 +9,7 @@ import styles from '@css/login/login.module.css';
 export default function Page() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
     const [page, setPage] = useState('login');
@@ -27,8 +28,8 @@ export default function Page() {
         }
     };
 
-    const handleRegister = async (username, password) => {
-        const res = await register(username, password);
+    const handleRegister = async (username, email, password) => {
+        const res = await register(username, email, password);
         if (res !== true) {
             setSuccess('');
             setError(res);
@@ -60,15 +61,27 @@ export default function Page() {
                         {success ? <p className={styles.success}>{success}</p> : null}
                         {error ? <p className={styles.error}>ERROR: {error}</p> : null}
                         <div className={styles.inputcontainer}>
-                            <p className={styles.inputlabel}>Username</p>
+                            <p className={styles.inputlabel}>{page === 'login' ? 'Username or Email' : 'Username'}</p>
                             <input
                                 type='text'
-                                placeholder='Username'
+                                placeholder='Aertic'
                                 onChange={(e) => setUsername(e.target.value)}
                                 value={username ? username : ''}
                                 className={styles.input}
                             ></input>
                         </div>
+                        {page === 'register' ? (
+                            <div className={styles.inputcontainer}>
+                                <p className={styles.inputlabel}>Email</p>
+                                <input
+                                    type='text'
+                                    placeholder='aertic@polarlab.app'
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    value={email ? email : ''}
+                                    className={styles.input}
+                                ></input>
+                            </div>
+                        ) : null}
                         <div className={styles.inputcontainer}>
                             <p className={styles.inputlabel}>Password</p>
                             <input
@@ -113,7 +126,9 @@ export default function Page() {
                         <button
                             className={`${styles.loginbtn} ${styles.button}`}
                             onClick={() => {
-                                page === 'login' ? handleLogin(username, password) : handleRegister(username, password);
+                                page === 'login'
+                                    ? handleLogin(username, password)
+                                    : handleRegister(username, email, password);
                             }}
                         >
                             {page === 'login' ? 'Login to Polar Lab' : 'Register for Polar Lab'}

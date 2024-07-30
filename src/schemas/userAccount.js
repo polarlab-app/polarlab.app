@@ -5,11 +5,13 @@ let userAccountSchema = new Schema(
     {
         id: String,
         username: String,
+        email: String,
         password: String,
-        pfp: String,
-        role: String,
         token: String,
-        discordId: String,
+        properties: {
+            role: String,
+            pfp: String,
+        },
         authorized_apps: [
             {
                 id: String,

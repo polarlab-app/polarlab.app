@@ -57,7 +57,10 @@
 } /* '' */
 .icon-triangle-exclamation:before {
     content: '\e816';
-} /* '' */
+}
 .icon-user:before {
     content: '\e817';
-} /* '' */
+}
+.icon-copyright:before {
+    content: '\e818';
+}

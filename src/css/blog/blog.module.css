@@ -15,7 +15,7 @@
 .post {
     height: 50vh;
     border-radius: 10px;
-    background-color: #16151c;
+    background-color: rgb(22, 21, 28);
     margin: 0;
     margin-top: 2vh;
     cursor: pointer;

@@ -112,6 +112,10 @@
     transition: all 600ms ease;
 }
 
+.icon {
+    font-size: 0.75rem;
+}
+
 .status {
     display: inline-flex;
     border-radius: 7px;

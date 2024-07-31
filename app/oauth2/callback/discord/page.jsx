@@ -3,21 +3,19 @@
 import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 import discordLogin from '@lib/auth/sessionManagement/discordLogin';
+import { useRouter } from 'next/navigation';
 
 export default function Page() {
     const searchParams = useSearchParams();
     const code = searchParams.get('code');
+    const router = useRouter();
 
     useEffect(() => {
         async function handleLogin() {
             if (code) {
-                const response = await discordLogin(code);
-                console.log(response);
-                if (response === true) {
-                    window.location.assign('/dashboard');
-                } else {
-                    console.error('Login failed:', response);
-                }
+                await discordLogin(code);
+            } else {
+                router.push('/login');
             }
         }
         handleLogin();

@@ -12,6 +12,9 @@ let userAccountSchema = new Schema(
             role: String,
             pfp: String,
         },
+        connections: {
+            discord: String,
+        },
         authorized_apps: [
             {
                 id: String,

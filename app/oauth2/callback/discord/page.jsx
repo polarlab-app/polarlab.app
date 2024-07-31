@@ -20,4 +20,11 @@ export default function Page() {
         }
         handleLogin();
     });
+
+    return (
+        <>
+            <h1>Please Wait...</h1>
+            <p>Please wait while we log you in...</p>
+        </>
+    );
 }

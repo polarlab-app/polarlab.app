@@ -2,6 +2,7 @@
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import styles from '@css/personal/nav.module.css';
+import logout from '@lib/auth/sessionManagement/logout';
 
 export default function NavBar() {
     const router = useRouter();
@@ -44,7 +45,9 @@ export default function NavBar() {
                 <i className={`icon-triangle-exclamation ${styles.navicon}`}></i>
                 <p className={styles.navtext}>Danger Zone</p>
             </div>
-            <button className={styles.logout}>Log Out</button>
+            <button className={styles.logout} onClick={() => logout()}>
+                Log Out
+            </button>
         </div>
     );
 }

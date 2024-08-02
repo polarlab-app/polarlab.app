@@ -1,11 +1,12 @@
 'use client';
 
-import { redirect } from 'next/navigation';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { Suspense } from 'react';
 import styles from '@css/personal/personal.module.css';
 import findUser from '@lib/personal/findUser.js';
 import ButtonInput from '@/components/personal/buttonInput';
+import Connections from '@/components/personal/connections';
 
 /*export const metadata = {
     title: 'Polar Lab | Personal',
@@ -27,6 +28,7 @@ export default function Page() {
         <div className={styles.container}>
             {section === 'accountDetails' && <AccountDetails />}
             {section === 'apps' && <Apps />}
+            {section === 'connections' && <ConnectionsScreen />}
             {section === 'authorizedApps' && <AuthorizedApps />}
             {section === 'dangerZone' && <DangerZone />}
         </div>
@@ -39,6 +41,14 @@ function AccountDetails() {
 
 function Apps() {
     return <div>Apps Section</div>;
+}
+
+function ConnectionsScreen() {
+    return (
+        <Suspense fallback={<div>Loading connections...</div>}>
+            <Connections />
+        </Suspense>
+    );
 }
 
 function AuthorizedApps() {

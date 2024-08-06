@@ -28,6 +28,7 @@ let userAccountSchema = new Schema(
                 redirect_uri: String,
             },
         ],
+        support: [],
     },
     {
         collection: 'accounts',

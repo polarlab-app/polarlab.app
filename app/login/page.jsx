@@ -1,10 +1,11 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import login from '@lib/auth/sessionManagement/login';
 import register from '@lib/auth/register';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import styles from '@css/login/login.module.css';
+import validatePassword from '@lib/auth/validation/validatePassword';
 
 export default function Page() {
     const [username, setUsername] = useState('');
@@ -13,8 +14,21 @@ export default function Page() {
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
     const [page, setPage] = useState('login');
+    const [passwordStrength, setPasswordStrength] = useState(0);
 
     const router = useRouter();
+
+    useEffect(() => {
+        const checkPasswordStrength = async () => {
+            if (password) {
+                const strength = await validatePassword(password);
+                setPasswordStrength(strength);
+            } else {
+                setPasswordStrength(0);
+            }
+        };
+        checkPasswordStrength();
+    }, [password]);
 
     const handleLogin = async (username, password) => {
         const res = await login(username, password);
@@ -91,6 +105,20 @@ export default function Page() {
                                 value={password ? password : ''}
                                 className={styles.input}
                             ></input>
+                            <div className={styles.strengthbars}>
+                                <div
+                                    className={`${styles.strengthbar} ${passwordStrength >= 1 ? styles.active : ''}`}
+                                ></div>
+                                <div
+                                    className={`${styles.strengthbar} ${passwordStrength >= 2 ? styles.active : ''}`}
+                                ></div>
+                                <div
+                                    className={`${styles.strengthbar} ${passwordStrength >= 3 ? styles.active : ''}`}
+                                ></div>
+                                <div
+                                    className={`${styles.strengthbar} ${passwordStrength >= 4 ? styles.active : ''}`}
+                                ></div>
+                            </div>
                         </div>
                     </div>
                     <div className={styles.buttoncontainer}>

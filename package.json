@@ -9,6 +9,9 @@
         "lint": "next lint"
     },
     "dependencies": {
+        "@zxcvbn-ts/core": "^3.0.4",
+        "@zxcvbn-ts/language-common": "^3.0.4",
+        "@zxcvbn-ts/language-en": "^3.0.2",
         "axios": "^1.6.5",
         "bcrypt": "^5.1.1",
         "dotenv": "^16.3.2",

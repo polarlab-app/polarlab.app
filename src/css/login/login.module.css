@@ -125,6 +125,25 @@
     /*box-shadow: 0 0 12px #4b4ee780;*/
 }
 
+.strengthbars {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1vh;
+    width: 93%;
+}
+
+.strengthbar {
+    height: 5px;
+    width: 24%;
+    background-color: #2a2933;
+    border-radius: 5px;
+    transition: all 600ms ease;
+}
+.active {
+    transition: all 600ms ease;
+    background-color: #4b4ee7;
+}
+
 .left {
     height: 100%;
     width: 50%;

@@ -90,9 +90,9 @@ export default async function Footer() {
                 </div>
             </div>
             <div className={styles.footer2}>
-                <a className={styles.copyr} href='https://polarlab.app'>
+                <Link className={styles.copyr} href='https://polarlab.app'>
                     <i className={`${styles.icon} icon-copyright`}></i> 2024 Polar Lab
-                </a>
+                </Link>
                 <div className={styles.status}>
                     <Link className={styles.product} href='/status' prefetch={false}>
                         Polaris Status:
@@ -109,10 +109,10 @@ export default async function Footer() {
                     </Link>
                 </div>
                 <div className={styles.socials}>
-                    <Link href='/discord'>
+                    <Link href='/discord' aria-label='Discord'>
                         <i className={`icon-discord ${styles.discordlogo}`}></i>
                     </Link>
-                    <Link href='https://github.com/polarlab-app'>
+                    <Link href='https://github.com/polarlab-app' aria-label='GitHub'>
                         <i className={`icon-github ${styles.discordlogo}`}></i>
                     </Link>
                 </div>

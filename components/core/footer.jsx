@@ -1,8 +1,9 @@
+'use server';
 import styles from '@css/core/footer.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
 
-export default function Footer() {
+export default async function Footer() {
     return (
         <footer className={styles.footercontainer}>
             <div className={styles.footer}>
@@ -53,7 +54,7 @@ export default function Footer() {
                                 </Link>
                             </li>
                             <li className={styles.listcontent}>
-                                <Link className={styles.listcontent} href='/status' prefetch={false}>
+                                <Link className={styles.listcontent} href='/status'>
                                     Status
                                 </Link>
                             </li>
@@ -63,7 +64,7 @@ export default function Footer() {
                                 </Link>
                             </li>
                             <li className={styles.listcontent}>
-                                <Link className={styles.listcontent} href='/contact' prefetch={false}>
+                                <Link className={styles.listcontent} href='/contact'>
                                     Contact
                                 </Link>
                             </li>

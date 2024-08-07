@@ -1,5 +1,4 @@
 import BlogPostGrid from '@components/blog/blogpost';
-
 import styles from '@css/blog/blog.module.css';
 import posts from './posts.json';
 

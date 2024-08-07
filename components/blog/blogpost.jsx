@@ -1,17 +1,11 @@
-'use client';
+'use server';
 
 import styles from '@css/blog/blog.module.css';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
-export default function BlogPostGrid(props) {
-    const router = useRouter();
-
-    function handleRedirect() {
-        router.push(`/blog/posts/${props.href}`);
-    }
-
+export default async function BlogPostGrid(props) {
     return (
-        <div href={props.href} className={styles.post} onClick={handleRedirect}>
+        <Link href={`/blog/posts/${props.href}`} className={styles.post}>
             <div className={styles.postimgcontainer}>
                 <img className={styles.postimg} src={props.coverimg} alt='alt' />
             </div>
@@ -27,6 +21,6 @@ export default function BlogPostGrid(props) {
                     <div className={styles.date}>{props.date}</div>
                 </div>
             </div>
-        </div>
+        </Link>
     );
 }

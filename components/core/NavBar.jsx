@@ -23,7 +23,7 @@ export default async function NavBar() {
                     width='128'
                     height='128'
                 />
-                <Link className={styles.logolink} href='https://polarlab.app/' prefetch={false}>
+                <Link className={styles.logolink} href='https://polarlab.app/'>
                     Polar Lab
                 </Link>
                 <Link className={styles.navlink} href='/'>
@@ -32,10 +32,10 @@ export default async function NavBar() {
                 <Link className={styles.navlink} href='https://docs.polarlab.app' prefetch={false}>
                     Docs
                 </Link>
-                <Link className={styles.navlink} href='/blog' prefetch={false}>
+                <Link className={styles.navlink} href='/blog'>
                     Blog
                 </Link>
-                <Link className={styles.navlink} href='/discord' prefetch={false}>
+                <Link className={styles.navlink} href='/discord'>
                     Discord
                 </Link>
                 {user ? (
@@ -48,13 +48,13 @@ export default async function NavBar() {
 
                         <div className={styles.text}>
                             <p className={styles.welcometext}>Welcome Back,</p>
-                            <Link className={styles.personal} href='/personal' prefetch={false}>
+                            <Link className={styles.personal} href='/personal'>
                                 {username.value}
                             </Link>
                         </div>
                     </div>
                 ) : (
-                    <Link className={styles.button} href='/login' prefetch={false}>
+                    <Link className={styles.button} href='/login'>
                         Login
                     </Link>
                 )}

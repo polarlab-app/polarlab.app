@@ -15,7 +15,7 @@ export default async function NavBar() {
 
     return (
         <nav className={styles.nav}>
-            <div className={styles.navlinkcontainer}>
+            <div className={styles.logocontainer}>
                 <Image
                     className={styles.logo}
                     src='https://cdn.polarlab.app/src/img/polarlogo.png'
@@ -26,6 +26,8 @@ export default async function NavBar() {
                 <Link className={styles.logolink} href='https://polarlab.app/'>
                     Polar Lab
                 </Link>
+            </div>
+            <div className={styles.navlinkcontainer}>
                 <Link className={styles.navlink} href='/'>
                     Home
                 </Link>
@@ -38,21 +40,12 @@ export default async function NavBar() {
                 <Link className={styles.navlink} href='/discord'>
                     Discord
                 </Link>
+            </div>
+            <div className={styles.usercontainer}>
                 {user ? (
-                    <div className={styles.welcome}>
-                        {user.pfp ? (
-                            <img alt='pfp' className={styles.pfp} src={user.pfp} />
-                        ) : (
-                            <i className={`icon-user ${styles.icon}`}></i>
-                        )}
-
-                        <div className={styles.text}>
-                            <p className={styles.welcometext}>Welcome Back,</p>
-                            <Link className={styles.personal} href='/personal'>
-                                {username.value}
-                            </Link>
-                        </div>
-                    </div>
+                    <Link className={styles.button} href='/personal'>
+                        My Account
+                    </Link>
                 ) : (
                     <Link className={styles.button} href='/login'>
                         Login

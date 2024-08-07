@@ -4,9 +4,21 @@
     height: 45vh;
     border-radius: 10px;
     opacity: 0;
+    transition: all 600ms ease;
 }
+
+.griditem:hover {
+    box-shadow: 0 0 20px 1px rgba(255, 255, 255, 0.1), 0 0 40px 2px rgba(255, 255, 255, 0.2);
+    transition: all 600ms ease;
+    scale: 1.007;
+}
+
 .animate:nth-child(2n) {
-    animation-delay: 50ms;
+    animation-delay: 200ms;
+}
+
+.animate:nth-child(3n) {
+    animation-delay: 400ms;
 }
 
 .animate {
@@ -193,6 +205,6 @@
     .gridrowthird .gridbutton,
     .gridrowtwothirds .gridbutton {
         align-self: center;
-        width: 50%;
+        width: max-content;
     }
 }

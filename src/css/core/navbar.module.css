@@ -1,54 +1,96 @@
 .nav {
-    font-family: 'Nunito';
-    width: 100%;
-    height: 8vh;
+    width: 68%;
     position: sticky;
-    top: 0;
-    text-align: center;
+    top: 1vh;
+    height: 7vh;
+    border-radius: 6px;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
+    border: 1px solid #2a2933;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
     z-index: 7;
-    justify-content: space-around;
-    border-bottom: 1px solid #2a2933;
-}
-
-.logo {
-    height: 2.4rem;
-    float: left;
-    align-items: center;
-    margin-right: 1%;
-    width: auto;
 }
 
 .navlinkcontainer {
     display: flex;
-    width: 70%;
     align-items: center;
+    width: 50%;
+    justify-content: space-between;
+    font-weight: 700;
 }
 
 .navlink {
-    font-size: 14px;
-    color: #91909c;
-    font-weight: 700;
     transition: all 600ms ease;
-    margin: 1% auto;
-    margin-top: 1%;
+    color: #a1a0a9;
+    position: relative;
+    text-decoration: none;
+}
+
+.navlink::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #a1a0a9;
+    transition: width 300ms ease;
+}
+
+.navlink:hover::after {
+    width: 100%;
+    animation: borderColorChange 300ms forwards;
 }
 
 .navlink:hover {
-    cursor: pointer;
-    color: #e2e2e2;
-    transition: all 600ms ease;
-    justify-content: center;
+    color: white;
+}
+
+@keyframes borderColorChange {
+    0% {
+        background-color: #a1a0a9;
+    }
+    100% {
+        background-color: white;
+    }
+}
+
+.logocontainer {
+    display: flex;
+    align-items: center;
+    width: 25%;
+    justify-content: flex-start;
+}
+
+.logo {
+    height: 2.7em;
+    width: auto;
+    margin: 0 1vw;
 }
 
 .logolink {
-    color: #eeeeee;
+    color: white;
     font-weight: 700;
     font-size: 25px;
     align-self: calc(center - 10px);
+    background: linear-gradient(90deg, white, #9d74e9, white);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 5s linear infinite;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 200% 50%;
+    }
 }
 
 .button {
@@ -62,6 +104,7 @@
     width: max-content;
     z-index: 1289;
     cursor: pointer;
+    margin: 0 5%;
 }
 
 .button:hover {
@@ -70,67 +113,9 @@
     transition: all 600ms ease;
 }
 
-.welcome {
-    text-align: left;
+.usercontainer {
+    width: 25%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    width: 14%;
-}
-
-.pfp {
-    height: 5.5vh;
-    width: auto;
-    border-radius: 50%;
-}
-
-.icon {
-    font-size: 3.5vh;
-    color: white;
-    margin-left: 12%;
-}
-
-.welcometext {
-    margin: 0;
-    color: #91909c;
-    font-weight: 600;
-}
-
-.personal {
-    font-weight: 700;
-    transition: all 600ms ease;
-}
-
-.personal:hover {
-    cursor: pointer;
-    color: #4b4ee7;
-    transition: all 600ms ease;
-}
-
-@media screen and (max-width: 550px) {
-    .navlinkcontainer {
-        width: 100%;
-        margin: 0;
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-    }
-    .logolink,
-    .polarplus {
-        display: none;
-    }
-}
-
-@media screen and (min-width: 550px) and (max-width: 767px) {
-    .navlinkcontainer {
-        width: 90%;
-        margin-left: 5%;
-    }
-}
-
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-    .navlinkcontainer {
-        width: 90%;
-        margin-left: 5%;
-    }
+    justify-content: flex-end;
 }

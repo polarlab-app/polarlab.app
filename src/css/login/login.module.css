@@ -133,15 +133,19 @@
 }
 
 .strengthbar {
-    height: 5px;
+    height: 0.3rem;
     width: 24%;
     background-color: #2a2933;
     border-radius: 5px;
     transition: all 600ms ease;
 }
-.active {
-    transition: all 600ms ease;
-    background-color: #4b4ee7;
+.strengthtext {
+    margin-top: 5px;
+    font-size: 0.8rem;
+    text-align: left;
+    transition: color 600ms ease;
+    font-weight: 600;
+    margin-top: 0;
 }
 
 .left {

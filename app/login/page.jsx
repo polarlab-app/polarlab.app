@@ -54,6 +54,13 @@ export default function Page() {
         }
     };
 
+    const getStrengthColor = (strength) => {
+        if (strength >= 3) return '#00e09c';
+        if (strength === 2) return '#fdb822';
+        if (strength === 1 || (strength === 0 && password)) return '#fe424d';
+        return '#2a2933';
+    };
+
     return (
         <div className={styles.wrapper}>
             <div className={styles.container}>
@@ -105,20 +112,35 @@ export default function Page() {
                                 value={password ? password : ''}
                                 className={styles.input}
                             ></input>
-                            <div className={styles.strengthbars}>
-                                <div
-                                    className={`${styles.strengthbar} ${passwordStrength >= 1 ? styles.active : ''}`}
-                                ></div>
-                                <div
-                                    className={`${styles.strengthbar} ${passwordStrength >= 2 ? styles.active : ''}`}
-                                ></div>
-                                <div
-                                    className={`${styles.strengthbar} ${passwordStrength >= 3 ? styles.active : ''}`}
-                                ></div>
-                                <div
-                                    className={`${styles.strengthbar} ${passwordStrength >= 4 ? styles.active : ''}`}
-                                ></div>
-                            </div>
+                            {page === 'register' && (
+                                <>
+                                    <div className={styles.strengthbars}>
+                                        {[1, 2, 3, 4].map((bar) => (
+                                            <div
+                                                key={bar}
+                                                className={styles.strengthbar}
+                                                style={{
+                                                    backgroundColor:
+                                                        passwordStrength >= bar
+                                                            ? getStrengthColor(passwordStrength)
+                                                            : undefined,
+                                                }}
+                                            ></div>
+                                        ))}
+                                    </div>
+                                    <p
+                                        className={styles.strengthtext}
+                                        style={{ color: getStrengthColor(passwordStrength) }}
+                                    >
+                                        {passwordStrength === 0 && !password && 'Enter a password'}
+                                        {passwordStrength === 0 && password && 'Weak password'}
+                                        {passwordStrength === 1 && 'Weak password'}
+                                        {passwordStrength === 2 && 'Fair password'}
+                                        {passwordStrength === 3 && 'Strong password'}
+                                        {passwordStrength === 4 && 'Very Strong password'}
+                                    </p>
+                                </>
+                            )}
                         </div>
                     </div>
                     <div className={styles.buttoncontainer}>

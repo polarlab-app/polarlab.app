@@ -42,7 +42,7 @@
 
 .navlink:hover::after {
     width: 100%;
-    animation: borderColorChange 300ms forwards;
+    animation: borderColorChange 600ms forwards;
 }
 
 .navlink:hover {
@@ -118,4 +118,54 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
+}
+
+@media screen and (max-width: 480px) {
+    .nav {
+        width: 96%;
+    }
+
+    .logolink {
+        display: none;
+    }
+
+    .logocontainer {
+        width: 10%;
+    }
+
+    .navlinkcontainer {
+        margin-right: 5%;
+        width: 80%;
+    }
+
+    .usercontainer {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) and (min-width: 481px) {
+    .nav {
+        width: 90%;
+    }
+
+    .logolink {
+        display: none;
+    }
+
+    .logocontainer {
+        width: 10%;
+    }
+
+    .usercontainer {
+        width: max-content;
+    }
+    .button {
+        height: 60%;
+    }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+    .nav {
+        width: 90%;
+    }
 }

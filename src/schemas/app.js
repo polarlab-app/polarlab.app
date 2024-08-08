@@ -8,7 +8,7 @@ const appSchema = new Schema(
         pfp: String,
         name: String,
         secret: String,
-        redirectUri: String,
+        redirectUri: [],
     },
     {
         collection: 'apps',

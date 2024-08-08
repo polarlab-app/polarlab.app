@@ -24,8 +24,8 @@ let userAccountSchema = new Schema(
             {
                 id: String,
                 name: String,
+                date: String,
                 secret: String,
-                redirect_uri: String,
             },
         ],
         support: [],

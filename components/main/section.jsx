@@ -2,7 +2,7 @@
 import styles from '@css/main/section.module.css';
 import data from '@data/sections.json';
 
-export default async function Section({ children, name }) {
+export default async function Section({ children, name, type }) {
     return (
         <div className={styles.sitesection} id={data.ids[name]}>
             <div className={styles.siteheading}>
@@ -10,7 +10,7 @@ export default async function Section({ children, name }) {
                 <p className={styles.sectionsubheader}>{data.descriptions[name]}</p>
             </div>
 
-            <div className={styles.featuregrid}>{children}</div>
+            {type === 'grid' ? <div className={styles.featuregrid}>{children}</div> : children}
         </div>
     );
 }

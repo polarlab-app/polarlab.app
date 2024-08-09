@@ -1,0 +1,12 @@
+{
+    "home": [
+        "https://placehold.co/800x400/1abc9c/ffffff?text=Home+Image+1",
+        "https://placehold.co/800x400/3498db/ffffff?text=Home+Image+2",
+        "https://placehold.co/800x400/9b59b6/ffffff?text=Home+Image+3"
+    ],
+    "products": [
+        "https://placehold.co/800x400/e74c3c/ffffff?text=Product+Image+1",
+        "https://placehold.co/800x400/f1c40f/ffffff?text=Product+Image+2",
+        "https://placehold.co/800x400/2ecc71/ffffff?text=Product+Image+3"
+    ]
+}

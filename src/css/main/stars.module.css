@@ -138,7 +138,6 @@
     width: 1px;
     height: 1px;
     background: transparent;
-    animation: fadeInOut 3s ease-in-out infinite;
     box-shadow: 779px 1331px #fff, 324px 42px #fff, 303px 586px #fff, 1312px 276px #fff, 451px 625px #fff,
         521px 1931px #fff, 1087px 1871px #fff, 36px 1546px #fff, 132px 934px #fff, 1698px 901px #fff, 1418px 664px #fff,
         1448px 1157px #fff, 1084px 232px #fff, 347px 1776px #fff, 1722px 243px #fff, 1629px 835px #fff, 479px 969px #fff,
@@ -275,12 +274,8 @@
     }
 }
 
-@keyframes fadeInOut {
-    0%,
-    100% {
-        opacity: 0.1;
-    }
-    50% {
-        opacity: 0.7;
+@media screen and(max-width: 768px) {
+    .stars {
+        display: none;
     }
 }

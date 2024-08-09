@@ -21,10 +21,46 @@
 
 .top {
     margin-top: 5%;
+    width: 100%;
 }
 
 .pfp {
     border-radius: 5px;
+}
+
+.access {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    margin-left: 4%;
+}
+
+.accessheader {
+    margin-bottom: 0;
+}
+
+.list {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    text-align: left;
+}
+
+.listitem {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #a1a0a9;
+    cursor: pointer;
+    transition: all 600ms ease;
+    position: relative;
+    text-decoration: none;
+    margin-bottom: 2%;
+}
+
+.icon {
+    margin-right: 2%;
 }
 
 .bottom {

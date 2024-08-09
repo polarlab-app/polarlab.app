@@ -42,9 +42,20 @@ export default function Page() {
                         className={styles.pfp}
                         unoptimized={true}
                     />
-                    <p>An external application</p>
-                    <h1>{app ? app.name : 'Loading...'}</h1>
-                    <p>Wants to access your account</p>
+                    <p className={styles.description}>An external application</p>
+                    <h1 className={styles.header}>{app ? app.name : 'Loading...'}</h1>
+                    <p className={styles.description}>Wants to access your account</p>
+                    <div className={styles.access}>
+                        <h3 className={styles.accessheader}>This will allow {app ? app.name : 'Loading...'} to:</h3>
+                        <ul className={styles.list}>
+                            <li className={styles.listitem}>
+                                <i className={`${styles.icon} icon-check-double`}></i>Access your username
+                            </li>
+                            <li className={styles.listitem}>
+                                <i className={`${styles.icon} icon-check-double`}></i>Access your email address
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <div className={styles.bottom}>
                     <Link href='/' className={styles.cancel}>

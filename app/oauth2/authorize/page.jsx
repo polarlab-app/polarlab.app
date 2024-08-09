@@ -5,6 +5,7 @@ import Image from 'next/image';
 import authorize from '@lib/oauth2/authorize';
 import { useEffect, useState } from 'react';
 import findApp from '@lib/personal/findApp';
+import Link from 'next/link';
 
 export default function Page() {
     const router = useRouter();
@@ -16,8 +17,9 @@ export default function Page() {
     useEffect(() => {
         async function fetchApp() {
             if (appId) {
-                const appData = await findApp();
-                if (appData != false) {
+                const appData = await findApp(appId);
+                console.log(appData);
+                if (appData != false || appData != null) {
                     const parsedAppData = JSON.parse(appData);
                     setApp(parsedAppData);
                 } else {
@@ -44,9 +46,14 @@ export default function Page() {
                     <h1>{app ? app.name : 'Loading...'}</h1>
                     <p>Wants to access your account</p>
                 </div>
-                <button className={styles.button} onClick={() => authorize(appId, redirectUri)}>
-                    Authorize App
-                </button>
+                <div className={styles.bottom}>
+                    <Link href='/' className={styles.cancel}>
+                        Cancel Transaction
+                    </Link>
+                    <button className={styles.button} onClick={() => authorize(appId, redirectUri)}>
+                        Authorize App
+                    </button>
+                </div>
             </div>
         </div>
     );

@@ -2,6 +2,9 @@ const nextConfig = {
     reactStrictMode: false,
     experimental: {
         missingSuspenseWithCSRBailout: false,
+        serverActions: {
+            allowedOrigins: ['https://polarlab.app', 'polarlab.app', '172.99.0.2:3000'],
+        },
     },
     images: {
         remotePatterns: [

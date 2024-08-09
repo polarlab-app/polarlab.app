@@ -1,13 +1,11 @@
 import mongoose from 'mongoose';
-const { Schema, model, models } = mongoose;
 
-const appSchema = new Schema(
+const appSchema = new mongoose.Schema(
     {
         id: String,
         ownerId: String,
         pfp: String,
         name: String,
-        secret: String,
         redirectUri: [],
     },
     {
@@ -15,5 +13,5 @@ const appSchema = new Schema(
     }
 );
 
-const app = models.app || model('app', appSchema);
+const app = mongoose.models.app || mongoose.model('app', appSchema);
 export default app;

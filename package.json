@@ -9,6 +9,7 @@
         "lint": "next lint"
     },
     "dependencies": {
+        "@next/third-parties": "^14.2.5",
         "@tsparticles/react": "^3.0.0",
         "@tsparticles/slim": "^3.5.0",
         "@zxcvbn-ts/core": "^3.0.4",

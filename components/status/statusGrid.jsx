@@ -39,7 +39,7 @@ export default function StatusGrid() {
             {loading ? (
                 <div className={styles.skeletonGrid}>
                     {Array.from({ length: 6 }).map((_, index) => (
-                        <Skeleton key={index} height={64} width={64} />
+                        <Skeleton key={index} height={96} width={96} />
                     ))}
                 </div>
             ) : (
@@ -48,7 +48,7 @@ export default function StatusGrid() {
                         <div className={styles.gridcell} key={name}>
                             <p className={styles.gridtext}>{name}</p>
                         </div>
-                        <div className={styles.gridcell} key={status}>
+                        <div className={styles.gridcell} key={name + status}>
                             <Image
                                 className={styles.cellicon}
                                 alt={status}

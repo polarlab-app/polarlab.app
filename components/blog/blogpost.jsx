@@ -12,10 +12,10 @@ export default async function BlogPostGrid(props) {
             <div className={styles.posttext}>
                 <div className={styles.textcontainer}>
                     <div className={styles.toptextcontainer}>
-                        <a className={styles.postauthor}>
+                        <p className={styles.postauthor}>
                             <img className={styles.pfp} src={props.pfp} alt='pfp' />
                             {props.author}
-                        </a>
+                        </p>
                         <div className={styles.title}>{props.title}</div>
                     </div>
                     <div className={styles.date}>{props.date}</div>

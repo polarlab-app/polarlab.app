@@ -2,16 +2,10 @@
 import styles from '@css/core/navbar.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
-import { cookies } from 'next/headers';
 import findUser from '@/lib/personal/findUser';
 
 export default async function NavBar() {
-    const username = cookies().get('username');
-    const token = cookies().get('accountToken');
-    let user;
-    if (token) {
-        user = await findUser(token.value);
-    }
+    const user = await findUser();
 
     return (
         <nav className={styles.nav}>

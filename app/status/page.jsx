@@ -1,8 +1,10 @@
 import { Suspense } from 'react';
 import styles from '@css/main/status.module.css';
-import StatusGrid from '@components/status/statusGrid';
 import GridHeader from '@components/status/gridHeader';
 import Stars from '@components/main/stars';
+import dynamic from 'next/dynamic';
+
+const StatusGrid = dynamic(() => import('@components/status/statusGrid'));
 
 export const metadata = {
     title: 'Polar Lab | Status',

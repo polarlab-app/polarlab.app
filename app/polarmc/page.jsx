@@ -14,11 +14,11 @@ export default function Page() {
             <Stars />
             <div className='main'>
                 <Landing type='polar-mc' />
-                <Section name='why-polar-mc'>
+                <Section name='why-polar-mc' type='grid'>
                     <GridItem format='half' type='polarmc-landing-community' />
                     <GridItem format='half' type='polarmc-landing-compatibility' />
                 </Section>
-                <Section name='polar-mc-world'>
+                <Section name='polar-mc-world' type='grid'>
                     <GridItem format='third' type='polarmc-landing-live-map' />
                     <GridItem format='twothirds' type='polarmc-landing-massive-pregenerated-world' />
                     <GridItem format='twothirds' type='polarmc-landing-custom-biomes' />

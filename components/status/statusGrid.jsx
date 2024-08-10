@@ -3,9 +3,11 @@ import { useState, useEffect } from 'react';
 import checkStatus from '@lib/status/checkStatus';
 import styles from '@css/main/status.module.css';
 import Image from 'next/image';
+import Skeleton from 'react-loading-skeleton';
 
 export default function StatusGrid() {
     const [statuses, setStatuses] = useState({});
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const statusFile = {
@@ -26,6 +28,7 @@ export default function StatusGrid() {
                 newStatuses[key] = status;
             }
             setStatuses(newStatuses);
+            setLoading(false);
         };
 
         fetchStatuses();
@@ -33,32 +36,40 @@ export default function StatusGrid() {
 
     return (
         <>
-            {Object.entries(statuses).map(([name, status]) => (
-                <>
-                    <div className={styles.gridcell} key={name}>
-                        <p className={styles.gridtext}>{name}</p>
-                    </div>
-                    <div className={styles.gridcell} key={status}>
-                        <Image
-                            className={styles.cellicon}
-                            alt={status}
-                            src={`https://cdn.polarlab.app/src/icons/status/${
-                                status === 'online' ? 'green' : 'gray'
-                            }.png`}
-                            width='64'
-                            height='64'
-                        />
-                        <p className={`${styles.gridtext} ${styles[status]}`}>
-                            {status.charAt(0).toUpperCase() + status.slice(1)}
-                        </p>
-                    </div>
-                    <div className={styles.gridcell} key={status + name}>
-                        <p className={styles.gridtext}>
-                            {status === 'online' ? 'All services Operational' : 'No Details'}
-                        </p>
-                    </div>
-                </>
-            ))}
+            {loading ? (
+                <div className={styles.skeletonGrid}>
+                    {Array.from({ length: 6 }).map((_, index) => (
+                        <Skeleton key={index} height={64} width={64} />
+                    ))}
+                </div>
+            ) : (
+                Object.entries(statuses).map(([name, status]) => (
+                    <>
+                        <div className={styles.gridcell} key={name}>
+                            <p className={styles.gridtext}>{name}</p>
+                        </div>
+                        <div className={styles.gridcell} key={status}>
+                            <Image
+                                className={styles.cellicon}
+                                alt={status}
+                                src={`https://cdn.polarlab.app/src/icons/status/${
+                                    status === 'online' ? 'green' : 'gray'
+                                }.png`}
+                                width='64'
+                                height='64'
+                            />
+                            <p className={`${styles.gridtext} ${styles[status]}`}>
+                                {status.charAt(0).toUpperCase() + status.slice(1)}
+                            </p>
+                        </div>
+                        <div className={styles.gridcell} key={status + name}>
+                            <p className={styles.gridtext}>
+                                {status === 'online' ? 'All services Operational' : 'No Details'}
+                            </p>
+                        </div>
+                    </>
+                ))
+            )}
         </>
     );
 }

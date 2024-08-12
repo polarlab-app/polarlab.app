@@ -3,17 +3,24 @@ import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import styles from '@css/personal/nav.module.css';
 import logout from '@lib/auth/sessionManagement/logout';
+import findUser from '@/lib/personal/findUser';
 
 export default function NavBar() {
     const router = useRouter();
     const [activeItem, setActiveItem] = useState('accountDetails');
+    const [account, setAccount] = useState(null);
 
     useEffect(() => {
-        const urlParams = new URLSearchParams(window.location.search);
-        const page = urlParams.get('page');
-        if (page) {
-            setActiveItem(page);
-        }
+        const loadAccount = async () => {
+            const userAccount = JSON.parse(await findUser());
+            setAccount(userAccount);
+            const urlParams = new URLSearchParams(window.location.search);
+            const page = urlParams.get('page');
+            if (page) {
+                setActiveItem(page);
+            }
+        };
+        loadAccount();
     }, []);
 
     const handleNavItemClick = (item) => {
@@ -23,7 +30,7 @@ export default function NavBar() {
 
     return (
         <div className={styles.nav}>
-            <h2 className={styles.header}>👋 Welcome, Aertic</h2>
+            <h2 className={styles.header}>👋 Welcome, {account?.username}</h2>
             <div
                 className={`${styles.navitem} ${activeItem === 'accountDetails' ? styles.active : ''}`}
                 onClick={() => handleNavItemClick('accountDetails')}

@@ -1,25 +1,60 @@
 import styles from '@css/personal/connections.module.css';
 import findUser from '@/lib/personal/findUser';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import deauthorize from '@/lib/oauth2/deauthorize';
 
 export default function Connections() {
+    const [connections, setConnections] = useState([]);
+
     useEffect(() => {
         const loadData = async () => {
             const account = JSON.parse(await findUser());
-            console.log(account);
+            setConnections(account.connections);
         };
         loadData();
     }, []);
 
+    const formatDate = (isoString) => {
+        const date = new Date(isoString);
+        return `${date.toLocaleString('default', { month: 'long' })} ${date.getDate()}, ${date.getFullYear()}`;
+    };
+
+    const capitalizeFirstLetter = (string) => {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    };
+
     return (
         <div className={styles.main}>
             <div className={styles.connections}>
-                <div className={styles.connection}>
-                    <div className={styles.top}>
-                        <i className='icon-grid-2'></i>
-                        <p className={styles.name}>Google</p>
+                {connections.map((connection, index) => (
+                    <div key={index} className={styles.connection}>
+                        <div className={styles.top}>
+                            <i className={`${styles.icon} icon-${connection.name}`}></i>
+                            <p className={styles.name}>{capitalizeFirstLetter(connection.name)}</p>
+                            <button className={styles.button} onClick={() => deauthorize(connection.id)}>
+                                Disconnect
+                            </button>
+                        </div>
+                        <div className={styles.permissions}>
+                            <p className={styles.info}>This connection allows us to:</p>
+                            <ul className={styles.list}>
+                                <li className={styles.item}>
+                                    <i className={`${styles.icon} icon-check`}></i>
+                                    Access your profile
+                                </li>
+                                <li className={styles.item}>
+                                    <i className={`${styles.icon} icon-check`}></i>
+                                    Access your guilds
+                                </li>
+                                <li className={styles.item}>
+                                    <i className={`${styles.icon} icon-check`}></i>
+                                    Access your email
+                                </li>
+                            </ul>
+                        </div>
+                        <p className={styles.date}>Date Added: {formatDate(connection.date)}</p>
                     </div>
-                </div>
+                ))}
             </div>
         </div>
     );

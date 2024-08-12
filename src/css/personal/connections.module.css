@@ -7,6 +7,7 @@
     grid-template-columns: auto auto auto;
     grid-template-rows: auto;
     width: 100%;
+    text-align: left;
 }
 
 .connection {
@@ -16,9 +17,60 @@
     grid-column: span 1;
     width: 92%;
     margin-left: 4%;
+    height: 25vh;
+    position: relative;
 }
 
 .top {
     display: flex;
     align-items: center;
+    height: 6vh;
+    width: 100%;
+}
+
+.icon:nth-child(1) {
+    margin-left: 3%;
+    font-size: 1.3rem;
+}
+
+.name {
+    margin-left: 3%;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.button {
+    justify-self: end;
+    margin-left: auto;
+    margin-top: 2vh;
+    margin-right: 3%;
+    cursor: pointer;
+    color: #d86464;
+    background-color: #2a2933;
+    height: 4vh;
+    border: none;
+    border-radius: 6px;
+    padding: 0 20px;
+    transition: all 600ms ease;
+    font-weight: 700;
+}
+
+.button:hover {
+    background-color: #1b1b2a;
+    scale: 0.95;
+    transition: all 600ms ease;
+}
+
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.date {
+    position: absolute;
+    bottom: 3%;
+    left: 3%;
+    font-size: 0.7rem;
+    color: #a1a0a9;
 }

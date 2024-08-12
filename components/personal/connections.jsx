@@ -1,7 +1,7 @@
 import styles from '@css/personal/connections.module.css';
 import findUser from '@/lib/personal/findUser';
 import { useEffect, useState } from 'react';
-import deauthorize from '@/lib/oauth2/deauthorize';
+import disconnect from '@/lib/personal/disconnect';
 
 export default function Connections() {
     const [connections, setConnections] = useState([]);
@@ -31,7 +31,7 @@ export default function Connections() {
                         <div className={styles.top}>
                             <i className={`${styles.icon} icon-${connection.name}`}></i>
                             <p className={styles.name}>{capitalizeFirstLetter(connection.name)}</p>
-                            <button className={styles.button} onClick={() => deauthorize(connection.id)}>
+                            <button className={styles.button} onClick={() => disconnect(connection.name)}>
                                 Disconnect
                             </button>
                         </div>

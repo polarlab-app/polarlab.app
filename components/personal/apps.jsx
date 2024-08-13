@@ -1,10 +1,10 @@
 import styles from '@css/personal/apps.module.css';
+import Image from 'next/image';
 
 export default function Apps() {
     return (
         <div className={styles.main}>
             <div className={styles.header}>
-                <Image />
                 <h1 className={styles.heading}>Applications</h1>
                 <button className={styles.buttonCreate}>
                     <i className={`${styles.icon} icon-check-double`}></i>Create App
@@ -13,6 +13,13 @@ export default function Apps() {
             <div className={styles.apps}>
                 <div className={styles.app}>
                     <div className={styles.top}>
+                        <Image
+                            src='https://cdn.polarlab.app/api/fetch/img/polarlogo/png'
+                            alt='Polar Lab Logo'
+                            width={128}
+                            height={128}
+                            className={styles.logo}
+                        />
                         <h2>Polar Lab</h2>
                         <button className={styles.button}>
                             <i className={`${styles.icon} icon-check-double`}></i>Edit App

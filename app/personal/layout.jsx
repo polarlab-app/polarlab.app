@@ -16,3 +16,10 @@ export default async function PersonalLayout({ children }) {
         </div>
     );
 }
+
+export async function generateMetadata() {
+    return {
+        title: 'Polar Lab | Personal',
+        description: 'The official profile management page for you Polar Lab account',
+    };
+}

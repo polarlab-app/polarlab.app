@@ -7,11 +7,7 @@ import styles from '@css/personal/personal.module.css';
 import findUser from '@lib/personal/findUser.js';
 import ButtonInput from '@/components/personal/buttonInput';
 import Connections from '@/components/personal/connections';
-
-/*export const metadata = {
-    title: 'Polar Lab | Personal',
-    description: 'The official profile management page for you Polar Lab account',
-};*/
+import Apps from '@/components/personal/apps';
 
 export default function Page() {
     const searchParams = useSearchParams();
@@ -27,7 +23,7 @@ export default function Page() {
     return (
         <div className={styles.container}>
             {section === 'accountDetails' && <AccountDetails />}
-            {section === 'apps' && <Apps />}
+            {section === 'apps' && <AppsScreen />}
             {section === 'connections' && <ConnectionsScreen />}
             {section === 'authorizedApps' && <AuthorizedApps />}
             {section === 'dangerZone' && <DangerZone />}
@@ -39,8 +35,12 @@ function AccountDetails() {
     return <div className={styles.main}></div>;
 }
 
-function Apps() {
-    return <div>Apps Section</div>;
+function AppsScreen() {
+    return (
+        <Suspense fallback={<div>Loading apps...</div>}>
+            <Apps />
+        </Suspense>
+    );
 }
 
 function ConnectionsScreen() {

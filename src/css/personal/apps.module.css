@@ -1,0 +1,80 @@
+.main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vh;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0;
+}
+
+.heading {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.buttonCreate {
+    color: white;
+    background-color: #4b4ee7;
+    height: 5vh;
+    border: none;
+    border-radius: 6px;
+    padding: 0 1.3vw;
+    transition: all 600ms ease;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.buttonCreate:hover {
+    background-color: #27288f;
+    transition: all 600ms ease;
+    scale: 0.95;
+}
+
+.icon {
+    margin-right: 0.5vw;
+}
+
+.apps {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vh;
+}
+
+.app {
+    width: 100%;
+    border: 1px solid #2a2933;
+    background-color: rgb(22, 21, 28);
+    border-radius: 6px;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 2%;
+}
+
+.button {
+    color: #d86464;
+    background-color: #2c2d36;
+    height: 4vh;
+    border: none;
+    border-radius: 6px;
+    padding: 0 1.3vw;
+    transition: all 600ms ease;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: 1%;
+    animation: appear 0.6s ease-out forwards;
+    font-weight: 700;
+}
+
+.button:hover {
+    background-color: #212127;
+    transition: all 600ms ease;
+}

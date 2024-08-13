@@ -1,9 +1,19 @@
 'use server';
+
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import xior from 'xior';
 
 export async function middleware(req) {
+    if (req.nextUrl.pathname.startsWith('/dashboard')) {
+        return await dashboardMiddleware(req);
+    } else if (req.nextUrl.pathname.startsWith('/personal')) {
+        return await personalMiddleware(req);
+    }
+    return NextResponse.next();
+}
+
+async function dashboardMiddleware(req) {
     const accessToken = cookies().get('accessToken');
     const refreshToken = cookies().get('refreshToken');
 
@@ -12,14 +22,11 @@ export async function middleware(req) {
     }
 
     try {
-        const validationResponse = await xior.get(
-            'https://discord.com/api/users/@me',
-            {
-                headers: {
-                    Authorization: `Bearer ${accessToken.value}`,
-                },
-            }
-        );
+        const validationResponse = await xior.get('https://discord.com/api/users/@me', {
+            headers: {
+                Authorization: `Bearer ${accessToken.value}`,
+            },
+        });
 
         if (validationResponse.status == 200) {
             return NextResponse.next();
@@ -43,24 +50,16 @@ export async function middleware(req) {
             );
 
             if (refreshResponse.status === 200) {
-                cookies().set(
-                    'accessToken',
-                    refreshResponse.data.access_token,
-                    {
-                        path: '/',
-                        httpOnly: true,
-                        sameSite: 'strict',
-                    }
-                );
-                cookies().set(
-                    'refreshToken',
-                    refreshResponse.data.refresh_token,
-                    {
-                        path: '/',
-                        httpOnly: true,
-                        sameSite: 'strict',
-                    }
-                );
+                cookies().set('accessToken', refreshResponse.data.access_token, {
+                    path: '/',
+                    httpOnly: true,
+                    sameSite: 'strict',
+                });
+                cookies().set('refreshToken', refreshResponse.data.refresh_token, {
+                    path: '/',
+                    httpOnly: true,
+                    sameSite: 'strict',
+                });
                 return NextResponse.next();
             }
         } catch (refreshError) {
@@ -71,6 +70,10 @@ export async function middleware(req) {
     return NextResponse.redirect(new URL('/login', req.url));
 }
 
+async function personalMiddleware(req) {
+    return NextResponse.next();
+}
+
 export const config = {
-    matcher: ['/dashboard/:path*', '/dashboard'],
+    matcher: ['/dashboard/:path*', '/personal/:path*'],
 };

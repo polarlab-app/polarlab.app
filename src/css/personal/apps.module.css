@@ -17,7 +17,7 @@
     font-weight: 600;
 }
 
-.buttonCreate {
+.create {
     color: white;
     background-color: #4b4ee7;
     height: 5vh;
@@ -29,7 +29,7 @@
     font-weight: 700;
 }
 
-.buttonCreate:hover {
+.create:hover {
     background-color: #27288f;
     transition: all 600ms ease;
     scale: 0.95;

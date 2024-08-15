@@ -22,7 +22,7 @@ export default function CreateApp({ closeButton }) {
 
     const handleFileChange = (e) => {
         const file = e.target.files[0];
-        if (file && file.size <= 10485760) {
+        if (file && file.size <= 5242880) {
             const reader = new FileReader();
             reader.onloadend = () => {
                 setPreview(reader.result);
@@ -30,7 +30,7 @@ export default function CreateApp({ closeButton }) {
             };
             reader.readAsDataURL(file);
         } else {
-            alert('>10mb == bad bad boi');
+            alert('>5mb == bad bad boi');
         }
     };
 
@@ -58,7 +58,7 @@ export default function CreateApp({ closeButton }) {
                         <p className={styles.label}>App Icon</p>
                         <div className={styles.iconcontainer}>
                             <label htmlFor='appicon' className={styles.filelabel}>
-                                Upload Icon (10MB) 512x512px recommended
+                                Upload Icon (5mb, 512x512px recommended)
                             </label>
                             {preview && (
                                 <Image

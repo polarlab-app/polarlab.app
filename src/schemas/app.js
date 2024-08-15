@@ -6,8 +6,8 @@ const appSchema = new mongoose.Schema(
         ownerId: String,
         date: String,
         name: String,
-        users: String,
-        redirectUri: [],
+        userCount: String,
+        redirectURIs: [],
     },
     {
         collection: 'apps',

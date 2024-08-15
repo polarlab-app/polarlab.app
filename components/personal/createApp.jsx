@@ -1,6 +1,49 @@
 import styles from '@css/personal/createApp.module.css';
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
+import createApp from '@lib/personal/apps/createApp';
 
 export default function CreateApp({ closeButton }) {
+    const [appName, setAppName] = useState('');
+    const [redirectURIs, setRedirectURIs] = useState('');
+    const [appIcon, setAppIcon] = useState(null);
+    const [preview, setPreview] = useState(null);
+
+    useEffect(() => {
+        if (appIcon && typeof appIcon === 'object') {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setPreview(reader.result);
+                setAppIcon(reader.result.split(',')[1]);
+            };
+            reader.readAsDataURL(appIcon);
+        }
+    }, [appIcon]);
+
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        if (file && file.size <= 10485760) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setPreview(reader.result);
+                setAppIcon(reader.result.split(',')[1]);
+            };
+            reader.readAsDataURL(file);
+        } else {
+            alert('>10mb == bad bad boi');
+        }
+    };
+
+    const handleSubmit = async () => {
+        try {
+            await createApp(appName, redirectURIs, appIcon);
+            alert('App created successfully');
+            closeButton();
+        } catch (error) {
+            alert('Failed to create app, the developer fucked up lol');
+        }
+    };
+
     return (
         <div className={styles.wrapper}>
             <div className={styles.modal}>
@@ -12,11 +55,52 @@ export default function CreateApp({ closeButton }) {
                 </div>
                 <div className={styles.modalbody}>
                     <div className={styles.inputcontainer}>
+                        <p className={styles.label}>App Icon</p>
+                        <div className={styles.iconcontainer}>
+                            <label htmlFor='appicon' className={styles.filelabel}>
+                                Upload Icon (10MB) 512x512px recommended
+                            </label>
+                            {preview && (
+                                <Image
+                                    src={preview}
+                                    alt='App Icon'
+                                    width={512}
+                                    height={512}
+                                    className={styles.preview}
+                                />
+                            )}
+                            <input
+                                type='file'
+                                id='appicon'
+                                placeholder='App Name'
+                                className={styles.fileinput}
+                                onChange={handleFileChange}
+                                accept='image/*'
+                            />
+                        </div>
+                    </div>
+                    <div className={styles.inputcontainer}>
                         <p className={styles.label}>App Name</p>
-                        <input type='text' placeholder='App Name' className={styles.input} />
+                        <input
+                            type='text'
+                            placeholder='App Name'
+                            className={styles.input}
+                            onChange={(e) => setAppName(e.target.value)}
+                        />
+                    </div>
+                    <div className={styles.inputcontainer}>
+                        <p className={styles.label}>Redirect URIs (separated by semicolons)</p>
+                        <input
+                            type='text'
+                            placeholder='https://example.com/callback;https://example.com/callback2'
+                            className={styles.input}
+                            onChange={(e) => setRedirectURIs(e.target.value)}
+                        />
                     </div>
                 </div>
-                <button className={styles.create}>Create</button>
+                <button className={styles.create} onClick={handleSubmit}>
+                    Create
+                </button>
             </div>
         </div>
     );

@@ -5,7 +5,7 @@ import createApp from '@lib/personal/apps/createApp';
 
 export default function CreateApp({ closeButton }) {
     const [appName, setAppName] = useState('');
-    const [redirectURIs, setRedirectURIs] = useState('');
+    const [redirectURIs, setRedirectURIs] = useState(['']);
     const [appIcon, setAppIcon] = useState(null);
     const [preview, setPreview] = useState(null);
 
@@ -32,6 +32,21 @@ export default function CreateApp({ closeButton }) {
         } else {
             alert('>5mb == bad bad boi');
         }
+    };
+
+    const handleRedirectURIChange = (index, value) => {
+        const newRedirectURIs = [...redirectURIs];
+        newRedirectURIs[index] = value;
+        setRedirectURIs(newRedirectURIs);
+    };
+
+    const addRedirectURI = () => {
+        setRedirectURIs([...redirectURIs, '']);
+    };
+
+    const removeRedirectURI = (index) => {
+        const newRedirectURIs = redirectURIs.filter((_, i) => i !== index);
+        setRedirectURIs(newRedirectURIs);
     };
 
     const handleSubmit = async () => {
@@ -89,13 +104,24 @@ export default function CreateApp({ closeButton }) {
                         />
                     </div>
                     <div className={styles.inputcontainer}>
-                        <p className={styles.label}>Redirect URIs (separated by semicolons)</p>
-                        <input
-                            type='text'
-                            placeholder='https://example.com/callback;https://example.com/callback2'
-                            className={styles.input}
-                            onChange={(e) => setRedirectURIs(e.target.value)}
-                        />
+                        <p className={styles.label}>Redirect URIs </p>
+                        {redirectURIs.map((uri, index) => (
+                            <div key={index} className={styles.redirecturi}>
+                                <input
+                                    type='text'
+                                    placeholder={`https://example.com/callback${index + 1}`}
+                                    className={styles.input}
+                                    value={uri}
+                                    onChange={(e) => handleRedirectURIChange(index, e.target.value)}
+                                />
+                                <button className={styles.removeButton} onClick={() => removeRedirectURI(index)}>
+                                    x
+                                </button>
+                            </div>
+                        ))}
+                        <button className={styles.addButton} onClick={addRedirectURI}>
+                            Add URI
+                        </button>
                     </div>
                 </div>
                 <button className={styles.create} onClick={handleSubmit}>

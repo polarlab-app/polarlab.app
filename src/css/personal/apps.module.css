@@ -5,6 +5,24 @@
     gap: 1.5vh;
 }
 
+.app {
+    height: 22vh;
+    transition: all 600ms ease;
+    -webkit-transition: all 600ms ease;
+    -moz-transition: all 600ms ease;
+    -ms-transition: all 600ms ease;
+    -o-transition: all 600ms ease;
+}
+
+.app.active {
+    height: 30vh;
+    transition: all 600ms ease;
+    -webkit-transition: all 600ms ease;
+    -moz-transition: all 600ms ease;
+    -ms-transition: all 600ms ease;
+    -o-transition: all 600ms ease;
+}
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -15,6 +33,22 @@
 .heading {
     font-size: 2rem;
     font-weight: 600;
+}
+
+.middle {
+    margin-left: 2%;
+    color: #a1a0a9;
+    text-align: left;
+    margin-left: 2%;
+}
+
+.info {
+    list-style: none;
+    padding-left: 0;
+}
+
+.infoItem {
+    margin: 0.5vh 0;
 }
 
 .create {

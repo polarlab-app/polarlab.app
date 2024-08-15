@@ -90,7 +90,6 @@
 .input {
     border-radius: 6px;
     font-family: 'Nunito';
-    height: 45%;
     height: 5vh;
     background-color: #2a2933;
     color: white;
@@ -101,9 +100,59 @@
     transition: all 600ms ease;
     width: 60%;
     float: left;
+    margin-bottom: 2%;
 }
 
 .input:focus {
+    border: 1px solid #4b4ee7;
+    transition: all 600ms ease;
+}
+
+.redirecturi {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.redirecturi:hover .removeButton {
+    opacity: 1;
+    transition: all 600ms ease;
+}
+
+.removeButton {
+    opacity: 0;
+    transition: all 600ms ease;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+    border: 1px solid #2a2933;
+    background-color: #2a2933;
+    height: 5vh;
+    width: 10%;
+    margin-left: 2%;
+    margin-bottom: 2%;
+    color: #d86464;
+}
+
+.removeButton:hover {
+    border: 1px solid #d86464;
+    transition: all 600ms ease;
+}
+
+.addButton {
+    float: left;
+    transition: all 600ms ease;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+    border: 1px solid #2a2933;
+    background-color: #2a2933;
+    color: white;
+    height: 5vh;
+    width: 66.3%;
+}
+
+.addButton:hover {
     border: 1px solid #4b4ee7;
     transition: all 600ms ease;
 }

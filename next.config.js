@@ -1,5 +1,6 @@
 const nextConfig = {
     reactStrictMode: false,
+    poweredByHeader: false,
     experimental: {
         missingSuspenseWithCSRBailout: false,
         serverActions: {

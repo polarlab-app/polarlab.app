@@ -4,7 +4,7 @@ const nextConfig = {
     experimental: {
         missingSuspenseWithCSRBailout: false,
         serverActions: {
-            allowedOrigins: ['https://polarlab.app', 'polarlab.app', '172.99.0.2:3000'],
+            allowedOrigins: ['https://polarlab.app', 'polarlab.app', '172.99.0.2:3000', 'static.cloudflareinsights.com', 'https://static.cloudflareinsights.com'],
         },
     },
     images: {
@@ -44,7 +44,7 @@ const nextConfig = {
                         key: 'Content-Security-Policy',
                         value: `
                             default-src 'self';
-                            script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://static.cloudflareinsights.com;
+                            script-src 'self' 'unsafe-inline' 'unsafe-eval' https://static.cloudflareinsights.com;
                             style-src 'self' 'unsafe-inline';
                             img-src 'self' data: https://cdn.polarlab.app https://cdn.discordapp.com https://placehold.co;
                             font-src 'self';

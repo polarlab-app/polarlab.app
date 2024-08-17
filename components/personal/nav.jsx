@@ -28,6 +28,13 @@ export default function NavBar() {
         router.push(`/personal?page=${item}`);
     };
 
+    const handleLogout = async () => {
+        const result = await logout();
+        if (!result) {
+            alert('Failed to logout');
+        }
+    };
+
     return (
         <div className={styles.nav}>
             <h2 className={styles.header}>👋 Welcome, {account?.username}</h2>

@@ -1,0 +1,40 @@
+.nav {
+    height: 8vh;
+    width: 100%;
+    background-color: rgb(22, 21, 28);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header {
+    width: 18%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    margin-right: 5%;
+    height: 5vh;
+    width: auto;
+}
+
+.linkContainer {
+    border-bottom: 1px solid #2a2933;
+    width: 72%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+}
+
+.link {
+    margin-right: 5%;
+}
+
+.right {
+    width: 10%;
+    border-bottom: 1px solid #2a2933;
+}

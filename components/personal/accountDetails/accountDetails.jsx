@@ -11,6 +11,7 @@ export default function AccountDetails() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [showPasswordModal, setShowPasswordModal] = useState(false);
+    const [isChanged, setIsChanged] = useState(false);
 
     useEffect(() => {
         const fetchUser = async () => {
@@ -23,17 +24,29 @@ export default function AccountDetails() {
         fetchUser();
     }, []);
 
+    useEffect(() => {
+        if (user) {
+            setIsChanged(username !== user.username || email !== user.email || password !== '');
+        }
+    }, [username, email, password, user]);
+
     const handleSaveChanges = () => {
         setShowPasswordModal(true);
+    };
+
+    const handleInputChange = (setter) => (e) => {
+        setter(e.target.value);
     };
 
     return (
         <div className={styles.main}>
             <div className={styles.header}>
                 <h1 className={styles.heading}>Account Details</h1>
-                <button className={styles.button} onClick={handleSaveChanges}>
-                    Save Changes
-                </button>
+                {isChanged && (
+                    <button className={styles.button} onClick={handleSaveChanges}>
+                        Save Changes
+                    </button>
+                )}
             </div>
             <div className={styles.account}>
                 <div className={styles.iconContainer}>
@@ -44,6 +57,9 @@ export default function AccountDetails() {
                         alt='Profile Picture'
                         className={styles.icon}
                     />
+                    <div className={styles.editWrapper}>
+                        <i className={`${styles.editIcon} icon-grid-2`}></i>
+                    </div>
                 </div>
                 <div className={styles.inputs}>
                     <div className={styles.inputcontainer}>
@@ -52,7 +68,7 @@ export default function AccountDetails() {
                             type='text'
                             placeholder='New Username'
                             value={username}
-                            onChange={(e) => setUsername(e.target.value)}
+                            onChange={handleInputChange(setUsername)}
                             className={styles.input}
                         />
                     </div>
@@ -62,7 +78,7 @@ export default function AccountDetails() {
                             type='text'
                             placeholder='New Email'
                             value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            onChange={handleInputChange(setEmail)}
                             className={styles.input}
                         />
                     </div>
@@ -72,7 +88,7 @@ export default function AccountDetails() {
                             type='password'
                             placeholder='New Password'
                             value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            onChange={handleInputChange(setPassword)}
                             className={styles.input}
                         />
                     </div>

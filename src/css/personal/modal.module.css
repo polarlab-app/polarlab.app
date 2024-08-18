@@ -1,0 +1,137 @@
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    animation: opacity 1s linear forwards;
+}
+
+.modal {
+    margin-top: 10%;
+    width: 50%;
+    margin-top: 1.5vw;
+    background-color: #16151c;
+    border: 1px solid #2a2933;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+    animation: floatUp 1s linear forwards;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0;
+}
+
+.icon {
+    font-size: 1.5vw;
+    cursor: pointer;
+    color: #a1a0a9;
+    transition: all 600ms ease;
+}
+
+.icon:hover {
+    color: white;
+    transition: all 600ms ease;
+    rotate: 180deg;
+}
+
+.heading {
+    margin-top: 0;
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    width: 60%;
+}
+
+.label {
+    color: white;
+    margin: 0;
+    font-weight: 700;
+    margin: 2% 0;
+    text-align: left;
+}
+
+.input {
+    width: 87%;
+    border-radius: 5px;
+    font-family: 'Nunito';
+    height: 45%;
+    height: 5vh;
+    background-color: #2a2933;
+    color: white;
+    font-weight: 600;
+    padding: 0 3%;
+    border: 1px solid #2a2933;
+    outline: none;
+    transition: all 600ms ease;
+}
+
+.input:focus {
+    border: 1px solid #4b4ee7;
+    transition: all 600ms ease;
+}
+
+.button {
+    width: 20%;
+    margin-top: 3%;
+    border-radius: 5px;
+    font-family: 'Nunito';
+    height: 5vh;
+    border: none;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 600ms ease;
+    background-color: #4b4ee7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-end;
+}
+.button:hover {
+    scale: 0.95;
+    transition: all 600ms ease;
+    background-color: #27288f;
+}
+
+.icon:nth-child(1) {
+    color: white;
+    font-size: 1rem;
+    margin-right: 6%;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(-50%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes opacity {
+    from {
+        opacity: 0;
+    }
+    80% {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

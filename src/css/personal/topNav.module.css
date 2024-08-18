@@ -37,4 +37,27 @@
 .right {
     width: 10%;
     border-bottom: 1px solid #2a2933;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button {
+    color: #d86464;
+    background-color: #2a2933;
+    height: 4vh;
+    border: none;
+    border-radius: 5px;
+    padding: 0 15px;
+    transition: all 600ms ease;
+    cursor: pointer;
+    font-weight: 700;
+    width: 80%;
+}
+
+.button:hover {
+    background-color: #1b1b2a;
+    transition: all 600ms ease;
+    scale: 0.96;
 }

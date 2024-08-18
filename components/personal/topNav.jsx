@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import styles from '@css/personal/topNav.module.css';
 import Image from 'next/image';
+import logout from '@/lib/auth/sessionManagement/logout';
 
 export default function TopNav() {
     return (
@@ -26,7 +27,11 @@ export default function TopNav() {
                     Polar Plus
                 </Link>
             </div>
-            <div className={styles.right}></div>
+            <div className={styles.right}>
+                <button className={styles.button} onClick={logout}>
+                    Log Out
+                </button>
+            </div>
         </div>
     );
 }

@@ -31,6 +31,10 @@ export default function TopNav() {
                 <button className={styles.button} onClick={logout}>
                     Log Out
                 </button>
+                <div className={styles.menu}>
+                    <i className={`icon-bars ${styles.icon}`}></i>
+                    <i className={`icon-cross ${styles.icon}`}></i>
+                </div>
             </div>
         </div>
     );

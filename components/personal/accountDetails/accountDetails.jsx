@@ -16,6 +16,9 @@ export default function AccountDetails() {
     useEffect(() => {
         const fetchUser = async () => {
             const userAccount = JSON.parse(await findUser());
+            if (!userAccount) {
+                window.location.href = '/login';
+            }
             setUser(userAccount);
             setUsername(userAccount.username);
             setEmail(userAccount.email);

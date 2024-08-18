@@ -60,9 +60,10 @@ export default function AccountDetails() {
                         alt='Profile Picture'
                         className={styles.icon}
                     />
-                    <div className={styles.editWrapper}>
+                    <label className={styles.editWrapper} for='profilePicture'>
                         <i className={`${styles.editIcon} icon-grid-2`}></i>
-                    </div>
+                    </label>
+                    <input type='file' id='profilePicture' className={styles.fileInput}></input>
                 </div>
                 <div className={styles.inputs}>
                     <div className={styles.inputcontainer}>

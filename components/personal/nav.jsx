@@ -28,13 +28,6 @@ export default function NavBar() {
         router.push(`/personal?page=${item}`);
     };
 
-    const handleLogout = async () => {
-        const result = await logout();
-        if (!result) {
-            alert('Failed to logout');
-        }
-    };
-
     return (
         <div className={styles.nav}>
             <h2 className={styles.header}>👋 Welcome, {account?.username}</h2>
@@ -73,7 +66,7 @@ export default function NavBar() {
                 <i className={`icon-triangle-exclamation ${styles.navicon}`}></i>
                 <p className={styles.navtext}>Danger Zone</p>
             </div>
-            <button className={styles.logout} onClick={() => logout()}>
+            <button className={styles.logout} onClick={logout}>
                 Log Out
             </button>
         </div>

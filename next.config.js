@@ -4,6 +4,7 @@ const nextConfig = {
         missingSuspenseWithCSRBailout: false,
         serverActions: {
             allowedOrigins: ['https://polarlab.app', 'polarlab.app', '172.99.0.2:3000'],
+            bodySizeLimit: '10mb',
         },
     },
     images: {

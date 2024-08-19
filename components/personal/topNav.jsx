@@ -1,3 +1,4 @@
+'use client';
 import Link from 'next/link';
 import styles from '@css/personal/topNav.module.css';
 import Image from 'next/image';
@@ -28,7 +29,7 @@ export default function TopNav() {
                 </Link>
             </div>
             <div className={styles.right}>
-                <button className={styles.button} onClick={logout}>
+                <button className={styles.button} onClick={() => logout()}>
                     Log Out
                 </button>
                 <div className={styles.menu}>

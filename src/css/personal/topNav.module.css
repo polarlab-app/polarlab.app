@@ -41,6 +41,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
 .button {
@@ -60,4 +61,43 @@
     background-color: #1b1b2a;
     transition: all 600ms ease;
     scale: 0.96;
+}
+
+.icon {
+    display: none;
+    font-size: 1.5rem;
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@media screen and (min-width: 620px) and (max-width: 820px) {
+    .icon {
+        display: block;
+    }
+
+    .header {
+        width: 30%;
+    }
+    .right {
+        width: 30%;
+    }
+
+    .linkContainer {
+        width: 30%;
+    }
+
+    .button {
+        width: 70%;
+    }
+
+    .right {
+        justify-content: flex-start;
+    }
+
+    .icon.hidden {
+        scale: 0;
+        opacity: 0;
+    }
 }

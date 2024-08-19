@@ -60,3 +60,44 @@
     transition: all 600ms ease;
     scale: 0.96;
 }
+
+@media screen and (min-width: 620px) and (max-width: 820px) {
+    .nav {
+        width: 0;
+        z-index: 3;
+        position: absolute;
+        left: 0;
+        height: 92vh;
+        animation: animateOut 300ms linear forwards;
+    }
+    .nav.active {
+        width: 60%;
+        opacity: 1;
+        animation: animateIn 400ms linear forwards;
+    }
+}
+
+@keyframes animateOut {
+    0% {
+        opacity: 1;
+        width: 60%;
+    }
+    100% {
+        opacity: 0;
+        width: 0;
+    }
+}
+
+@keyframes animateIn {
+    0% {
+        opacity: 0;
+        width: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+        width: 60%;
+    }
+}

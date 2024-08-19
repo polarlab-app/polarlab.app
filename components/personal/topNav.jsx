@@ -3,10 +3,13 @@ import Link from 'next/link';
 import styles from '@css/personal/topNav.module.css';
 import Image from 'next/image';
 import logout from '@/lib/auth/sessionManagement/logout';
+import { useNav } from './navContext';
 
 export default function TopNav() {
+    const { openStatus, setOpenStatus } = useNav();
+
     return (
-        <div className={styles.nav}>
+        <div className={`${styles.nav}`}>
             <div className={styles.header}>
                 <Image
                     width={100}
@@ -33,8 +36,14 @@ export default function TopNav() {
                     Log Out
                 </button>
                 <div className={styles.menu}>
-                    <i className={`icon-bars ${styles.icon}`}></i>
-                    <i className={`icon-cross ${styles.icon}`}></i>
+                    <i
+                        className={`icon-grid-2 ${styles.icon} ${openStatus ? styles.hidden : null}`}
+                        onClick={() => setOpenStatus(true)}
+                    ></i>
+                    <i
+                        className={`icon-check-double ${styles.icon} ${openStatus ? null : styles.hidden}`}
+                        onClick={() => setOpenStatus(false)}
+                    ></i>
                 </div>
             </div>
         </div>

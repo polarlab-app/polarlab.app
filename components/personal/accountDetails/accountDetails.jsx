@@ -12,26 +12,24 @@ export default function AccountDetails() {
     const [password, setPassword] = useState('');
     const [showPasswordModal, setShowPasswordModal] = useState(false);
     const [isChanged, setIsChanged] = useState(false);
+    const [preview, setPreview] = useState(null);
+    const [appIcon, setAppIcon] = useState('');
 
     useEffect(() => {
         const fetchUser = async () => {
             const userAccount = JSON.parse(await findUser());
-            if (!userAccount) {
-                window.location.href = '/login';
-            }
             setUser(userAccount);
             setUsername(userAccount.username);
             setEmail(userAccount.email);
-            console.log(userAccount.username);
         };
         fetchUser();
     }, []);
 
     useEffect(() => {
         if (user) {
-            setIsChanged(username !== user.username || email !== user.email || password !== '');
+            setIsChanged(username !== user.username || email !== user.email || password !== '' || appIcon !== '');
         }
-    }, [username, email, password, user]);
+    }, [username, email, password, user, appIcon]);
 
     const handleSaveChanges = () => {
         setShowPasswordModal(true);
@@ -39,6 +37,20 @@ export default function AccountDetails() {
 
     const handleInputChange = (setter) => (e) => {
         setter(e.target.value);
+    };
+
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        if (file && file.size <= 5242880) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setPreview(reader.result);
+                setAppIcon(reader.result.split(',')[1]);
+            };
+            reader.readAsDataURL(file);
+        } else {
+            alert('>5mb == bad bad boi');
+        }
     };
 
     return (
@@ -54,16 +66,27 @@ export default function AccountDetails() {
             <div className={styles.account}>
                 <div className={styles.iconContainer}>
                     <Image
-                        src='https://cdn.polarlab.app/api/fetch/img/polarlogo/png'
+                        src={
+                            preview
+                                ? preview
+                                : user
+                                ? `https://cdn.polarlab.app/api/fetch/users/avatars/${user.id}/webp`
+                                : 'https://cdn.polarlab.app/api/fetch/img/polarlogo/png'
+                        }
                         width={512}
                         height={512}
                         alt='Profile Picture'
                         className={styles.icon}
                     />
-                    <label className={styles.editWrapper} for='profilePicture'>
+                    <label className={styles.editWrapper} htmlFor='profilePicture'>
                         <i className={`${styles.editIcon} icon-grid-2`}></i>
                     </label>
-                    <input type='file' id='profilePicture' className={styles.fileInput}></input>
+                    <input
+                        type='file'
+                        id='profilePicture'
+                        className={styles.fileInput}
+                        onChange={handleFileChange}
+                    ></input>
                 </div>
                 <div className={styles.inputs}>
                     <div className={styles.inputcontainer}>
@@ -103,6 +126,7 @@ export default function AccountDetails() {
                     username={username}
                     password={password}
                     email={email}
+                    appIcon={appIcon}
                     close={() => setShowPasswordModal(false)}
                 />
             )}

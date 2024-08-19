@@ -3,12 +3,14 @@ import styles from '@css/personal/modal.module.css';
 import { useState } from 'react';
 import updateUser from '@/lib/personal/accountDetails/updateUser';
 
-export default function EnterPassword({ username, email, password, close }) {
+export default function EnterPassword({ username, email, password, appIcon, close }) {
     const [verifyPassword, setVerifyPassword] = useState('');
     const update = async () => {
-        const result = await updateUser(username, email, password, verifyPassword);
+        const result = await updateUser(username, email, password, appIcon, verifyPassword);
         if (result) {
             close();
+        } else {
+            alert('fail');
         }
     };
 

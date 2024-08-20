@@ -8,18 +8,15 @@ export async function middleware(req) {
     const refreshToken = cookies().get('refreshToken');
 
     if (!accessToken) {
-        return NextResponse.redirect(new URL('/login', req.url));
+        return NextResponse.redirect(new URL('/oauth2/login/discord', req.url));
     }
 
     try {
-        const validationResponse = await xior.get(
-            'https://discord.com/api/users/@me',
-            {
-                headers: {
-                    Authorization: `Bearer ${accessToken.value}`,
-                },
-            }
-        );
+        const validationResponse = await xior.get('https://discord.com/api/users/@me', {
+            headers: {
+                Authorization: `Bearer ${accessToken.value}`,
+            },
+        });
 
         if (validationResponse.status == 200) {
             return NextResponse.next();
@@ -43,32 +40,24 @@ export async function middleware(req) {
             );
 
             if (refreshResponse.status === 200) {
-                cookies().set(
-                    'accessToken',
-                    refreshResponse.data.access_token,
-                    {
-                        path: '/',
-                        httpOnly: true,
-                        sameSite: 'strict',
-                    }
-                );
-                cookies().set(
-                    'refreshToken',
-                    refreshResponse.data.refresh_token,
-                    {
-                        path: '/',
-                        httpOnly: true,
-                        sameSite: 'strict',
-                    }
-                );
+                cookies().set('accessToken', refreshResponse.data.access_token, {
+                    path: '/',
+                    httpOnly: true,
+                    sameSite: 'strict',
+                });
+                cookies().set('refreshToken', refreshResponse.data.refresh_token, {
+                    path: '/',
+                    httpOnly: true,
+                    sameSite: 'strict',
+                });
                 return NextResponse.next();
             }
         } catch (refreshError) {
-            return NextResponse.redirect(new URL('/login', req.url));
+            return NextResponse.redirect(new URL('/oauth2/login/discord', req.url));
         }
     }
 
-    return NextResponse.redirect(new URL('/login', req.url));
+    return NextResponse.redirect(new URL('/oauth2/login/discord', req.url));
 }
 
 export const config = {

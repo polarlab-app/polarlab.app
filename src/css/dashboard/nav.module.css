@@ -27,7 +27,7 @@
     width: 110%;
 }
 .tag {
-    border-radius: 8px;
+    border-radius: 6px;
     height: 30%;
     width: 20%;
     text-align: center;
@@ -105,7 +105,7 @@
 
 .logout {
     height: 5vh;
-    border-radius: 12px;
+    border-radius: 6px;
     width: 100%;
     color: #fe424d;
     background-color: hsl(356.49, 98.95%, 62.75%, 0.2);

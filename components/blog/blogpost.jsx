@@ -1,5 +1,4 @@
 'use server';
-
 import styles from '@css/blog/blog.module.css';
 import Link from 'next/link';
 

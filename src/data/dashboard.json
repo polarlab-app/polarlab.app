@@ -94,6 +94,17 @@
             "description": "The channel ID for server logs",
             "path": "config/logs/serverLogs/channelId",
             "placeholder": 1131195719676596229
+        },
+        "leveling-exp-amount": {
+            "name": "EXP Amount",
+            "description": "The amount of EXP to give",
+            "path": "config/leveling/amount",
+            "options": ["static", "range"]
+        },
+        "leveling-exp-type": {
+            "name": "EXP Type",
+            "description": "The type of EXP to give",
+            "path": "config/leveling/type"
         }
     },
     "paths": {

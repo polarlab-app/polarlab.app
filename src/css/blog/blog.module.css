@@ -35,6 +35,7 @@
     width: 100%;
     transition: transform 600ms;
     overflow: hidden;
+    position: relative;
 }
 
 .postimg {
@@ -42,6 +43,7 @@
     border-radius: 10px 10px 0px 0px;
     margin: 0;
     transition: transform 600ms;
+    object-fit: contain;
 }
 
 .post:hover .postimg {

@@ -149,7 +149,7 @@ export default function DashboardNav() {
                             <p className={styles.navsectionheader}>ENGAGEMENT</p>
                             <Link
                                 className={`${styles.navsectionitem} ${activeNav === 'exp' ? styles.active : ''}`}
-                                href='/'
+                                href='/dashboard/exp-and-levels'
                                 onClick={() => setActiveNav('exp')}
                             >
                                 <img

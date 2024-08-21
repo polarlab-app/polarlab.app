@@ -51,6 +51,28 @@ body {
     border-radius: 12px;
 }
 
+.inputGroupFull {
+    background-color: #1b1c24;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    margin: 2vh 0;
+}
+
+.inputGroupHalf {
+    background-color: #1b1c24;
+    border-radius: 12px;
+    display: inline-flex;
+    flex-direction: column;
+    margin: 2vh 0;
+    width: 47.5%;
+    float: left;
+}
+
+.inputGroupHalf:nth-child(2n) {
+    margin-left: 5%;
+}
+
 nav {
     display: none;
 }

@@ -1,5 +1,6 @@
 const nextConfig = {
     reactStrictMode: false,
+    poweredByHeader: false,
     experimental: {
         missingSuspenseWithCSRBailout: false,
         serverActions: {
@@ -44,7 +45,7 @@ const nextConfig = {
                         key: 'Content-Security-Policy',
                         value: `
                             default-src 'self';
-                            script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://static.cloudflareinsights.com;
+                            script-src 'self' 'unsafe-inline' 'unsafe-eval' https://static.cloudflareinsights.com;
                             style-src 'self' 'unsafe-inline';
                             img-src 'self' data: https://cdn.polarlab.app https://cdn.discordapp.com https://placehold.co;
                             font-src 'self';

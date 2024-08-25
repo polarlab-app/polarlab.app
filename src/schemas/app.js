@@ -7,6 +7,7 @@ const appSchema = new mongoose.Schema(
         date: String,
         name: String,
         userCount: String,
+        scopes: [],
         redirectURIs: [],
     },
     {

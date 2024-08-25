@@ -7,7 +7,7 @@ import styles from '@css/personal/personal.module.css';
 import findUser from '@lib/personal/findUser.js';
 import ButtonInput from '@/components/personal/buttonInput';
 import Connections from '@/components/personal/connections';
-import Apps from '@/components/personal/apps';
+import Apps from '@/components/personal/apps/apps';
 
 export default function Page() {
     const searchParams = useSearchParams();

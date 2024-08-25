@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 export default async function Footer() {
     return (
-        <footer className={styles.footercontainer}>
+        <footer className={styles.footercontainer} id='footer'>
             <div className={styles.footer}>
                 <div className={styles.footertop}>
                     <Image

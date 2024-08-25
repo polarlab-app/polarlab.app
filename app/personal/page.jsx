@@ -7,6 +7,7 @@ import styles from '@css/personal/personal.module.css';
 import findUser from '@lib/personal/findUser.js';
 import ButtonInput from '@/components/personal/buttonInput';
 import Connections from '@/components/personal/connections';
+import AccountDetails from '@/components/personal/accountDetails/accountDetails';
 
 /*export const metadata = {
     title: 'Polar Lab | Personal',
@@ -26,7 +27,7 @@ export default function Page() {
 
     return (
         <div className={styles.container}>
-            {section === 'accountDetails' && <AccountDetails />}
+            {section === 'accountDetails' && <AccountDetailsScreen />}
             {section === 'apps' && <Apps />}
             {section === 'connections' && <ConnectionsScreen />}
             {section === 'authorizedApps' && <AuthorizedApps />}
@@ -35,8 +36,12 @@ export default function Page() {
     );
 }
 
-function AccountDetails() {
-    return <div className={styles.main}></div>;
+function AccountDetailsScreen() {
+    return (
+        <Suspense fallback={<div>Loading account details...</div>}>
+            <AccountDetails />
+        </Suspense>
+    );
 }
 
 function Apps() {

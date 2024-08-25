@@ -5,6 +5,7 @@
     background-color: rgb(22, 21, 28);
     color: white;
     position: relative;
+    --nav-width: 18%;
 }
 
 .navitem {
@@ -61,6 +62,38 @@
     scale: 0.96;
 }
 
+@media screen and (max-width: 620px) {
+    .nav {
+        width: 0;
+        z-index: 3;
+        position: absolute;
+        left: 0;
+        height: 92vh;
+        animation: animateOut 400ms linear forwards;
+        --nav-width: 80%;
+    }
+    .nav.active {
+        width: var(--nav-width);
+        opacity: 1;
+        animation: animateIn 400ms linear forwards;
+    }
+
+    .logout,
+    .header,
+    .navitem {
+        opacity: 0;
+        transition: all 100ms ease;
+    }
+
+    .nav.active .logout,
+    .nav.active .header,
+    .nav.active .navitem {
+        opacity: 1;
+        transition: all 400ms ease;
+        transition-delay: 200ms;
+    }
+}
+
 @media screen and (min-width: 620px) and (max-width: 820px) {
     .nav {
         width: 0;
@@ -68,19 +101,35 @@
         position: absolute;
         left: 0;
         height: 92vh;
-        animation: animateOut 300ms linear forwards;
+        animation: animateOut 400ms linear forwards;
+        --nav-width: 60%;
     }
     .nav.active {
-        width: 60%;
+        width: var(--nav-width);
         opacity: 1;
         animation: animateIn 400ms linear forwards;
+    }
+
+    .logout,
+    .header,
+    .navitem {
+        opacity: 0;
+        transition: all 100ms ease;
+    }
+
+    .nav.active .logout,
+    .nav.active .header,
+    .nav.active .navitem {
+        opacity: 1;
+        transition: all 400ms ease;
+        transition-delay: 200ms;
     }
 }
 
 @keyframes animateOut {
     0% {
         opacity: 1;
-        width: 60%;
+        width: var(--nav-width);
     }
     100% {
         opacity: 0;
@@ -98,6 +147,6 @@
     }
     100% {
         opacity: 1;
-        width: 60%;
+        width: var(--nav-width);
     }
 }

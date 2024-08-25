@@ -99,6 +99,7 @@
     opacity: 0;
     transition: all 600ms ease;
     cursor: pointer;
+    border-radius: 6px;
 }
 
 .editIcon {
@@ -140,4 +141,20 @@
 .input:focus {
     border: 1px solid #4b4ee7;
     transition: all 600ms ease;
+}
+
+@media screen and (max-width: 620px) {
+    .account {
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+    .iconContainer,
+    .inputs {
+        width: 90%;
+        margin-left: 5%;
+    }
+    .input {
+        width: 93%;
+    }
 }

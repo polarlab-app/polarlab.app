@@ -37,11 +37,11 @@ export default function TopNav() {
                 </button>
                 <div className={styles.menu}>
                     <i
-                        className={`icon-grid-2 ${styles.icon} ${openStatus ? styles.hidden : null}`}
+                        className={`icon-bars ${styles.icon} ${openStatus ? styles.hidden : null}`}
                         onClick={() => setOpenStatus(true)}
                     ></i>
                     <i
-                        className={`icon-check-double ${styles.icon} ${openStatus ? null : styles.hidden}`}
+                        className={`icon-xmark ${styles.icon} ${openStatus ? null : styles.hidden}`}
                         onClick={() => setOpenStatus(false)}
                     ></i>
                 </div>

@@ -19,7 +19,7 @@ export default function EnterPassword({ username, email, password, appIcon, clos
             <div className={styles.modal}>
                 <div className={styles.header}>
                     <h1 className={styles.heading}>Enter Your Password</h1>
-                    <i className={`${styles.icon} icon-grid-2`} onClick={close}></i>
+                    <i className={`${styles.icon} icon-xmark`} onClick={close}></i>
                 </div>
                 <div className={styles.inputContainer}>
                     <p className={styles.label}>Enter Password</p>
@@ -31,7 +31,7 @@ export default function EnterPassword({ username, email, password, appIcon, clos
                     />
                 </div>
                 <button onClick={update} className={styles.button}>
-                    <i className={`${styles.icon} icon-check-double`}></i>Confirm Changes
+                    <i className={`${styles.icon} icon-check`}></i>Confirm Changes
                 </button>
             </div>
         </div>

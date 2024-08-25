@@ -79,7 +79,7 @@ export default function AccountDetails() {
                         className={styles.icon}
                     />
                     <label className={styles.editWrapper} htmlFor='profilePicture'>
-                        <i className={`${styles.editIcon} icon-grid-2`}></i>
+                        <i className={`${styles.editIcon} icon-pen`}></i>
                     </label>
                     <input
                         type='file'

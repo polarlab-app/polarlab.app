@@ -4,9 +4,11 @@ const appSchema = new mongoose.Schema(
     {
         id: String,
         ownerId: String,
-        pfp: String,
+        date: String,
         name: String,
-        redirectUri: [],
+        userCount: String,
+        scopes: [],
+        redirectURIs: [],
     },
     {
         collection: 'apps',

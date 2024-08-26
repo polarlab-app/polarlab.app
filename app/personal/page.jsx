@@ -6,7 +6,7 @@ import { Suspense } from 'react';
 import styles from '@css/personal/personal.module.css';
 import findUser from '@lib/personal/findUser.js';
 import ButtonInput from '@/components/personal/buttonInput';
-import Connections from '@/components/personal/connections';
+import Connections from '@/components/personal/connections/connections';
 import AccountDetails from '@/components/personal/accountDetails/accountDetails';
 
 /*export const metadata = {

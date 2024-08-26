@@ -128,6 +128,7 @@ export default function AccountDetails() {
                     email={email}
                     appIcon={appIcon}
                     close={() => setShowPasswordModal(false)}
+                    mode='updateUser'
                 />
             )}
         </div>

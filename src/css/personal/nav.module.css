@@ -150,3 +150,9 @@
         width: var(--nav-width);
     }
 }
+
+@media screen and (min-width: 820px) and (max-width: 1000px) {
+    .nav {
+        width: 35%;
+    }
+}

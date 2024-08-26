@@ -1,13 +1,42 @@
 .main {
-    display: flex !important;
     width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
+
+.header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.connect {
+    color: white;
+    background-color: #4b4ee7;
+    height: 5vh;
+    border: none;
+    border-radius: 6px;
+    padding: 0 1.3vw;
+    transition: all 600ms ease;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.connect:hover {
+    background-color: #27288f;
+    transition: all 600ms ease;
+    scale: 0.95;
+}
+
 .connections {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
     width: 100%;
     text-align: left;
+    row-gap: 1vh;
 }
 
 .connection {
@@ -15,17 +44,11 @@
     border: 1px solid #2a2933;
     border-radius: 10px;
     grid-column: span 1;
-    width: 80%;
-    margin-left: 5%;
-    height: 25vh;
+    width: 90%;
+    height: 27vh;
     position: relative;
-    transition: all 600ms ease;
-}
-
-.connection:hover {
-    box-shadow: 0 0 20px 1px rgba(255, 255, 255, 0.1), 0 0 40px 2px rgba(255, 255, 255, 0.2);
-    transition: all 600ms ease;
-    scale: 1.02;
+    animation: appear 600ms linear forwards;
+    opacity: 0;
 }
 
 .top {
@@ -33,11 +56,17 @@
     align-items: center;
     height: 6vh;
     width: 100%;
+    margin: 1vh;
 }
 
-.icon:nth-child(1) {
-    margin-left: 3%;
-    font-size: 1.3rem;
+.item {
+    font-size: 1rem;
+}
+
+.icon {
+    font-size: 1.4rem;
+    padding: 0 8px;
+    border-radius: 2px;
 }
 
 .name {
@@ -49,8 +78,7 @@
 .button {
     justify-self: end;
     margin-left: auto;
-    margin-top: 2vh;
-    margin-right: 3%;
+    margin-right: 5%;
     cursor: pointer;
     color: #d86464;
     background-color: #2a2933;
@@ -71,7 +99,7 @@
 .list {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0 3%;
 }
 
 .info {
@@ -94,14 +122,38 @@
         grid-template-columns: auto;
     }
     .connection {
-        width: 94%;
-        margin-left: 3%;
+        width: 99.5%;
     }
 }
 
 @media screen and (max-width: 1000px) and (min-width: 768px) {
-    .connection {
-        width: 90%;
-        margin-left: 5%;
+    .connections {
+        grid-template-columns: auto;
     }
+
+    .connection {
+        width: 99.5%;
+    }
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+        transform: translate3d(0px, 24px, 0px) scale3d(0.96, 0.96, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+            skew(0deg);
+    }
+    30% {
+        opacity: 0;
+        transform: translate3d(0px, 20px, 0px) scale3d(0.96, 0.96, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+            skew(0deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg);
+    }
+}
+
+.connection:nth-child(2n) {
+    justify-self: end;
+    animation-delay: 300ms;
 }

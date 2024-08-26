@@ -8,7 +8,7 @@ export default async function NavBar() {
     const user = await findUser();
 
     return (
-        <nav className={styles.nav}>
+        <nav className={styles.nav} id='nav'>
             <div className={styles.logocontainer}>
                 <Image
                     className={styles.logo}

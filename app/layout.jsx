@@ -4,7 +4,6 @@ import NavBar from '@components/core/NavBar.jsx';
 import Footer from '@components/core/footer.jsx';
 import { cookies } from 'next/headers';
 import CookieConsent from '@/components/core/cookieConsent';
-import { GoogleAnalytics } from '@next/third-parties/google';
 import { WebVitals } from '@components/core/webVitals';
 
 export const metadata = {
@@ -35,7 +34,6 @@ export default function RootLayout({ children }) {
 
     return (
         <html lang='en'>
-            <GoogleAnalytics gaId='G-8CM7CND5NJ' />
             <body className='body' id='body'>
                 <WebVitals />
                 <NavBar />

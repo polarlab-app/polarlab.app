@@ -32,7 +32,7 @@ export default function TopNav() {
                 </Link>
             </div>
             <div className={styles.right}>
-                <button className={styles.button} onClick={() => logout()}>
+                <button className={styles.button} onClick={logout}>
                     Log Out
                 </button>
                 <div className={styles.menu}>

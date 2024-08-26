@@ -122,6 +122,10 @@
 }
 
 @media screen and (min-width: 620px) and (max-width: 820px) {
+    .header {
+        width: 35%;
+    }
+
     .nav {
         border-bottom: 1px solid #2a2933;
     }
@@ -151,5 +155,15 @@
     .icon.hidden {
         scale: 0;
         opacity: 0;
+    }
+}
+
+@media screen and (min-width: 820px) and (max-width: 1000px) {
+    .header {
+        width: 35%;
+    }
+
+    .right {
+        width: 20%;
     }
 }

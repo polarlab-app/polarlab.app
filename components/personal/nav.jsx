@@ -28,6 +28,7 @@ export default function NavBar() {
     const handleNavItemClick = (item) => {
         setActiveItem(item);
         router.push(`/personal?page=${item}`);
+        setOpenStatus(false);
     };
 
     return (
@@ -58,7 +59,7 @@ export default function NavBar() {
                 className={`${styles.navitem} ${activeItem === 'connections' ? styles.active : ''}`}
                 onClick={() => handleNavItemClick('connections')}
             >
-                <i className={`icon-grid-2 ${styles.navicon}`}></i>
+                <i className={`icon-link ${styles.navicon}`}></i>
                 <p className={styles.navtext}>Connections</p>
             </div>
             <div

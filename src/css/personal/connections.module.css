@@ -59,6 +59,11 @@
     margin: 1vh;
 }
 
+.logo {
+    font-size: 1.8rem;
+    margin-left: 2%;
+}
+
 .item {
     font-size: 1rem;
 }

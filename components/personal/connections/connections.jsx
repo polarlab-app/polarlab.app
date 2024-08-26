@@ -50,7 +50,7 @@ export default function Connections() {
                     ? connections.map((connection, index) => (
                           <div key={index} className={styles.connection}>
                               <div className={styles.top}>
-                                  <i className={`${styles.icon} icon-${connection.name}`}></i>
+                                  <i className={`${styles.logo} icon-${connection.name}`}></i>
                                   <p className={styles.name}>{capitalizeFirstLetter(connection.name)}</p>
                                   <button className={styles.button} onClick={() => handleDisconnect(connection.name)}>
                                       Disconnect

@@ -3,14 +3,18 @@ import styles from '@css/personal/modal.module.css';
 import { useState } from 'react';
 import updateUser from '@/lib/personal/accountDetails/updateUser';
 
-export default function EnterPassword({ username, email, password, appIcon, close }) {
+export default function EnterPassword({ username, email, password, appIcon, close, mode }) {
     const [verifyPassword, setVerifyPassword] = useState('');
     const update = async () => {
-        const result = await updateUser(username, email, password, appIcon, verifyPassword);
-        if (result) {
-            close();
-        } else {
-            alert('fail');
+        if (mode == 'addConnection') {
+        } else if (mode == 'updateUser') {
+            const result = await updateUser(username, email, password, appIcon, verifyPassword);
+            console.log(result);
+            if (result) {
+                close();
+            } else {
+                alert('fail');
+            }
         }
     };
 

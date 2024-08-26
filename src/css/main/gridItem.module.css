@@ -157,7 +157,6 @@
 }
 
 .gridrowtwothirds .gridimg {
-    height: 50%;
     /*align-self: flex-end;
     justify-self: flex-end;*/
     border-radius: 3px 10px 10px 3px;
@@ -165,6 +164,8 @@
     bottom: 0;
     right: 0;
     max-width: 70%;
+    max-height: 60%;
+    aspect-ratio: 1/1;
 }
 
 @media screen and (max-width: 768px) {

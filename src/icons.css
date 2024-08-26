@@ -57,10 +57,25 @@
 } /* '' */
 .icon-triangle-exclamation:before {
     content: '\e816';
-}
+} /* '' */
 .icon-user:before {
     content: '\e817';
-}
+} /* '' */
 .icon-copyright:before {
     content: '\e818';
-}
+} /* '' */
+.icon-bars:before {
+    content: '\e819';
+} /* '' */
+.icon-check:before {
+    content: '\e81a';
+} /* '' */
+.icon-xmark:before {
+    content: '\e81b';
+} /* '' */
+.icon-pen:before {
+    content: '\e81c';
+} /* '' */
+.icon-link:before {
+    content: '\e81d';
+} /* '' */

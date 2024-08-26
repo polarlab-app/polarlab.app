@@ -28,6 +28,7 @@ export default function NavBar() {
     const handleNavItemClick = (item) => {
         setActiveItem(item);
         router.push(`/personal?page=${item}`);
+        setOpenStatus(false);
     };
 
     return (

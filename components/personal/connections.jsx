@@ -12,7 +12,7 @@ export default function Connections() {
             setConnections(account.connections);
         };
         loadData();
-    }, []);
+    }, [connections]);
 
     const formatDate = (isoString) => {
         const date = new Date(isoString);
@@ -23,6 +23,11 @@ export default function Connections() {
         return string.charAt(0).toUpperCase() + string.slice(1);
     };
 
+    const handleDisconnect = async (connectionName) => {
+        await disconnect(connectionName);
+        setConnections((prevConnections) => prevConnections.filter((conn) => conn.name !== connectionName));
+    };
+
     return (
         <div className={styles.main}>
             <div className={styles.connections}>
@@ -31,7 +36,7 @@ export default function Connections() {
                         <div className={styles.top}>
                             <i className={`${styles.icon} icon-${connection.name}`}></i>
                             <p className={styles.name}>{capitalizeFirstLetter(connection.name)}</p>
-                            <button className={styles.button} onClick={() => disconnect(connection.name)}>
+                            <button className={styles.button} onClick={() => handleDisconnect(connection.name)}>
                                 Disconnect
                             </button>
                         </div>

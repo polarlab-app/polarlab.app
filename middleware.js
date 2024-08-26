@@ -1,4 +1,5 @@
 'use server';
+
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import xior from 'xior';
@@ -55,11 +56,16 @@ export async function middleware(req) {
                 }
             } catch (refreshError) {
                 return NextResponse.redirect(new URL('/login', req.url));
+
             }
         }
 
         return NextResponse.redirect(new URL('/login', req.url));
     }
+}
+
+async function personalMiddleware(req) {
+    return NextResponse.next();
 }
 
 export const config = {

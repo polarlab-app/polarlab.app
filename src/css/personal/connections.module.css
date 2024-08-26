@@ -4,7 +4,7 @@
 }
 .connections {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
     width: 100%;
     text-align: left;
@@ -15,10 +15,17 @@
     border: 1px solid #2a2933;
     border-radius: 10px;
     grid-column: span 1;
-    width: 92%;
-    margin-left: 4%;
+    width: 80%;
+    margin-left: 5%;
     height: 25vh;
     position: relative;
+    transition: all 600ms ease;
+}
+
+.connection:hover {
+    box-shadow: 0 0 20px 1px rgba(255, 255, 255, 0.1), 0 0 40px 2px rgba(255, 255, 255, 0.2);
+    transition: all 600ms ease;
+    scale: 1.02;
 }
 
 .top {
@@ -80,4 +87,21 @@
     left: 3%;
     font-size: 0.7rem;
     color: #a1a0a9;
+}
+
+@media screen and (max-width: 767px) {
+    .connections {
+        grid-template-columns: auto;
+    }
+    .connection {
+        width: 94%;
+        margin-left: 3%;
+    }
+}
+
+@media screen and (max-width: 1000px) and (min-width: 768px) {
+    .connection {
+        width: 90%;
+        margin-left: 5%;
+    }
 }

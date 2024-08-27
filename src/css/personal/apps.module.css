@@ -269,6 +269,7 @@
     height: 4vh;
     width: auto;
     margin-right: 1%;
+    border-radius: 6px;
 }
 
 .button {

@@ -13,7 +13,35 @@ export default function RadioInput({ id, value, onChange }) {
                 <p className={styles.description}>{inputs[id].description}</p>
             </div>
             <div className={styles.options}>
-                <div className={styles.option}>
+                <label className={styles.option}>
+                    <input
+                        type='radio'
+                        id='1'
+                        value='static'
+                        checked={selectedValue === 'static'}
+                        onChange={(e) => setSelectedValue(e.target.value)}
+                        name={id}
+                        className={styles.input}
+                    />
+                    <span className={styles.toggle}>
+                        <span className={styles.innertoggle}></span>
+                    </span>
+                </label>
+                <label className={styles.option}>
+                    <input
+                        type='radio'
+                        id='2'
+                        value='range'
+                        checked={selectedValue === 'static'}
+                        onChange={(e) => setSelectedValue(e.target.value)}
+                        name={id}
+                        className={styles.input}
+                    />
+                    <span className={styles.toggle}>
+                        <span className={styles.innertoggle}></span>
+                    </span>
+                </label>
+                {/*<div className={styles.option}>
                     <input
                         type='radio'
                         id='1'
@@ -40,7 +68,7 @@ export default function RadioInput({ id, value, onChange }) {
                     <label for='2' className={styles.label}>
                         Range
                     </label>
-                </div>
+                </div>*/}
             </div>
         </div>
     );

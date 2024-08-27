@@ -4,8 +4,9 @@ import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Suspense } from 'react';
 import styles from '@css/personal/personal.module.css';
-import findUser from '@lib/personal/findUser.js';
 import ButtonInput from '@/components/personal/buttonInput';
+
+/* Management Screens */
 import Connections from '@/components/personal/connections/connections';
 import AccountDetails from '@/components/personal/accountDetails/accountDetails';
 import Apps from '@/components/personal/apps/apps';

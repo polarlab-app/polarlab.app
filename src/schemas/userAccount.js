@@ -10,6 +10,7 @@ let userAccountSchema = new Schema(
         token: String,
         properties: {
             role: String,
+            date: String,
         },
         connections: [
             {

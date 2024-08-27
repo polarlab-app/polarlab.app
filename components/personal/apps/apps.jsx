@@ -4,6 +4,7 @@ import Image from 'next/image';
 import CreateApp from './createApp';
 import { useState, useEffect } from 'react';
 import findApps from '@/lib/personal/apps/findApps';
+import deleteApp from '@/lib/personal/apps/deleteApp';
 
 export default function Apps() {
     const [apps, setApps] = useState([]);
@@ -55,14 +56,24 @@ export default function Apps() {
         setRedirectURIs(newRedirectURIs);
     };
 
+    const formatDate = (isoString) => {
+        const date = new Date(isoString);
+        return `${date.toLocaleString('default', { month: 'long' })} ${date.getDate()}, ${date.getFullYear()}`;
+    };
+
     const handleSave = () => {
         // Save logic here
         alert('App saved successfully');
     };
 
-    const handleDelete = () => {
-        // Delete logic here
-        alert('App deleted successfully');
+    const handleDelete = async (id) => {
+        const res = await deleteApp(id);
+        if (res == true) {
+            alert('App deleted successfully');
+        } else {
+            console.log(res);
+            alert('fail');
+        }
     };
 
     return (
@@ -138,7 +149,10 @@ export default function Apps() {
                                             <button className={styles.saveButton} onClick={handleSave}>
                                                 Save Changes
                                             </button>
-                                            <button className={styles.deleteButton} onClick={handleDelete}>
+                                            <button
+                                                className={styles.deleteButton}
+                                                onClick={() => handleDelete(app.id)}
+                                            >
                                                 Delete App
                                             </button>
                                         </div>
@@ -168,7 +182,9 @@ export default function Apps() {
                                                 <li className={styles.infoItem}>
                                                     Redirect URIs: {app.redirectURIs.join(', ')}
                                                 </li>
-                                                <li className={styles.infoItem}>Date Created: {app.dateCreated}</li>
+                                                <li className={styles.infoItem}>
+                                                    Date Created: {formatDate(app.date)}
+                                                </li>
                                             </ul>
                                         </div>
                                     </>

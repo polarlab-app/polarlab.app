@@ -8,6 +8,21 @@ import styles2 from '@css/dashboard/navdropdown.module.css';
 import { useGuild } from './guildContext';
 import Image from 'next/image';
 
+const NavLink = ({ href, activeNav, setActiveNav, children }) => (
+    <Link
+        className={`${styles.navsectionitem} ${activeNav === children ? styles.active : ''}`}
+        href={href}
+        onClick={() => setActiveNav(children)}
+    >
+        <img
+            alt='navImg'
+            className={styles.navsectionimg}
+            src='https://cdn.polarlab.app/src/icons/colorless/settings.png'
+        />
+        <p className={styles.navsectiontext}>{children}</p>
+    </Link>
+);
+
 export default function DashboardNav() {
     const [guilds, setGuilds] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -64,36 +79,40 @@ export default function DashboardNav() {
                                         : `${styles2.dropdownoptions} ${styles2.dropdownhidden}`
                                 }
                             >
-                                {guilds.map((guild) => (
-                                    <li
-                                        key={guild.id}
-                                        className={styles2.dropdownoption}
-                                        onClick={() => {
-                                            setSelectedGuild(guild);
-                                            setOpenStatus(false);
-                                        }}
-                                    >
-                                        {guild.icon ? (
-                                            <Image
-                                                width={128}
-                                                height={128}
-                                                src={`https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.png`}
-                                                alt={`<i>`}
-                                                className={styles2.icon}
-                                            />
-                                        ) : (
-                                            <Image
-                                                width={128}
-                                                height={128}
-                                                src={`https://placehold.co/128x128`}
-                                                alt={`<i>`}
-                                                className={styles2.icon}
-                                                unoptimized
-                                            />
-                                        )}
-                                        {guild.name}
-                                    </li>
-                                ))}
+                                {guilds ? (
+                                    guilds.map((guild) => (
+                                        <li
+                                            key={guild.id}
+                                            className={styles2.dropdownoption}
+                                            onClick={() => {
+                                                setSelectedGuild(guild);
+                                                setOpenStatus(false);
+                                            }}
+                                        >
+                                            {guild.icon ? (
+                                                <Image
+                                                    width={128}
+                                                    height={128}
+                                                    src={`https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.png`}
+                                                    alt={`<i>`}
+                                                    className={styles2.icon}
+                                                />
+                                            ) : (
+                                                <Image
+                                                    width={128}
+                                                    height={128}
+                                                    src={`https://placehold.co/128x128`}
+                                                    alt={`<i>`}
+                                                    className={styles2.icon}
+                                                    unoptimized
+                                                />
+                                            )}
+                                            {guild.name}
+                                        </li>
+                                    ))
+                                ) : (
+                                    <p>Loading guilds...</p>
+                                )}
                                 <li
                                     className={styles2.dropdownoption}
                                     onClick={() => {
@@ -106,166 +125,48 @@ export default function DashboardNav() {
                             </ul>
                         </div>
                         <div className={styles.navsection}>
-                            <Link
-                                className={`${styles.navsectionitem} ${activeNav === 'overview' ? styles.active : ''}`}
-                                href='/dashboard'
-                                onClick={() => setActiveNav('overview')}
-                            >
-                                <img
-                                    alt='navImg'
-                                    className={styles.navsectionimg}
-                                    src='https://cdn.polarlab.app/src/icons/colorless/settings.png'
-                                ></img>
-                                <p className={styles.navsectiontext}>Overview</p>
-                            </Link>
-                            <Link
-                                className={`${styles.navsectionitem} ${activeNav === 'settings' ? styles.active : ''}`}
-                                href='/dashboard/settings'
-                                onClick={() => setActiveNav('settings')}
-                            >
-                                <img
-                                    alt='navImg'
-                                    className={styles.navsectionimg}
-                                    src='https://cdn.polarlab.app/src/icons/colorless/settings.png'
-                                ></img>
-                                <p className={styles.navsectiontext}>Settings</p>
-                            </Link>
-                            <Link
-                                className={`${styles.navsectionitem} ${
-                                    activeNav === 'subscription' ? styles.active : ''
-                                }`}
-                                href='/'
-                                onClick={() => setActiveNav('subscription')}
-                            >
-                                <img
-                                    alt='navImg'
-                                    className={styles.navsectionimg}
-                                    src='https://cdn.polarlab.app/src/icons/colorless/settings.png'
-                                ></img>
-                                <p className={styles.navsectiontext}>Subscription</p>
-                            </Link>
+                            <NavLink href='/dashboard' activeNav={activeNav} setActiveNav={setActiveNav}>
+                                Overview
+                            </NavLink>
+                            <NavLink href='/dashboard/settings' activeNav={activeNav} setActiveNav={setActiveNav}>
+                                Settings
+                            </NavLink>
+                            <NavLink href='/' activeNav={activeNav} setActiveNav={setActiveNav}>
+                                Subscription
+                            </NavLink>
                         </div>
                         <div className={styles.navsection}>
                             <p className={styles.navsectionheader}>ENGAGEMENT</p>
-                            <Link
-                                className={`${styles.navsectionitem} ${activeNav === 'exp' ? styles.active : ''}`}
-                                href='/dashboard/exp-and-levels'
-                                onClick={() => setActiveNav('exp')}
-                            >
-                                <img
-                                    alt='navImg'
-                                    className={styles.navsectionimg}
-                                    src='https://cdn.polarlab.app/src/icons/colorless/settings.png'
-                                ></img>
-                                <p className={styles.navsectiontext}>EXP & Levels</p>
-                            </Link>
-                            <Link
-                                className={`${styles.navsectionitem} ${activeNav === 'music' ? styles.active : ''}`}
-                                href='/'
-                                onClick={() => setActiveNav('music')}
-                            >
-                                <img
-                                    alt='navImg'
-                                    className={styles.navsectionimg}
-                                    src='https://cdn.polarlab.app/src/icons/colorless/settings.png'
-                                ></img>
-                                <p className={styles.navsectiontext}>Music</p>
-                            </Link>
-                            <Link
-                                className={`${styles.navsectionitem} ${activeNav === 'giveaways' ? styles.active : ''}`}
-                                href='/'
-                                onClick={() => setActiveNav('giveaways')}
-                            >
-                                <img
-                                    alt='navImg'
-                                    className={styles.navsectionimg}
-                                    src='https://cdn.polarlab.app/src/icons/colorless/settings.png'
-                                ></img>
-                                <p className={styles.navsectiontext}>Giveaways</p>
-                            </Link>
-                            <Link
-                                className={`${styles.navsectionitem} ${activeNav === 'birthdays' ? styles.active : ''}`}
-                                href='/'
-                                onClick={() => setActiveNav('birthdays')}
-                            >
-                                <img
-                                    alt='navImg'
-                                    className={styles.navsectionimg}
-                                    src='https://cdn.polarlab.app/src/icons/colorless/settings.png'
-                                ></img>
-                                <p className={styles.navsectiontext}>Birthdays</p>
-                            </Link>
-                            <Link
-                                className={`${styles.navsectionitem} ${
-                                    activeNav === 'socialNotifications' ? styles.active : ''
-                                }`}
-                                href='/'
-                                onClick={() => setActiveNav('socialNotifications')}
-                            >
-                                <img
-                                    alt='navImg'
-                                    className={styles.navsectionimg}
-                                    src='https://cdn.polarlab.app/src/icons/colorless/settings.png'
-                                ></img>
-                                <p className={styles.navsectiontext}>Social Notifications</p>
-                            </Link>
+                            <NavLink href='/dashboard/exp-and-levels' activeNav={activeNav} setActiveNav={setActiveNav}>
+                                EXP & Levels
+                            </NavLink>
+                            <NavLink href='/' activeNav={activeNav} setActiveNav={setActiveNav}>
+                                Music
+                            </NavLink>
+                            <NavLink href='/' activeNav={activeNav} setActiveNav={setActiveNav}>
+                                Giveaways
+                            </NavLink>
+                            <NavLink href='/' activeNav={activeNav} setActiveNav={setActiveNav}>
+                                Birthdays
+                            </NavLink>
+                            <NavLink href='/' activeNav={activeNav} setActiveNav={setActiveNav}>
+                                Social Notifications
+                            </NavLink>
                         </div>
                         <div className={styles.navsection}>
                             <p className={styles.navsectionheader}>MODERATION</p>
-                            <Link
-                                className={`${styles.navsectionitem} ${
-                                    activeNav === 'moderation' ? styles.active : ''
-                                }`}
-                                href='/'
-                                onClick={() => setActiveNav('moderation')}
-                            >
-                                <img
-                                    alt='navImg'
-                                    className={styles.navsectionimg}
-                                    src='https://cdn.polarlab.app/src/icons/colorless/settings.png'
-                                ></img>
-                                <p className={styles.navsectiontext}>Moderation</p>
-                            </Link>
-                            <Link
-                                className={`${styles.navsectionitem} ${activeNav === 'logging' ? styles.active : ''}`}
-                                href='/dashboard/logging'
-                                onClick={() => setActiveNav('logging')}
-                            >
-                                <img
-                                    alt='navImg'
-                                    className={styles.navsectionimg}
-                                    src='https://cdn.polarlab.app/src/icons/colorless/settings.png'
-                                ></img>
-                                <p className={styles.navsectiontext}>Logging</p>
-                            </Link>
-                            <Link
-                                className={`${styles.navsectionitem} ${
-                                    activeNav === 'autoModerator' ? styles.active : ''
-                                }`}
-                                href='/logging'
-                                onClick={() => setActiveNav('autoModerator')}
-                            >
-                                <img
-                                    alt='navImg'
-                                    className={styles.navsectionimg}
-                                    src='https://cdn.polarlab.app/src/icons/colorless/settings.png'
-                                ></img>
-                                <p className={styles.navsectiontext}>Auto Moderator</p>
-                            </Link>
-                            <Link
-                                className={`${styles.navsectionitem} ${
-                                    activeNav === 'serverGuard' ? styles.active : ''
-                                }`}
-                                href='/'
-                                onClick={() => setActiveNav('serverGuard')}
-                            >
-                                <img
-                                    alt='navImg'
-                                    className={styles.navsectionimg}
-                                    src='https://cdn.polarlab.app/src/icons/colorless/settings.png'
-                                ></img>
-                                <p className={styles.navsectiontext}>Server Guard</p>
-                            </Link>
+                            <NavLink href='/' activeNav={activeNav} setActiveNav={setActiveNav}>
+                                Moderation
+                            </NavLink>
+                            <NavLink href='/dashboard/logging' activeNav={activeNav} setActiveNav={setActiveNav}>
+                                Logging
+                            </NavLink>
+                            <NavLink href='/logging' activeNav={activeNav} setActiveNav={setActiveNav}>
+                                Auto Moderator
+                            </NavLink>
+                            <NavLink href='/' activeNav={activeNav} setActiveNav={setActiveNav}>
+                                Server Guard
+                            </NavLink>
                         </div>
                     </div>
                     <div className={styles.sidenavbottom}>

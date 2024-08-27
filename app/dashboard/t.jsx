@@ -76,14 +76,12 @@ export default function Page() {
 
     return (
         <div className='dashboard'>
-            <TopBar type='exp-and-leveling'>
-                {Object.keys(newData).length > 0 && (
-                    <>
-                        <DiscardButton onClick={() => discardChanges()} />
-                        <SaveButton onClick={() => saveTrigger()} />
-                    </>
-                )}
-            </TopBar>
+            <TopBar
+                type='exp-and-leveling'
+                showButtons={Object.keys(newData).length > 0}
+                onDiscard={discardChanges}
+                onSave={saveTrigger}
+            />
             <div className={selectionStyles.bar}>
                 <div
                     id='channelLogs'

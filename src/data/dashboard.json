@@ -1,8 +1,9 @@
 {
     "topBar": {
-        "settings": "The general settings for your server (Module specific settings can be found inside their respective pages)",
+        "settings": "The general settings for your server",
         "overview": "General information about your server",
-        "logging": "Logs to review your servers' activity"
+        "logging": "Logs to review your servers' activity",
+        "exp-and-leveling": "The best engagement system on Discord"
     },
     "inputs": {
         "ai-functionality": {

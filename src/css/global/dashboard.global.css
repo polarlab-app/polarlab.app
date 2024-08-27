@@ -22,7 +22,7 @@ body {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    background-color: #13141a;
+    background-color: #0d0c13;
 }
 
 .username {
@@ -52,7 +52,7 @@ body {
 }
 
 .inputGroupFull {
-    background-color: #1b1c24;
+    background-color: #16151c;
     border-radius: 12px;
     display: flex;
     flex-direction: column;
@@ -60,7 +60,7 @@ body {
 }
 
 .inputGroupHalf {
-    background-color: #1b1c24;
+    background-color: #16151c;
     border-radius: 12px;
     display: inline-flex;
     flex-direction: column;

@@ -1,21 +1,48 @@
 'use client';
-import styles from '@css/dashboard/settings.module.css';
+import { useState, useEffect, useRef } from 'react';
+
+/*Top bar*/
 import TopBar from '@/components/dashboard/top/topbar';
-import { useGuild } from '../guildContext';
-import CheckboxInput from '@components/dashboard/inputs/checkbox';
-import { useState } from 'react';
-import SaveButton from '@/components/dashboard/top/saveButton';
 import DiscardButton from '@/components/dashboard/top/discardButton';
+import SaveButton from '@/components/dashboard/top/saveButton';
+import selectionStyles from '@css/dashboard/selection.module.css';
+
+/*Data Management */
+import getGuildData from '@lib/dashboard/getGuildData';
 import saveData from '@lib/dashboard/saveData';
+import { useGuild } from '../guildContext';
+
+/*Inputs */
+import CheckboxInput from '@components/dashboard/inputs/checkbox';
+import TextboxInput from '@components/dashboard/inputs/textbox';
 
 export default function Page() {
     const { selectedGuild, setSelectedGuild } = useGuild();
     const [newData, setNewData] = useState({});
+    const [selectedTab, setSelectedTab] = useState('');
+    const [data, setData] = useState(null);
+    const tabRefs = useRef([]);
+
+    useEffect(() => {
+        if (!selectedGuild) return;
+
+        const fetchData = async () => {
+            const guildData = JSON.parse(await getGuildData(selectedGuild.id));
+            setData(guildData);
+        };
+
+        fetchData();
+
+        if (tabRefs.current.length > 0) {
+            setSelectedTab(tabRefs.current[0].id);
+        }
+    }, [selectedGuild, tabRefs.current.length]);
 
     const handleCheckboxChange = (id, value) => {
         const updatedCheckboxValues = { ...newData };
         updatedCheckboxValues[id] = value;
         setNewData(updatedCheckboxValues);
+        console.log(newData);
     };
 
     const discardChanges = () => {
@@ -31,9 +58,23 @@ export default function Page() {
         }
     };
 
+    const handleTabClick = (tabId) => {
+        setSelectedTab(tabId);
+    };
+
+    const handleTextboxChange = (id, value) => {
+        const updatedTextboxValues = { ...newData };
+        updatedTextboxValues[id] = value;
+        setNewData(updatedTextboxValues);
+    };
+
+    if (!selectedGuild) {
+        return <div>Loading...</div>;
+    }
+
     return (
         <div className='dashboard'>
-            <TopBar type='settings'>
+            <TopBar type='exp-and-leveling'>
                 {Object.keys(newData).length > 0 && (
                     <>
                         <DiscardButton onClick={() => discardChanges()} />
@@ -41,127 +82,92 @@ export default function Page() {
                     </>
                 )}
             </TopBar>
-
+            <div className={selectionStyles.bar}>
+                <div
+                    id='channelLogs'
+                    ref={(el) => (tabRefs.current[0] = el)}
+                    className={`${selectionStyles.item} ${
+                        selectedTab === 'channelLogs' ? selectionStyles.selected : ''
+                    }`}
+                    onClick={() => handleTabClick('channelLogs')}
+                >
+                    <p>Channel Logs</p>
+                </div>
+                <div
+                    id='roleLogs'
+                    ref={(el) => (tabRefs.current[1] = el)}
+                    className={`${selectionStyles.item} ${selectedTab === 'roleLogs' ? selectionStyles.selected : ''}`}
+                    onClick={() => handleTabClick('roleLogs')}
+                >
+                    <p>Role Logs</p>
+                </div>
+                <div
+                    id='messageLogs'
+                    ref={(el) => (tabRefs.current[2] = el)}
+                    className={`${selectionStyles.item} ${
+                        selectedTab === 'messageLogs' ? selectionStyles.selected : ''
+                    }`}
+                    onClick={() => handleTabClick('messageLogs')}
+                >
+                    <p>Message Logs</p>
+                </div>
+                <div
+                    id='memberLogs'
+                    ref={(el) => (tabRefs.current[3] = el)}
+                    className={`${selectionStyles.item} ${
+                        selectedTab === 'memberLogs' ? selectionStyles.selected : ''
+                    }`}
+                    onClick={() => handleTabClick('memberLogs')}
+                >
+                    <p>Member Logs</p>
+                </div>
+                <div
+                    id='emojiLogs'
+                    ref={(el) => (tabRefs.current[4] = el)}
+                    className={`${selectionStyles.item} ${selectedTab === 'emojiLogs' ? selectionStyles.selected : ''}`}
+                    onClick={() => handleTabClick('emojiLogs')}
+                >
+                    <p>Emoji Logs</p>
+                </div>
+                <div
+                    id='serverLogs'
+                    ref={(el) => (tabRefs.current[5] = el)}
+                    className={`${selectionStyles.item} ${
+                        selectedTab === 'serverLogs' ? selectionStyles.selected : ''
+                    }`}
+                    onClick={() => handleTabClick('serverLogs')}
+                >
+                    <p>Server Logs</p>
+                </div>
+            </div>
             <div className='dashboardwrapper'>
-                <div className={styles.togglegroup}>
-                    <CheckboxInput
-                        id='ai-functionality'
-                        value={true}
-                        onChange={(e) => handleCheckboxChange(e.target.id, e.target.checked)}
-                    />
-                </div>
-                <div className={styles.togglegroup}>
-                    <CheckboxInput
-                        id='ai-functionality2'
-                        value={true}
-                        onChange={(e) => handleCheckboxChange(e.target.id, e.target.checked)}
-                    />
-
-                    <CheckboxInput
-                        id='ai-functionality3'
-                        value={true}
-                        onChange={(e) => handleCheckboxChange(e.target.id, e.target.checked)}
-                    />
-                    <div className={styles.toggleswitchcontainer}>
-                        <div className={styles.toggleswitchtext}>
-                            <p className={styles.toggleswitchheader}>AI Functionality</p>
-                            <p className={styles.toggleswitchdescription}>
-                                Whether to enable AI empowered analytics for your server
-                            </p>
-                        </div>
-                        <label className={styles.togglecontainer}>
-                            <input type='checkbox' className={styles.hidden}></input>
-                            <span className={styles.toggle}>
-                                <span className={styles.innertoggle}></span>
-                            </span>
-                        </label>
-                    </div>
-                    <div className={styles.toggleswitchcontainer}>
-                        <div className={styles.toggleswitchtext}>
-                            <p className={styles.toggleswitchheader}>AI Functionality</p>
-                            <p className={styles.toggleswitchdescription}>
-                                Whether to enable AI empowered analytics for your server
-                            </p>
-                        </div>
-                        <label className={styles.togglecontainer}>
-                            <input type='checkbox' className={styles.hidden}></input>
-                            <span className={styles.toggle}>
-                                <span className={styles.innertoggle}></span>
-                            </span>
-                        </label>
-                    </div>
-                </div>
-                <div className={styles.togglegroup}>
-                    <div className={styles.toggleswitchcontainer}>
-                        <div className={styles.toggleswitchtext}>
-                            <p className={styles.toggleswitchheader}>AI Functionality</p>
-                            <p className={styles.toggleswitchdescription}>
-                                Whether to enable AI empowered analytics for your server
-                            </p>
-                        </div>
-                        <label className={styles.togglecontainer}>
-                            <input type='checkbox' className={styles.hidden}></input>
-                            <span className={styles.toggle}>
-                                <span className={styles.innertoggle}></span>
-                            </span>
-                        </label>
-                    </div>
-                    <div className={styles.toggleswitchcontainer}>
-                        <div className={styles.toggleswitchtext}>
-                            <p className={styles.toggleswitchheader}>AI Functionality</p>
-                            <p className={styles.toggleswitchdescription}>
-                                Whether to enable AI empowered analytics for your server
-                            </p>
-                        </div>
-                        <label className={styles.togglecontainer}>
-                            <input type='checkbox' className={styles.hidden}></input>
-                            <span className={styles.toggle}>
-                                <span className={styles.innertoggle}></span>
-                            </span>
-                        </label>
-                    </div>
-                    <div className={styles.toggleswitchcontainer}>
-                        <div className={styles.toggleswitchtext}>
-                            <p className={styles.toggleswitchheader}>AI Functionality</p>
-                            <p className={styles.toggleswitchdescription}>
-                                Whether to enable AI empowered analytics for your server
-                            </p>
-                        </div>
-                        <label className={styles.togglecontainer}>
-                            <input type='checkbox' className={styles.hidden}></input>
-                            <span className={styles.toggle}>
-                                <span className={styles.innertoggle}></span>
-                            </span>
-                        </label>
-                    </div>
-                    <div className={styles.toggleswitchcontainer}>
-                        <div className={styles.toggleswitchtext}>
-                            <p className={styles.toggleswitchheader}>AI Functionality</p>
-                            <p className={styles.toggleswitchdescription}>
-                                Whether to enable AI empowered analytics for your server
-                            </p>
-                        </div>
-                        <label className={styles.togglecontainer}>
-                            <input type='checkbox' className={styles.hidden}></input>
-                            <span className={styles.toggle}>
-                                <span className={styles.innertoggle}></span>
-                            </span>
-                        </label>
-                    </div>
-                    <div className={styles.toggleswitchcontainer}>
-                        <div className={styles.toggleswitchtext}>
-                            <p className={styles.toggleswitchheader}>AI Functionality</p>
-                            <p className={styles.toggleswitchdescription}>
-                                Whether to enable AI empowered analytics for your server
-                            </p>
-                        </div>
-                        <label className={styles.togglecontainer}>
-                            <input type='checkbox' className={styles.hidden}></input>
-                            <span className={styles.toggle}>
-                                <span className={styles.innertoggle}></span>
-                            </span>
-                        </label>
-                    </div>
+                <div
+                    style={{
+                        display: selectedTab === 'channelLogs' ? 'block' : 'none',
+                    }}
+                >
+                    {data ? (
+                        <>
+                            <div className='inputGroupFull'>
+                                <CheckboxInput
+                                    type='number'
+                                    id='channel-logs-status'
+                                    value={data.config.logs.channelLogs.status}
+                                    onChange={(e) => handleCheckboxChange(e.target.id, e.target.checked)}
+                                />
+                            </div>
+                            <div className='inputGroupFull'>
+                                <TextboxInput
+                                    type='number'
+                                    id='channel-logs-channel'
+                                    value={data.config.logs.channelLogs.channelId}
+                                    onChange={(e) => handleTextboxChange(e.target.id, e.target.value)}
+                                />
+                            </div>
+                        </>
+                    ) : (
+                        <div>Loading...</div>
+                    )}
                 </div>
             </div>
         </div>

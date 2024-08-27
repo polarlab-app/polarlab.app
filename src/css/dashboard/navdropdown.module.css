@@ -3,7 +3,7 @@
 }
 
 .dropdownselector {
-    background-color: #2c2d36;
+    background-color: #2a2933;
     border-radius: 6px;
     padding: 12px;
     display: flex;
@@ -58,7 +58,7 @@
     padding: 12px 14px;
     transition: all 600ms ease;
     cursor: pointer;
-    background-color: #2c2d36;
+    background-color: #2a2933;
     height: 5%;
     display: flex;
     align-items: center;

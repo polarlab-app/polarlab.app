@@ -25,6 +25,7 @@ let userAccountSchema = new Schema(
                 name: String,
                 date: String,
                 secret: String,
+                scopes: [],
             },
         ],
         support: [],

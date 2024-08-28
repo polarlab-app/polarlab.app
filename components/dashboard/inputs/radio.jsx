@@ -26,6 +26,7 @@ export default function RadioInput({ id, value, onChange }) {
                     <span className={styles.toggle}>
                         <span className={styles.innertoggle}></span>
                     </span>
+                    <span className={styles.label}>Static</span>
                 </label>
                 <label className={styles.option}>
                     <input
@@ -40,35 +41,8 @@ export default function RadioInput({ id, value, onChange }) {
                     <span className={styles.toggle}>
                         <span className={styles.innertoggle}></span>
                     </span>
+                    <span className={styles.label}>Range</span>
                 </label>
-                {/*<div className={styles.option}>
-                    <input
-                        type='radio'
-                        id='1'
-                        value='static'
-                        checked={selectedValue === 'static'}
-                        onChange={(e) => setSelectedValue(e.target.value)}
-                        name={id}
-                        className={styles.input}
-                    />
-                    <label for='1' className={styles.label}>
-                        Static
-                    </label>
-                </div>
-                <div className={styles.option}>
-                    <input
-                        type='radio'
-                        id='2'
-                        value='range'
-                        checked={selectedValue === 'range'}
-                        onChange={(e) => setSelectedValue(e.target.value)}
-                        name={id}
-                        className={styles.input}
-                    />
-                    <label for='2' className={styles.label}>
-                        Range
-                    </label>
-                </div>*/}
             </div>
         </div>
     );

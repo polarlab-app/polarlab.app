@@ -14,11 +14,7 @@ const NavLink = ({ href, activeNav, setActiveNav, children }) => (
         href={href}
         onClick={() => setActiveNav(children)}
     >
-        <img
-            alt='navImg'
-            className={styles.navsectionimg}
-            src='https://cdn.polarlab.app/src/icons/colorless/settings.png'
-        />
+        <i alt='navImg' className={`${styles.navsectionimg} icon-grid-2`} />
         <p className={styles.navsectiontext}>{children}</p>
     </Link>
 );

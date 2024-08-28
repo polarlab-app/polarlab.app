@@ -75,6 +75,7 @@
     transition: all 600ms ease;
 }
 
+.navsectionitem.active .navsectionimg,
 .navsectionitem.active .navsectiontext {
     color: white;
     transition: all 600ms ease;
@@ -90,8 +91,8 @@
     transition: all 600ms ease;
 }
 .navsectionimg {
-    height: 50%;
-    width: auto;
+    font-size: 1.5rem;
+    color: #9d9ba9;
     margin: 0 1vw 0 0.5vw;
 }
 

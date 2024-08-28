@@ -3,10 +3,12 @@ import mongoose from 'mongoose';
 const appSchema = new mongoose.Schema(
     {
         id: String,
-        ownerId: String,
-        pfp: String,
         name: String,
-        redirectUri: [],
+        ownerID: String,
+        date: String,
+        userCount: String,
+        scopes: [],
+        redirectURIs: [],
     },
     {
         collection: 'apps',

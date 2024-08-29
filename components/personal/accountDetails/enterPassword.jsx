@@ -2,19 +2,32 @@
 import styles from '@css/personal/modal.module.css';
 import { useState } from 'react';
 import updateUser from '@/lib/personal/accountDetails/updateUser';
+import authenticateUser from '@/lib/personal/authenticateUser';
+import deauthorize from '@/lib/oauth2/deauthorize';
 
-export default function EnterPassword({ username, email, password, appIcon, close, mode }) {
+export default function EnterPassword({ username, email, password, appIcon, close, mode, id }) {
     const [verifyPassword, setVerifyPassword] = useState('');
     const update = async () => {
-        if (mode == 'addConnection') {
-        } else if (mode == 'updateUser') {
-            const result = await updateUser(username, email, password, appIcon, verifyPassword);
-            console.log(result);
-            if (result) {
-                close();
-            } else {
-                alert('fail');
+        const res = await authenticateUser(verifyPassword);
+        if (res) {
+            if (mode == 'addConnection') {
+            } else if (mode == 'updateUser') {
+                const result = await updateUser(username, email, password, appIcon, verifyPassword);
+                if (result) {
+                    close();
+                } else {
+                    alert('fail');
+                }
+            } else if (mode == 'deauthorize') {
+                const result = await deauthorize(id);
+                if (result) {
+                    close();
+                } else {
+                    alert('fail');
+                }
             }
+        } else {
+            close();
         }
     };
 

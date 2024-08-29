@@ -5,14 +5,12 @@ import { useEffect, useState } from 'react';
 import { Suspense } from 'react';
 import styles from '@css/personal/personal.module.css';
 import ButtonInput from '@/components/personal/buttonInput';
+
+/* Management Screens */
 import Connections from '@/components/personal/connections/connections';
 import AccountDetails from '@/components/personal/accountDetails/accountDetails';
 import AuthorizedApps from '@/components/personal/authorizedApps/authorizedApps';
-
-/*export const metadata = {
-    title: 'Polar Lab | Personal',
-    description: 'The official profile management page for you Polar Lab account',
-};*/
+import Apps from '@/components/personal/apps/apps';
 
 export default function Page() {
     const searchParams = useSearchParams();
@@ -28,7 +26,7 @@ export default function Page() {
     return (
         <div className={styles.container}>
             {section === 'accountDetails' && <AccountDetailsScreen />}
-            {section === 'apps' && <Apps />}
+            {section === 'apps' && <AppsScreen />}
             {section === 'connections' && <ConnectionsScreen />}
             {section === 'authorizedApps' && <AuthorizedAppsScreen />}
             {section === 'dangerZone' && <DangerZone />}
@@ -44,8 +42,12 @@ function AccountDetailsScreen() {
     );
 }
 
-function Apps() {
-    return <div>Apps Section</div>;
+function AppsScreen() {
+    return (
+        <Suspense fallback={<div>Loading apps...</div>}>
+            <Apps />
+        </Suspense>
+    );
 }
 
 function ConnectionsScreen() {

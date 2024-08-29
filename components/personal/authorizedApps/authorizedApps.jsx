@@ -53,6 +53,7 @@ export default function AuthorizedApps() {
                                     height={128}
                                     alt='i'
                                     src={`https://cdn.polarlab.app/api/fetch/apps/icons/${app.id}/webp`}
+                                    className={styles.logo}
                                 />
                                 <p className={styles.name}>{app.name}</p>
                                 <button className={styles.button} onClick={() => handleDeauthorization(app.id)}>
@@ -67,7 +68,7 @@ export default function AuthorizedApps() {
                                         Access your profile
                                     </li>
                                     {app.scopes.map((scope, index) => {
-                                        <li className={styles.item}>
+                                        <li className={styles.item} key={index}>
                                             <i className={`${styles.icon} icon-check`}></i>
                                             {scopes[scope]}
                                         </li>;

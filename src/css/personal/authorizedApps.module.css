@@ -42,8 +42,9 @@
 }
 
 .logo {
-    font-size: 1.8rem;
-    margin-left: 2%;
+    margin-left: 1%;
+    height: 90%;
+    width: auto;
 }
 
 .item {

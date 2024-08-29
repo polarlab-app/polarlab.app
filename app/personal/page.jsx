@@ -4,10 +4,10 @@ import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Suspense } from 'react';
 import styles from '@css/personal/personal.module.css';
-import findUser from '@lib/personal/findUser.js';
 import ButtonInput from '@/components/personal/buttonInput';
 import Connections from '@/components/personal/connections/connections';
 import AccountDetails from '@/components/personal/accountDetails/accountDetails';
+import AuthorizedApps from '@/components/personal/authorizedApps/authorizedApps';
 
 /*export const metadata = {
     title: 'Polar Lab | Personal',
@@ -30,7 +30,7 @@ export default function Page() {
             {section === 'accountDetails' && <AccountDetailsScreen />}
             {section === 'apps' && <Apps />}
             {section === 'connections' && <ConnectionsScreen />}
-            {section === 'authorizedApps' && <AuthorizedApps />}
+            {section === 'authorizedApps' && <AuthorizedAppsScreen />}
             {section === 'dangerZone' && <DangerZone />}
         </div>
     );
@@ -56,8 +56,12 @@ function ConnectionsScreen() {
     );
 }
 
-function AuthorizedApps() {
-    return <div>Authorized Apps Section</div>;
+function AuthorizedAppsScreen() {
+    return (
+        <Suspense fallback={<div>Loading Authorized Apps...</div>}>
+            <AuthorizedApps />
+        </Suspense>
+    );
 }
 
 function DangerZone() {

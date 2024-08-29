@@ -19,12 +19,13 @@ let userAccountSchema = new Schema(
                 email: String,
             },
         ],
-        authorized_apps: [
+        authorizedApps: [
             {
                 id: String,
                 name: String,
                 date: String,
                 secret: String,
+                scopes: [],
             },
         ],
         support: [],

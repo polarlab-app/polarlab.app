@@ -5,6 +5,7 @@ import CreateApp from './createApp';
 import { useState, useEffect } from 'react';
 import findApps from '@/lib/personal/apps/findApps';
 import deleteApp from '@/lib/personal/apps/deleteApp';
+import updateApp from '@/lib/personal/apps/updateApp';
 
 export default function Apps() {
     const [apps, setApps] = useState([]);
@@ -12,8 +13,8 @@ export default function Apps() {
     const [editAppIndex, setEditAppIndex] = useState(null);
     const [appName, setAppName] = useState('');
     const [redirectURIs, setRedirectURIs] = useState([]);
-    const [appIcon, setAppIcon] = useState('');
-    const [preview, setPreview] = useState('');
+    const [appIcon, setAppIcon] = useState(null);
+    const [preview, setPreview] = useState(null);
 
     useEffect(() => {
         findApps().then((data) => setApps(JSON.parse(data)));
@@ -23,8 +24,7 @@ export default function Apps() {
         setEditAppIndex(index);
         setAppName(app.name);
         setRedirectURIs(app.redirectURIs);
-        setAppIcon(`https://cdn.polarlab.app/api/fetch/apps/${app.id}/webp`);
-        setPreview(`https://cdn.polarlab.app/api/fetch/apps/${app.id}/webp`);
+        setPreview(`https://cdn.polarlab.app/api/fetch/apps/avatars/${app.id}/webp`);
     };
 
     const handleFileChange = (e) => {
@@ -61,9 +61,23 @@ export default function Apps() {
         return `${date.toLocaleString('default', { month: 'long' })} ${date.getDate()}, ${date.getFullYear()}`;
     };
 
-    const handleSave = () => {
-        // Save logic here
-        alert('App saved successfully');
+    const handleSave = async () => {
+        if (editAppIndex !== null) {
+            const appID = apps[editAppIndex].id;
+            console.log(appIcon);
+            const res = await updateApp(appID, appName, appIcon, redirectURIs, [], null);
+            if (res) {
+                alert('App updated successfully');
+                setEditAppIndex(null);
+                setAppName('');
+                setRedirectURIs([]);
+                setAppIcon('');
+                setPreview('');
+                findApps().then((data) => setApps(JSON.parse(data)));
+            } else {
+                alert('Failed to update app');
+            }
+        }
     };
 
     const handleDelete = async (id) => {
@@ -124,7 +138,7 @@ export default function Apps() {
                                         </div>
                                         <div className={styles.editMiddle}>
                                             <p className={styles.inputLabel}>Redirect URIs</p>
-                                            {app.redirectURIs.map((uri, index) => (
+                                            {redirectURIs.map((uri, index) => (
                                                 <div key={index} className={styles.redirecturi}>
                                                     <input
                                                         type='text'
@@ -161,7 +175,7 @@ export default function Apps() {
                                     <>
                                         <div className={styles.top}>
                                             <Image
-                                                src={`https://cdn.polarlab.app/api/fetch/apps/${app.id}/webp`}
+                                                src={`https://cdn.polarlab.app/api/fetch/apps/avatars/${app.id}/webp`}
                                                 alt={`${app.name} Logo`}
                                                 width={128}
                                                 height={128}

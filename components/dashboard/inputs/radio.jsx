@@ -33,7 +33,7 @@ export default function RadioInput({ id, value, onChange }) {
                         type='radio'
                         id='2'
                         value='range'
-                        checked={selectedValue === 'static'}
+                        checked={selectedValue === 'range'}
                         onChange={(e) => setSelectedValue(e.target.value)}
                         name={id}
                         className={styles.input}

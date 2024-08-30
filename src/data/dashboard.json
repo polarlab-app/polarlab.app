@@ -100,12 +100,15 @@
             "name": "EXP Amount",
             "description": "The amount of EXP to give",
             "path": "config/leveling/amount",
-            "options": ["static", "range"]
+            "min": 0,
+            "max": 80,
+            "step": 5
         },
         "leveling-exp-type": {
             "name": "EXP Type",
             "description": "The type of EXP to give",
-            "path": "config/leveling/type"
+            "path": "config/leveling/type",
+                        "options": ["static", "range"]
         }
     },
     "paths": {

@@ -15,6 +15,7 @@ import saveData from '@lib/dashboard/saveData';
 import CheckboxInput from '@components/dashboard/inputs/checkbox';
 import TextboxInput from '@components/dashboard/inputs/textbox';
 import RadioInput from '@/components/dashboard/inputs/radio';
+import RangeInput from '@/components/dashboard/inputs/range';
 
 export default function Page() {
     const { selectedGuild, setSelectedGuild } = useGuild();
@@ -71,8 +72,15 @@ export default function Page() {
     const handleRadioChange = (id, value) => {
         const updatedRadioValues = { ...newData };
         updatedRadioValues[id] = value;
-        setNewData(updatedRadioValues);
         console.log(newData);
+        setNewData(updatedRadioValues);
+    };
+
+    const handleRangeChange = (id, value) => {
+        const updatedRangeValues = { ...newData };
+        updatedRangeValues[id] = value;
+        console.log(newData);
+        setNewData(updatedRangeValues);
     };
 
     if (!selectedGuild) {
@@ -171,9 +179,14 @@ export default function Page() {
                             </div>
                             <div className='inputGroupHalf'>
                                 <RadioInput
-                                    id='leveling-exp-amount'
+                                    id='leveling-exp-type'
                                     value='static'
-                                    onChange={(e) => handleRadioChange(e.target.id, e.target.value)}
+                                    onChange={(e) => handleRadioChange(e.target.name, e.target.value)}
+                                />
+                                <RangeInput
+                                    id='leveling-exp-amount'
+                                    value='10'
+                                    onChange={(e) => handleRangeChange(e.target.id, e.target.value)}
                                 />
                             </div>
                         </>

@@ -44,7 +44,7 @@ body {
 }
 
 .smallinfocard {
-    background-color: #16151c;
+    background-color: #111118;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -52,7 +52,7 @@ body {
 }
 
 .inputGroupFull {
-    background-color: #16151c;
+    background-color: #111118;
     border-radius: 12px;
     display: flex;
     flex-direction: column;

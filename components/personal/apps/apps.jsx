@@ -107,23 +107,29 @@ export default function Apps() {
                                 {editAppIndex === index ? (
                                     <>
                                         <div className={styles.editLeft}>
-                                            <div className={styles.iconcontainer}>
-                                                <label htmlFor='appicon' className={styles.filelabel}>
-                                                    <Image
-                                                        src={preview}
-                                                        alt='App Icon'
-                                                        width={512}
-                                                        height={512}
-                                                        className={styles.editLogo}
-                                                    />
+                                            <div className={styles.iconContainer}>
+                                                <Image
+                                                    src={
+                                                        preview
+                                                            ? preview
+                                                            : user
+                                                            ? `https://cdn.polarlab.app/api/fetch/users/avatars/${user.id}/webp`
+                                                            : 'https://cdn.polarlab.app/api/fetch/img/polarlogo/png'
+                                                    }
+                                                    width={512}
+                                                    height={512}
+                                                    alt='Profile Picture'
+                                                    className={styles.appIcon}
+                                                />
+                                                <label className={styles.editWrapper} htmlFor='profilePicture'>
+                                                    <i className={`${styles.editIcon} icon-pen`}></i>
                                                 </label>
                                                 <input
                                                     type='file'
-                                                    id='appicon'
-                                                    className={styles.fileinput}
+                                                    id='profilePicture'
+                                                    className={styles.fileInput}
                                                     onChange={handleFileChange}
-                                                    accept='image/*'
-                                                />
+                                                ></input>
                                             </div>
                                             <div className={styles.inputContainer}>
                                                 <p className={styles.inputLabel}>App Name</p>

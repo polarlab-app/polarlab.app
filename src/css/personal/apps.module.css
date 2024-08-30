@@ -17,7 +17,7 @@
 .app.active {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     height: 30vh;
     transition: all 600ms ease;
     -webkit-transition: all 600ms ease;
@@ -30,8 +30,9 @@
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
-    height: 100%;
+    height: 95%;
     width: 30%;
+    flex-direction: column;
 }
 
 .editLeft .inputContainer,
@@ -56,11 +57,6 @@
     align-items: flex-start;
     justify-content: flex-start;
     overflow-y: scroll;
-}
-
-.editLogo {
-    height: 90%;
-    width: auto;
 }
 
 .redirecturi {
@@ -196,7 +192,7 @@
     transition: all 600ms ease;
 }
 
-.fileinput {
+.fileInput {
     display: none;
 }
 
@@ -245,6 +241,52 @@
     margin-right: 0.5vw;
 }
 
+.iconContainer {
+    height: 50%;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    border: 1px dashed #4b4ee7;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.appIcon {
+    max-width: 98%;
+    max-height: 98%;
+    border-radius: 6px;
+}
+
+.editWrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: all 600ms ease;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.editIcon {
+    opacity: 0;
+    font-size: 5rem;
+    color: white;
+    transition: all 600ms ease;
+}
+
+.iconContainer:hover .editIcon,
+.iconContainer:hover .editWrapper {
+    opacity: 1;
+    transition: all 600ms ease;
+}
+
 .apps {
     display: flex;
     flex-direction: column;
@@ -290,4 +332,29 @@
 .button:hover {
     background-color: #212127;
     transition: all 600ms ease;
+}
+
+@media screen and (max-width: 620px) {
+    .app.active {
+        flex-direction: column;
+        justify-content: space-between;
+        height: 40vh;
+    }
+
+    .editRight,
+    .editLeft,
+    .editMiddle {
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    .icon {
+        margin-right: 6%;
+    }
+
+    .create {
+        width: 35vw;
+        padding: 0 4vw;
+    }
 }

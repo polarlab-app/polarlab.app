@@ -123,6 +123,9 @@ export default function CreateApp({ closeButton }) {
                             Add URI
                         </button>
                     </div>
+                    <div className={styles.inputcontainer}>
+                        <p className={styles.label}>Scopes </p>
+                    </div>
                 </div>
                 <button className={styles.create} onClick={handleSubmit}>
                     Create

@@ -157,4 +157,7 @@
     .input {
         width: 93%;
     }
+    .button {
+        padding: 0 4vw;
+    }
 }

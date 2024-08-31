@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function DashboardLayout({ children }) {
     return (
-        <div className='mainwrapper'>
+        <div className='mainWrapper'>
             <GuildProvider>
                 <DashboardNav />
                 {children}

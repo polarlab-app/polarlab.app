@@ -65,6 +65,8 @@ export default function Page() {
         return <div>Loading...</div>;
     }
 
+    const tabs = ['levelingSettings', 'levelingRewards', 'expBoosters'];
+
     return (
         <div className='dashboard'>
             <TopBar
@@ -91,10 +93,10 @@ export default function Page() {
                     </div>
                 ))}
             </div>
-            <div className='dashboardwrapper'>
+            <div className='dashboardWrapper'>
                 <div
                     style={{
-                        display: selectedTab === 'channelLogs' ? 'block' : 'none',
+                        display: selectedTab === 'levelingSettings' ? 'block' : 'none',
                     }}
                 >
                     {data ? (
@@ -102,16 +104,16 @@ export default function Page() {
                             <div className='inputGroupFull'>
                                 <CheckboxInput
                                     type='number'
-                                    id='channel-logs-status'
-                                    value={data.config.logs.channelLogs.status}
+                                    id='leveling-status'
+                                    value={data.config.leveling.status}
                                     onChange={(e) => handleInputChange(e.target.id, e.target.checked)}
                                 />
                             </div>
                             <div className='inputGroupFull'>
                                 <TextboxInput
                                     type='number'
-                                    id='channel-logs-channel'
-                                    value={data.config.logs.channelLogs.channelId}
+                                    id='leveling-channel'
+                                    value={data.config.leveling.channelID}
                                     onChange={(e) => handleInputChange(e.target.id, e.target.value)}
                                 />
                             </div>

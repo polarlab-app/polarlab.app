@@ -92,7 +92,7 @@ export default function Page() {
                     </div>
                 ))}
             </div>
-            <div className='dashboardwrapper'>
+            <div className='dashboardWrapper'>
                 <div
                     style={{
                         display: selectedTab === 'channelLogs' ? 'block' : 'none',

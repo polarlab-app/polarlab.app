@@ -33,6 +33,7 @@ export default function RangeInput({ id, value, onChange }) {
                     max={inputs[id].max}
                     step={inputs[id].step}
                     className={styles.input}
+                    id={id}
                 ></input>
             </div>
         </div>

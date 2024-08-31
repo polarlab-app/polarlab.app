@@ -99,13 +99,13 @@
         "leveling-status": {
             "name": "Leveling",
             "description": "Whether to enable Leveling for your server",
-            "path": "config/logs/leveling/status",
+            "path": "config/leveling/status",
             "placeholder": null
         },
                 "leveling-channel": {
             "name": "Leveling Channel ID",
             "description": "The channel ID in which to post level-ups (current channel by default)",
-            "path": "config/logs/leveling/status",
+            "path": "config/leveling/channelID",
             "placeholder": null
         },
         "leveling-exp-amount": {
@@ -137,6 +137,10 @@
         "emoji-logs-status": "config/logs/emojiLogs/status",
         "emoji-logs-channel": "config/logs/emojiLogs/channelId",
         "server-logs-status": "config/logs/serverLogs/status",
-        "server-logs-channel": "config/logs/serverLogs/channelId"
+        "server-logs-channel": "config/logs/serverLogs/channelId",
+        "leveling-status": "config/leveling/status",
+        "leveling-channel" : "config/logs/leveling/channelID",
+        "leveling-exp-amount": "config/leveling/amount",
+        "leveling-exp-type": "config/leveling/type"
     }
 }

@@ -8,10 +8,10 @@ import styles2 from '@css/dashboard/navdropdown.module.css';
 import { useGuild } from './guildContext';
 import Image from 'next/image';
 
-const NavLink = ({ href, activeNav, setActiveNav, children }) => (
+const NavLink = ({ activeNav, setActiveNav, children }) => (
     <Link
         className={`${styles.navsectionitem} ${activeNav === children ? styles.active : ''}`}
-        href={href}
+        href={children.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')}
         onClick={() => setActiveNav(children)}
     >
         <i alt='navImg' className={`${styles.navsectionimg} icon-grid-2`} />
@@ -28,7 +28,7 @@ export default function DashboardNav() {
 
     useEffect(() => {
         async function fetchGuilds() {
-            const guildList = await getGuilds();
+            const guildList = JSON.parse(await getGuilds());
             setGuilds(guildList);
             setLoading(false);
             if (guildList && guildList.length > 0) {
@@ -89,7 +89,7 @@ export default function DashboardNav() {
                                                 <Image
                                                     width={128}
                                                     height={128}
-                                                    src={`https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.png`}
+                                                    src={guild.icon}
                                                     alt={`<i>`}
                                                     className={styles2.icon}
                                                 />
@@ -121,46 +121,46 @@ export default function DashboardNav() {
                             </ul>
                         </div>
                         <div className={styles.navsection}>
-                            <NavLink href='/dashboard' activeNav={activeNav} setActiveNav={setActiveNav}>
+                            <NavLink activeNav={activeNav} setActiveNav={setActiveNav}>
                                 Overview
                             </NavLink>
-                            <NavLink href='/dashboard/settings' activeNav={activeNav} setActiveNav={setActiveNav}>
+                            <NavLink activeNav={activeNav} setActiveNav={setActiveNav}>
                                 Settings
                             </NavLink>
-                            <NavLink href='/' activeNav={activeNav} setActiveNav={setActiveNav}>
+                            <NavLink activeNav={activeNav} setActiveNav={setActiveNav}>
                                 Subscription
                             </NavLink>
                         </div>
                         <div className={styles.navsection}>
                             <p className={styles.navsectionheader}>ENGAGEMENT</p>
-                            <NavLink href='/dashboard/exp-and-levels' activeNav={activeNav} setActiveNav={setActiveNav}>
+                            <NavLink activeNav={activeNav} setActiveNav={setActiveNav}>
                                 EXP & Levels
                             </NavLink>
-                            <NavLink href='/' activeNav={activeNav} setActiveNav={setActiveNav}>
+                            <NavLink activeNav={activeNav} setActiveNav={setActiveNav}>
                                 Music
                             </NavLink>
-                            <NavLink href='/' activeNav={activeNav} setActiveNav={setActiveNav}>
+                            <NavLink activeNav={activeNav} setActiveNav={setActiveNav}>
                                 Giveaways
                             </NavLink>
-                            <NavLink href='/' activeNav={activeNav} setActiveNav={setActiveNav}>
+                            <NavLink activeNav={activeNav} setActiveNav={setActiveNav}>
                                 Birthdays
                             </NavLink>
-                            <NavLink href='/' activeNav={activeNav} setActiveNav={setActiveNav}>
+                            <NavLink activeNav={activeNav} setActiveNav={setActiveNav}>
                                 Social Notifications
                             </NavLink>
                         </div>
                         <div className={styles.navsection}>
                             <p className={styles.navsectionheader}>MODERATION</p>
-                            <NavLink href='/' activeNav={activeNav} setActiveNav={setActiveNav}>
+                            <NavLink activeNav={activeNav} setActiveNav={setActiveNav}>
                                 Moderation
                             </NavLink>
-                            <NavLink href='/dashboard/logging' activeNav={activeNav} setActiveNav={setActiveNav}>
+                            <NavLink activeNav={activeNav} setActiveNav={setActiveNav}>
                                 Logging
                             </NavLink>
-                            <NavLink href='/logging' activeNav={activeNav} setActiveNav={setActiveNav}>
+                            <NavLink activeNav={activeNav} setActiveNav={setActiveNav}>
                                 Auto Moderator
                             </NavLink>
-                            <NavLink href='/' activeNav={activeNav} setActiveNav={setActiveNav}>
+                            <NavLink activeNav={activeNav} setActiveNav={setActiveNav}>
                                 Server Guard
                             </NavLink>
                         </div>

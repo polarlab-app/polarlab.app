@@ -120,12 +120,12 @@ export default function Page() {
                             <div className='inputGroupHalf'>
                                 <RadioInput
                                     id='leveling-exp-type'
-                                    value='static'
+                                    value={data.config.leveling.type}
                                     onChange={(e) => handleInputChange(e.target.name, e.target.value)}
                                 />
                                 <RangeInput
                                     id='leveling-exp-amount'
-                                    value='10'
+                                    value={data.config.leveling.amount}
                                     onChange={(e) => handleInputChange(e.target.id, e.target.value)}
                                 />
                             </div>

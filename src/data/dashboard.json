@@ -96,6 +96,18 @@
             "path": "config/logs/serverLogs/channelId",
             "placeholder": 1131195719676596229
         },
+        "leveling-status": {
+            "name": "Leveling",
+            "description": "Whether to enable Leveling for your server",
+            "path": "config/logs/leveling/status",
+            "placeholder": null
+        },
+                "leveling-channel": {
+            "name": "Leveling Channel ID",
+            "description": "The channel ID in which to post level-ups (current channel by default)",
+            "path": "config/logs/leveling/status",
+            "placeholder": null
+        },
         "leveling-exp-amount": {
             "name": "EXP Amount",
             "description": "The amount of EXP to give",

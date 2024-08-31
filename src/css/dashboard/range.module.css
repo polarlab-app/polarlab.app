@@ -4,6 +4,7 @@
     justify-content: space-between;
     flex-direction: column;
     color: white;
+    margin-bottom: 3%;
 }
 
 .textContainer {
@@ -25,4 +26,66 @@
 .description {
     color: #9d9ba9;
     margin: 0;
+}
+
+.inputContainer {
+    margin-left: 3%;
+    width: 90%;
+    margin-top: 3%;
+}
+
+.values {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.value {
+    transition: all 600ms ease;
+    color: white;
+    color: #9d9ba9;
+    font-size: 0.7rem;
+}
+
+.value.active {
+    transition: all 600ms ease;
+    color: white;
+}
+
+.line {
+    width: 0;
+    height: 0.4vh;
+    transition: all 600ms ease;
+}
+
+.value.active .line {
+    color: white;
+    transition: all 600ms ease;
+}
+
+.input {
+    background-color: transparent;
+    width: 100%;
+}
+
+.input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+}
+.input::-moz-range-thumb {
+    background-color: white;
+    border: none;
+    height: 1.5vh;
+    width: 3vh;
+}
+
+.input::-moz-range-track {
+    border-radius: 6px;
+    background-color: #1e1d26;
+    height: 1.5vh;
+}
+
+.input::-moz-range-progress {
+    background: linear-gradient(to right, #4bc6fe, #4433a6);
+    height: 1.5vh;
+    border-radius: 6px;
 }

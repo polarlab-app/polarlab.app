@@ -39,13 +39,6 @@ export default function Page() {
         }
     }, [selectedGuild, tabRefs.current.length]);
 
-    const handleCheckboxChange = (id, value) => {
-        const updatedCheckboxValues = { ...newData };
-        updatedCheckboxValues[id] = value;
-        setNewData(updatedCheckboxValues);
-        console.log(newData);
-    };
-
     const discardChanges = () => {
         setNewData({});
     };
@@ -63,24 +56,9 @@ export default function Page() {
         setSelectedTab(tabId);
     };
 
-    const handleTextboxChange = (id, value) => {
-        const updatedTextboxValues = { ...newData };
-        updatedTextboxValues[id] = value;
-        setNewData(updatedTextboxValues);
-    };
-
-    const handleRadioChange = (id, value) => {
-        const updatedRadioValues = { ...newData };
-        updatedRadioValues[id] = value;
-        console.log(newData);
-        setNewData(updatedRadioValues);
-    };
-
-    const handleRangeChange = (id, value) => {
-        const updatedRangeValues = { ...newData };
-        updatedRangeValues[id] = value;
-        console.log(newData);
-        setNewData(updatedRangeValues);
+    const handleInputChange = (id, value) => {
+        const updatedValues = { ...newData, [id]: value };
+        setNewData(updatedValues);
     };
 
     if (!selectedGuild) {
@@ -96,62 +74,22 @@ export default function Page() {
                 onSave={saveTrigger}
             />
             <div className={selectionStyles.bar}>
-                <div
-                    id='channelLogs'
-                    ref={(el) => (tabRefs.current[0] = el)}
-                    className={`${selectionStyles.item} ${
-                        selectedTab === 'channelLogs' ? selectionStyles.selected : ''
-                    }`}
-                    onClick={() => handleTabClick('channelLogs')}
-                >
-                    <p>Channel Logs</p>
-                </div>
-                <div
-                    id='roleLogs'
-                    ref={(el) => (tabRefs.current[1] = el)}
-                    className={`${selectionStyles.item} ${selectedTab === 'roleLogs' ? selectionStyles.selected : ''}`}
-                    onClick={() => handleTabClick('roleLogs')}
-                >
-                    <p>Role Logs</p>
-                </div>
-                <div
-                    id='messageLogs'
-                    ref={(el) => (tabRefs.current[2] = el)}
-                    className={`${selectionStyles.item} ${
-                        selectedTab === 'messageLogs' ? selectionStyles.selected : ''
-                    }`}
-                    onClick={() => handleTabClick('messageLogs')}
-                >
-                    <p>Message Logs</p>
-                </div>
-                <div
-                    id='memberLogs'
-                    ref={(el) => (tabRefs.current[3] = el)}
-                    className={`${selectionStyles.item} ${
-                        selectedTab === 'memberLogs' ? selectionStyles.selected : ''
-                    }`}
-                    onClick={() => handleTabClick('memberLogs')}
-                >
-                    <p>Member Logs</p>
-                </div>
-                <div
-                    id='emojiLogs'
-                    ref={(el) => (tabRefs.current[4] = el)}
-                    className={`${selectionStyles.item} ${selectedTab === 'emojiLogs' ? selectionStyles.selected : ''}`}
-                    onClick={() => handleTabClick('emojiLogs')}
-                >
-                    <p>Emoji Logs</p>
-                </div>
-                <div
-                    id='serverLogs'
-                    ref={(el) => (tabRefs.current[5] = el)}
-                    className={`${selectionStyles.item} ${
-                        selectedTab === 'serverLogs' ? selectionStyles.selected : ''
-                    }`}
-                    onClick={() => handleTabClick('serverLogs')}
-                >
-                    <p>Server Logs</p>
-                </div>
+                {tabs.map((tabId, index) => (
+                    <div
+                        key={tabId}
+                        id={tabId}
+                        ref={(el) => (tabRefs.current[index] = el)}
+                        className={`${selectionStyles.item} ${selectedTab === tabId ? selectionStyles.selected : ''}`}
+                        onClick={() => handleTabClick(tabId)}
+                    >
+                        <p>
+                            {tabId
+                                .split(/(?=[A-Z])/)
+                                .join(' ')
+                                .replace(/\b\w/g, (char) => char.toUpperCase())}
+                        </p>
+                    </div>
+                ))}
             </div>
             <div className='dashboardwrapper'>
                 <div
@@ -166,7 +104,7 @@ export default function Page() {
                                     type='number'
                                     id='channel-logs-status'
                                     value={data.config.logs.channelLogs.status}
-                                    onChange={(e) => handleCheckboxChange(e.target.id, e.target.checked)}
+                                    onChange={(e) => handleInputChange(e.target.id, e.target.checked)}
                                 />
                             </div>
                             <div className='inputGroupFull'>
@@ -174,19 +112,19 @@ export default function Page() {
                                     type='number'
                                     id='channel-logs-channel'
                                     value={data.config.logs.channelLogs.channelId}
-                                    onChange={(e) => handleTextboxChange(e.target.id, e.target.value)}
+                                    onChange={(e) => handleInputChange(e.target.id, e.target.value)}
                                 />
                             </div>
                             <div className='inputGroupHalf'>
                                 <RadioInput
                                     id='leveling-exp-type'
                                     value='static'
-                                    onChange={(e) => handleRadioChange(e.target.name, e.target.value)}
+                                    onChange={(e) => handleInputChange(e.target.name, e.target.value)}
                                 />
                                 <RangeInput
                                     id='leveling-exp-amount'
                                     value='10'
-                                    onChange={(e) => handleRangeChange(e.target.id, e.target.value)}
+                                    onChange={(e) => handleInputChange(e.target.id, e.target.value)}
                                 />
                             </div>
                         </>

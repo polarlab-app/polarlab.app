@@ -55,20 +55,20 @@
 
 .toggle {
     background-color: #1e1d26;
-    height: 4vh;
-    width: 4vh;
+    height: 3vh;
+    width: 3vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 6px;
+    border-radius: 50%;
     transition: all 600ms ease;
-    border: none;
+    border: 1px solid #1e1d26;
 }
 
 .innertoggle {
     width: 60%;
     height: 60%;
-    border-radius: 3px;
+    border-radius: 50%;
     transition: all 600ms ease;
 }
 .input:checked + .toggle .innertoggle {

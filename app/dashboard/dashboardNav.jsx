@@ -11,7 +11,7 @@ import Image from 'next/image';
 const NavLink = ({ activeNav, setActiveNav, children }) => (
     <Link
         className={`${styles.navsectionitem} ${activeNav === children ? styles.active : ''}`}
-        href={children.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')}
+        href={'/dashboard/' + children.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')}
         onClick={() => setActiveNav(children)}
     >
         <i alt='navImg' className={`${styles.navsectionimg} icon-grid-2`} />

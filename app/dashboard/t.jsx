@@ -3,8 +3,6 @@ import { useState, useEffect, useRef } from 'react';
 
 /*Top bar*/
 import TopBar from '@/components/dashboard/top/topbar';
-import DiscardButton from '@/components/dashboard/top/discardButton';
-import SaveButton from '@/components/dashboard/top/saveButton';
 import selectionStyles from '@css/dashboard/selection.module.css';
 
 /*Data Management */
@@ -19,7 +17,7 @@ import TextboxInput from '@components/dashboard/inputs/textbox';
 import styles from '@css/dashboard/settings.module.css';
 
 export default function Page() {
-    const { selectedGuild, setSelectedGuild } = useGuild();
+    const { selectedGuild } = useGuild();
     const [newData, setNewData] = useState({});
     const [selectedTab, setSelectedTab] = useState('');
     const [data, setData] = useState(null);
@@ -40,13 +38,6 @@ export default function Page() {
         }
     }, [selectedGuild, tabRefs.current.length]);
 
-    const handleCheckboxChange = (id, value) => {
-        const updatedCheckboxValues = { ...newData };
-        updatedCheckboxValues[id] = value;
-        setNewData(updatedCheckboxValues);
-        console.log(newData);
-    };
-
     const discardChanges = () => {
         setNewData({});
     };
@@ -64,83 +55,44 @@ export default function Page() {
         setSelectedTab(tabId);
     };
 
-    const handleTextboxChange = (id, value) => {
-        const updatedTextboxValues = { ...newData };
-        updatedTextboxValues[id] = value;
-        setNewData(updatedTextboxValues);
+    const handleInputChange = (id, value) => {
+        const updatedValues = { ...newData, [id]: value };
+        setNewData(updatedValues);
     };
 
     if (!selectedGuild) {
         return <div>Loading...</div>;
     }
 
+    const tabs = [''];
+
     return (
         <div className='dashboard'>
             <TopBar
-                type='exp-and-leveling'
+                type=''
                 showButtons={Object.keys(newData).length > 0}
                 onDiscard={discardChanges}
                 onSave={saveTrigger}
             />
             <div className={selectionStyles.bar}>
-                <div
-                    id='channelLogs'
-                    ref={(el) => (tabRefs.current[0] = el)}
-                    className={`${selectionStyles.item} ${
-                        selectedTab === 'channelLogs' ? selectionStyles.selected : ''
-                    }`}
-                    onClick={() => handleTabClick('channelLogs')}
-                >
-                    <p>Channel Logs</p>
-                </div>
-                <div
-                    id='roleLogs'
-                    ref={(el) => (tabRefs.current[1] = el)}
-                    className={`${selectionStyles.item} ${selectedTab === 'roleLogs' ? selectionStyles.selected : ''}`}
-                    onClick={() => handleTabClick('roleLogs')}
-                >
-                    <p>Role Logs</p>
-                </div>
-                <div
-                    id='messageLogs'
-                    ref={(el) => (tabRefs.current[2] = el)}
-                    className={`${selectionStyles.item} ${
-                        selectedTab === 'messageLogs' ? selectionStyles.selected : ''
-                    }`}
-                    onClick={() => handleTabClick('messageLogs')}
-                >
-                    <p>Message Logs</p>
-                </div>
-                <div
-                    id='memberLogs'
-                    ref={(el) => (tabRefs.current[3] = el)}
-                    className={`${selectionStyles.item} ${
-                        selectedTab === 'memberLogs' ? selectionStyles.selected : ''
-                    }`}
-                    onClick={() => handleTabClick('memberLogs')}
-                >
-                    <p>Member Logs</p>
-                </div>
-                <div
-                    id='emojiLogs'
-                    ref={(el) => (tabRefs.current[4] = el)}
-                    className={`${selectionStyles.item} ${selectedTab === 'emojiLogs' ? selectionStyles.selected : ''}`}
-                    onClick={() => handleTabClick('emojiLogs')}
-                >
-                    <p>Emoji Logs</p>
-                </div>
-                <div
-                    id='serverLogs'
-                    ref={(el) => (tabRefs.current[5] = el)}
-                    className={`${selectionStyles.item} ${
-                        selectedTab === 'serverLogs' ? selectionStyles.selected : ''
-                    }`}
-                    onClick={() => handleTabClick('serverLogs')}
-                >
-                    <p>Server Logs</p>
-                </div>
+                {tabs.map((tabId, index) => (
+                    <div
+                        key={tabId}
+                        id={tabId}
+                        ref={(el) => (tabRefs.current[index] = el)}
+                        className={`${selectionStyles.item} ${selectedTab === tabId ? selectionStyles.selected : ''}`}
+                        onClick={() => handleTabClick(tabId)}
+                    >
+                        <p>
+                            {tabId
+                                .split(/(?=[A-Z])/)
+                                .join(' ')
+                                .replace(/\b\w/g, (char) => char.toUpperCase())}
+                        </p>
+                    </div>
+                ))}
             </div>
-            <div className='dashboardwrapper'>
+            <div className='dashboardWrapper'>
                 <div
                     style={{
                         display: selectedTab === 'channelLogs' ? 'block' : 'none',
@@ -148,7 +100,7 @@ export default function Page() {
                 >
                     {data ? (
                         <>
-                            <div className={styles.togglegroup}>
+                            <div className='inputGroupFull'>
                                 <CheckboxInput
                                     type='number'
                                     id='channel-logs-status'
@@ -156,7 +108,7 @@ export default function Page() {
                                     onChange={(e) => handleCheckboxChange(e.target.id, e.target.checked)}
                                 />
                             </div>
-                            <div className={styles.togglegroup}>
+                            <div className='inputGroupHalf'>
                                 <TextboxInput
                                     type='number'
                                     id='channel-logs-channel'

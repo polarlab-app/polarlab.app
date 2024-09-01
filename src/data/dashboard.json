@@ -106,7 +106,7 @@
             "name": "Leveling Channel ID",
             "description": "The channel ID in which to post level-ups (current channel by default)",
             "path": "config/leveling/channelID",
-            "placeholder": null
+            "placeholder": "1131195719676596229"
         },
         "leveling-exp-amount": {
             "name": "EXP Amount",

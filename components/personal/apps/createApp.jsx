@@ -7,6 +7,8 @@ export default function CreateApp({ closeButton }) {
     const [appName, setAppName] = useState('');
     const [redirectURIs, setRedirectURIs] = useState(['']);
     const [appIcon, setAppIcon] = useState(null);
+    const [scopes, setScopes] = useState(['']);
+
     const [preview, setPreview] = useState(null);
 
     useEffect(() => {
@@ -59,14 +61,31 @@ export default function CreateApp({ closeButton }) {
         }
     };
 
+    const handleScopeChange = (scope) => {
+        console.log(scopes);
+        if (scopes.includes(scope)) {
+            setScopes(scopes.filter((s) => s !== scope));
+        } else {
+            setScopes([...scopes, scope]);
+        }
+    };
+    const handleCloseModal = () => {
+        document.querySelector(`.${styles.modal}`).classList.add(`${styles.active}`);
+        document.querySelector(`.${styles.wrapper}`).classList.add(`${styles.active}`);
+
+        setTimeout(() => {
+            closeButton();
+        }, 800);
+    };
+
+    const availableScopes = ['email', 'authorizedApps', 'connections'];
+
     return (
         <div className={styles.wrapper}>
             <div className={styles.modal}>
                 <div className={styles.modalheader}>
                     <h2 className={styles.header}>Create New App</h2>
-                    <p className={styles.close} onClick={closeButton}>
-                        Close
-                    </p>
+                    <i className={`${styles.close} icon-xmark`} onClick={handleCloseModal}></i>
                 </div>
                 <div className={styles.modalbody}>
                     <div className={styles.inputcontainer}>
@@ -125,6 +144,25 @@ export default function CreateApp({ closeButton }) {
                     </div>
                     <div className={styles.inputcontainer}>
                         <p className={styles.label}>Scopes </p>
+
+                        {availableScopes.map((scope, index) => (
+                            <div key={index} className={styles.scope}>
+                                <p className={styles.scopeLabel}>
+                                    {scope.charAt(0).toUpperCase() + scope.slice(1).toLowerCase()}
+                                </p>
+                                <label className={styles.scopeContainer}>
+                                    <input
+                                        type='checkbox'
+                                        className={styles.hidden}
+                                        onChange={() => handleScopeChange(scope)}
+                                        checked={scopes.includes(scope)}
+                                    />
+                                    <span className={styles.toggle}>
+                                        <span className={styles.innerToggle}></span>
+                                    </span>
+                                </label>
+                            </div>
+                        ))}
                     </div>
                 </div>
                 <button className={styles.create} onClick={handleSubmit}>

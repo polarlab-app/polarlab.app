@@ -4,12 +4,14 @@
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    animation: opacity 1s linear forwards;
-    backdrop-filter: blur(5px);
+    animation: fadeIn 0.4s linear forwards;
+}
+
+.wrapper.active {
+    animation: fadeOut 0.4s linear forwards;
 }
 
 .modal {
@@ -22,7 +24,11 @@
     display: flex;
     flex-direction: column;
     padding: 0 2% 1% 2%;
-    animation: floatUp 1s linear forwards;
+    animation: floatDown 0.4s linear forwards;
+}
+
+.modal.active {
+    animation: floatUp 0.4s linear forwards;
 }
 
 .header {
@@ -74,26 +80,41 @@
     font-size: 2rem;
 }
 
-@keyframes floatUp {
+@keyframes fadeIn {
     from {
-        transform: translateY(-100%);
-        opacity: 0;
+        background: rgba(0, 0, 0, 0);
+        backdrop-filter: blur(0);
     }
-
     to {
-        transform: translateY(0);
-        opacity: 1;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(5px);
     }
 }
 
-@keyframes opacity {
+@keyframes fadeOut {
     from {
-        opacity: 0;
-    }
-    80% {
-        opacity: 0;
+        opacity: 1;
+        backdrop-filter: blur(5px);
     }
     to {
-        opacity: 1;
+        opacity: 0;
+        backdrop-filter: blur(0);
+    }
+}
+
+@keyframes floatDown {
+    from {
+        transform: translateY(-120%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+@keyframes floatUp {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-120%);
     }
 }

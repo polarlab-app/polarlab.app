@@ -114,7 +114,9 @@
             "path": "config/leveling/amount",
             "min": 0,
             "max": 80,
-            "step": 5
+            "step": 5,
+            "placeholder": "Minimum EXP",
+            "placeholder2": "Maximum EXP"
         },
         "leveling-exp-type": {
             "name": "EXP Type",

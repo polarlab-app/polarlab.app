@@ -7,6 +7,7 @@ import CheckboxInput from '@components/dashboard/inputs/checkbox';
 import getGuildData from '@lib/dashboard/getGuildData';
 import saveData from '@lib/dashboard/saveData';
 import TextboxInput from '@components/dashboard/inputs/textbox';
+import ActivityBar from '@/components/dashboard/activity/bar';
 
 export default function Page() {
     const { selectedGuild, setSelectedGuild } = useGuild();
@@ -262,6 +263,7 @@ export default function Page() {
                     )}
                 </div>
             </div>
+            <ActivityBar type={selectedTab} />
         </div>
     );
 }

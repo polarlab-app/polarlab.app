@@ -14,8 +14,9 @@ import saveData from '@lib/dashboard/saveData';
 /* Inputs */
 import CheckboxInput from '@components/dashboard/inputs/checkbox';
 import TextboxInput from '@components/dashboard/inputs/textbox';
-import RadioInput from '@/components/dashboard/inputs/radio';
-import RangeInput from '@/components/dashboard/inputs/range';
+import RadioInput from '@components/dashboard/inputs/radio';
+import RangeInput from '@components/dashboard/inputs/range';
+import DoubleInput from '@components/dashboard/inputs/doubleInput';
 
 export default function Page() {
     const { selectedGuild, setSelectedGuild } = useGuild();
@@ -58,6 +59,11 @@ export default function Page() {
 
     const handleInputChange = (id, value) => {
         const updatedValues = { ...newData, [id]: value };
+        setNewData(updatedValues);
+    };
+
+    const handleDoubleInputChange = (id, value, value2) => {
+        const updatedValues = { ...newData, [id]: `${value}/${value2}` };
         setNewData(updatedValues);
     };
 
@@ -123,11 +129,22 @@ export default function Page() {
                                     value={data.config.leveling.type}
                                     onChange={(e) => handleInputChange(e.target.name, e.target.value)}
                                 />
-                                <RangeInput
-                                    id='leveling-exp-amount'
-                                    value={data.config.leveling.amount}
-                                    onChange={(e) => handleInputChange(e.target.id, e.target.value)}
-                                />
+                                {(newData && newData['leveling-exp-type'] === 'range') ||
+                                (!newData['leveling-exp-type'] && data && data.config.leveling.type === 'range') ? (
+                                    <DoubleInput
+                                        id='leveling-exp-amount'
+                                        type='text'
+                                        value={data.config.leveling.amount.split('/')[0]}
+                                        value2={data.config.leveling.amount.split('/')[1]}
+                                        onChange={handleDoubleInputChange}
+                                    />
+                                ) : (
+                                    <RangeInput
+                                        id='leveling-exp-amount'
+                                        value={data.config.leveling.amount}
+                                        onChange={(e) => handleInputChange(e.target.id, e.target.value)}
+                                    />
+                                )}
                             </div>
                         </>
                     ) : (

@@ -30,8 +30,8 @@
     justify-content: center;
     align-items: center;
     height: 100%;
-    width: 7%;
     position: relative;
+    margin-right: 2%;
 }
 
 .hidden {
@@ -50,7 +50,6 @@
     align-items: center;
     transition: all 600ms ease;
     cursor: pointer;
-    position: absolute;
 }
 
 .innertoggle {

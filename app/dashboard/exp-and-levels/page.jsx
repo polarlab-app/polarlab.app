@@ -84,7 +84,7 @@ export default function Page() {
                         className={`${selectionStyles.item} ${selectedTab === tabId ? selectionStyles.selected : ''}`}
                         onClick={() => handleTabClick(tabId)}
                     >
-                        <p>
+                        <p className={selectionStyles.tabText}>
                             {tabId
                                 .split(/(?=[A-Z])/)
                                 .join(' ')

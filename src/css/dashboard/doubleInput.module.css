@@ -1,0 +1,125 @@
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    color: white;
+}
+.textContainer {
+    margin-left: 3%;
+    margin-top: 3%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.header {
+    color: white;
+    font-size: 1.2rem;
+    margin: 0;
+    font-weight: 700;
+}
+
+.description {
+    color: #9d9ba9;
+    margin: 0;
+}
+
+.inputContainer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.textbox {
+    padding: 10px;
+    border: 1px solid #1e1d26;
+    background-color: #1e1d26;
+    border-radius: 6px;
+    color: white;
+    transition: all 600ms ease;
+    width: 90%;
+}
+
+.textbox:focus {
+    outline: none;
+    border: 1px solid #5959ff;
+    transition: all 600ms ease;
+}
+
+.textboxContainer {
+    margin: 4% 2%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    color: white;
+    font-weight: 700;
+    margin-bottom: 2%;
+    text-align: left;
+}
+
+/* RANGE INPUT STYLING */
+.rangeContainer {
+    margin: 4% 2%;
+    width: 92%;
+}
+
+.values {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.value {
+    transition: all 600ms ease;
+    color: white;
+    color: #9d9ba9;
+    font-size: 0.7rem;
+}
+
+.value.active {
+    transition: all 600ms ease;
+    color: white;
+}
+
+.line {
+    width: 0;
+    height: 0.4vh;
+    transition: all 600ms ease;
+}
+
+.value.active .line {
+    color: white;
+    transition: all 600ms ease;
+}
+
+.input {
+    background-color: transparent;
+    width: 100%;
+}
+
+.input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+}
+.input::-moz-range-thumb {
+    background-color: white;
+    border: none;
+    height: 1.5vh;
+    width: 3vh;
+}
+
+.input::-moz-range-track {
+    border-radius: 6px;
+    background-color: #1e1d26;
+    height: 1.5vh;
+}
+
+.input::-moz-range-progress {
+    background: linear-gradient(to right, #4bc6fe, #4433a6);
+    height: 1.5vh;
+    border-radius: 6px;
+}

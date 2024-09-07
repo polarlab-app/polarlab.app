@@ -23,16 +23,8 @@ body {
     flex-direction: column;
     overflow: hidden;
     background-color: #0d0c13;
-}
-
-.username {
-    color: #505050;
-    font-weight: 700;
-    margin-left: 1vw;
-}
-.profilepicture {
-    height: 6vh;
-    border-radius: 100000px;
+    position: relative;
+    height: 100vh;
 }
 
 .dashboardWrapper {
@@ -40,7 +32,7 @@ body {
     display: flex;
     flex-direction: column;
     overflow: scroll;
-    height: 90vh;
+    height: 100%;
 }
 
 .smallinfocard {

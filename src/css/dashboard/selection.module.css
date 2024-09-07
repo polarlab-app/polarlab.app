@@ -2,7 +2,7 @@
     display: flex;
     justify-content: left;
     gap: 2vh;
-    height: 7vh;
+    height: 8vh;
     border-bottom: 2px solid #212029;
     overflow: scroll;
     -ms-overflow-style: none; /* IE and Edge */

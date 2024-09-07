@@ -1,20 +1,22 @@
 'use client';
+
 import { useState, useEffect, useRef } from 'react';
 
-/*Top bar*/
-import TopBar from '@/components/dashboard/top/topbar';
+/* Top bar */
+import TopBar from '@components/dashboard/top/topbar';
 import selectionStyles from '@css/dashboard/selection.module.css';
 
-/*Data Management */
+/* Data Management */
+import { useGuild } from '../guildContext';
 import getGuildData from '@lib/dashboard/getGuildData';
 import saveData from '@lib/dashboard/saveData';
-import { useGuild } from '../guildContext';
 
-/*Inputs */
+/* Inputs */
 import CheckboxInput from '@components/dashboard/inputs/checkbox';
 import TextboxInput from '@components/dashboard/inputs/textbox';
-
-import styles from '@css/dashboard/settings.module.css';
+import RadioInput from '@components/dashboard/inputs/radio';
+import RangeInput from '@components/dashboard/inputs/range';
+import DoubleInput from '@components/dashboard/inputs/doubleInput';
 
 export default function Page() {
     const { selectedGuild } = useGuild();
@@ -105,7 +107,7 @@ export default function Page() {
                                     type='number'
                                     id='channel-logs-status'
                                     value={data.config.logs.channelLogs.status}
-                                    onChange={(e) => handleCheckboxChange(e.target.id, e.target.checked)}
+                                    onChange={(e) => handleInputChange(e.target.id, e.target.checked)}
                                 />
                             </div>
                             <div className='inputGroupHalf'>
@@ -113,7 +115,7 @@ export default function Page() {
                                     type='number'
                                     id='channel-logs-channel'
                                     value={data.config.logs.channelLogs.channelId}
-                                    onChange={(e) => handleTextboxChange(e.target.id, e.target.value)}
+                                    onChange={(e) => handleInputChange(e.target.id, e.target.value)}
                                 />
                             </div>
                         </>

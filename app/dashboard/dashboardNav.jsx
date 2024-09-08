@@ -112,8 +112,7 @@ export default function DashboardNav() {
                                 <li
                                     className={styles2.dropdownoption}
                                     onClick={() => {
-                                        window.location.href =
-                                            'https://discord.com/oauth2/authorize?client_id=1065350226757554237&permissions=8&response_type=code&redirect_uri=https%3A%2F%2Flocalhost%3A3000%2Flogin%2Fcallback&integration_type=0&scope=identify+guilds+bot';
+                                        window.location.href = process.env.GUILD_INSTALL_URI;
                                     }}
                                 >
                                     Add Server...

@@ -8,7 +8,9 @@ export default function DoubleInput({ id, type, value, value2, onChange }) {
     const [selectedValue2, setSelectedValue2] = useState(value2);
 
     useEffect(() => {
-        onChange(id, selectedValue, selectedValue2);
+        if (selectedValue !== value || selectedValue2 !== value2) {
+            onChange(id, selectedValue, selectedValue2);
+        }
     }, [selectedValue, selectedValue2]);
 
     return (

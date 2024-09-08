@@ -42,6 +42,7 @@
 .save:hover {
     background-color: #27288f;
     transition: all 600ms ease;
+    scale: 0.95;
 }
 
 .discard {
@@ -62,6 +63,7 @@
 .discard:hover {
     background-color: #212127;
     transition: all 600ms ease;
+    scale: 0.95;
 }
 
 @keyframes appear {

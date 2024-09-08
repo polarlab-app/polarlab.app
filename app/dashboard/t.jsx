@@ -17,6 +17,7 @@ import TextboxInput from '@components/dashboard/inputs/textbox';
 import RadioInput from '@components/dashboard/inputs/radio';
 import RangeInput from '@components/dashboard/inputs/range';
 import DoubleInput from '@components/dashboard/inputs/doubleInput';
+import ArrayInput from '@/components/dashboard/inputs/arrayInput';
 
 export default function Page() {
     const { selectedGuild } = useGuild();

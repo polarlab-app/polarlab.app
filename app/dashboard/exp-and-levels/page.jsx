@@ -39,6 +39,7 @@ export default function Page() {
         if (tabRefs.current.length > 0) {
             setSelectedTab(tabRefs.current[0].id);
         }
+        console.log('f');
     }, [selectedGuild, tabRefs.current.length]);
 
     const discardChanges = () => {
@@ -46,7 +47,7 @@ export default function Page() {
     };
 
     const saveTrigger = async () => {
-        const response = await saveData(newData || 0, selectedGuild.id || 0);
+        const response = await saveData(newData, selectedGuild.id || '');
         if (!response) {
             alert('fail');
         } else {

@@ -1,0 +1,202 @@
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    color: white;
+}
+
+.textContainer {
+    margin: 1.5%;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+}
+
+.headerContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    color: white;
+    font-size: 1.2rem;
+    margin: 0;
+    font-weight: 700;
+}
+
+.description {
+    color: #9d9ba9;
+    margin: 0;
+}
+
+.buttonContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 20%;
+    height: 2%;
+}
+
+.button {
+    margin-right: 10%;
+    padding: 0 10%;
+    color: white;
+    background-color: #4b4ee7;
+    height: 5vh;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 600ms ease;
+}
+
+.button:hover {
+    background-color: #27288f;
+    transition: all 600ms ease;
+    scale: 0.95;
+}
+
+.limitContainer {
+    background-color: #1e1d26;
+    display: flex;
+    border-radius: 6px;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 0 7%;
+    height: 100%;
+    width: 15%;
+}
+
+.limitDivider {
+    height: 0.9rem;
+    margin: 0 20%;
+}
+
+.limit {
+    color: #9d9ba9;
+}
+
+.input {
+    background-color: #1e1d26;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
+    margin: 1.5%;
+}
+.input:nth-child(1) {
+    margin-top: 0;
+}
+
+.label {
+    color: white;
+    font-weight: 700;
+    margin-bottom: 2%;
+    text-align: left;
+}
+
+.rangeInputContainer,
+.textInputContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.textInput {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #1e1d26;
+    background-color: #111118;
+    border-radius: 6px;
+    color: white;
+    transition: all 600ms ease;
+    margin-right: 2%;
+}
+
+.textInput:focus {
+    outline: none;
+    border: 1px solid #5959ff;
+    transition: all 600ms ease;
+}
+.second,
+.first {
+    margin-left: 1%;
+    width: 20%;
+}
+
+.second {
+    margin-left: 10%;
+    width: 40%;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    align-self: center;
+    margin-left: auto;
+    margin-right: 1%;
+    gap: 1vh;
+}
+
+.icon {
+    font-size: 1.5rem;
+}
+
+.values {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.value {
+    transition: all 600ms ease;
+    color: white;
+    color: #9d9ba9;
+    font-size: 0.7rem;
+}
+
+.value.active {
+    transition: all 600ms ease;
+    color: white;
+}
+
+.line {
+    width: 0;
+    height: 0.4vh;
+    transition: all 600ms ease;
+}
+
+.value.active .line {
+    color: white;
+    transition: all 600ms ease;
+}
+
+.rangeInput {
+    background-color: transparent;
+    width: 100%;
+}
+
+.rangeInput::-webkit-slider-thumb {
+    -webkit-appearance: none;
+}
+.rangeInput::-moz-range-thumb {
+    background-color: white;
+    border: none;
+    height: 1.5vh;
+    width: 3vh;
+}
+
+.rangeInput::-moz-range-track {
+    border-radius: 6px;
+    background-color: #111118;
+    height: 1.5vh;
+}
+
+.rangeInput::-moz-range-progress {
+    background: linear-gradient(to right, #4bc6fe, #4433a6);
+    height: 1.5vh;
+    border-radius: 6px;
+}

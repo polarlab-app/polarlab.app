@@ -17,6 +17,7 @@ import TextboxInput from '@components/dashboard/inputs/textbox';
 import RadioInput from '@components/dashboard/inputs/radio';
 import RangeInput from '@components/dashboard/inputs/range';
 import DoubleInput from '@components/dashboard/inputs/doubleInput';
+import ArrayInput from '@/components/dashboard/inputs/arrayInput';
 
 export default function Page() {
     const { selectedGuild, setSelectedGuild } = useGuild();
@@ -145,6 +146,36 @@ export default function Page() {
                                         onChange={(e) => handleInputChange(e.target.id, e.target.value)}
                                     />
                                 )}
+                            </div>
+                        </>
+                    ) : (
+                        <div>Loading...</div>
+                    )}
+                </div>
+                <div
+                    style={{
+                        display: selectedTab === 'expBoosters' ? 'block' : 'none',
+                    }}
+                >
+                    {data ? (
+                        <>
+                            <div className='inputGroupFull'>
+                                <ArrayInput
+                                    id='leveling-role-boosters'
+                                    type='t'
+                                    type2='r'
+                                    values={data.config.leveling.roleBoosters}
+                                    onChange={(newValues) => handleInputChange('leveling-role-boosters', newValues)}
+                                />
+                            </div>
+                            <div className='inputGroupFull'>
+                                <ArrayInput
+                                    id='leveling-channel-boosters'
+                                    type='t'
+                                    type2='r'
+                                    values={data.config.leveling.channelBoosters}
+                                    onChange={(newValues) => handleInputChange('leveling-channel-boosters', newValues)}
+                                />
                             </div>
                         </>
                     ) : (

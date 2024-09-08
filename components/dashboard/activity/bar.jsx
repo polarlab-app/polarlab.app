@@ -13,12 +13,21 @@ export default function ActivityBar({ type }) {
                 <i className={`${styles.upIcon} icon-caret-up`} onClick={() => setShow(!show)}></i>
             </div>
             <div className={styles.items}>
-                <div className={styles.item}></div>
+                <div className={styles.item}>
+                    <div className={styles.itemHeader}>
+                        <p className={styles.itemHeading}>Channel Deleted</p>
+                        <p className={styles.itemID}>(1hDy4bD)</p>
+                    </div>
+                </div>
                 <hr className={styles.divider} />
                 <div className={styles.item}></div>
                 <hr className={styles.divider} />
                 <div className={styles.item}></div>
+                <hr className={styles.divider} />
+
                 <div className={styles.item}></div>
+                <hr className={styles.divider} />
+
                 <div className={styles.item}></div>
             </div>
         </div>

@@ -59,6 +59,9 @@
     cursor: pointer;
     transition: all 600ms ease;
 }
+.item:nth-last-child(-n + 1) {
+    margin-bottom: 6vh;
+}
 
 .divider {
     border: 1px solid rgba(157, 155, 169, 0.1);
@@ -68,4 +71,20 @@
 .item:hover {
     background-color: rgba(157, 155, 169, 0.1);
     transition: all 600ms ease;
+}
+
+.itemHeader {
+    display: flex;
+    margin-left: 1.5%;
+    align-items: center;
+}
+
+.itemHeading {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.itemID {
+    margin-left: 1%;
+    color: #9d9ba9;
 }

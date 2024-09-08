@@ -102,7 +102,7 @@
             "path": "config/leveling/status",
             "placeholder": null
         },
-                "leveling-channel": {
+        "leveling-channel": {
             "name": "Leveling Channel ID",
             "description": "The channel ID in which to post level-ups (current channel by default)",
             "path": "config/leveling/channelID",
@@ -122,7 +122,27 @@
             "name": "EXP Type",
             "description": "The type of EXP to give",
             "path": "config/leveling/type",
-                        "options": ["static", "range"]
+            "options": ["static", "range"]
+        },
+        "leveling-channel-boosters": {
+            "name": "Channel Boosters",
+            "description": "Per channel EXP Boosters",
+            "path": "config/leveling/channelBoosters",
+            "min": "0",
+            "max": "6",
+            "step": "0.5",
+            "limit": "10",
+            "placeholder": "Channel ID"
+        },
+        "leveling-role-boosters": {
+            "name": "Role Boosters",
+            "description": "Per role EXP Boosters",
+            "path": "config/leveling/roleBoosters",
+            "min": "0",
+            "max": "6",
+            "step": ".5",
+            "limit": "10",
+            "placeholder": "Role ID"
         }
     },
     "paths": {
@@ -141,8 +161,10 @@
         "server-logs-status": "config/logs/serverLogs/status",
         "server-logs-channel": "config/logs/serverLogs/channelId",
         "leveling-status": "config/leveling/status",
-        "leveling-channel" : "config/logs/leveling/channelID",
+        "leveling-channel": "config/logs/leveling/channelID",
         "leveling-exp-amount": "config/leveling/amount",
-        "leveling-exp-type": "config/leveling/type"
+        "leveling-exp-type": "config/leveling/type",
+        "leveling-role-boosters": "config/leveling/roleBoosters",
+        "leveling-channel-boosters": "config/leveling/channelBoosters"
     }
 }

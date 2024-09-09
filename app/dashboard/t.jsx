@@ -46,8 +46,8 @@ export default function Page() {
     };
 
     const saveTrigger = async () => {
-        const response = await saveData(newData || 0, selectedGuild.id || 0);
-        if (response === 'success') {
+        const response = await saveData(newData, selectedGuild.id);
+        if (response) {
             setNewData({});
         } else {
             alert('fail');
@@ -58,9 +58,14 @@ export default function Page() {
         setSelectedTab(tabId);
     };
 
-    const handleInputChange = (id, value) => {
-        const updatedValues = { ...newData, [id]: value };
-        setNewData(updatedValues);
+    const handleInputChange = (id, value, value2) => {
+        if (value2) {
+            const updatedValues = { ...newData, [id]: `${value}/${value2}` };
+            setNewData(updatedValues);
+        } else {
+            const updatedValues = { ...newData, [id]: value };
+            setNewData(updatedValues);
+        }
     };
 
     if (!selectedGuild) {

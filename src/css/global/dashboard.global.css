@@ -65,6 +65,68 @@ body {
     margin-left: 5%;
 }
 
+.section {
+    animation: disappear 0.6s ease forwards;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    transform: translateY(0);
+}
+
+.section.active {
+    animation: appear 0.6s ease forwards;
+    animation-delay: 0.6s;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+        visibility: hidden;
+        width: 0;
+        height: 0;
+    }
+    1% {
+        visibility: visible;
+        width: auto;
+        height: auto;
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+        width: auto;
+        height: auto;
+    }
+}
+
+@keyframes disappear {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+        width: auto;
+        height: auto;
+    }
+    99% {
+        visibility: visible;
+        width: auto;
+        height: auto;
+    }
+    to {
+        opacity: 0;
+        transform: translateY(100%);
+        visibility: hidden;
+        width: 0;
+        height: 0;
+    }
+}
+
 nav,
 footer {
     display: none;

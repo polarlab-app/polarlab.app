@@ -59,14 +59,14 @@ export default function Page() {
         setSelectedTab(tabId);
     };
 
-    const handleInputChange = (id, value) => {
-        const updatedValues = { ...newData, [id]: value };
-        setNewData(updatedValues);
-    };
-
-    const handleDoubleInputChange = (id, value, value2) => {
-        const updatedValues = { ...newData, [id]: `${value}/${value2}` };
-        setNewData(updatedValues);
+    const handleInputChange = (id, value, value2) => {
+        if (value2) {
+            const updatedValues = { ...newData, [id]: `${value}/${value2}` };
+            setNewData(updatedValues);
+        } else {
+            const updatedValues = { ...newData, [id]: value };
+            setNewData(updatedValues);
+        }
     };
 
     if (!selectedGuild) {
@@ -102,11 +102,7 @@ export default function Page() {
                 ))}
             </div>
             <div className='dashboardWrapper'>
-                <div
-                    style={{
-                        display: selectedTab === 'levelingSettings' ? 'block' : 'none',
-                    }}
-                >
+                <div className={`section ${selectedTab === 'levelingSettings' ? 'active' : null}`}>
                     {data ? (
                         <>
                             <div className='inputGroupFull'>
@@ -138,7 +134,7 @@ export default function Page() {
                                         type='text'
                                         value={data.config.leveling.amount.split('/')[0]}
                                         value2={data.config.leveling.amount.split('/')[1]}
-                                        onChange={handleDoubleInputChange}
+                                        onChange={handleInputChange}
                                     />
                                 ) : (
                                     <RangeInput
@@ -153,11 +149,7 @@ export default function Page() {
                         <div>Loading...</div>
                     )}
                 </div>
-                <div
-                    style={{
-                        display: selectedTab === 'expBoosters' ? 'block' : 'none',
-                    }}
-                >
+                <div className={`section ${selectedTab === 'expBoosters' ? 'active' : null}`}>
                     {data ? (
                         <>
                             <div className='inputGroupFull'>

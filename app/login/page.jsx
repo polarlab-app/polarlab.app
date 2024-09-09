@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import styles from '@css/login/login.module.css';
 import validatePassword from '@lib/auth/validation/validatePassword';
+import { triggerToast } from '@/components/core/toastNotifications';
 
 export default function Page() {
     const [username, setUsername] = useState('');
@@ -65,6 +66,9 @@ export default function Page() {
         <div className={styles.wrapper}>
             <div className={styles.container}>
                 <div className={styles.left}>
+                    <button onClick={() => triggerToast('Login Failed', 'The provided password is incorrect', 'r')}>
+                        Test Toast
+                    </button>
                     <div className={styles.header}>
                         <Image
                             src='https://cdn.polarlab.app/src/img/polarlogo.png'

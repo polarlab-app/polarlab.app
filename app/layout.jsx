@@ -5,6 +5,7 @@ import Footer from '@components/core/footer.jsx';
 import { cookies } from 'next/headers';
 import CookieConsent from '@/components/core/cookieConsent';
 import { WebVitals } from '@components/core/webVitals';
+import { Toast } from '@components/core/toastNotifications';
 
 export const metadata = {
     title: 'Polar Lab',
@@ -37,6 +38,7 @@ export default function RootLayout({ children }) {
             <body className='body' id='body'>
                 <WebVitals />
                 <NavBar />
+                <Toast />
                 {cookieConsent ? '' : <CookieConsent />}
                 {children}
                 <Footer />

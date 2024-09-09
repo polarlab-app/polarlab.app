@@ -47,7 +47,7 @@
 
 .discard {
     color: #d86464;
-    background-color: #2c2d36;
+    background-color: #1e1d26;
     height: 4vh;
     border: none;
     border-radius: 6px;
@@ -61,7 +61,7 @@
 }
 
 .discard:hover {
-    background-color: #212127;
+    background-color: #111118;
     transition: all 600ms ease;
     scale: 0.95;
 }

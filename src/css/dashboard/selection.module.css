@@ -5,8 +5,8 @@
     height: 8vh;
     border-bottom: 2px solid #212029;
     overflow: scroll;
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .bar::-webkit-scrollbar {

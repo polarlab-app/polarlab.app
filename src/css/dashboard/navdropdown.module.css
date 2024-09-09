@@ -3,7 +3,6 @@
 }
 
 .dropdownselector {
-    background-color: #1e1d26;
     border-radius: 6px;
     padding: 12px;
     display: flex;
@@ -19,7 +18,7 @@
     width: 100%;
     position: absolute;
     z-index: 12;
-    margin: 1% 0;
+    margin: 5% 0;
     opacity: 0;
     height: 50vh;
     overflow: scroll;

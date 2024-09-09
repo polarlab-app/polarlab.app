@@ -4,9 +4,11 @@ import styles from '@css/dashboard/nav.module.css';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import getGuilds from '@lib/dashboard/getGuilds';
+import findUser from '@/lib/personal/findUser';
 import styles2 from '@css/dashboard/navdropdown.module.css';
 import { useGuild } from './guildContext';
 import Image from 'next/image';
+import logout from '@/lib/auth/sessionManagement/logout';
 
 const NavLink = ({ activeNav, setActiveNav, children }) => (
     <Link
@@ -24,11 +26,14 @@ export default function DashboardNav() {
     const [loading, setLoading] = useState(true);
     const [openStatus, setOpenStatus] = useState(false);
     const [activeNav, setActiveNav] = useState(null);
+    const [user, setUser] = useState(null);
     const { selectedGuild, setSelectedGuild } = useGuild();
 
     useEffect(() => {
         async function fetchGuilds() {
             const guildList = JSON.parse(await getGuilds());
+            const user = JSON.parse(await findUser());
+            setUser(user);
             setGuilds(guildList);
             setLoading(false);
             if (guildList && guildList.length > 0) {
@@ -38,87 +43,87 @@ export default function DashboardNav() {
         fetchGuilds();
     }, [setSelectedGuild]);
 
+    async function handleLogout() {
+        const res = await logout();
+        if (res) {
+            window.location.assign = '/login';
+        }
+    }
+
     return (
         <div className={styles.dashboardnav}>
             {loading ? (
                 <p>Loading Content...</p>
             ) : (
                 <>
-                    <div className={styles.sidenavtop}>
-                        <div className={styles.tagcontainer}>
-                            <h1 className={styles.dashboardheader}>Polaris V2</h1>
-                            <div className={styles.tag}>
-                                <p className={styles.tagtext}>PLUS</p>
+                    <div className={`${styles.sidenavtop} ${openStatus ? styles.active : null}`}>
+                        <div className={styles.dropdown} onClick={() => setOpenStatus(!openStatus)}>
+                            <Image
+                                alt='icon'
+                                src={`https://cdn.polarlab.app/api/fetch/users/avatars/${user.id}/webp`}
+                                width={128}
+                                height={128}
+                                className={styles.profileIcon}
+                            />
+                            <div className={styles.textContainer}>
+                                <p className={`${styles.guild} ${styles.dropDownSelector}`}>
+                                    {selectedGuild ? selectedGuild.name : 'Select a Guild'}
+                                </p>
+                                <p className={styles.username}>{user.username}</p>
                             </div>
                         </div>
-                        <img
-                            className={styles.toplogout}
-                            src='https://cdn.polarlab.app/src/icons/colorless/log-out.png'
-                            alt='navImg'
-                        ></img>
+                        <ul
+                            className={
+                                openStatus
+                                    ? styles2.dropdownoptions
+                                    : `${styles2.dropdownoptions} ${styles2.dropdownhidden}`
+                            }
+                        >
+                            {guilds ? (
+                                guilds.map((guild) => (
+                                    <li
+                                        key={guild.id}
+                                        className={styles2.dropdownoption}
+                                        onClick={() => {
+                                            setSelectedGuild(guild);
+                                            setOpenStatus(false);
+                                        }}
+                                    >
+                                        {guild.icon ? (
+                                            <Image
+                                                width={128}
+                                                height={128}
+                                                src={guild.icon}
+                                                alt={`<i>`}
+                                                className={styles2.icon}
+                                            />
+                                        ) : (
+                                            <Image
+                                                width={128}
+                                                height={128}
+                                                src={`https://placehold.co/128x128`}
+                                                alt={`<i>`}
+                                                className={styles2.icon}
+                                                unoptimized
+                                            />
+                                        )}
+                                        {guild.name}
+                                    </li>
+                                ))
+                            ) : (
+                                <p>Loading guilds...</p>
+                            )}
+                            <li
+                                className={styles2.dropdownoption}
+                                onClick={() => {
+                                    window.location.href = process.env.GUILD_INSTALL_URI;
+                                }}
+                            >
+                                Add Server...
+                            </li>
+                        </ul>
                     </div>
                     <div className={styles.sidenavselection}>
-                        <div className={styles2.dropdown} onClick={() => setOpenStatus(!openStatus)}>
-                            <p className={styles2.dropdownselector}>
-                                {selectedGuild ? selectedGuild.name : 'Select a Guild'}
-                                <img
-                                    alt='dropdownArrow'
-                                    src='https://cdn.polarlab.app/src/docs/img/rightarrow.png'
-                                    className={openStatus ? styles2.dropdownimghidden : styles2.dropdownimg}
-                                    onClick={() => setOpenStatus(!openStatus)}
-                                ></img>
-                            </p>
-                            <ul
-                                className={
-                                    openStatus
-                                        ? styles2.dropdownoptions
-                                        : `${styles2.dropdownoptions} ${styles2.dropdownhidden}`
-                                }
-                            >
-                                {guilds ? (
-                                    guilds.map((guild) => (
-                                        <li
-                                            key={guild.id}
-                                            className={styles2.dropdownoption}
-                                            onClick={() => {
-                                                setSelectedGuild(guild);
-                                                setOpenStatus(false);
-                                            }}
-                                        >
-                                            {guild.icon ? (
-                                                <Image
-                                                    width={128}
-                                                    height={128}
-                                                    src={guild.icon}
-                                                    alt={`<i>`}
-                                                    className={styles2.icon}
-                                                />
-                                            ) : (
-                                                <Image
-                                                    width={128}
-                                                    height={128}
-                                                    src={`https://placehold.co/128x128`}
-                                                    alt={`<i>`}
-                                                    className={styles2.icon}
-                                                    unoptimized
-                                                />
-                                            )}
-                                            {guild.name}
-                                        </li>
-                                    ))
-                                ) : (
-                                    <p>Loading guilds...</p>
-                                )}
-                                <li
-                                    className={styles2.dropdownoption}
-                                    onClick={() => {
-                                        window.location.href = process.env.GUILD_INSTALL_URI;
-                                    }}
-                                >
-                                    Add Server...
-                                </li>
-                            </ul>
-                        </div>
                         <div className={styles.navsection}>
                             <NavLink activeNav={activeNav} setActiveNav={setActiveNav}>
                                 Overview
@@ -165,9 +170,9 @@ export default function DashboardNav() {
                         </div>
                     </div>
                     <div className={styles.sidenavbottom}>
-                        <Link className={styles.logout} href='/dashboard/login/logout'>
+                        <button className={styles.button} onClick={() => handleLogout()}>
                             Log Out
-                        </Link>
+                        </button>
                     </div>
                 </>
             )}

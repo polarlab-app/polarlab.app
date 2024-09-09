@@ -44,7 +44,7 @@ export default function Page() {
 
     const saveTrigger = async () => {
         const response = await saveData(newData || 0, selectedGuild.id || 0);
-        if (response === 'success') {
+        if (response) {
             setNewData({});
         } else {
             alert('fail');

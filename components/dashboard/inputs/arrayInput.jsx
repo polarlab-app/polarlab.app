@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 
 export default function ArrayInput({ id, values, type, type2, onChange }) {
     const optionsCount = Math.floor((inputs[id].max - inputs[id].min) / inputs[id].step) + 1;
-    const [data, setData] = useState(values);
+    const [data, setData] = useState(values || []);
 
     useEffect(() => {
         if (data != values) {
@@ -129,7 +129,7 @@ export default function ArrayInput({ id, values, type, type2, onChange }) {
                         <div className={styles.buttons}>
                             <i className={`${styles.icon} icon-grid-2`}></i>
                             <i
-                                className={`${styles.icon} icon-grid-2`}
+                                className={`${styles.icon} icon-trash`}
                                 onClick={() => setData(data.filter((_, i) => i !== index))}
                             ></i>
                         </div>

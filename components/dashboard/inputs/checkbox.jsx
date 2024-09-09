@@ -4,7 +4,7 @@ import styles from '@css/dashboard/checkbox.module.css';
 import { useState } from 'react';
 
 export default function CheckboxInput({ id, value, onChange }) {
-    const [isChecked, setIsChecked] = useState(value);
+    const [isChecked, setIsChecked] = useState(value || false);
 
     return (
         <div className={styles.toggleswitchcontainer} onChange={onChange}>

@@ -16,12 +16,19 @@
     text-transform: none;
     line-height: 1em;
 }
+
 .icon-caret-up:before {
     content: '\e800';
 } /* '' */
 .icon-folders:before {
     content: '\e801';
 } /* '' */
+.icon-trash:before {
+    content: '\e802';
+} /* '' */
+.icon-plus:before {
+    content: '\e803';
+} /* '' */
 .icon-arrow-right:before {
     content: '\e809';
 } /* '' */

@@ -124,7 +124,7 @@
 }
 
 .scopeLabel {
-    margin: 0;
+    margin: 0 5%;
 }
 
 .scopeContainer {
@@ -156,12 +156,12 @@
 }
 
 .innerToggle {
-    width: 80%;
-    height: 80%;
+    width: 60%;
+    height: 60%;
     border-radius: 2px;
     transition: all 600ms ease;
 }
-.hidden:checked + .toggle .innertoggle {
+.hidden:checked + .toggle .innerToggle {
     background-color: #5959ff;
     transition: all 600ms ease;
 }

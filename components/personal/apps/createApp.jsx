@@ -5,10 +5,9 @@ import createApp from '@lib/personal/apps/createApp';
 
 export default function CreateApp({ closeButton }) {
     const [appName, setAppName] = useState('');
-    const [redirectURIs, setRedirectURIs] = useState(['']);
+    const [redirectURIs, setRedirectURIs] = useState([]);
     const [appIcon, setAppIcon] = useState(null);
-    const [scopes, setScopes] = useState(['']);
-
+    const [scopes, setScopes] = useState([]);
     const [preview, setPreview] = useState(null);
 
     useEffect(() => {
@@ -53,7 +52,7 @@ export default function CreateApp({ closeButton }) {
 
     const handleSubmit = async () => {
         try {
-            await createApp(appName, redirectURIs, appIcon);
+            await createApp(appName, redirectURIs, appIcon, scopes);
             alert('App created successfully');
             closeButton();
         } catch (error) {
@@ -62,7 +61,6 @@ export default function CreateApp({ closeButton }) {
     };
 
     const handleScopeChange = (scope) => {
-        console.log(scopes);
         if (scopes.includes(scope)) {
             setScopes(scopes.filter((s) => s !== scope));
         } else {
@@ -147,9 +145,6 @@ export default function CreateApp({ closeButton }) {
 
                         {availableScopes.map((scope, index) => (
                             <div key={index} className={styles.scope}>
-                                <p className={styles.scopeLabel}>
-                                    {scope.charAt(0).toUpperCase() + scope.slice(1).toLowerCase()}
-                                </p>
                                 <label className={styles.scopeContainer}>
                                     <input
                                         type='checkbox'
@@ -161,6 +156,9 @@ export default function CreateApp({ closeButton }) {
                                         <span className={styles.innerToggle}></span>
                                     </span>
                                 </label>
+                                <p className={styles.scopeLabel}>
+                                    {scope.charAt(0).toUpperCase() + scope.slice(1).toLowerCase()}
+                                </p>
                             </div>
                         ))}
                     </div>

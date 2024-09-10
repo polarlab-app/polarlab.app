@@ -13,6 +13,7 @@ export default function Apps() {
     const [editAppIndex, setEditAppIndex] = useState(null);
     const [appName, setAppName] = useState('');
     const [redirectURIs, setRedirectURIs] = useState([]);
+    const [scopes, setScopes] = useState([]);
     const [appIcon, setAppIcon] = useState(null);
     const [preview, setPreview] = useState(null);
 
@@ -24,6 +25,7 @@ export default function Apps() {
         setEditAppIndex(index);
         setAppName(app.name);
         setRedirectURIs(app.redirectURIs);
+        setScopes(app.scopes);
         setPreview(`https://cdn.polarlab.app/api/fetch/apps/avatars/${app.id}/webp`);
     };
 
@@ -47,6 +49,14 @@ export default function Apps() {
         setRedirectURIs(newRedirectURIs);
     };
 
+    const handleScopeChange = (scope) => {
+        if (scopes.includes(scope)) {
+            setScopes(scopes.filter((s) => s !== scope));
+        } else {
+            setScopes([...scopes, scope]);
+        }
+    };
+
     const addRedirectURI = () => {
         setRedirectURIs([...redirectURIs, '']);
     };
@@ -64,8 +74,7 @@ export default function Apps() {
     const handleSave = async () => {
         if (editAppIndex !== null) {
             const appID = apps[editAppIndex].id;
-            console.log(appIcon);
-            const res = await updateApp(appID, appName, appIcon, redirectURIs, [], null);
+            const res = await updateApp(appID, appName, appIcon, redirectURIs, scopes);
             if (res) {
                 alert('App updated successfully');
                 setEditAppIndex(null);
@@ -73,6 +82,7 @@ export default function Apps() {
                 setRedirectURIs([]);
                 setAppIcon('');
                 setPreview('');
+                setEditAppIndex(null);
                 findApps().then((data) => setApps(JSON.parse(data)));
             } else {
                 alert('Failed to update app');
@@ -89,6 +99,8 @@ export default function Apps() {
             alert('fail');
         }
     };
+
+    const availableScopes = ['email', 'authorizedApps', 'connections'];
 
     return (
         <>
@@ -166,15 +178,38 @@ export default function Apps() {
                                             </button>
                                         </div>
                                         <div className={styles.editRight}>
-                                            <button className={styles.saveButton} onClick={handleSave}>
-                                                Save Changes
-                                            </button>
-                                            <button
-                                                className={styles.deleteButton}
-                                                onClick={() => handleDelete(app.id)}
-                                            >
-                                                Delete App
-                                            </button>
+                                            <div className={styles.scopes}>
+                                                {availableScopes.map((scope, index) => (
+                                                    <div key={index} className={styles.scope}>
+                                                        <label className={styles.scopeContainer}>
+                                                            <input
+                                                                type='checkbox'
+                                                                className={styles.hidden}
+                                                                onChange={() => handleScopeChange(scope)}
+                                                                checked={scopes.includes(scope)}
+                                                            />
+                                                            <span className={styles.toggle}>
+                                                                <span className={styles.innerToggle}></span>
+                                                            </span>
+                                                        </label>
+                                                        <p className={styles.scopeLabel}>
+                                                            {scope.charAt(0).toUpperCase() +
+                                                                scope.slice(1).toLowerCase()}
+                                                        </p>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                            <div className={styles.buttonContainer}>
+                                                <button className={styles.saveButton} onClick={handleSave}>
+                                                    Save Changes
+                                                </button>
+                                                <button
+                                                    className={styles.deleteButton}
+                                                    onClick={() => handleDelete(app.id)}
+                                                >
+                                                    Delete App
+                                                </button>
+                                            </div>
                                         </div>
                                     </>
                                 ) : (
@@ -187,7 +222,9 @@ export default function Apps() {
                                                 height={128}
                                                 className={styles.logo}
                                             />
-                                            <h2>{app.name}</h2>
+                                            <h2>
+                                                {app.name} <span className={styles.appID}>({app.id})</span>
+                                            </h2>
                                             <button
                                                 className={styles.button}
                                                 onClick={() => handleEditClick(index, app)}
@@ -197,11 +234,11 @@ export default function Apps() {
                                         </div>
                                         <div className={styles.middle}>
                                             <ul className={styles.info}>
-                                                <li className={styles.infoItem}>App ID: {app.id}</li>
                                                 <li className={styles.infoItem}>Users: {app.userCount}</li>
                                                 <li className={styles.infoItem}>
                                                     Redirect URIs: {app.redirectURIs.join(', ')}
                                                 </li>
+                                                <li className={styles.infoItem}>Scopes: {app.scopes.join(', ')}</li>
                                                 <li className={styles.infoItem}>
                                                     Date Created: {formatDate(app.date)}
                                                 </li>

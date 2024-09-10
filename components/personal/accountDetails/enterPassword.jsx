@@ -4,24 +4,31 @@ import { useState } from 'react';
 import updateUser from '@/lib/personal/accountDetails/updateUser';
 import authenticateUser from '@/lib/personal/authenticateUser';
 import deauthorize from '@/lib/oauth2/deauthorize';
+import { triggerToast } from '@/components/core/toastNotifications';
 
 export default function EnterPassword(props) {
     const [verifyPassword, setVerifyPassword] = useState('');
     const update = async () => {
-        const res = await authenticateUser(verifyPassword);
+        console.log(verifyPassword);
+        const res = JSON.parse(await authenticateUser(verifyPassword));
         if (res) {
+            console.log(res);
+
+            if (!res.s) {
+                triggerToast(res.h, res.d, res.c);
+                return;
+            }
             if (props.mode == 'updateUser') {
-                const result = await updateUser(
-                    props.username,
-                    props.email,
-                    props.password,
-                    props.appIcon,
-                    verifyPassword
+                const result = JSON.parse(
+                    await updateUser(props.username, props.email, props.password, props.appIcon, verifyPassword)
                 );
-                if (result) {
-                    props.close();
+                console.log(result);
+
+                if (!result.s) {
+                    triggerToast(result.h, result.d, result.c);
                 } else {
-                    alert('fail');
+                    triggerToast(result.h, result.d, result.c);
+                    props.close();
                 }
             } else if (props.mode == 'deauthorize') {
                 const result = await deauthorize(props.id);

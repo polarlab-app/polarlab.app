@@ -16,7 +16,7 @@ export const Toast = () => {
             setDescription(description);
             setColor(color);
             setActive(true);
-            setTimeout(() => setActive(false), 5000);
+            setTimeout(() => setActive(false), 3000);
         };
     }, []);
 
@@ -37,8 +37,8 @@ export const Toast = () => {
     );
 };
 
-export const triggerToast = (header, description, color) => {
+export function triggerToast(header, description, color) {
     if (toastTrigger) {
         toastTrigger(header, description, color);
     }
-};
+}

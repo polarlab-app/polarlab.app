@@ -129,6 +129,9 @@
     .connection {
         width: 99.5%;
     }
+    .connect {
+        padding: 0 4vw;
+    }
 }
 
 @media screen and (max-width: 1000px) and (min-width: 768px) {

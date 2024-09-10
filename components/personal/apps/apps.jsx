@@ -4,6 +4,8 @@ import Image from 'next/image';
 import CreateApp from './createApp';
 import { useState, useEffect } from 'react';
 import findApps from '@/lib/personal/apps/findApps';
+import deleteApp from '@/lib/personal/apps/deleteApp';
+import updateApp from '@/lib/personal/apps/updateApp';
 
 export default function Apps() {
     const [apps, setApps] = useState([]);
@@ -11,8 +13,9 @@ export default function Apps() {
     const [editAppIndex, setEditAppIndex] = useState(null);
     const [appName, setAppName] = useState('');
     const [redirectURIs, setRedirectURIs] = useState([]);
-    const [appIcon, setAppIcon] = useState('');
-    const [preview, setPreview] = useState('');
+    const [scopes, setScopes] = useState([]);
+    const [appIcon, setAppIcon] = useState(null);
+    const [preview, setPreview] = useState(null);
 
     useEffect(() => {
         findApps().then((data) => setApps(JSON.parse(data)));
@@ -22,8 +25,8 @@ export default function Apps() {
         setEditAppIndex(index);
         setAppName(app.name);
         setRedirectURIs(app.redirectURIs);
-        setAppIcon(`https://cdn.polarlab.app/api/fetch/apps/${app.id}/webp`);
-        setPreview(`https://cdn.polarlab.app/api/fetch/apps/${app.id}/webp`);
+        setScopes(app.scopes);
+        setPreview(`https://cdn.polarlab.app/api/fetch/apps/avatars/${app.id}/webp`);
     };
 
     const handleFileChange = (e) => {
@@ -46,6 +49,14 @@ export default function Apps() {
         setRedirectURIs(newRedirectURIs);
     };
 
+    const handleScopeChange = (scope) => {
+        if (scopes.includes(scope)) {
+            setScopes(scopes.filter((s) => s !== scope));
+        } else {
+            setScopes([...scopes, scope]);
+        }
+    };
+
     const addRedirectURI = () => {
         setRedirectURIs([...redirectURIs, '']);
     };
@@ -55,15 +66,41 @@ export default function Apps() {
         setRedirectURIs(newRedirectURIs);
     };
 
-    const handleSave = () => {
-        // Save logic here
-        alert('App saved successfully');
+    const formatDate = (isoString) => {
+        const date = new Date(isoString);
+        return `${date.toLocaleString('default', { month: 'long' })} ${date.getDate()}, ${date.getFullYear()}`;
     };
 
-    const handleDelete = () => {
-        // Delete logic here
-        alert('App deleted successfully');
+    const handleSave = async () => {
+        if (editAppIndex !== null) {
+            const appID = apps[editAppIndex].id;
+            const res = await updateApp(appID, appName, appIcon, redirectURIs, scopes);
+            if (res) {
+                alert('App updated successfully');
+                setEditAppIndex(null);
+                setAppName('');
+                setRedirectURIs([]);
+                setAppIcon('');
+                setPreview('');
+                setEditAppIndex(null);
+                findApps().then((data) => setApps(JSON.parse(data)));
+            } else {
+                alert('Failed to update app');
+            }
+        }
     };
+
+    const handleDelete = async (id) => {
+        const res = await deleteApp(id);
+        if (res == true) {
+            alert('App deleted successfully');
+        } else {
+            console.log(res);
+            alert('fail');
+        }
+    };
+
+    const availableScopes = ['email', 'authorizedApps', 'connections'];
 
     return (
         <>
@@ -82,23 +119,29 @@ export default function Apps() {
                                 {editAppIndex === index ? (
                                     <>
                                         <div className={styles.editLeft}>
-                                            <div className={styles.iconcontainer}>
-                                                <label htmlFor='appicon' className={styles.filelabel}>
-                                                    <Image
-                                                        src={preview}
-                                                        alt='App Icon'
-                                                        width={512}
-                                                        height={512}
-                                                        className={styles.editLogo}
-                                                    />
+                                            <div className={styles.iconContainer}>
+                                                <Image
+                                                    src={
+                                                        preview
+                                                            ? preview
+                                                            : user
+                                                            ? `https://cdn.polarlab.app/api/fetch/users/avatars/${user.id}/webp`
+                                                            : 'https://cdn.polarlab.app/api/fetch/img/polarlogo/png'
+                                                    }
+                                                    width={512}
+                                                    height={512}
+                                                    alt='Profile Picture'
+                                                    className={styles.appIcon}
+                                                />
+                                                <label className={styles.editWrapper} htmlFor='profilePicture'>
+                                                    <i className={`${styles.editIcon} icon-pen`}></i>
                                                 </label>
                                                 <input
                                                     type='file'
-                                                    id='appicon'
-                                                    className={styles.fileinput}
+                                                    id='profilePicture'
+                                                    className={styles.fileInput}
                                                     onChange={handleFileChange}
-                                                    accept='image/*'
-                                                />
+                                                ></input>
                                             </div>
                                             <div className={styles.inputContainer}>
                                                 <p className={styles.inputLabel}>App Name</p>
@@ -113,7 +156,7 @@ export default function Apps() {
                                         </div>
                                         <div className={styles.editMiddle}>
                                             <p className={styles.inputLabel}>Redirect URIs</p>
-                                            {app.redirectURIs.map((uri, index) => (
+                                            {redirectURIs.map((uri, index) => (
                                                 <div key={index} className={styles.redirecturi}>
                                                     <input
                                                         type='text'
@@ -135,25 +178,53 @@ export default function Apps() {
                                             </button>
                                         </div>
                                         <div className={styles.editRight}>
-                                            <button className={styles.saveButton} onClick={handleSave}>
-                                                Save Changes
-                                            </button>
-                                            <button className={styles.deleteButton} onClick={handleDelete}>
-                                                Delete App
-                                            </button>
+                                            <div className={styles.scopes}>
+                                                {availableScopes.map((scope, index) => (
+                                                    <div key={index} className={styles.scope}>
+                                                        <label className={styles.scopeContainer}>
+                                                            <input
+                                                                type='checkbox'
+                                                                className={styles.hidden}
+                                                                onChange={() => handleScopeChange(scope)}
+                                                                checked={scopes.includes(scope)}
+                                                            />
+                                                            <span className={styles.toggle}>
+                                                                <span className={styles.innerToggle}></span>
+                                                            </span>
+                                                        </label>
+                                                        <p className={styles.scopeLabel}>
+                                                            {scope.charAt(0).toUpperCase() +
+                                                                scope.slice(1).toLowerCase()}
+                                                        </p>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                            <div className={styles.buttonContainer}>
+                                                <button className={styles.saveButton} onClick={handleSave}>
+                                                    Save Changes
+                                                </button>
+                                                <button
+                                                    className={styles.deleteButton}
+                                                    onClick={() => handleDelete(app.id)}
+                                                >
+                                                    Delete App
+                                                </button>
+                                            </div>
                                         </div>
                                     </>
                                 ) : (
                                     <>
                                         <div className={styles.top}>
                                             <Image
-                                                src={`https://cdn.polarlab.app/api/fetch/apps/${app.id}/webp`}
+                                                src={`https://cdn.polarlab.app/api/fetch/apps/avatars/${app.id}/webp`}
                                                 alt={`${app.name} Logo`}
                                                 width={128}
                                                 height={128}
                                                 className={styles.logo}
                                             />
-                                            <h2>{app.name}</h2>
+                                            <h2>
+                                                {app.name} <span className={styles.appID}>({app.id})</span>
+                                            </h2>
                                             <button
                                                 className={styles.button}
                                                 onClick={() => handleEditClick(index, app)}
@@ -163,12 +234,14 @@ export default function Apps() {
                                         </div>
                                         <div className={styles.middle}>
                                             <ul className={styles.info}>
-                                                <li className={styles.infoItem}>App ID: {app.id}</li>
                                                 <li className={styles.infoItem}>Users: {app.userCount}</li>
                                                 <li className={styles.infoItem}>
                                                     Redirect URIs: {app.redirectURIs.join(', ')}
                                                 </li>
-                                                <li className={styles.infoItem}>Date Created: {app.dateCreated}</li>
+                                                <li className={styles.infoItem}>Scopes: {app.scopes.join(', ')}</li>
+                                                <li className={styles.infoItem}>
+                                                    Date Created: {formatDate(app.date)}
+                                                </li>
                                             </ul>
                                         </div>
                                     </>

@@ -10,6 +10,7 @@ let userAccountSchema = new Schema(
         token: String,
         properties: {
             role: String,
+            date: String,
         },
         connections: [
             {
@@ -19,12 +20,13 @@ let userAccountSchema = new Schema(
                 email: String,
             },
         ],
-        authorized_apps: [
+        authorizedApps: [
             {
                 id: String,
                 name: String,
                 date: String,
                 secret: String,
+                scopes: [],
             },
         ],
         support: [],

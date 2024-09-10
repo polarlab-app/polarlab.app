@@ -4,10 +4,12 @@ import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Suspense } from 'react';
 import styles from '@css/personal/personal.module.css';
-import findUser from '@lib/personal/findUser.js';
 import ButtonInput from '@/components/personal/buttonInput';
+
+/* Management Screens */
 import Connections from '@/components/personal/connections/connections';
 import AccountDetails from '@/components/personal/accountDetails/accountDetails';
+import AuthorizedApps from '@/components/personal/authorizedApps/authorizedApps';
 import Apps from '@/components/personal/apps/apps';
 
 export default function Page() {
@@ -26,7 +28,7 @@ export default function Page() {
             {section === 'accountDetails' && <AccountDetailsScreen />}
             {section === 'apps' && <AppsScreen />}
             {section === 'connections' && <ConnectionsScreen />}
-            {section === 'authorizedApps' && <AuthorizedApps />}
+            {section === 'authorizedApps' && <AuthorizedAppsScreen />}
             {section === 'dangerZone' && <DangerZone />}
         </div>
     );
@@ -56,8 +58,12 @@ function ConnectionsScreen() {
     );
 }
 
-function AuthorizedApps() {
-    return <div>Authorized Apps Section</div>;
+function AuthorizedAppsScreen() {
+    return (
+        <Suspense fallback={<div>Loading Authorized Apps...</div>}>
+            <AuthorizedApps />
+        </Suspense>
+    );
 }
 
 function DangerZone() {

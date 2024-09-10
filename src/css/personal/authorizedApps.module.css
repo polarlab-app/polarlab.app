@@ -12,25 +12,7 @@
     align-items: center;
 }
 
-.connect {
-    color: white;
-    background-color: #4b4ee7;
-    height: 5vh;
-    border: none;
-    border-radius: 6px;
-    padding: 0 1.3vw;
-    transition: all 600ms ease;
-    cursor: pointer;
-    font-weight: 700;
-}
-
-.connect:hover {
-    background-color: #27288f;
-    transition: all 600ms ease;
-    scale: 0.95;
-}
-
-.connections {
+.authorizedApps {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
@@ -39,7 +21,7 @@
     row-gap: 1vh;
 }
 
-.connection {
+.authorizedApp {
     background-color: #16151c;
     border: 1px solid #2a2933;
     border-radius: 10px;
@@ -60,8 +42,9 @@
 }
 
 .logo {
-    font-size: 1.8rem;
-    margin-left: 2%;
+    margin-left: 1%;
+    height: 90%;
+    width: auto;
 }
 
 .item {
@@ -123,23 +106,20 @@
 }
 
 @media screen and (max-width: 767px) {
-    .connections {
+    .authorizedApps {
         grid-template-columns: auto;
     }
-    .connection {
+    .authorizedApp {
         width: 99.5%;
-    }
-    .connect {
-        padding: 0 4vw;
     }
 }
 
 @media screen and (max-width: 1000px) and (min-width: 768px) {
-    .connections {
+    .authorizedApps {
         grid-template-columns: auto;
     }
 
-    .connection {
+    .authorizedApp {
         width: 99.5%;
     }
 }
@@ -161,7 +141,7 @@
     }
 }
 
-.connection:nth-child(2n) {
+.authorizedApp:nth-child(2n) {
     justify-self: end;
     animation-delay: 300ms;
 }

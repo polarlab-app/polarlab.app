@@ -4,14 +4,13 @@ import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Suspense } from 'react';
 import styles from '@css/personal/personal.module.css';
-import findUser from '@lib/personal/findUser.js';
 import ButtonInput from '@/components/personal/buttonInput';
-import Connections from '@/components/personal/connections';
 
-/*export const metadata = {
-    title: 'Polar Lab | Personal',
-    description: 'The official profile management page for you Polar Lab account',
-};*/
+/* Management Screens */
+import Connections from '@/components/personal/connections/connections';
+import AccountDetails from '@/components/personal/accountDetails/accountDetails';
+import AuthorizedApps from '@/components/personal/authorizedApps/authorizedApps';
+import Apps from '@/components/personal/apps/apps';
 
 export default function Page() {
     const searchParams = useSearchParams();
@@ -26,21 +25,29 @@ export default function Page() {
 
     return (
         <div className={styles.container}>
-            {section === 'accountDetails' && <AccountDetails />}
-            {section === 'apps' && <Apps />}
+            {section === 'accountDetails' && <AccountDetailsScreen />}
+            {section === 'apps' && <AppsScreen />}
             {section === 'connections' && <ConnectionsScreen />}
-            {section === 'authorizedApps' && <AuthorizedApps />}
+            {section === 'authorizedApps' && <AuthorizedAppsScreen />}
             {section === 'dangerZone' && <DangerZone />}
         </div>
     );
 }
 
-function AccountDetails() {
-    return <div className={styles.main}></div>;
+function AccountDetailsScreen() {
+    return (
+        <Suspense fallback={<div>Loading account details...</div>}>
+            <AccountDetails />
+        </Suspense>
+    );
 }
 
-function Apps() {
-    return <div>Apps Section</div>;
+function AppsScreen() {
+    return (
+        <Suspense fallback={<div>Loading apps...</div>}>
+            <Apps />
+        </Suspense>
+    );
 }
 
 function ConnectionsScreen() {
@@ -51,8 +58,12 @@ function ConnectionsScreen() {
     );
 }
 
-function AuthorizedApps() {
-    return <div>Authorized Apps Section</div>;
+function AuthorizedAppsScreen() {
+    return (
+        <Suspense fallback={<div>Loading Authorized Apps...</div>}>
+            <AuthorizedApps />
+        </Suspense>
+    );
 }
 
 function DangerZone() {

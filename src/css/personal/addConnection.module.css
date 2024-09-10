@@ -1,0 +1,120 @@
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    animation: fadeIn 0.4s linear forwards;
+}
+
+.wrapper.active {
+    animation: fadeOut 0.4s linear forwards;
+}
+
+.modal {
+    margin-top: 10%;
+    width: 50%;
+    margin-top: 1.5vw;
+    background-color: #16151c;
+    border: 1px solid #2a2933;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    padding: 0 2% 1% 2%;
+    animation: floatDown 0.4s linear forwards;
+}
+
+.modal.active {
+    animation: floatUp 0.4s linear forwards;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0;
+}
+
+.close {
+    font-size: 1.5vw;
+    cursor: pointer;
+    color: #a1a0a9;
+    transition: all 600ms ease;
+}
+
+.close:hover {
+    color: white;
+    transition: all 600ms ease;
+    rotate: 180deg;
+}
+
+.connections {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1vw;
+    justify-content: flex-start;
+}
+
+.connection {
+    background-color: #2a2933;
+    width: 7.5vh;
+    height: 7.5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 600ms ease;
+}
+
+.connection:hover {
+    background-color: #1b1b2a;
+    transition: all 600ms ease;
+}
+
+.icon {
+    font-size: 2rem;
+}
+
+@keyframes fadeIn {
+    from {
+        background: rgba(0, 0, 0, 0);
+        backdrop-filter: blur(0);
+    }
+    to {
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(5px);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        backdrop-filter: blur(5px);
+    }
+    to {
+        opacity: 0;
+        backdrop-filter: blur(0);
+    }
+}
+
+@keyframes floatDown {
+    from {
+        transform: translateY(-120%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+@keyframes floatUp {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-120%);
+    }
+}

@@ -23,13 +23,16 @@ export const Toast = () => {
     return (
         <div className={`${styles.container} ${active ? `${styles.active}` : ''} ${styles[color]}`}>
             <div className={styles.infoContainer}>
-                <i className={`${styles.icon} icon-grid-2`}></i>
+                <i className={`${styles.icon} ${color === 'g' ? 'icon-check' : 'icon-xmark'} ${styles[color]}`}></i>
                 <div className={styles.textContainer}>
-                    <p className={styles.heading}>{header}</p>
+                    <p className={styles.heading}>
+                        {header}
+                        <i className={`icon-xmark ${styles.xicon}`} onClick={() => setActive(false)}></i>
+                    </p>
                     <p className={styles.description}>{description}</p>
                 </div>
             </div>
-            <div className={styles.progressBar}></div>
+            <div className={`${styles.progressBar} ${styles[color]}`}></div>
         </div>
     );
 };

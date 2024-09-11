@@ -34,7 +34,7 @@ export default function ArrayInput({ id, values, type, type2, onChange }) {
                         }
                         disabled={data.length == inputs[id].limit}
                     >
-                        Add Booster
+                        Add Item
                     </button>
                     <div className={styles.limitContainer}>
                         <p className={styles.current}>{data.length}</p>

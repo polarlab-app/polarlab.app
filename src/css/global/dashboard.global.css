@@ -5,7 +5,8 @@ body {
 .navbar_nav__yXto3 {
     display: none;
 }
-::-webkit-scroll {
+
+::-webkit-scrollbar {
     display: none;
 }
 

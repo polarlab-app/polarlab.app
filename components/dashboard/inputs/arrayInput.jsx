@@ -30,7 +30,7 @@ export default function ArrayInput({ id, values, type, type2, onChange }) {
                     <button
                         className={styles.button}
                         onClick={() =>
-                            data.length < inputs[id].limit && setData([...data, { id: '', amount: inputs[id].min }])
+                            data.length < inputs[id].limit && setData([...data, { id: '', value: inputs[id].min }])
                         }
                         disabled={data.length == inputs[id].limit}
                     >
@@ -63,7 +63,7 @@ export default function ArrayInput({ id, values, type, type2, onChange }) {
                                     <div className={styles.values}>
                                         {Array.from({ length: optionsCount }, (_, idx) => {
                                             const currentValue = inputs[id].min + idx * inputs[id].step;
-                                            const isActive = currentValue == Number(data[index].amount);
+                                            const isActive = currentValue == Number(data[index].value);
                                             return (
                                                 <div
                                                     className={`${styles.value} ${isActive ? styles.active : ''}`}
@@ -78,11 +78,11 @@ export default function ArrayInput({ id, values, type, type2, onChange }) {
                                     <input
                                         className={styles.rangeInput}
                                         type='range'
-                                        value={Number(value.amount)}
+                                        value={Number(value.value)}
                                         min={inputs[id].min}
                                         max={inputs[id].max}
                                         step={inputs[id].step}
-                                        onChange={(e) => handleInputChange(index, 'amount', e.target.value)}
+                                        onChange={(e) => handleInputChange(index, 'value', e.target.value)}
                                     />
                                 </div>
                             )}
@@ -102,7 +102,7 @@ export default function ArrayInput({ id, values, type, type2, onChange }) {
                                     <div className={styles.values}>
                                         {Array.from({ length: optionsCount }, (_, idx) => {
                                             const currentValue = inputs[id].min + idx * inputs[id].step;
-                                            const isActive = currentValue == Number(data[index].amount);
+                                            const isActive = currentValue == Number(data[index].value);
                                             return (
                                                 <div
                                                     className={`${styles.value} ${isActive ? styles.active : ''}`}
@@ -117,17 +117,16 @@ export default function ArrayInput({ id, values, type, type2, onChange }) {
                                     <input
                                         className={styles.rangeInput}
                                         type='range'
-                                        value={Number(value.amount)}
+                                        value={Number(value.value)}
                                         min={inputs[id].min}
                                         max={inputs[id].max}
                                         step={inputs[id].step}
-                                        onChange={(e) => handleInputChange(index, 'amount', e.target.value)}
+                                        onChange={(e) => handleInputChange(index, 'value', e.target.value)}
                                     />
                                 </div>
                             )}
                         </div>
                         <div className={styles.buttons}>
-                            <i className={`${styles.icon} icon-grid-2`}></i>
                             <i
                                 className={`${styles.icon} icon-trash`}
                                 onClick={() => setData(data.filter((_, i) => i !== index))}

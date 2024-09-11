@@ -103,6 +103,14 @@
     justify-content: flex-start;
 }
 
+.rangeInputContainer {
+    width: 30vw;
+}
+
+.textInputContainer {
+    width: 20vw;
+}
+
 .textInput {
     width: 100%;
     padding: 10px;
@@ -122,26 +130,42 @@
 .second,
 .first {
     margin-left: 1%;
-    width: 20%;
+    max-width: 40%;
 }
 
 .second {
     margin-left: 10%;
-    width: 40%;
+    max-width: 40%;
 }
 
 .buttons {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-end;
     align-items: center;
-    align-self: center;
     margin-left: auto;
     margin-right: 1%;
-    gap: 1vh;
+    gap: 1vw;
+    width: 10%;
+    height: 100%;
 }
 
 .icon {
-    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #d86464;
+    background-color: rgba(216, 100, 100, 0.2);
+    border-radius: 6px;
+    height: 50%;
+    aspect-ratio: 1/1;
+    transition: all 600ms ease;
+}
+
+.icon:hover {
+    background-color: rgba(216, 100, 100, 0.4);
+    transition: all 600ms ease;
 }
 
 .values {
@@ -185,18 +209,18 @@
 .rangeInput::-moz-range-thumb {
     background-color: white;
     border: none;
-    height: 1.5vh;
+    height: 1.2vh;
     width: 3vh;
 }
 
 .rangeInput::-moz-range-track {
     border-radius: 6px;
     background-color: #111118;
-    height: 1.5vh;
+    height: 1.2vh;
 }
 
 .rangeInput::-moz-range-progress {
     background: linear-gradient(to right, #4bc6fe, #4433a6);
-    height: 1.5vh;
+    height: 1.2vh;
     border-radius: 6px;
 }

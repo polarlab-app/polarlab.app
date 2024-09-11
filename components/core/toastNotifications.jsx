@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import styles from './toastNotifications.module.css';
+import styles from '@css/core/toastNotifications.module.css';
 
 let toastTrigger;
 

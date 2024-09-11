@@ -35,7 +35,7 @@
     background-color: rgba(0, 224, 156, 0.7);
 }
 .container.active .progressBar {
-    animation: progress 5s ease-in-out forwards;
+    animation: progress 3s ease-in-out forwards;
 }
 
 .infoContainer {

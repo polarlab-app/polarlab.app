@@ -101,11 +101,7 @@ export default function Page() {
                 ))}
             </div>
             <div className='dashboardWrapper'>
-                <div
-                    style={{
-                        display: selectedTab === 'channelLogs' ? 'block' : 'none',
-                    }}
-                >
+                <div className={`section ${selectedTab === '' ? 'active' : null}`}>
                     {data ? (
                         <>
                             <div className='inputGroupFull'>

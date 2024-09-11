@@ -1,16 +1,23 @@
 'use client';
-import TopBar from '@components/dashboard/top/topbar';
-import { useGuild } from '../guildContext';
+
 import { useState, useEffect, useRef } from 'react';
+
+/* Top bar */
+import TopBar from '@components/dashboard/top/topbar';
 import selectionStyles from '@css/dashboard/selection.module.css';
-import CheckboxInput from '@components/dashboard/inputs/checkbox';
+
+/* Data Management */
+import { useGuild } from '../guildContext';
 import getGuildData from '@lib/dashboard/getGuildData';
 import saveData from '@lib/dashboard/saveData';
+
+/* Inputs */
+import CheckboxInput from '@components/dashboard/inputs/checkbox';
 import TextboxInput from '@components/dashboard/inputs/textbox';
 import ActivityBar from '@/components/dashboard/activity/bar';
 
 export default function Page() {
-    const { selectedGuild, setSelectedGuild } = useGuild();
+    const { selectedGuild } = useGuild();
     const [newData, setNewData] = useState({});
     const [selectedTab, setSelectedTab] = useState('');
     const [data, setData] = useState(null);
@@ -31,19 +38,12 @@ export default function Page() {
         }
     }, [selectedGuild, tabRefs.current.length]);
 
-    const handleCheckboxChange = (id, value) => {
-        const updatedCheckboxValues = { ...newData };
-        updatedCheckboxValues[id] = value;
-        setNewData(updatedCheckboxValues);
-        console.log(newData);
-    };
-
     const discardChanges = () => {
         setNewData({});
     };
 
     const saveTrigger = async () => {
-        const response = await saveData(newData || 0, selectedGuild.id || 0);
+        const response = await saveData(newData, selectedGuild.id);
         if (response) {
             setNewData({});
         } else {
@@ -55,17 +55,21 @@ export default function Page() {
         setSelectedTab(tabId);
     };
 
-    const handleTextboxChange = (id, value) => {
-        const updatedTextboxValues = { ...newData };
-        updatedTextboxValues[id] = value;
-        setNewData(updatedTextboxValues);
+    const handleInputChange = (id, value, value2) => {
+        if (value2) {
+            const updatedValues = { ...newData, [id]: `${value}/${value2}` };
+            setNewData(updatedValues);
+        } else {
+            const updatedValues = { ...newData, [id]: value };
+            setNewData(updatedValues);
+        }
     };
 
     if (!selectedGuild) {
         return <div>Loading...</div>;
     }
 
-    const tabs = ['channelLogs', 'roleLogs', 'messageLogs', 'memberLogs', 'emojiLogs', 'serverLogs'];
+    const tabs = ['channelLogs', 'roleLogs', 'memberLogs', 'serverLogs', 'emojiLogs', 'messageLogs'];
 
     return (
         <div className='dashboard'>
@@ -94,11 +98,7 @@ export default function Page() {
                 ))}
             </div>
             <div className='dashboardWrapper'>
-                <div
-                    style={{
-                        display: selectedTab === 'channelLogs' ? 'block' : 'none',
-                    }}
-                >
+                <div className={`section ${selectedTab === 'channelLogs' ? 'active' : null}`}>
                     {data ? (
                         <>
                             <div className='inputGroupFull'>
@@ -106,15 +106,15 @@ export default function Page() {
                                     type='number'
                                     id='channel-logs-status'
                                     value={data.config.logs.channelLogs.status}
-                                    onChange={(e) => handleCheckboxChange(e.target.id, e.target.checked)}
+                                    onChange={(e) => handleInputChange(e.target.id, e.target.checked)}
                                 />
                             </div>
                             <div className='inputGroupFull'>
                                 <TextboxInput
                                     type='number'
                                     id='channel-logs-channel'
-                                    value={data.config.logs.channelLogs.channelId}
-                                    onChange={(e) => handleTextboxChange(e.target.id, e.target.value)}
+                                    value={data.config.logs.channelLogs.channelID}
+                                    onChange={(e) => handleInputChange(e.target.id, e.target.value)}
                                 />
                             </div>
                         </>
@@ -122,11 +122,7 @@ export default function Page() {
                         <div>Loading...</div>
                     )}
                 </div>
-                <div
-                    style={{
-                        display: selectedTab === 'roleLogs' ? 'block' : 'none',
-                    }}
-                >
+                <div className={`section ${selectedTab === 'roleLogs' ? 'active' : null}`}>
                     {data ? (
                         <>
                             <div className='inputGroupFull'>
@@ -134,15 +130,15 @@ export default function Page() {
                                     type='number'
                                     id='role-logs-status'
                                     value={data.config.logs.roleLogs.status}
-                                    onChange={(e) => handleCheckboxChange(e.target.id, e.target.value)}
+                                    onChange={(e) => handleInputChange(e.target.id, e.target.value)}
                                 />
                             </div>
                             <div className='inputGroupFull'>
                                 <TextboxInput
                                     type='number'
                                     id='role-logs-channel'
-                                    value={data.config.logs.roleLogs.channelId}
-                                    onChange={(e) => handleTextboxChange(e.target.id, e.target.value)}
+                                    value={data.config.logs.roleLogs.channelID}
+                                    onChange={(e) => handleInputChange(e.target.id, e.target.value)}
                                 />
                             </div>
                         </>
@@ -150,11 +146,7 @@ export default function Page() {
                         <div>Loading...</div>
                     )}
                 </div>
-                <div
-                    style={{
-                        display: selectedTab === 'messageLogs' ? 'block' : 'none',
-                    }}
-                >
+                <div className={`section ${selectedTab === 'messageLogs' ? 'active' : null}`}>
                     {data ? (
                         <>
                             <div className='inputGroupFull'>
@@ -162,15 +154,15 @@ export default function Page() {
                                     type='number'
                                     id='message-logs-status'
                                     value={data.config.logs.messageLogs.status}
-                                    onChange={(e) => handleCheckboxChange(e.target.id, e.target.value)}
+                                    onChange={(e) => handleInputChange(e.target.id, e.target.value)}
                                 />
                             </div>
                             <div className='inputGroupFull'>
                                 <TextboxInput
                                     type='number'
                                     id='message-logs-channel'
-                                    value={data.config.logs.messageLogs.channelId}
-                                    onChange={(e) => handleTextboxChange(e.target.id, e.target.value)}
+                                    value={data.config.logs.messageLogs.channelID}
+                                    onChange={(e) => handleInputChange(e.target.id, e.target.value)}
                                 />
                             </div>
                         </>
@@ -178,11 +170,7 @@ export default function Page() {
                         <div>Loading...</div>
                     )}
                 </div>
-                <div
-                    style={{
-                        display: selectedTab === 'memberLogs' ? 'block' : 'none',
-                    }}
-                >
+                <div className={`section ${selectedTab === 'memberLogs' ? 'active' : null}`}>
                     {data ? (
                         <>
                             <div className='inputGroupFull'>
@@ -190,15 +178,15 @@ export default function Page() {
                                     type='number'
                                     id='member-logs-status'
                                     value={data.config.logs.memberLogs.status}
-                                    onChange={(e) => handleCheckboxChange(e.target.id, e.target.value)}
+                                    onChange={(e) => handleInputChange(e.target.id, e.target.value)}
                                 />
                             </div>
                             <div className='inputGroupFull'>
                                 <TextboxInput
                                     type='number'
                                     id='member-logs-channel'
-                                    value={data.config.logs.memberLogs.channelId}
-                                    onChange={(e) => handleTextboxChange(e.target.id, e.target.value)}
+                                    value={data.config.logs.memberLogs.channelD}
+                                    onChange={(e) => handleInputChange(e.target.id, e.target.value)}
                                 />
                             </div>
                         </>
@@ -206,11 +194,7 @@ export default function Page() {
                         <div>Loading...</div>
                     )}
                 </div>
-                <div
-                    style={{
-                        display: selectedTab === 'emojiLogs' ? 'block' : 'none',
-                    }}
-                >
+                <div className={`section ${selectedTab === 'emojiLogs' ? 'active' : null}`}>
                     {data ? (
                         <>
                             <div className='inputGroupFull'>
@@ -218,15 +202,15 @@ export default function Page() {
                                     type='number'
                                     id='emoji-logs-status'
                                     value={data.config.logs.emojiLogs.status}
-                                    onChange={(e) => handleCheckboxChange(e.target.id, e.target.value)}
+                                    onChange={(e) => handleInputChange(e.target.id, e.target.value)}
                                 />
                             </div>
                             <div className='inputGroupFull'>
                                 <TextboxInput
                                     type='number'
                                     id='emoji-logs-channel'
-                                    value={data.config.logs.emojiLogs.channelId}
-                                    onChange={(e) => handleTextboxChange(e.target.id, e.target.value)}
+                                    value={data.config.logs.emojiLogs.channelID}
+                                    onChange={(e) => handleInputChange(e.target.id, e.target.value)}
                                 />
                             </div>
                         </>
@@ -234,11 +218,7 @@ export default function Page() {
                         <div>Loading...</div>
                     )}
                 </div>
-                <div
-                    style={{
-                        display: selectedTab === 'serverLogs' ? 'block' : 'none',
-                    }}
-                >
+                <div className={`section ${selectedTab === 'serverLogs' ? 'active' : null}`}>
                     {data ? (
                         <>
                             <div className='inputGroupFull'>
@@ -246,15 +226,15 @@ export default function Page() {
                                     type='number'
                                     id='server-logs-status'
                                     value={data.config.logs.serverLogs.status}
-                                    onChange={(e) => handleCheckboxChange(e.target.id, e.target.value)}
+                                    onChange={(e) => handleInputChange(e.target.id, e.target.value)}
                                 />
                             </div>
                             <div className='inputGroupFull'>
                                 <TextboxInput
                                     type='number'
                                     id='server-logs-channel'
-                                    value={data.config.logs.serverLogs.channelId}
-                                    onChange={(e) => handleTextboxChange(e.target.id, e.target.value)}
+                                    value={data.config.logs.serverLogs.channelID}
+                                    onChange={(e) => handleInputChange(e.target.id, e.target.value)}
                                 />
                             </div>
                         </>
@@ -262,8 +242,8 @@ export default function Page() {
                         <div>Loading...</div>
                     )}
                 </div>
+                <ActivityBar type={selectedTab} />
             </div>
-            <ActivityBar type={selectedTab} />
         </div>
     );
 }

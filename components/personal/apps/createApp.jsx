@@ -2,6 +2,7 @@ import styles from '@css/personal/createApp.module.css';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import createApp from '@lib/personal/apps/createApp';
+import { triggerToast } from '@/components/core/toastNotifications';
 
 export default function CreateApp({ closeButton }) {
     const [appName, setAppName] = useState('');
@@ -51,12 +52,11 @@ export default function CreateApp({ closeButton }) {
     };
 
     const handleSubmit = async () => {
-        try {
-            await createApp(appName, redirectURIs, appIcon, scopes);
-            alert('App created successfully');
+        const res = JSON.parse(await createApp(appName, redirectURIs, appIcon, scopes));
+        triggerToast(res.h, res.d, res.c);
+        console.log(res);
+        if (res.s) {
             closeButton();
-        } catch (error) {
-            alert('Failed to create app, the developer fucked up lol');
         }
     };
 

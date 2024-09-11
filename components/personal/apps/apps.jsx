@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 import findApps from '@/lib/personal/apps/findApps';
 import deleteApp from '@/lib/personal/apps/deleteApp';
 import updateApp from '@/lib/personal/apps/updateApp';
+import { triggerToast } from '@/components/core/toastNotifications';
 
 export default function Apps() {
     const [apps, setApps] = useState([]);
@@ -91,13 +92,10 @@ export default function Apps() {
     };
 
     const handleDelete = async (id) => {
-        const res = await deleteApp(id);
-        if (res == true) {
-            alert('App deleted successfully');
-        } else {
-            console.log(res);
-            alert('fail');
-        }
+        const res = JSON.parse(await deleteApp(id));
+        triggerToast(res.h, res.d, res.c);
+            setApps(apps.filter((app) => app.id !== id));
+
     };
 
     const availableScopes = ['email', 'authorizedApps', 'connections'];

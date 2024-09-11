@@ -1,29 +1,11 @@
 {
     "topBar": {
-        "settings": "The general settings for your server",
         "overview": "General information about your server",
+        "settings": "The general settings for your server",
         "logging": "Logs to review your servers' activity",
         "exp-and-leveling": "The best engagement system on Discord"
     },
     "inputs": {
-        "ai-functionality": {
-            "name": "AI Functionality",
-            "description": "Whether to enable AI empowered analytics for your server",
-            "path": "config/general/ai-functionality",
-            "placeholder": null
-        },
-        "ai-functionality2": {
-            "name": "AI Functionality",
-            "description": "Whether to enable AI empowered analytics for your server",
-            "path": "config/general/ai-functionality",
-            "placeholder": null
-        },
-        "ai-functionality3": {
-            "name": "AI Functionality",
-            "description": "Whether to enable AI empowered analytics for your server",
-            "path": "config/general/ai-functionality",
-            "placeholder": null
-        },
         "channel-logs-status": {
             "name": "Channel Logs",
             "description": "Whether to enable channel logs for your server",
@@ -33,7 +15,7 @@
         "channel-logs-channel": {
             "name": "Channel Logs Channel ID",
             "description": "The channel ID for channel logs",
-            "path": "config/logs/channelLogs/channelId",
+            "path": "config/logs/channelLogs/channelID",
             "placeholder": 1131195719676596229
         },
         "role-logs-status": {
@@ -45,7 +27,7 @@
         "role-logs-channel": {
             "name": "Role Logs Channel ID",
             "description": "The channel ID for role logs",
-            "path": "config/logs/roleLogs/channelId",
+            "path": "config/logs/roleLogs/channelID",
             "placeholder": 1131195719676596229
         },
         "message-logs-status": {
@@ -57,7 +39,7 @@
         "message-logs-channel": {
             "name": "Message Logs Channel ID",
             "description": "The channel ID for message logs",
-            "path": "config/logs/messageLogs/channelId",
+            "path": "config/logs/messageLogs/channelID",
             "placeholder": 1131195719676596229
         },
         "member-logs-status": {
@@ -69,7 +51,7 @@
         "member-logs-channel": {
             "name": "Member Logs Channel ID",
             "description": "The channel ID for member logs",
-            "path": "config/logs/memberLogs/channelId",
+            "path": "config/logs/memberLogs/channelID",
             "placeholder": 1131195719676596229
         },
         "emoji-logs-status": {
@@ -81,7 +63,7 @@
         "emoji-logs-channel": {
             "name": "Emoji Logs Channel ID",
             "description": "The channel ID for emoji logs",
-            "path": "config/logs/emojiLogs/channelId",
+            "path": "config/logs/emojiLogs/channelID",
             "placeholder": 1131195719676596229
         },
         "server-logs-status": {
@@ -93,7 +75,7 @@
         "server-logs-channel": {
             "name": "Server Logs Channel ID",
             "description": "The channel ID for server logs",
-            "path": "config/logs/serverLogs/channelId",
+            "path": "config/logs/serverLogs/channelID",
             "placeholder": 1131195719676596229
         },
         "leveling-status": {
@@ -143,6 +125,17 @@
             "step": ".5",
             "limit": "10",
             "placeholder": "Role ID"
+        },
+        "leveling-rewards": {
+            "name": "Leveling Reward Roles",
+            "description": "Per level role rewards",
+            "path": "config/leveling/rewards",
+            "min": "0",
+            "max": "6",
+            "step": ".5",
+            "limit": "10",
+            "placeholder": "Level",
+            "placeholder2": "Role ID"
         }
     },
     "paths": {

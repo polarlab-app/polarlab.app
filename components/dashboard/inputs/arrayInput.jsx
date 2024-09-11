@@ -95,6 +95,7 @@ export default function ArrayInput({ id, values, type, type2, onChange }) {
                                         type='text'
                                         value={value.id}
                                         onChange={(e) => handleInputChange(index, 'id', e.target.value)}
+                                        placeholder={inputs[id].placeholder2}
                                     />
                                 </div>
                             ) : (

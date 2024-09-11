@@ -149,6 +149,21 @@ export default function Page() {
                         <div>Loading...</div>
                     )}
                 </div>
+                <div className={`section ${selectedTab === 'levelingRewards' ? 'active' : null}`}>
+                    {data ? (
+                        <div className='inputGroupFull'>
+                            <ArrayInput
+                                id='leveling-rewards'
+                                type='t'
+                                type2='t'
+                                values={data.config.leveling.roleBoosters}
+                                onChange={(newValues) => handleInputChange('leveling-rewards', newValues)}
+                            />
+                        </div>
+                    ) : (
+                        <div>Loading...</div>
+                    )}
+                </div>
                 <div className={`section ${selectedTab === 'expBoosters' ? 'active' : null}`}>
                     {data ? (
                         <>

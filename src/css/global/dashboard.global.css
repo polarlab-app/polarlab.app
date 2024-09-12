@@ -62,7 +62,7 @@ body {
     float: left;
 }
 
-.inputGroupHalf:nth-child(2n) {
+.inputGroupHalf:nth-child(2n of .inputGroupHalf) {
     margin-left: 5%;
 }
 

@@ -31,6 +31,7 @@ export default function Page() {
 
         const fetchData = async () => {
             const guildData = JSON.parse(await getGuildData(selectedGuild.id));
+            console.log(guildData);
             setData(guildData);
         };
 
@@ -73,7 +74,7 @@ export default function Page() {
         return <div>Loading...</div>;
     }
 
-    const tabs = ['levelingSettings', 'levelingRewards', 'expBoosters'];
+    const tabs = ['levelingSettings', 'levelingRewards', 'expBoosters', 'levelingDisplay'];
 
     return (
         <div className='dashboard'>
@@ -111,14 +112,6 @@ export default function Page() {
                                     id='leveling-status'
                                     value={data.config.leveling.status}
                                     onChange={(e) => handleInputChange(e.target.id, e.target.checked)}
-                                />
-                            </div>
-                            <div className='inputGroupFull'>
-                                <TextboxInput
-                                    type='number'
-                                    id='leveling-channel'
-                                    value={data.config.leveling.channelID}
-                                    onChange={(e) => handleInputChange(e.target.id, e.target.value)}
                                 />
                             </div>
                             <div className='inputGroupHalf'>
@@ -184,6 +177,38 @@ export default function Page() {
                                     values={data.config.leveling.channelBoosters}
                                     onChange={(newValues) => handleInputChange('leveling-channel-boosters', newValues)}
                                 />
+                            </div>
+                        </>
+                    ) : (
+                        <div>Loading...</div>
+                    )}
+                </div>
+                <div className={`section ${selectedTab === 'levelingDisplay' ? 'active' : null}`}>
+                    {data ? (
+                        <>
+                            <div className='inputGroupFull'>
+                                <CheckboxInput
+                                    id='leveling-display-status'
+                                    value={data.config.leveling.display.status}
+                                    onChange={(e) => handleInputChange(e.target.id, e.target.checked)}
+                                />
+                            </div>
+                            <div className='inputGroupHalf'>
+                                <RadioInput
+                                    id='leveling-display-type'
+                                    value={data.config.leveling.display.type}
+                                    onChange={(e) => handleInputChange(e.target.name, e.target.value)}
+                                />
+                                {(newData && newData['leveling-display-type'] == 'dedicated') ||
+                                (!newData['leveling-display-type'] &&
+                                    data &&
+                                    data.config.leveling.display.type === 'dedicated') ? (
+                                    <TextboxInput
+                                        id='leveling-display-channel'
+                                        value={data.config.leveling.display.channelID}
+                                        onChange={(e) => handleInputChange(e.target.id, e.target.value)}
+                                    />
+                                ) : null}
                             </div>
                         </>
                     ) : (

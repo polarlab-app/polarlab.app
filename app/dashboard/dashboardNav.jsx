@@ -46,7 +46,7 @@ export default function DashboardNav() {
     async function handleLogout() {
         const res = await logout();
         if (res) {
-            window.location.assign = '/login';
+            window.location.href = '/login';
         }
     }
 
@@ -89,7 +89,7 @@ export default function DashboardNav() {
                                             setOpenStatus(false);
                                         }}
                                     >
-                                        {guild.icon ? (
+                                        {guild.icon != null ? (
                                             <Image
                                                 width={128}
                                                 height={128}
@@ -99,10 +99,10 @@ export default function DashboardNav() {
                                             />
                                         ) : (
                                             <Image
-                                                width={128}
-                                                height={128}
+                                                width={12}
+                                                height={12}
                                                 src={`https://placehold.co/128x128`}
-                                                alt={`<i>`}
+                                                alt={`<i2>`}
                                                 className={styles2.icon}
                                                 unoptimized
                                             />

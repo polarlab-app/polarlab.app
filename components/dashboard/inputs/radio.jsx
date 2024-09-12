@@ -13,7 +13,32 @@ export default function RadioInput({ id, value, onChange }) {
                 <p className={styles.description}>{inputs[id].description}</p>
             </div>
             <div className={styles.options}>
-                <label className={styles.option}>
+                {inputs[id].options.map((option, index) => (
+                    <label className={styles.option} key={index}>
+                        <input
+                            type='radio'
+                            id={index}
+                            value={option}
+                            checked={selectedValue === option}
+                            onChange={(e) => setSelectedValue(e.target.value)}
+                            name={id}
+                            className={styles.input}
+                        />
+                        <span className={styles.toggle}>
+                            <span className={styles.innertoggle}></span>
+                        </span>
+                        <span className={styles.label}>
+                            {option
+                                .split(' ')
+                                .map((word, index) =>
+                                    index === 0 ? word.charAt(0).toUpperCase() + word.slice(1) : word.toLowerCase()
+                                )
+                                .join('')
+                                .replace(/([a-z])([A-Z])/g, '$1 $2')}
+                        </span>
+                    </label>
+                ))}
+                {/*<label className={styles.option}>
                     <input
                         type='radio'
                         id='1'
@@ -42,7 +67,7 @@ export default function RadioInput({ id, value, onChange }) {
                         <span className={styles.innertoggle}></span>
                     </span>
                     <span className={styles.label}>Range</span>
-                </label>
+                </label>*/}
             </div>
         </div>
     );

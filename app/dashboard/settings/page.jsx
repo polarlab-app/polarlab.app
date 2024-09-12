@@ -36,13 +36,6 @@ export default function Page() {
         }
     }, [selectedGuild, tabRefs.current.length]);
 
-    const handleCheckboxChange = (id, value) => {
-        const updatedCheckboxValues = { ...newData };
-        updatedCheckboxValues[id] = value;
-        setNewData(updatedCheckboxValues);
-        console.log(newData);
-    };
-
     const discardChanges = () => {
         setNewData({});
     };
@@ -60,22 +53,25 @@ export default function Page() {
         setSelectedTab(tabId);
     };
 
-    const handleTextboxChange = (id, value) => {
-        const updatedTextboxValues = { ...newData };
-        updatedTextboxValues[id] = value;
-        setNewData(updatedTextboxValues);
-    };
-
     if (!selectedGuild) {
         return <div>Loading...</div>;
     }
+    const handleInputChange = (id, value, value2) => {
+        if (value2) {
+            const updatedValues = { ...newData, [id]: `${value}/${value2}` };
+            setNewData(updatedValues);
+        } else {
+            const updatedValues = { ...newData, [id]: value };
+            setNewData(updatedValues);
+        }
+    };
 
     const tabs = ['generalSettings', 'dashboardAccess', 'Commands'];
 
     return (
         <div className='dashboard'>
             <TopBar
-                type='settings'
+                type=''
                 showButtons={Object.keys(newData).length > 0}
                 onDiscard={discardChanges}
                 onSave={saveTrigger}
@@ -99,11 +95,7 @@ export default function Page() {
                 ))}
             </div>
             <div className='dashboardWrapper'>
-                <div
-                    style={{
-                        display: selectedTab === 'channelLogs' ? 'block' : 'none',
-                    }}
-                >
+                <div className={`section ${selectedTab === '' ? 'active' : null}`}>
                     {data ? (
                         <>
                             <div className='inputGroupFull'>
@@ -111,15 +103,15 @@ export default function Page() {
                                     type='number'
                                     id='channel-logs-status'
                                     value={data.config.logs.channelLogs.status}
-                                    onChange={(e) => handleCheckboxChange(e.target.id, e.target.checked)}
+                                    onChange={(e) => handleInputChange(e.target.id, e.target.checked)}
                                 />
                             </div>
-                            <div className='inputGroupFull'>
+                            <div className='inputGroupHalf'>
                                 <TextboxInput
                                     type='number'
                                     id='channel-logs-channel'
                                     value={data.config.logs.channelLogs.channelId}
-                                    onChange={(e) => handleTextboxChange(e.target.id, e.target.value)}
+                                    onChange={(e) => handleInputChange(e.target.id, e.target.value)}
                                 />
                             </div>
                         </>

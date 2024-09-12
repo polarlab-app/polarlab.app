@@ -130,12 +130,28 @@
             "name": "Leveling Reward Roles",
             "description": "Per level role rewards",
             "path": "config/leveling/rewards",
-            "min": "0",
-            "max": "6",
-            "step": ".5",
-            "limit": "10",
+
+            "limit": "25",
             "placeholder": "Level",
             "placeholder2": "Role ID"
+        },
+        "leveling-display-status": {
+            "name": "Leveling Reward Status",
+            "description": "Whether to enable level displaying for your server",
+            "path": "config/leveling/display/status",
+            "placeholder": null
+        },
+        "leveling-display-type": {
+            "name": "Leveling Reward Type",
+            "description": "The channel type for level displaying",
+            "path": "config/leveling/display/type",
+            "options": ["dedicated", "current"]
+        },
+        "leveling-display-channel": {
+            "name": "Leveling Reward Channel ID",
+            "description": "The channel ID in which to post level-ups",
+            "path": "config/leveling/display/channelID",
+            "placeholder": "1131195719676596229"
         }
     },
     "paths": {

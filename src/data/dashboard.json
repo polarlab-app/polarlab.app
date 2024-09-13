@@ -84,12 +84,7 @@
             "path": "config/leveling/status",
             "placeholder": null
         },
-        "leveling-channel": {
-            "name": "Leveling Channel ID",
-            "description": "The channel ID in which to post level-ups (current channel by default)",
-            "path": "config/leveling/channelID",
-            "placeholder": "1131195719676596229"
-        },
+
         "leveling-exp-amount": {
             "name": "EXP Amount",
             "description": "The amount of EXP to give",
@@ -109,7 +104,7 @@
         "leveling-channel-boosters": {
             "name": "Channel Boosters",
             "description": "Per channel EXP Boosters",
-            "path": "config/leveling/channelBoosters",
+            "path": "config/leveling/boosters/channelBoosters",
             "min": "0",
             "max": "6",
             "step": "0.5",
@@ -119,31 +114,44 @@
         "leveling-role-boosters": {
             "name": "Role Boosters",
             "description": "Per role EXP Boosters",
-            "path": "config/leveling/roleBoosters",
+            "path": "config/leveling/boosters/roleBoosters",
             "min": "0",
             "max": "6",
             "step": ".5",
             "limit": "10",
             "placeholder": "Role ID"
         },
+        "leveling-member-boosters": {
+            "name": "Member",
+            "description": "Per member EXP Boosters",
+            "path": "config/leveling/boosters/memberBoosters",
+            "min": "0",
+            "max": "6",
+            "step": ".5",
+            "limit": "10",
+            "placeholder": "Member ID"
+        },
         "leveling-rewards": {
             "name": "Leveling Reward Roles",
             "description": "Per level role rewards",
-            "path": "config/leveling/rewards",
-
+            "path": "config/leveling/rewards/rewards",
             "limit": "25",
             "placeholder": "Level",
             "placeholder2": "Role ID"
         },
-        "leveling-display-status": {
+        "leveling-reward-status": {
             "name": "Leveling Reward Status",
-            "description": "Whether to enable level displaying for your server",
-            "path": "config/leveling/display/status",
-            "placeholder": null
+            "description": "Whether to enable level rewards for your server",
+            "path": "config/leveling/rewards/status"
+        },
+        "leveling-display-status": {
+            "name": "Leveling Displaying",
+            "description": "Whether to enable level up displaying for your server",
+            "path": "config/leveling/display/status"
         },
         "leveling-display-type": {
-            "name": "Leveling Reward Type",
-            "description": "The channel type for level displaying",
+            "name": "Leveling Channel",
+            "description": "The channel for displaying level ups",
             "path": "config/leveling/display/type",
             "options": ["dedicated", "current"]
         },
@@ -152,6 +160,11 @@
             "description": "The channel ID in which to post level-ups",
             "path": "config/leveling/display/channelID",
             "placeholder": "1131195719676596229"
+        },
+        "leveling-boosters-status": {
+            "name": "Leveling Multipliers",
+            "description": "Whether to enable level multipliers for your server",
+            "path": "config/leveling/boosters/status"
         }
     },
     "paths": {
@@ -170,10 +183,16 @@
         "server-logs-status": "config/logs/serverLogs/status",
         "server-logs-channel": "config/logs/serverLogs/channelId",
         "leveling-status": "config/leveling/status",
-        "leveling-channel": "config/logs/leveling/channelID",
         "leveling-exp-amount": "config/leveling/amount",
         "leveling-exp-type": "config/leveling/type",
-        "leveling-role-boosters": "config/leveling/roleBoosters",
-        "leveling-channel-boosters": "config/leveling/channelBoosters"
+        "leveling-boosters-status": "config/leveling/boosters/status",
+        "leveling-role-boosters": "config/leveling/boosters/roleBoosters",
+        "leveling-channel-boosters": "config/leveling/boosters/channelBoosters",
+        "leveling-member-boosters": "config/leveling/boosters/memberBoosters",
+        "leveling-rewards": "config/leveling/rewards/rewards",
+        "leveling-reward-status": "config/leveling/rewards/status",
+        "leveling-display-status": "config/leveling/display/status",
+        "leveling-display-type": "config/leveling/display/type",
+        "leveling-display-channel": "config/leveling/display/channelID"
     }
 }

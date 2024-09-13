@@ -14,7 +14,7 @@ import saveData from '@lib/dashboard/saveData';
 /* Inputs */
 import CheckboxInput from '@components/dashboard/inputs/checkbox';
 import TextboxInput from '@components/dashboard/inputs/textbox';
-import ActivityBar from '@/components/dashboard/activity/bar';
+import ActivityBar from '@components/dashboard/activity/bar';
 
 export default function Page() {
     const { selectedGuild } = useGuild();
@@ -69,7 +69,7 @@ export default function Page() {
         return <div>Loading...</div>;
     }
 
-    const tabs = ['channelLogs', 'roleLogs', 'memberLogs', 'serverLogs', 'emojiLogs', 'messageLogs'];
+    const tabs = ['channelLogs', 'roleLogs', 'memberLogs', 'serverLogs', 'emojiLogs', 'messageLogs', 'caseHistory'];
 
     return (
         <div className='dashboard'>

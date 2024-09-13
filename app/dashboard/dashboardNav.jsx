@@ -10,16 +10,33 @@ import { useGuild } from './guildContext';
 import Image from 'next/image';
 import logout from '@/lib/auth/sessionManagement/logout';
 
-const NavLink = ({ activeNav, setActiveNav, children }) => (
-    <Link
-        className={`${styles.navsectionitem} ${activeNav === children ? styles.active : ''}`}
-        href={'/dashboard/' + children.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')}
-        onClick={() => setActiveNav(children)}
-    >
-        <i alt='navImg' className={`${styles.navsectionimg} icon-grid-2`} />
-        <p className={styles.navsectiontext}>{children}</p>
-    </Link>
-);
+const NavLink = ({ activeNav, setActiveNav, children }) => {
+    const i = {
+        overview: 'icon-grid-2',
+        settings: 'icon-gear',
+        subscription: 'icon-sparkles',
+        'exp & levels': 'icon-stars',
+        music: 'icon-music',
+        giveaways: 'icon-gift',
+        birthdays: 'icon-cake',
+        'social notifications': 'icon-bells',
+        moderation: 'icon-shield',
+        logging: 'icon-scroll',
+        'auto moderator': 'icon-shield',
+        'server guard': 'icon-shield-keyhole',
+    };
+
+    return (
+        <Link
+            className={`${styles.navsectionitem} ${activeNav === children ? styles.active : ''}`}
+            href={'/dashboard/' + children.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')}
+            onClick={() => setActiveNav(children)}
+        >
+            <i alt='navImg' className={`${styles.navsectionimg} ${i[children.toLowerCase()]}`} />
+            <p className={styles.navsectiontext}>{children}</p>
+        </Link>
+    );
+};
 
 export default function DashboardNav() {
     const [guilds, setGuilds] = useState(null);

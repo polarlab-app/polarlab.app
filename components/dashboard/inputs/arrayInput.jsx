@@ -18,7 +18,6 @@ export default function ArrayInput({ id, values, type, type2, onChange }) {
         newData[index][field] = value;
         setData(newData);
     };
-
     return (
         <div className={styles.container}>
             <div className={styles.textContainer}>
@@ -30,7 +29,8 @@ export default function ArrayInput({ id, values, type, type2, onChange }) {
                     <button
                         className={styles.button}
                         onClick={() =>
-                            data.length < inputs[id].limit && setData([...data, { id: '', value: inputs[id].min }])
+                            data.length < inputs[id].limit &&
+                            setData([...data, { id: '', value: inputs[id].min, status: true }])
                         }
                         disabled={data.length == inputs[id].limit}
                     >
@@ -82,7 +82,7 @@ export default function ArrayInput({ id, values, type, type2, onChange }) {
                                         min={inputs[id].min}
                                         max={inputs[id].max}
                                         step={inputs[id].step}
-                                        onChange={(e) => handleInputChange(index, 'value', e.target.value)}
+                                        onChange={(e) => handleInputChange(index, 'id', e.target.value)}
                                     />
                                 </div>
                             )}
@@ -93,8 +93,8 @@ export default function ArrayInput({ id, values, type, type2, onChange }) {
                                     <input
                                         className={styles.textInput}
                                         type='text'
-                                        value={value.id}
-                                        onChange={(e) => handleInputChange(index, 'id', e.target.value)}
+                                        value={value.value}
+                                        onChange={(e) => handleInputChange(index, 'value', e.target.value)}
                                         placeholder={inputs[id].placeholder2}
                                     />
                                 </div>
@@ -128,6 +128,18 @@ export default function ArrayInput({ id, values, type, type2, onChange }) {
                             )}
                         </div>
                         <div className={styles.buttons}>
+                            <label className={styles.checkContainer}>
+                                <input
+                                    id={id}
+                                    type='checkbox'
+                                    className={styles.hidden}
+                                    onChange={(e) => handleInputChange(index, 'status', !value.status)}
+                                    checked={value.status}
+                                ></input>
+                                <span className={styles.toggle}>
+                                    <span className={styles.innerToggle}></span>
+                                </span>
+                            </label>
                             <i
                                 className={`${styles.icon} icon-trash`}
                                 onClick={() => setData(data.filter((_, i) => i !== index))}

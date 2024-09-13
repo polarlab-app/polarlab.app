@@ -2,7 +2,7 @@
     font-family: 'icons';
     font-style: normal;
     font-weight: normal;
-    src: url('./fonts/icons.woff') format('woff'), url('./fonts/icons.woff2') format('woff2');
+    src: url('../../fonts/icons.woff') format('woff'), url('../../fonts/icons.woff2') format('woff2');
 }
 
 [class^='icon-']:before,
@@ -55,7 +55,7 @@
 } /* '' */
 .icon-copy:before {
     content: '\e80c';
-} /* '' */
+}
 .icon-discord:before {
     content: '\e80d';
 } /* '' */

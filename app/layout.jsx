@@ -3,7 +3,7 @@ import '@css/global/icons.css';
 import NavBar from '@components/core/NavBar.jsx';
 import Footer from '@components/core/footer.jsx';
 import { cookies } from 'next/headers';
-import CookieConsent from '@/components/core/cookieConsent';
+import CookieConsent from '@components/core/cookieConsent';
 import { WebVitals } from '@components/core/webVitals';
 
 export const metadata = {

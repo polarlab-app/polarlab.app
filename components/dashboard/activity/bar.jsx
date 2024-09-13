@@ -1,9 +1,21 @@
 'use client';
 import styles from '@css/dashboard/activity.module.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import fetchCases from '@/lib/dashboard/fetchCases';
+import Item from './item';
 
-export default function ActivityBar({ type }) {
+export default function ActivityBar({ type, onClick }) {
     const [show, setShow] = useState(false);
+    const [data, setData] = useState([]);
+    useEffect(() => {
+        async function fetchData() {
+            const data = JSON.parse(await fetchCases(type));
+            setData(data.slice(0, 5));
+            console.log(data);
+        }
+
+        fetchData();
+    }, [type]);
 
     return (
         <div className={`${styles.bar} ${show ? styles.active : null}`}>
@@ -12,23 +24,8 @@ export default function ActivityBar({ type }) {
                 <p className={styles.heading}>Recent Activity</p>
                 <i className={`${styles.upIcon} icon-caret-up`} onClick={() => setShow(!show)}></i>
             </div>
-            <div className={styles.items}>
-                <div className={styles.item}>
-                    <div className={styles.itemHeader}>
-                        <p className={styles.itemHeading}>Channel Deleted</p>
-                        <p className={styles.itemID}>(1hDy4bD)</p>
-                    </div>
-                </div>
-                <hr className={styles.divider} />
-                <div className={styles.item}></div>
-                <hr className={styles.divider} />
-                <div className={styles.item}></div>
-                <hr className={styles.divider} />
-
-                <div className={styles.item}></div>
-                <hr className={styles.divider} />
-
-                <div className={styles.item}></div>
+            <div className={styles.items} onClick={onClick}>
+                {data ? data.map((item, index) => <Item key={index} item={item} />) : <p>No Data Found</p>}
             </div>
         </div>
     );

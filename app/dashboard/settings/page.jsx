@@ -71,7 +71,7 @@ export default function Page() {
     return (
         <div className='dashboard'>
             <TopBar
-                type=''
+                type='settings'
                 showButtons={Object.keys(newData).length > 0}
                 onDiscard={discardChanges}
                 onSave={saveTrigger}

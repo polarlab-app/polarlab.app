@@ -16,6 +16,34 @@
     text-transform: none;
     line-height: 1em;
 }
+
+.icon-caret-up:before {
+    content: '\e800';
+} /* '' */
+.icon-folders:before {
+    content: '\e801';
+} /* '' */
+.icon-trash:before {
+    content: '\e802';
+} /* '' */
+.icon-plus:before {
+    content: '\e803';
+} /* '' */
+.icon-gift:before {
+    content: '\e804';
+} /* '' */
+.icon-shield-keyhole:before {
+    content: '\e805';
+} /* '' */
+.icon-shield:before {
+    content: '\e806';
+} /* '' */
+.icon-gear:before {
+    content: '\e807';
+} /* '' */
+.icon-message:before {
+    content: '\e808';
+} /* '' */
 .icon-arrow-right:before {
     content: '\e809';
 } /* '' */
@@ -79,3 +107,12 @@
 .icon-link:before {
     content: '\e81d';
 } /* '' */
+.icon-scroll:before {
+    content: '\e81e';
+} /* '' */
+.icon-bells:before {
+    content: '\e81f';
+} /* '' */
+.icon-stars:before {
+    content: '\e820';
+} /* '' */

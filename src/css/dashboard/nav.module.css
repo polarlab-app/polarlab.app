@@ -6,42 +6,56 @@
     flex-direction: column;
     text-align: left;
     color: white;
-    border-right: 1px solid #1f2129;
+    border-right: 1px solid #212029;
     overflow: hidden;
-    background-color: #1b1c24;
+    background-color: #111118;
 }
 .sidenavtop {
-    height: 10vh;
+    height: 8vh;
     position: relative;
-    display: flex;
-    margin-left: 10%;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    margin-left: 5%;
     border-radius: 6px;
+    margin-top: 5%;
+    width: 90%;
+    transition: all 600ms ease;
 }
-.tagcontainer {
+
+.dropdown {
     display: flex;
-    flex-direction: row;
     align-items: center;
-    width: 110%;
+    justify-content: flex-start;
+    height: 100%;
+    cursor: pointer;
 }
-.tag {
-    border-radius: 8px;
-    height: 30%;
+
+.profileIcon {
+    border-radius: 6px;
     width: 20%;
-    text-align: center;
-    line-height: 0.1;
-    background: linear-gradient(135deg, #ac59ff, #5959ff);
-    font-size: 12px;
-    font-weight: 700;
-    margin: 0 1vh;
-    margin-top: 0.4vh;
+    height: auto;
+    margin: 0 3%;
 }
-.toplogout {
-    margin-right: 10%;
-    width: 1.5vw;
+
+.textContainer {
+    display: flex;
+    flex-direction: column;
 }
+.guild {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+.username {
+    margin-top: 0;
+    color: #9d9ba9;
+}
+
+.sidenavtop.active,
+.sidenavtop:hover {
+    background-color: #1e1d26;
+    transition: all 600ms ease;
+}
+
 .sidenavselection::-webkit-scrollbar {
     display: none;
 }
@@ -65,7 +79,7 @@
     align-items: center;
     border-radius: 6px;
     width: 100%;
-    height: 4.5vh;
+    height: 4.3vh;
     transition: all 600ms ease;
     margin: 3% 0;
 }
@@ -75,6 +89,7 @@
     transition: all 600ms ease;
 }
 
+.navsectionitem.active .navsectionimg,
 .navsectionitem.active .navsectiontext {
     color: white;
     transition: all 600ms ease;
@@ -84,15 +99,27 @@
     background-color: #2c2d36;
     transition: all 600ms ease;
 }
-.navsectiontext {
-    color: #9a9ba9;
-    font-weight: 600;
+.navsectionitem:hover .navsectiontext {
+    color: white;
     transition: all 600ms ease;
 }
+.navsectionitem:hover .navsectionimg {
+    color: white;
+    transition: all 600ms ease;
+    rotate: 360deg;
+}
+
+.navsectiontext {
+    color: #9d9ba9;
+    font-weight: 600;
+    transition: all 600ms ease;
+    font-size: 0.83rem;
+}
 .navsectionimg {
-    height: 50%;
-    width: auto;
+    font-size: 1.2rem;
+    color: #9d9ba9;
     margin: 0 1vw 0 0.5vw;
+    transition: all 600ms ease;
 }
 
 .sidenavbottom {
@@ -103,20 +130,23 @@
     height: 5%;
 }
 
-.logout {
-    height: 5vh;
-    border-radius: 12px;
-    width: 100%;
-    color: #fe424d;
-    background-color: hsl(356.49, 98.95%, 62.75%, 0.2);
-    border: 1px solid rgba(255, 85, 96, 0.402);
-    text-align: center;
-    font-size: 1rem;
+.button {
+    color: #d86464;
+    background-color: #1e1d26;
+    height: 4vh;
+    border: none;
+    border-radius: 6px;
+    transition: all 600ms ease;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: 1%;
+    animation: appear 0.6s ease-out forwards;
     font-weight: 600;
-    line-height: 2.3;
-    transition: all 600ms ease;
+    width: 100%;
 }
-.logout:hover {
+
+.button:hover {
+    background-color: #0d0c13;
     transition: all 600ms ease;
-    background-color: hsl(356.49, 98.95%, 62.75%, 0.3);
+    scale: 0.95;
 }

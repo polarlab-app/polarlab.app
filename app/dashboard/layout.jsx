@@ -1,5 +1,5 @@
 import DashboardNav from './dashboardNav.jsx';
-import '@css/dashboard/dashboard.css';
+import '@css/global/dashboard.global.css';
 import { GuildProvider } from './guildContext';
 
 export const metadata = {
@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function DashboardLayout({ children }) {
     return (
-        <div className='mainwrapper'>
+        <div className='mainWrapper'>
             <GuildProvider>
                 <DashboardNav />
                 {children}

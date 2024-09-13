@@ -136,7 +136,8 @@
 
 .textInput:focus {
     outline: none;
-    border: 1px solid #5959ff;
+    border: 1px solid #4b4ee7;
+
     transition: all 600ms ease;
 }
 .second,
@@ -236,4 +237,47 @@
     background: linear-gradient(to right, #4bc6fe, #4433a6);
     height: 1.2vh;
     border-radius: 6px;
+}
+
+.hidden {
+    display: none;
+}
+
+.checkContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50%;
+    aspect-ratio: 1/1;
+    margin: 1.5%;
+}
+
+.toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #111118;
+    border-radius: 6px;
+    width: 100%;
+    transition: all 600ms ease;
+    border: 1px solid #1e1d26;
+    height: 100%;
+    cursor: pointer;
+}
+
+.toggle:hover {
+    border: 1px solid #4b4ee7;
+    transition: all 600ms ease;
+}
+
+.innerToggle {
+    width: 55%;
+    height: 55%;
+    transition: all 600ms ease;
+    border-radius: 2px;
+}
+
+.hidden:checked + .toggle .innerToggle {
+    background-color: #4b4ee7;
+    transition: all 600ms ease;
 }

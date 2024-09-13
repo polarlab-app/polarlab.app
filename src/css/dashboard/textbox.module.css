@@ -1,4 +1,4 @@
-.textboxcontainer {
+.textboxContainer {
     width: 100%;
     height: 10vh;
     display: flex;
@@ -6,22 +6,33 @@
     align-items: center;
 }
 
-.textboxtext {
+.textboxContainer.half {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: auto;
+}
+
+.textboxText {
     margin-left: 1.5%;
     text-align: left;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
+.textboxText.half {
+    margin-left: 3%;
+}
 
-.textboxheader {
+.textboxHeader {
     color: white;
     font-size: 1.2rem;
     margin: 0;
     font-weight: 700;
 }
 
-.textboxdescription {
+.textboxDescription {
     color: #9d9ba9;
     margin: 0;
 }
@@ -35,6 +46,11 @@
     color: white;
     transition: all 600ms ease;
     margin-right: 2%;
+}
+
+.textbox.half {
+    margin: 3%;
+    width: 40%;
 }
 
 .textbox:focus {

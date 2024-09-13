@@ -58,6 +58,8 @@
     border-radius: 6px;
     cursor: pointer;
     transition: all 600ms ease;
+    display: flex;
+    flex-direction: column;
 }
 .item:nth-last-child(-n + 1) {
     margin-bottom: 6vh;
@@ -65,7 +67,8 @@
 
 .divider {
     border: 1px solid rgba(157, 155, 169, 0.1);
-    width: 90%;
+    width: 80%;
+    margin-left: 10%;
 }
 
 .item:hover {
@@ -87,4 +90,27 @@
 .itemID {
     margin-left: 1%;
     color: #9d9ba9;
+}
+
+.info {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.details,
+.ids {
+    text-align: left;
+    width: 47.5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-weight: 600;
+}
+
+.id {
+    color: #9d9ba9;
+}
+
+.infoItem {
+    margin: 1% 0;
 }

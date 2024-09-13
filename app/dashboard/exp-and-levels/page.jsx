@@ -17,10 +17,10 @@ import TextboxInput from '@components/dashboard/inputs/textbox';
 import RadioInput from '@components/dashboard/inputs/radio';
 import RangeInput from '@components/dashboard/inputs/range';
 import DoubleInput from '@components/dashboard/inputs/doubleInput';
-import ArrayInput from '@/components/dashboard/inputs/arrayInput';
+import ArrayInput from '@components/dashboard/inputs/arrayInput';
 
 export default function Page() {
-    const { selectedGuild, setSelectedGuild } = useGuild();
+    const { selectedGuild } = useGuild();
     const [newData, setNewData] = useState({});
     const [selectedTab, setSelectedTab] = useState('');
     const [data, setData] = useState(null);
@@ -31,7 +31,6 @@ export default function Page() {
 
         const fetchData = async () => {
             const guildData = JSON.parse(await getGuildData(selectedGuild.id));
-            console.log(guildData);
             setData(guildData);
         };
 
@@ -40,7 +39,6 @@ export default function Page() {
         if (tabRefs.current.length > 0) {
             setSelectedTab(tabRefs.current[0].id);
         }
-        console.log('f');
     }, [selectedGuild, tabRefs.current.length]);
 
     const discardChanges = () => {
@@ -144,15 +142,22 @@ export default function Page() {
                 </div>
                 <div className={`section ${selectedTab === 'levelingRewards' ? 'active' : null}`}>
                     {data ? (
-                        <div className='inputGroupFull'>
-                            <ArrayInput
-                                id='leveling-rewards'
-                                type='t'
-                                type2='t'
-                                values={data.config.leveling.roleBoosters}
-                                onChange={(newValues) => handleInputChange('leveling-rewards', newValues)}
-                            />
-                        </div>
+                        <>
+                            <div className='inputGroupFull'>
+                                <CheckboxInput
+                                    id='leveling-reward-status'
+                                    value={data.config.leveling.rewards.status}
+                                    onChange={(e) => handleInputChange(e.target.id, e.target.checked)}
+                                />
+                                <ArrayInput
+                                    id='leveling-rewards'
+                                    type='t'
+                                    type2='t'
+                                    values={data.config.leveling.rewards.rewards}
+                                    onChange={(newValues) => handleInputChange('leveling-rewards', newValues)}
+                                />
+                            </div>
+                        </>
                     ) : (
                         <div>Loading...</div>
                     )}
@@ -161,11 +166,18 @@ export default function Page() {
                     {data ? (
                         <>
                             <div className='inputGroupFull'>
+                                <CheckboxInput
+                                    id='leveling-boosters-status'
+                                    value={data.config.leveling.boosters.status}
+                                    onChange={(e) => handleInputChange(e.target.id, e.target.checked)}
+                                />
+                            </div>
+                            <div className='inputGroupFull'>
                                 <ArrayInput
                                     id='leveling-role-boosters'
                                     type='t'
                                     type2='r'
-                                    values={data.config.leveling.roleBoosters}
+                                    values={data.config.leveling.boosters.roleBoosters}
                                     onChange={(newValues) => handleInputChange('leveling-role-boosters', newValues)}
                                 />
                             </div>
@@ -174,8 +186,17 @@ export default function Page() {
                                     id='leveling-channel-boosters'
                                     type='t'
                                     type2='r'
-                                    values={data.config.leveling.channelBoosters}
+                                    values={data.config.leveling.boosters.channelBoosters}
                                     onChange={(newValues) => handleInputChange('leveling-channel-boosters', newValues)}
+                                />
+                            </div>
+                            <div className='inputGroupFull'>
+                                <ArrayInput
+                                    id='leveling-member-boosters'
+                                    type='t'
+                                    type2='r'
+                                    values={data.config.leveling.boosters.memberBoosters}
+                                    onChange={(newValues) => handleInputChange('leveling-member-boosters', newValues)}
                                 />
                             </div>
                         </>
@@ -207,6 +228,7 @@ export default function Page() {
                                         id='leveling-display-channel'
                                         value={data.config.leveling.display.channelID}
                                         onChange={(e) => handleInputChange(e.target.id, e.target.value)}
+                                        width={'half'}
                                     />
                                 ) : null}
                             </div>

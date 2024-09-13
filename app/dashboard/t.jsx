@@ -1,21 +1,26 @@
 'use client';
+
 import { useState, useEffect, useRef } from 'react';
 
-/*Top bar*/
-import TopBar from '@/components/dashboard/top/topbar';
+/* Top bar */
+import TopBar from '@components/dashboard/top/topbar';
 import selectionStyles from '@css/dashboard/selection.module.css';
 
-/*Data Management */
+/* Data Management */
+import { useGuild } from '../guildContext';
 import getGuildData from '@lib/dashboard/getGuildData';
 import saveData from '@lib/dashboard/saveData';
-import { useGuild } from '../guildContext';
 
-/*Inputs */
+/* Inputs */
 import CheckboxInput from '@components/dashboard/inputs/checkbox';
 import TextboxInput from '@components/dashboard/inputs/textbox';
+import RadioInput from '@components/dashboard/inputs/radio';
+import RangeInput from '@components/dashboard/inputs/range';
+import DoubleInput from '@components/dashboard/inputs/doubleInput';
+import ArrayInput from '@/components/dashboard/inputs/arrayInput';
 
 export default function Page() {
-    const { selectedGuild, setSelectedGuild } = useGuild();
+    const { selectedGuild } = useGuild();
     const [newData, setNewData] = useState({});
     const [selectedTab, setSelectedTab] = useState('');
     const [data, setData] = useState(null);
@@ -41,8 +46,8 @@ export default function Page() {
     };
 
     const saveTrigger = async () => {
-        const response = await saveData(newData || 0, selectedGuild.id || 0);
-        if (response === 'success') {
+        const response = await saveData(newData, selectedGuild.id);
+        if (response) {
             setNewData({});
         } else {
             alert('fail');
@@ -53,9 +58,6 @@ export default function Page() {
         setSelectedTab(tabId);
     };
 
-    if (!selectedGuild) {
-        return <div>Loading...</div>;
-    }
     const handleInputChange = (id, value, value2) => {
         if (value2) {
             const updatedValues = { ...newData, [id]: `${value}/${value2}` };
@@ -66,12 +68,16 @@ export default function Page() {
         }
     };
 
-    const tabs = ['generalSettings', 'dashboardAccess', 'Commands'];
+    if (!selectedGuild) {
+        return <div>Loading...</div>;
+    }
+
+    const tabs = [''];
 
     return (
         <div className='dashboard'>
             <TopBar
-                type='settings'
+                type=''
                 showButtons={Object.keys(newData).length > 0}
                 onDiscard={discardChanges}
                 onSave={saveTrigger}

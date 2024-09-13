@@ -1,55 +1,71 @@
-.textboxcontainer {
-  width: 100%;
-  height: 10vh;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.textboxContainer {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.textboxtext {
-  margin-left: 1.5%;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.textboxContainer.half {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: auto;
 }
 
-.textboxheader {
-  color: white;
-  font-size: 1.2rem;
-  margin: 0;
-  font-weight: 700;
+.textboxText {
+    margin-left: 1.5%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.textboxText.half {
+    margin-left: 3%;
 }
 
-.textboxdescription {
-  color: #9d9ba9;
-  margin: 0;
+.textboxHeader {
+    color: white;
+    font-size: 1.2rem;
+    margin: 0;
+    font-weight: 700;
+}
+
+.textboxDescription {
+    color: #9d9ba9;
+    margin: 0;
 }
 
 .textbox {
-  width: 20%;
-  padding: 10px;
-  border: 1px solid #343434;
-  background-color: #2c2d36;
-  border-radius: 8px;
-  color: white;
-  transition: all 600ms ease;
-  margin-right: 2%;
+    width: 20%;
+    padding: 10px;
+    border: 1px solid #1e1d26;
+    background-color: #1e1d26;
+    border-radius: 6px;
+    color: white;
+    transition: all 600ms ease;
+    margin-right: 2%;
+}
+
+.textbox.half {
+    margin: 3%;
+    width: 40%;
 }
 
 .textbox:focus {
-  outline: none;
-  border: 1px solid #5959ff;
-  transition: all 600ms ease;
+    outline: none;
+    border: 1px solid #5959ff;
+    transition: all 600ms ease;
 }
 
 .textbox[type='number']::-webkit-inner-spin-button,
 .textbox[type='number']::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 .textbox[type='number'] {
-  -moz-appearance: textfield;
-  appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
 }

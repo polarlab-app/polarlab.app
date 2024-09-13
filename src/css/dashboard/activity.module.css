@@ -1,0 +1,116 @@
+.bar {
+    position: absolute;
+    width: 100%;
+    height: 5%;
+    bottom: 0;
+    right: 0;
+    color: white;
+    border-top: 1px solid #212029;
+    background-color: #111118;
+    font-weight: 700;
+    transition: all 600ms ease;
+    overflow: hidden;
+}
+
+.bar.active {
+    height: 50%;
+    transition: all 600ms ease;
+}
+
+.bar.active .header .upIcon {
+    rotate: 180deg;
+    transition: all 600ms ease;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    background-color: #111118;
+}
+
+.activityIcon {
+    margin: 0 1%;
+}
+
+.upIcon {
+    font-size: 1.35rem;
+    position: absolute;
+    right: 1%;
+    transition: all 600ms ease;
+    cursor: pointer;
+}
+
+.items {
+    scroll-snap-type: y mandatory;
+    height: 95%;
+    overflow: scroll;
+}
+
+.item {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    width: 92%;
+    height: 20vh;
+    margin: 1% 4%;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 600ms ease;
+    display: flex;
+    flex-direction: column;
+}
+.item:nth-last-child(-n + 1) {
+    margin-bottom: 6vh;
+}
+
+.divider {
+    border: 1px solid rgba(157, 155, 169, 0.1);
+    width: 80%;
+    margin-left: 10%;
+}
+
+.item:hover {
+    background-color: rgba(157, 155, 169, 0.1);
+    transition: all 600ms ease;
+}
+
+.itemHeader {
+    display: flex;
+    margin-left: 1.5%;
+    align-items: center;
+}
+
+.itemHeading {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.itemID {
+    margin-left: 1%;
+    color: #9d9ba9;
+}
+
+.info {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.details,
+.ids {
+    text-align: left;
+    width: 47.5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-weight: 600;
+}
+
+.id {
+    color: #9d9ba9;
+}
+
+.infoItem {
+    margin: 1% 0;
+}

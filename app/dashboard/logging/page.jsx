@@ -245,7 +245,7 @@ export default function Page() {
                 <div className={`section ${selectedTab === 'caseHistory' ? 'active' : null}`}>
                     <div className='inputGroupFull'></div>
                 </div>
-                {selectedTab == 'caseHistory' ? null : <ActivityBar type={selectedTab} />}
+                {selectedTab == 'caseHistory' ? null : <ActivityBar type={selectedTab} id={selectedGuild.id} />}
             </div>
         </div>
     );

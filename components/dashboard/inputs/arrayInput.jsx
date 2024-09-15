@@ -6,6 +6,8 @@ import { useState, useEffect } from 'react';
 export default function ArrayInput({ id, values, type, type2, onChange }) {
     const optionsCount = Math.floor((inputs[id].max - inputs[id].min) / inputs[id].step) + 1;
     const [data, setData] = useState(values || []);
+    const [isOpen1, setIsOpen1] = useState(null);
+    const [isOpen2, setIsOpen2] = useState(null);
 
     useEffect(() => {
         if (data != values) {
@@ -16,6 +18,7 @@ export default function ArrayInput({ id, values, type, type2, onChange }) {
     const handleInputChange = (index, field, value) => {
         const newData = [...data];
         newData[index][field] = value;
+        console.log(newData);
         setData(newData);
     };
     return (
@@ -43,7 +46,6 @@ export default function ArrayInput({ id, values, type, type2, onChange }) {
                     </div>
                 </div>
             </div>
-
             <div className={styles.inputContainer}>
                 {data.map((value, index) => (
                     <div className={styles.input} key={index}>
@@ -57,6 +59,39 @@ export default function ArrayInput({ id, values, type, type2, onChange }) {
                                         placeholder={inputs[id].placeholder}
                                         onChange={(e) => handleInputChange(index, 'id', e.target.value)}
                                     />
+                                </div>
+                            ) : type === 'd' ? (
+                                <div className={styles.dropdownContainer} onClick={() => setIsOpen1(!isOpen1)}>
+                                    <div className={styles.dropdown}>
+                                        {value.id
+                                            .split(/(?=[A-Z])/)
+                                            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                                            .join(' ') || <p>Choose Option...</p>}
+                                    </div>
+                                    <ul
+                                        className={
+                                            isOpen1
+                                                ? styles.dropdownOptions
+                                                : `${styles.dropdownOptions} ${styles.dropdownHidden}`
+                                        }
+                                    >
+                                        {inputs[id].options.map((option) => (
+                                            <li
+                                                className={styles.dropdownOption}
+                                                key={option}
+                                                id={option}
+                                                onClick={(e) => {
+                                                    handleInputChange(index, 'id', e.target.option);
+                                                    console.log(e.target.option);
+                                                }}
+                                            >
+                                                {option
+                                                    .split(/(?=[A-Z])/)
+                                                    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                                                    .join(' ')}{' '}
+                                            </li>
+                                        ))}
+                                    </ul>
                                 </div>
                             ) : (
                                 <div className={styles.rangeInputContainer}>
@@ -97,6 +132,41 @@ export default function ArrayInput({ id, values, type, type2, onChange }) {
                                         onChange={(e) => handleInputChange(index, 'value', e.target.value)}
                                         placeholder={inputs[id].placeholder2}
                                     />
+                                </div>
+                            ) : type2 === 'd' ? (
+                                <div
+                                    className={styles.dropdownContainer}
+                                    onClick={isOpen2 == index ? () => setIsOpen2(null) : () => setIsOpen2(index)}
+                                >
+                                    <div className={styles.dropdown}>
+                                        {value.value
+                                            ? value.value
+                                                  .split(/(?=[A-Z])/)
+                                                  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                                                  .join(' ')
+                                            : 'Choose Option..'}
+                                    </div>
+                                    <ul
+                                        className={
+                                            isOpen2 == index
+                                                ? styles.dropdownOptions
+                                                : `${styles.dropdownOptions} ${styles.dropdownHidden}`
+                                        }
+                                    >
+                                        {inputs[id].options.map((option) => (
+                                            <li
+                                                className={styles.dropdownOption}
+                                                key={option}
+                                                id={option}
+                                                onClick={(e) => handleInputChange(index, 'value', e.target.id)}
+                                            >
+                                                {option
+                                                    .split(/(?=[A-Z])/)
+                                                    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                                                    .join(' ')}{' '}
+                                            </li>
+                                        ))}
+                                    </ul>
                                 </div>
                             ) : (
                                 <div className={styles.rangeInputContainer}>

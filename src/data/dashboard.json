@@ -165,6 +165,14 @@
             "name": "Leveling Multipliers",
             "description": "Whether to enable level multipliers for your server",
             "path": "config/leveling/boosters/status"
+        },
+        "guild-administrators": {
+            "name": "Guild Administrators",
+            "description": "The users who have access to the dashboard",
+            "path": "data/staff",
+            "placeholder": "User ID",
+            "limit": 10,
+            "options": ["dashboardAdministrator", "botAdministrator"]
         }
     },
     "paths": {
@@ -193,6 +201,7 @@
         "leveling-reward-status": "config/leveling/rewards/status",
         "leveling-display-status": "config/leveling/display/status",
         "leveling-display-type": "config/leveling/display/type",
-        "leveling-display-channel": "config/leveling/display/channelID"
+        "leveling-display-channel": "config/leveling/display/channelID",
+        "guild-administrators": "data/staff"
     }
 }

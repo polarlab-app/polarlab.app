@@ -3,13 +3,13 @@
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import xior from 'xior';
-import { redirect } from 'next/navigation';
 
 export async function middleware(req) {
     const accountToken = cookies().get('accountToken');
     if (!accountToken) {
-        redirect('/login');
+        return NextResponse.redirect(new URL('/login', request.url));
     }
+    return NextResponse.next();
 }
 
 export const config = {

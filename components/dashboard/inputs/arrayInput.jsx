@@ -61,7 +61,30 @@ export default function ArrayInput({ id, values, type, type2, onChange }) {
                                     />
                                 </div>
                             ) : type === 'd' ? (
-                                <div className={styles.dropdownContainer} onClick={() => setIsOpen1(!isOpen1)}></div>
+                                <div className={styles.radioInputContainer}>
+                                    {inputs[id].options.map((option, idx) => (
+                                        <label className={styles.option} key={index}>
+                                            <input
+                                                type='radio'
+                                                id={index}
+                                                value={option}
+                                                checked={value.id == option}
+                                                onChange={(e) => handleInputChange(index, 'id', e.target.value)}
+                                                name={id}
+                                                className={styles.radioHidden}
+                                            />
+                                            <span className={styles.radioToggle}>
+                                                <span className={styles.radioInnerToggle}></span>
+                                            </span>
+                                            <span className={styles.radioLabel}>
+                                                {option
+                                                    .split(/(?=[A-Z])/)
+                                                    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                                                    .join(' ')}{' '}
+                                            </span>
+                                        </label>
+                                    ))}
+                                </div>
                             ) : (
                                 <div className={styles.rangeInputContainer}>
                                     <div className={styles.values}>

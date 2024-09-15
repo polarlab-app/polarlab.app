@@ -126,7 +126,7 @@ export default function Page() {
                             <ArrayInput
                                 id='guild-administrators'
                                 type='t'
-                                type2='d'
+                                type2='radio'
                                 values={data.data.staff}
                                 onChange={(newValues) => handleInputChange('guild-administrators', newValues)}
                             />

@@ -45,8 +45,14 @@ export default function Page() {
         setNewData({});
     };
 
+    const fetchData = async () => {
+        const data = JSON.parse(await getGuildData(selectedGuild.id));
+        setData(data);
+    };
+
     const saveTrigger = async () => {
         const response = await saveData(newData, selectedGuild.id || '');
+        await fetchData();
         if (!response) {
             alert('fail');
         } else {

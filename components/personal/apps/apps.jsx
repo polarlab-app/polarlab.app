@@ -75,9 +75,9 @@ export default function Apps() {
     const handleSave = async () => {
         if (editAppIndex !== null) {
             const appID = apps[editAppIndex].id;
-            const res = await updateApp(appID, appName, appIcon, redirectURIs, scopes);
-            if (res) {
-                alert('App updated successfully');
+            const res = JSON.parse(await updateApp(appID, appName, appIcon, redirectURIs, scopes));
+            triggerToast(res.h, res.d, res.c);
+            if (res.s) {
                 setEditAppIndex(null);
                 setAppName('');
                 setRedirectURIs([]);
@@ -85,8 +85,6 @@ export default function Apps() {
                 setPreview('');
                 setEditAppIndex(null);
                 findApps().then((data) => setApps(JSON.parse(data)));
-            } else {
-                alert('Failed to update app');
             }
         }
     };
@@ -94,8 +92,9 @@ export default function Apps() {
     const handleDelete = async (id) => {
         const res = JSON.parse(await deleteApp(id));
         triggerToast(res.h, res.d, res.c);
+        if (res.s) {
             setApps(apps.filter((app) => app.id !== id));
-
+        }
     };
 
     const availableScopes = ['email', 'authorizedApps', 'connections'];

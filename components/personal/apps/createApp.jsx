@@ -54,7 +54,6 @@ export default function CreateApp({ closeButton }) {
     const handleSubmit = async () => {
         const res = JSON.parse(await createApp(appName, redirectURIs, appIcon, scopes));
         triggerToast(res.h, res.d, res.c);
-        console.log(res);
         if (res.s) {
             closeButton();
         }

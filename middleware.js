@@ -7,7 +7,7 @@ import xior from 'xior';
 export async function middleware(req) {
     const accountToken = cookies().get('accountToken');
     if (!accountToken) {
-        return NextResponse.redirect(new URL('/login', request.url));
+        return NextResponse.redirect(new URL('/login', req.url));
     }
     return NextResponse.next();
 }

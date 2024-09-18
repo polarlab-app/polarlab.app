@@ -5,6 +5,7 @@ import styles from '@css/personal/nav.module.css';
 import logout from '@lib/auth/sessionManagement/logout';
 import findUser from '@/lib/personal/findUser';
 import { useNav } from './navContext';
+import { triggerToast } from '../core/toastNotifications';
 
 export default function NavBar() {
     const router = useRouter();
@@ -29,6 +30,14 @@ export default function NavBar() {
         setActiveItem(item);
         router.push(`/personal?page=${item}`);
         setOpenStatus(false);
+    };
+
+    const handleLogout = async () => {
+        const res = JSON.parse(await logout());
+        triggerToast(res.h, res.d, res.c);
+        if (res.s) {
+            router.push('/login');
+        }
     };
 
     return (
@@ -69,7 +78,7 @@ export default function NavBar() {
                 <i className={`icon-triangle-exclamation ${styles.navicon}`}></i>
                 <p className={styles.navtext}>Danger Zone</p>
             </div>
-            <button className={styles.logout} onClick={logout}>
+            <button className={styles.logout} onClick={handleLogout}>
                 Log Out
             </button>
         </div>

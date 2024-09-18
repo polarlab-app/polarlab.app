@@ -123,9 +123,9 @@ export default function AccountDetails() {
             </div>
             {showPasswordModal && (
                 <EnterPassword
-                    username={username}
+                    username={username !== user.username ? username : undefined}
                     password={password}
-                    email={email}
+                    email={email !== user.email ? email : undefined}
                     appIcon={appIcon}
                     close={() => setShowPasswordModal(false)}
                     mode='updateUser'

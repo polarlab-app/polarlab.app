@@ -3,6 +3,7 @@ import findUser from '@/lib/personal/findUser';
 import { useEffect, useState } from 'react';
 import disconnect from '@/lib/personal/connections/disconnect';
 import AddConnection from './addConnection';
+import { triggerToast } from '@/components/core/toastNotifications';
 
 export default function Connections() {
     const [connections, setConnections] = useState([]);
@@ -26,10 +27,10 @@ export default function Connections() {
     };
 
     const handleDisconnect = async (connectionName) => {
-        const res = await disconnect(connectionName);
-        if (res == true) {
+        const res = JSON.parse(await disconnect(connectionName));
+        triggerToast(res.h, res.d, res.c);
+        if (res.s) {
             setConnections((prevConnections) => prevConnections.filter((conn) => conn.name !== connectionName));
-        } else {
         }
     };
 

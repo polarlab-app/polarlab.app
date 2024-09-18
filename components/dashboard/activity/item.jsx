@@ -1,4 +1,4 @@
-import styles from '@css/dashboard/activity.module.css';
+import styles from '@css/dashboard/activity.module.scss';
 
 export default function Item(props) {
     const formatDate = (isoString) => {

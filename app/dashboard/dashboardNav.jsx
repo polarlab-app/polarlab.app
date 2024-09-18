@@ -4,11 +4,12 @@ import styles from '@css/dashboard/nav.module.css';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import getGuilds from '@lib/dashboard/getGuilds';
-import findUser from '@/lib/personal/findUser';
+import findUser from '@lib/personal/findUser';
 import styles2 from '@css/dashboard/navdropdown.module.css';
-import { useGuild } from './guildContext';
+import { useGuild } from '@components/context/guildContext';
 import Image from 'next/image';
-import logout from '@/lib/auth/sessionManagement/logout';
+import logout from '@lib/auth/sessionManagement/logout';
+import { triggerToast } from '@components/core/toastNotifications';
 
 const NavLink = ({ activeNav, setActiveNav, children }) => {
     const i = {
@@ -46,10 +47,24 @@ export default function DashboardNav() {
     const [user, setUser] = useState(null);
     const { selectedGuild, setSelectedGuild } = useGuild();
 
-    useEffect(() => {
-        async function fetchGuilds() {
-            const guildList = JSON.parse(await getGuilds());
-            const user = JSON.parse(await findUser());
+    async function fetchGuilds() {
+        const guildList = JSON.parse(await getGuilds());
+        const user = JSON.parse(await findUser());
+        if (guildList.h || user.h) {
+            if (guildList.h) {
+                triggerToast(guildList.h, guildList.d, guildList.c);
+                setTimeout(() => {
+                    window.location.href =
+                        'https://discord.com/oauth2/authorize?client_id=1065350226757554237&scope=bot&permissions=8&redirect_uri=https%3A%2F%2Fpolarlab.app%2Fdashboard';
+                }, 2000);
+            } else {
+                triggerToast(user.h, user.d, user.c);
+                setTimeout(() => {
+                    window.location.href =
+                        'https://discord.com/oauth2/authorize?client_id=1065350226757554237&scope=bot&permissions=8&redirect_uri=https%3A%2F%2Fpolarlab.app%2Fdashboard';
+                }, 2000);
+            }
+        } else {
             setUser(user);
             setGuilds(guildList);
             setLoading(false);
@@ -57,12 +72,16 @@ export default function DashboardNav() {
                 setSelectedGuild(guildList[0]);
             }
         }
+    }
+
+    useEffect(() => {
         fetchGuilds();
     }, [setSelectedGuild]);
 
     async function handleLogout() {
         const res = await logout();
-        if (res) {
+        triggerToast(res.h, res.d, res.c);
+        if (res.s) {
             window.location.href = '/login';
         }
     }
@@ -133,7 +152,8 @@ export default function DashboardNav() {
                             <li
                                 className={styles2.dropdownoption}
                                 onClick={() => {
-                                    window.location.href = process.env.GUILD_INSTALL_URI;
+                                    window.location.href =
+                                        'https://discord.com/oauth2/authorize?client_id=1065350226757554237&scope=bot&permissions=8&redirect_uri=https%3A%2F%2Fpolarlab.app%2Fdashboard';
                                 }}
                             >
                                 Add Server...

@@ -1,6 +1,6 @@
 import DashboardNav from './dashboardNav.jsx';
 import '@css/global/dashboard.global.css';
-import { GuildProvider } from './guildContext';
+import { GuildProvider } from '@components/context/guildContext.jsx';
 
 export const metadata = {
     title: 'Polar Lab | Polaris Dashboard',

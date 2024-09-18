@@ -1,5 +1,5 @@
 'use client';
-import styles from '@css/dashboard/activity.module.css';
+import styles from '@css/dashboard/activity.module.scss';
 import { useState, useEffect } from 'react';
 import fetchCases from '@/lib/dashboard/fetchCases';
 import Item from './item';

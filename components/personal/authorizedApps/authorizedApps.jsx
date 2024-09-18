@@ -28,10 +28,6 @@ export default function AuthorizedApps() {
         return `${date.toLocaleString('default', { month: 'long' })} ${date.getDate()}, ${date.getFullYear()}`;
     };
 
-    function close() {
-        setShowModal(false);
-    }
-
     const scopes = {
         email: 'View your email address',
         authorizedApps: 'View your Authorized Apps',

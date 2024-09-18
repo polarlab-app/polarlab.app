@@ -2,18 +2,21 @@
 import { useState, useEffect, useRef } from 'react';
 
 /*Top bar*/
-import TopBar from '@/components/dashboard/top/topbar';
+import TopBar from '@components/dashboard/top/topbar';
 import selectionStyles from '@css/dashboard/selection.module.css';
 
 /*Data Management */
 import getGuildData from '@lib/dashboard/getGuildData';
 import saveData from '@lib/dashboard/saveData';
-import { useGuild } from '../guildContext';
+import { useGuild } from '@components/context/guildContext';
 
 /*Inputs */
 import CheckboxInput from '@components/dashboard/inputs/checkbox';
 import TextboxInput from '@components/dashboard/inputs/textbox';
 import ArrayInput from '@components/dashboard/inputs/arrayInput';
+
+/* Miscellaneous */
+import { triggerToast } from '@/components/core/toastNotifications';
 
 export default function Page() {
     const { selectedGuild, setSelectedGuild } = useGuild();
@@ -27,6 +30,10 @@ export default function Page() {
 
         const fetchData = async () => {
             const guildData = JSON.parse(await getGuildData(selectedGuild.id));
+            if (guildData.h) {
+                triggerToast(guildData.h, guildData.d, guildData.c);
+                return;
+            }
             setData(guildData);
         };
 
@@ -38,16 +45,22 @@ export default function Page() {
     }, [selectedGuild, tabRefs.current.length]);
 
     const discardChanges = () => {
+        triggerToast('Changes Discarded', 'All changes successfully discarded', 'g');
         setNewData({});
     };
 
     const saveTrigger = async () => {
-        const response = await saveData(newData || 0, selectedGuild.id || 0);
-        if (response == 'true') {
+        const response = JSON.parse(await saveData(newData, selectedGuild.id));
+        triggerToast(response.h, response.d, response.c);
+        if (response.s) {
             setNewData({});
-        } else {
-            alert('fail');
+            await fetchData();
         }
+    };
+
+    const fetchData = async () => {
+        const data = JSON.parse(await getGuildData(selectedGuild.id));
+        setData(data);
     };
 
     const handleTabClick = (tabId) => {

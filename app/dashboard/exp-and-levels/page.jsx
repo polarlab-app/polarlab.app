@@ -7,7 +7,7 @@ import TopBar from '@components/dashboard/top/topbar';
 import selectionStyles from '@css/dashboard/selection.module.css';
 
 /* Data Management */
-import { useGuild } from '../guildContext';
+import { useGuild } from '@components/context/guildContext';
 import getGuildData from '@lib/dashboard/getGuildData';
 import saveData from '@lib/dashboard/saveData';
 
@@ -18,6 +18,9 @@ import RadioInput from '@components/dashboard/inputs/radio';
 import RangeInput from '@components/dashboard/inputs/range';
 import DoubleInput from '@components/dashboard/inputs/doubleInput';
 import ArrayInput from '@components/dashboard/inputs/arrayInput';
+
+/* Miscellaneous */
+import { triggerToast } from '@/components/core/toastNotifications';
 
 export default function Page() {
     const { selectedGuild } = useGuild();
@@ -31,6 +34,10 @@ export default function Page() {
 
         const fetchData = async () => {
             const guildData = JSON.parse(await getGuildData(selectedGuild.id));
+            if (guildData.h) {
+                triggerToast(guildData.h, guildData.d, guildData.c);
+                return;
+            }
             setData(guildData);
         };
 
@@ -42,22 +49,22 @@ export default function Page() {
     }, [selectedGuild, tabRefs.current.length]);
 
     const discardChanges = () => {
+        triggerToast('Changes Discarded', 'All changes successfully discarded', 'g');
         setNewData({});
+    };
+
+    const saveTrigger = async () => {
+        const response = JSON.parse(await saveData(newData, selectedGuild.id));
+        triggerToast(response.h, response.d, response.c);
+        if (response.s) {
+            setNewData({});
+            await fetchData();
+        }
     };
 
     const fetchData = async () => {
         const data = JSON.parse(await getGuildData(selectedGuild.id));
         setData(data);
-    };
-
-    const saveTrigger = async () => {
-        const response = await saveData(newData, selectedGuild.id || '');
-        await fetchData();
-        if (!response) {
-            alert('fail');
-        } else {
-            setNewData({});
-        }
     };
 
     const handleTabClick = (tabId) => {

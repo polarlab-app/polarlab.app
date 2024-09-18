@@ -17,7 +17,7 @@
     animation: 0.6s dropdown both;
     width: 100%;
     position: absolute;
-    z-index: 12;
+    z-index: 2;
     margin: 5% 0;
     opacity: 0;
     height: 50vh;

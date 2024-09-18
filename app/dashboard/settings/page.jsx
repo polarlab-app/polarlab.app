@@ -13,6 +13,7 @@ import { useGuild } from '../guildContext';
 /*Inputs */
 import CheckboxInput from '@components/dashboard/inputs/checkbox';
 import TextboxInput from '@components/dashboard/inputs/textbox';
+import ArrayInput from '@components/dashboard/inputs/arrayInput';
 
 export default function Page() {
     const { selectedGuild, setSelectedGuild } = useGuild();
@@ -42,7 +43,7 @@ export default function Page() {
 
     const saveTrigger = async () => {
         const response = await saveData(newData || 0, selectedGuild.id || 0);
-        if (response === 'success') {
+        if (response == 'true') {
             setNewData({});
         } else {
             alert('fail');
@@ -115,6 +116,21 @@ export default function Page() {
                                 />
                             </div>
                         </>
+                    ) : (
+                        <div>Loading...</div>
+                    )}
+                </div>
+                <div className={`section ${selectedTab === 'dashboardAccess' ? 'active' : null}`}>
+                    {data ? (
+                        <div className='inputGroupFull'>
+                            <ArrayInput
+                                id='guild-administrators'
+                                type='t'
+                                type2='d'
+                                values={data.data.staff}
+                                onChange={(newValues) => handleInputChange('guild-administrators', newValues)}
+                            />
+                        </div>
                     ) : (
                         <div>Loading...</div>
                     )}

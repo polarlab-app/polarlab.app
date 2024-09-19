@@ -76,6 +76,10 @@
     color: #9d9ba9;
 }
 
+.inputContainer {
+    z-index: 50;
+}
+
 .input {
     background-color: #1e1d26;
     height: 8vh;
@@ -87,9 +91,20 @@
     position: relative;
 }
 .input:nth-child(1) {
-    margin-top: 0;
+    z-index: 49;
 }
 
+.input:nth-child(2) {
+    z-index: 48;
+}
+
+.input:nth-child(3) {
+    z-index: 47;
+}
+
+.input:nth-child(4) {
+    z-index: 46;
+}
 @keyframes appear {
     0% {
         opacity: 0;
@@ -342,4 +357,99 @@
 .radioHidden:hover + .radioToggle {
     border: 1px solid #5959ff;
     transition: all 600ms ease;
+}
+
+/* Dropdown */
+.dropdownContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 20vw;
+    position: relative;
+    height: 100%;
+    font-weight: 600;
+}
+
+.dropdown {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50%;
+    width: 70%;
+    background-color: #111118;
+    border-radius: 6px;
+    padding: 0 5%;
+    cursor: pointer;
+}
+
+.dropdownIcon {
+    transform: rotate(180deg);
+    font-size: 1.1rem;
+    transition: all 600ms ease;
+}
+
+.dropdown.active .dropdownIcon {
+    transform: rotate(0deg);
+    transition: all 600ms ease;
+}
+
+.dropdownOptions {
+    position: absolute;
+    background-color: #111118;
+    top: 120%;
+    width: 80%;
+    border-radius: 6px;
+    animation: hidedropdown 0.6s ease forwards;
+    display: block;
+    opacity: 0;
+    border: 1px solid #323232;
+}
+
+.dropdown.active + .dropdownOptions {
+    animation: dropdown 0.6s ease forwards;
+}
+
+.dropdownOption {
+    text-align: left;
+    padding: 1vh 5%;
+    cursor: pointer;
+    transition: all 600ms ease;
+}
+
+.dropdownOption:hover {
+    background-color: #9d9ba9;
+    transition: all 600ms ease;
+}
+.dropdownOption:nth-child(1) {
+    border-radius: 6px 6px 0 0;
+}
+
+.dropdownOption:nth-last-child(1) {
+    border-radius: 0 0 6px 6px;
+}
+
+@keyframes dropdown {
+    from {
+        transform: translate3d(0, -20%, 0);
+        opacity: 0;
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+}
+
+@keyframes hidedropdown {
+    from {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+    99% {
+        scale: 1;
+    }
+    to {
+        transform: translate3d(0, -20%, 0);
+        opacity: 0;
+        scale: 0;
+    }
 }

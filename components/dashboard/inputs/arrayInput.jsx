@@ -85,6 +85,35 @@ export default function ArrayInput({ id, values, type, type2, onChange }) {
                                         </label>
                                     ))}
                                 </div>
+                            ) : type === 'dropdown' ? (
+                                <div className={styles.dropdownContainer}>
+                                    <div
+                                        className={`${styles.dropdown} ${isOpen1 == index ? styles.active : ''}`}
+                                        onClick={() => setIsOpen1(isOpen1 == index ? null : index)}
+                                    >
+                                        <p className={styles.dropdownValue}>
+                                            {value.id
+                                                .split(/(?=[A-Z])/)
+                                                .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                                                .join(' ') || 'Choose Option...'}
+                                        </p>
+                                        <i className={`${styles.dropdownIcon} icon-caret-up`}></i>
+                                    </div>
+                                    <div className={styles.dropdownOptions}>
+                                        {inputs[id].options.map((option, idx) => (
+                                            <div
+                                                className={styles.dropdownOption}
+                                                key={idx}
+                                                onClick={() => handleInputChange(index, 'id', option)}
+                                            >
+                                                {option
+                                                    .split(/(?=[A-Z])/)
+                                                    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                                                    .join(' ')}
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
                             ) : (
                                 <div className={styles.rangeInputContainer}>
                                     <div className={styles.values}>

@@ -55,7 +55,7 @@
 } /* '' */
 .icon-copy:before {
     content: '\e80c';
-}
+} /* '' */
 .icon-discord:before {
     content: '\e80d';
 } /* '' */
@@ -116,3 +116,9 @@
 .icon-stars:before {
     content: '\e820';
 } /* '' */
+.icon-hashtag:before {
+    content: '\e821';
+} /* '' */
+.icon-robot:before {
+    content: '\e822';
+} /* '' */

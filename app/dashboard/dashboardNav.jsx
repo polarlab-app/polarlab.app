@@ -23,7 +23,7 @@ const NavLink = ({ activeNav, setActiveNav, children }) => {
         'social notifications': 'icon-bells',
         moderation: 'icon-shield',
         logging: 'icon-scroll',
-        'auto moderator': 'icon-shield',
+        'auto moderator': 'icon-robot',
         'server guard': 'icon-shield-keyhole',
     };
 

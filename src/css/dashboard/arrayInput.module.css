@@ -396,13 +396,15 @@
 .dropdownOptions {
     position: absolute;
     background-color: #111118;
-    top: 120%;
+    top: 100%;
     width: 80%;
     border-radius: 6px;
     animation: hidedropdown 0.6s ease forwards;
     display: block;
     opacity: 0;
-    border: 1px solid #323232;
+    border: 1px solid #2e2d36;
+    max-height: 30vh;
+    overflow: scroll;
 }
 
 .dropdown.active + .dropdownOptions {
@@ -416,8 +418,14 @@
     transition: all 600ms ease;
 }
 
+.infoIcon {
+    color: #9d9ba9;
+    margin-right: 5%;
+    font-size: 1rem;
+}
+
 .dropdownOption:hover {
-    background-color: #9d9ba9;
+    background-color: #2e2d36;
     transition: all 600ms ease;
 }
 .dropdownOption:nth-child(1) {

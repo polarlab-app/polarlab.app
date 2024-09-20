@@ -3,17 +3,24 @@ import styles from '@css/dashboard/arrayInput.module.css';
 const { inputs } = require('@data/dashboard.json');
 import { useState, useEffect } from 'react';
 
-export default function ArrayInput({ id, values, type, type2, onChange }) {
+export default function ArrayInput({ id, values, type, type2, onChange, possibleOptions, icon, exclude }) {
     const optionsCount = Math.floor((inputs[id].max - inputs[id].min) / inputs[id].step) + 1;
     const [data, setData] = useState(values || []);
     const [isOpen1, setIsOpen1] = useState(null);
     const [isOpen2, setIsOpen2] = useState(null);
+    const [options, setOptions] = useState([]);
 
     useEffect(() => {
+        if (possibleOptions) {
+            setOptions(possibleOptions);
+        } else {
+            setOptions(inputs[id].options);
+        }
+
         if (data != values) {
             onChange(data);
         }
-    }, [data]);
+    }, [data, possibleOptions]);
 
     const handleInputChange = (index, field, value) => {
         const newData = [...data];
@@ -50,7 +57,7 @@ export default function ArrayInput({ id, values, type, type2, onChange }) {
                 {data.map((value, index) => (
                     <div className={styles.input} key={index}>
                         <div className={styles.first}>
-                            {type === 't' ? (
+                            {type === 'text' ? (
                                 <div className={styles.textInputContainer}>
                                     <input
                                         className={styles.textInput}
@@ -60,7 +67,7 @@ export default function ArrayInput({ id, values, type, type2, onChange }) {
                                         onChange={(e) => handleInputChange(index, 'id', e.target.value)}
                                     />
                                 </div>
-                            ) : type === 'd' ? (
+                            ) : type === 'radio' ? (
                                 <div className={styles.radioInputContainer}>
                                     {inputs[id].options.map((option, idx) => (
                                         <label className={styles.option} key={index}>
@@ -86,32 +93,70 @@ export default function ArrayInput({ id, values, type, type2, onChange }) {
                                     ))}
                                 </div>
                             ) : type === 'dropdown' ? (
-                                <div className={styles.dropdownContainer}>
-                                    <div
-                                        className={`${styles.dropdown} ${isOpen1 == index ? styles.active : ''}`}
-                                        onClick={() => setIsOpen1(isOpen1 == index ? null : index)}
-                                    >
+                                <div
+                                    className={styles.dropdownContainer}
+                                    onClick={() => setIsOpen1(isOpen1 == index ? null : index)}
+                                >
+                                    <div className={`${styles.dropdown} ${isOpen1 == index ? styles.active : ''}`}>
                                         <p className={styles.dropdownValue}>
-                                            {value.id
-                                                .split(/(?=[A-Z])/)
-                                                .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-                                                .join(' ') || 'Choose Option...'}
+                                            {options.find((option) => option.id == value.id)?.name ||
+                                                inputs[id].placeholder}
                                         </p>
                                         <i className={`${styles.dropdownIcon} icon-caret-up`}></i>
                                     </div>
                                     <div className={styles.dropdownOptions}>
-                                        {inputs[id].options.map((option, idx) => (
-                                            <div
-                                                className={styles.dropdownOption}
-                                                key={idx}
-                                                onClick={() => handleInputChange(index, 'id', option)}
-                                            >
-                                                {option
-                                                    .split(/(?=[A-Z])/)
-                                                    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-                                                    .join(' ')}
-                                            </div>
-                                        ))}
+                                        {options
+                                            .filter(
+                                                (option) =>
+                                                    !exclude || !exclude.split(';').includes(option.type.toString())
+                                            )
+                                            .some((option) => option.rawPosition)
+                                            ? options
+                                                  .filter(
+                                                      (option) =>
+                                                          !exclude ||
+                                                          !exclude.split(';').includes(option.type.toString())
+                                                  )
+                                                  .sort((a, b) => (b.rawPosition || 0) - (a.rawPosition || 0))
+                                                  .map((option, idx) => (
+                                                      <div
+                                                          className={styles.dropdownOption}
+                                                          key={idx}
+                                                          onClick={() => {
+                                                              handleInputChange(index, 'id', option.id);
+                                                              setIsOpen1(false);
+                                                          }}
+                                                          style={option.color ? { color: option.color } : null}
+                                                      >
+                                                          {icon ? (
+                                                              <i className={`${styles.infoIcon} ${icon}`}></i>
+                                                          ) : null}
+                                                          {option.name}
+                                                      </div>
+                                                  ))
+                                            : options
+                                                  .filter(
+                                                      (option) =>
+                                                          !exclude ||
+                                                          !exclude.split(';').includes(option.type.toString())
+                                                  )
+                                                  .map((option, idx) => (
+                                                      <div
+                                                          className={styles.dropdownOption}
+                                                          key={idx}
+                                                          onClick={() => handleInputChange(index, 'id', option.id)}
+                                                          style={
+                                                              option.color
+                                                                  ? { color: `#${option.color.toString(16)}` }
+                                                                  : null
+                                                          }
+                                                      >
+                                                          {icon ? (
+                                                              <i className={`${styles.infoIcon} ${icon}`}></i>
+                                                          ) : null}
+                                                          {option.name}
+                                                      </div>
+                                                  ))}
                                     </div>
                                 </div>
                             ) : (
@@ -144,7 +189,7 @@ export default function ArrayInput({ id, values, type, type2, onChange }) {
                             )}
                         </div>
                         <div className={styles.second}>
-                            {type2 === 't' ? (
+                            {type2 === 'text' ? (
                                 <div className={styles.textInputContainer}>
                                     <input
                                         className={styles.textInput}
@@ -178,6 +223,73 @@ export default function ArrayInput({ id, values, type, type2, onChange }) {
                                             </span>
                                         </label>
                                     ))}
+                                </div>
+                            ) : type2 === 'dropdown' ? (
+                                <div
+                                    className={styles.dropdownContainer}
+                                    onClick={() => setIsOpen2(isOpen2 == index ? null : index)}
+                                >
+                                    <div className={`${styles.dropdown} ${isOpen2 == index ? styles.active : ''}`}>
+                                        <p className={styles.dropdownValue}>
+                                            {options.find((option) => option.id == value.id)?.name ||
+                                                inputs[id].placeholder2}
+                                        </p>
+                                        <i className={`${styles.dropdownIcon} icon-caret-up`}></i>
+                                    </div>
+                                    <div className={styles.dropdownOptions}>
+                                        {options
+                                            .filter(
+                                                (option) =>
+                                                    !exclude || !exclude.split(';').includes(option.type.toString())
+                                            )
+                                            .some((option) => option.rawPosition)
+                                            ? options
+                                                  .filter(
+                                                      (option) =>
+                                                          !exclude ||
+                                                          !exclude.split(';').includes(option.type.toString())
+                                                  )
+                                                  .sort((a, b) => (b.rawPosition || 0) - (a.rawPosition || 0))
+                                                  .map((option, idx) => (
+                                                      <div
+                                                          className={styles.dropdownOption}
+                                                          key={idx}
+                                                          onClick={() => {
+                                                              handleInputChange(index, 'id', option.id);
+                                                              setIsOpen1(false);
+                                                          }}
+                                                          style={option.color ? { color: option.color } : null}
+                                                      >
+                                                          {icon ? (
+                                                              <i className={`${styles.infoIcon} ${icon}`}></i>
+                                                          ) : null}
+                                                          {option.name}
+                                                      </div>
+                                                  ))
+                                            : options
+                                                  .filter(
+                                                      (option) =>
+                                                          !exclude ||
+                                                          !exclude.split(';').includes(option.type.toString())
+                                                  )
+                                                  .map((option, idx) => (
+                                                      <div
+                                                          className={styles.dropdownOption}
+                                                          key={idx}
+                                                          onClick={() => handleInputChange(index, 'id', option.id)}
+                                                          style={
+                                                              option.color
+                                                                  ? { color: `#${option.color.toString(16)}` }
+                                                                  : null
+                                                          }
+                                                      >
+                                                          {icon ? (
+                                                              <i className={`${styles.infoIcon} ${icon}`}></i>
+                                                          ) : null}
+                                                          {option.name}
+                                                      </div>
+                                                  ))}
+                                    </div>
                                 </div>
                             ) : (
                                 <div className={styles.rangeInputContainer}>

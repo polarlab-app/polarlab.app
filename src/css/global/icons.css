@@ -122,3 +122,6 @@
 .icon-robot:before {
     content: '\e822';
 } /* '' */
+.icon-at:before {
+    content: '\e823';
+} /* '' */

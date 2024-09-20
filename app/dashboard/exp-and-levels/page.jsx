@@ -21,6 +21,7 @@ import ArrayInput from '@components/dashboard/inputs/arrayInput';
 
 /* Miscellaneous */
 import { triggerToast } from '@/components/core/toastNotifications';
+import DropdownInput from '@/components/dashboard/inputs/dropdown';
 
 export default function Page() {
     const { selectedGuild } = useGuild();
@@ -164,10 +165,12 @@ export default function Page() {
                                 />
                                 <ArrayInput
                                     id='leveling-rewards'
-                                    type='t'
-                                    type2='t'
+                                    type='dropdown'
+                                    type2='text'
                                     values={data.config.leveling.rewards.rewards}
+                                    possibleOptions={data.data.roles}
                                     onChange={(newValues) => handleInputChange('leveling-rewards', newValues)}
+                                    icon='icon-at'
                                 />
                             </div>
                         </>
@@ -237,11 +240,14 @@ export default function Page() {
                                 (!newData['leveling-display-type'] &&
                                     data &&
                                     data.config.leveling.display.type === 'dedicated') ? (
-                                    <TextboxInput
+                                    <DropdownInput
                                         id='leveling-display-channel'
                                         value={data.config.leveling.display.channelID}
-                                        onChange={(e) => handleInputChange(e.target.id, e.target.value)}
+                                        onChange={handleInputChange}
                                         width={'half'}
+                                        possibleOptions={data.data.channels}
+                                        icon='icon-hashtag'
+                                        exclude={'2'}
                                     />
                                 ) : null}
                             </div>

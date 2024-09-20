@@ -1,12 +1,24 @@
 'use client';
 import styles from '@css/dashboard/dropdown.module.scss';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 const { inputs } = require('@data/dashboard.json');
 
-export default function DropdownInput({ id, value, onChange, width, possibleOptions }) {
+export default function DropdownInput({ id, value, onChange, width, possibleOptions, exclude, icon }) {
     const [selectedValue, setSelectedValue] = useState(value);
     const [isOpen, setIsOpen] = useState(false);
-    const [options, setOptions] = useState(possibleOptions || inputs[id].options);
+    const [options, setOptions] = useState([]);
+
+    useEffect(() => {
+        if (possibleOptions) {
+            setOptions(possibleOptions);
+        } else {
+            setOptions(inputs[id].options);
+        }
+        if (value) {
+            setSelectedValue(value);
+        }
+        console.log(value);
+    }, [possibleOptions, value, id]);
 
     return (
         <div className={`${styles.container} ${width == 'half' ? styles.half : null}`}>
@@ -14,40 +26,61 @@ export default function DropdownInput({ id, value, onChange, width, possibleOpti
                 <p className={styles.heading}>{inputs[id].name}</p>
                 <p className={styles.description}>{inputs[id].description}</p>
             </div>
-            <div className={styles.dropdownContainer}>
+            <div className={`${styles.dropdownContainer} ${width == 'half' ? styles.half : null}`}>
                 <div
                     className={`${styles.dropdown} ${isOpen ? styles.active : null}`}
                     onClick={() => setIsOpen(!isOpen)}
                 >
                     <p className={styles.dropdownValue}>
                         {selectedValue
-                            ? selectedValue
-                                  .split(/(?=[A-Z])/)
-                                  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-                                  .join(' ') || inputs[id].placeholder
+                            ? options.find((option) => option.id === selectedValue)?.name || inputs[id].placeholder
                             : inputs[id].placeholder}
                     </p>
                     <i className={`${styles.dropdownIcon} icon-caret-up`}></i>
                 </div>
-                <div className={styles.dropdownOptions}>
-                    {options.map((option, index) => (
-                        <div
-                            className={styles.option}
-                            key={index}
-                            id={id}
-                            value={option.id}
-                            onClick={(e) => {
-                                setIsOpen(false);
-                                onChange(e);
-                                setSelectedValue(option.name);
-                            }}
-                        >
-                            {option.name
-                                .split(/(?=[A-Z])/)
-                                .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-                                .join(' ') || inputs[id].placeholder}
-                        </div>
-                    ))}
+                <div
+                    className={styles.dropdownOptions}
+                    onClick={() => {
+                        setIsOpen(false);
+                    }}
+                >
+                    {options
+                        .filter((option) => !exclude || !exclude.split(';').includes(option.type.toString()))
+                        .some((option) => option.rawPosition)
+                        ? options
+                              .filter((option) => !exclude || !exclude.split(';').includes(option.type.toString()))
+                              .sort((a, b) => (a.rawPosition || 0) - (b.rawPosition || 0))
+                              .map((option, index) => (
+                                  <div
+                                      className={styles.dropdownOption}
+                                      key={index}
+                                      id={id}
+                                      o={option.id.toString()}
+                                      onClick={(e) => {
+                                          onChange(e.target.id, option.id);
+                                          setSelectedValue(option.id);
+                                      }}
+                                  >
+                                      {icon ? <i className={`${styles.icon} ${icon}`}></i> : null}
+                                      {option.name}
+                                  </div>
+                              ))
+                        : options
+                              .filter((option) => !exclude || !exclude.split(';').includes(option.type.toString()))
+                              .map((option, index) => (
+                                  <div
+                                      className={styles.dropdownOption}
+                                      key={index}
+                                      id={id}
+                                      value={option.id}
+                                      onClick={(e) => {
+                                          onChange(e.target.id, option.id);
+                                          setSelectedValue(option.id);
+                                      }}
+                                  >
+                                      {option.name}
+                                  </div>
+                              ))}
                 </div>
             </div>
         </div>

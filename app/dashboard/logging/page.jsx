@@ -15,6 +15,7 @@ import saveData from '@lib/dashboard/saveData';
 import CheckboxInput from '@components/dashboard/inputs/checkbox';
 import TextboxInput from '@components/dashboard/inputs/textbox';
 import ActivityBar from '@components/dashboard/activity/bar';
+import DropdownInput from '@/components/dashboard/inputs/dropdown';
 
 /* Miscellaneous */
 import { triggerToast } from '@/components/core/toastNotifications';
@@ -143,17 +144,18 @@ export default function Page() {
                                     type='number'
                                     id='role-logs-status'
                                     value={data.config.logs.roleLogs.status}
-                                    onChange={(e) => handleInputChange(e.target.id, e.target.value)}
+                                    onChange={(e) => handleInputChange(e.target.id, e.target.checked)}
                                 />
-                            </div>
-                            <div className='inputGroupFull'>
-                                <TextboxInput
-                                    type='number'
+                                <DropdownInput
                                     id='role-logs-channel'
+                                    possibleOptions={data.data.channels}
+                                    onChange={handleInputChange}
+                                    exclude={'2;13;15'}
+                                    icon={'icon-hashtag'}
                                     value={data.config.logs.roleLogs.channelID}
-                                    onChange={(e) => handleInputChange(e.target.id, e.target.value)}
                                 />
                             </div>
+                            <div className='inputGroupFull'></div>
                         </>
                     ) : (
                         <div>Loading...</div>
@@ -175,7 +177,7 @@ export default function Page() {
                                     type='number'
                                     id='message-logs-channel'
                                     value={data.config.logs.messageLogs.channelID}
-                                    onChange={(e) => handleInputChange(e.target.id, e.target.value)}
+                                    onChange={handleInputChange}
                                 />
                             </div>
                         </>

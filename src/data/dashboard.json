@@ -136,8 +136,8 @@
             "description": "Per level role rewards",
             "path": "config/leveling/rewards/rewards",
             "limit": "25",
-            "placeholder": "Level Role ...",
-            "placeholder2": "Level"
+            "placeholder2": "Select Role ...",
+            "placeholder": "Level"
         },
         "leveling-reward-status": {
             "name": "Leveling Reward Status",

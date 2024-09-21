@@ -14,6 +14,8 @@ import { useGuild } from '@components/context/guildContext';
 import CheckboxInput from '@components/dashboard/inputs/checkbox';
 import TextboxInput from '@components/dashboard/inputs/textbox';
 import ArrayInput from '@components/dashboard/inputs/arrayInput';
+import Embed from '@/components/dashboard/embeds/embed';
+import DropdownInput from '@components/dashboard/inputs/dropdown';
 
 /* Miscellaneous */
 import { triggerToast } from '@/components/core/toastNotifications';
@@ -109,25 +111,10 @@ export default function Page() {
                 ))}
             </div>
             <div className='dashboardWrapper'>
-                <div className={`section ${selectedTab === '' ? 'active' : null}`}>
+                <div className={`section ${selectedTab === 'generalSettings' ? 'active' : null}`}>
                     {data ? (
                         <>
-                            <div className='inputGroupFull'>
-                                <CheckboxInput
-                                    type='number'
-                                    id='channel-logs-status'
-                                    value={data.config.logs.channelLogs.status}
-                                    onChange={(e) => handleInputChange(e.target.id, e.target.checked)}
-                                />
-                            </div>
-                            <div className='inputGroupHalf'>
-                                <TextboxInput
-                                    type='number'
-                                    id='channel-logs-channel'
-                                    value={data.config.logs.channelLogs.channelId}
-                                    onChange={(e) => handleInputChange(e.target.id, e.target.value)}
-                                />
-                            </div>
+                            <Embed />
                         </>
                     ) : (
                         <div>Loading...</div>
@@ -135,15 +122,17 @@ export default function Page() {
                 </div>
                 <div className={`section ${selectedTab === 'dashboardAccess' ? 'active' : null}`}>
                     {data ? (
-                        <div className='inputGroupFull'>
-                            <ArrayInput
-                                id='guild-administrators'
-                                type='t'
-                                type2='radio'
-                                values={data.data.staff}
-                                onChange={(newValues) => handleInputChange('guild-administrators', newValues)}
-                            />
-                        </div>
+                        <>
+                            <div className='inputGroupFull'>
+                                <ArrayInput
+                                    id='guild-administrators'
+                                    type='text'
+                                    type2='radio'
+                                    values={data.data.staff}
+                                    onChange={(newValues) => handleInputChange('guild-administrators', newValues)}
+                                />
+                            </div>
+                        </>
                     ) : (
                         <div>Loading...</div>
                     )}

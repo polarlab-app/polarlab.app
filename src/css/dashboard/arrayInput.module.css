@@ -76,10 +76,6 @@
     color: #9d9ba9;
 }
 
-.inputContainer {
-    z-index: 50;
-}
-
 .input {
     background-color: #1e1d26;
     height: 8vh;
@@ -90,21 +86,7 @@
     animation: appear 0.6s ease forwards;
     position: relative;
 }
-.input:nth-child(1) {
-    z-index: 49;
-}
 
-.input:nth-child(2) {
-    z-index: 48;
-}
-
-.input:nth-child(3) {
-    z-index: 47;
-}
-
-.input:nth-child(4) {
-    z-index: 46;
-}
 @keyframes appear {
     0% {
         opacity: 0;

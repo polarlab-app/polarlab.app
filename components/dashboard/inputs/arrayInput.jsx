@@ -17,9 +17,24 @@ export default function ArrayInput({ id, values, type, type2, onChange, possible
             setOptions(inputs[id].options);
         }
 
-        if (data != values) {
+        if (data != values && data) {
             onChange(data);
         }
+
+        const setIndexes = () => {
+            const containers = document.querySelectorAll(`.${styles.container}`);
+            containers.forEach((container, containerIndex) => {
+                const parentZIndex = 1000 - 100 * containerIndex;
+                container.style.zIndex = parentZIndex;
+
+                const inputs = container.querySelectorAll(`.${styles.input}`);
+                inputs.forEach((input, inputIndex) => {
+                    input.style.zIndex = parentZIndex - inputIndex;
+                });
+            });
+        };
+
+        setIndexes();
     }, [data, possibleOptions]);
 
     const handleInputChange = (index, field, value) => {

@@ -1,3 +1,8 @@
+.wrapper {
+    overflow: hidden;
+    width: 0;
+}
+
 .container {
     position: absolute;
     right: -30%;
@@ -6,7 +11,7 @@
     background-color: #16151c;
     z-index: 255;
     opacity: 0;
-    transition: right 0.6s ease, opacity 0.6s ease, transform 0.6s ease;
+    transition: right 0.6s ease, opacity 0.6s ease;
     height: 10vh;
     border-radius: 6px;
     margin-left: auto;
@@ -20,7 +25,6 @@
 .container.active {
     right: 3vh;
     opacity: 1;
-    transform: translateX(0);
 }
 
 .progressBar {

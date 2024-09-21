@@ -29,7 +29,7 @@
     margin-top: 10vh;
 }
 
-@media screen and (max-width: 481px) {
+@media screen and (max-width: 482px) {
     .sitesection {
         padding: 0;
     }

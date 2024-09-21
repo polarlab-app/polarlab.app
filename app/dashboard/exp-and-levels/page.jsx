@@ -165,8 +165,8 @@ export default function Page() {
                                 />
                                 <ArrayInput
                                     id='leveling-rewards'
-                                    type='dropdown'
-                                    type2='text'
+                                    type='text'
+                                    type2='dropdown'
                                     values={data.config.leveling.rewards.rewards}
                                     possibleOptions={data.data.roles}
                                     onChange={(newValues) => handleInputChange('leveling-rewards', newValues)}
@@ -191,26 +191,30 @@ export default function Page() {
                             <div className='inputGroupFull'>
                                 <ArrayInput
                                     id='leveling-role-boosters'
-                                    type='t'
-                                    type2='r'
+                                    type='dropdown'
+                                    type2='range'
                                     values={data.config.leveling.boosters.roleBoosters}
+                                    possibleOptions={data.data.roles}
+                                    icon={'icon-at'}
                                     onChange={(newValues) => handleInputChange('leveling-role-boosters', newValues)}
                                 />
                             </div>
                             <div className='inputGroupFull'>
                                 <ArrayInput
                                     id='leveling-channel-boosters'
-                                    type='t'
-                                    type2='r'
+                                    type='dropdown'
+                                    type2='range'
                                     values={data.config.leveling.boosters.channelBoosters}
+                                    possibleOptions={data.data.channels}
+                                    icon={'icon-hashtag'}
                                     onChange={(newValues) => handleInputChange('leveling-channel-boosters', newValues)}
                                 />
                             </div>
                             <div className='inputGroupFull'>
                                 <ArrayInput
                                     id='leveling-member-boosters'
-                                    type='t'
-                                    type2='r'
+                                    type='text'
+                                    type2='range'
                                     values={data.config.leveling.boosters.memberBoosters}
                                     onChange={(newValues) => handleInputChange('leveling-member-boosters', newValues)}
                                 />

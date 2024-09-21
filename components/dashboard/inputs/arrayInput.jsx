@@ -217,14 +217,14 @@ export default function ArrayInput({ id, values, type, type2, onChange, possible
                             ) : type2 === 'radio' ? (
                                 <div className={styles.radioInputContainer}>
                                     {inputs[id].options.map((option, idx) => (
-                                        <label className={styles.option} key={index}>
+                                        <label className={styles.option} key={idx}>
                                             <input
                                                 type='radio'
                                                 id={index}
                                                 value={option}
                                                 checked={value.value == option}
                                                 onChange={(e) => handleInputChange(index, 'value', e.target.value)}
-                                                name={id}
+                                                name={index}
                                                 className={styles.radioHidden}
                                             />
                                             <span className={styles.radioToggle}>
@@ -246,7 +246,7 @@ export default function ArrayInput({ id, values, type, type2, onChange, possible
                                 >
                                     <div className={`${styles.dropdown} ${isOpen2 == index ? styles.active : ''}`}>
                                         <p className={styles.dropdownValue}>
-                                            {options.find((option) => option.id == value.id)?.name ||
+                                            {options.find((option) => option.id == value.value)?.name ||
                                                 inputs[id].placeholder2}
                                         </p>
                                         <i className={`${styles.dropdownIcon} icon-caret-up`}></i>
@@ -270,8 +270,8 @@ export default function ArrayInput({ id, values, type, type2, onChange, possible
                                                           className={styles.dropdownOption}
                                                           key={idx}
                                                           onClick={() => {
-                                                              handleInputChange(index, 'id', option.id);
-                                                              setIsOpen1(false);
+                                                              handleInputChange(index, 'value', option.id);
+                                                              setIsOpen2(false);
                                                           }}
                                                           style={option.color ? { color: option.color } : null}
                                                       >
@@ -291,7 +291,10 @@ export default function ArrayInput({ id, values, type, type2, onChange, possible
                                                       <div
                                                           className={styles.dropdownOption}
                                                           key={idx}
-                                                          onClick={() => handleInputChange(index, 'id', option.id)}
+                                                          onClick={() => {
+                                                              handleInputChange(index, 'value', option.id);
+                                                              setIsOpen2(false);
+                                                          }}
                                                           style={
                                                               option.color
                                                                   ? { color: `#${option.color.toString(16)}` }

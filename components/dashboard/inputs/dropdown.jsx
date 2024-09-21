@@ -17,7 +17,6 @@ export default function DropdownInput({ id, value, onChange, width, possibleOpti
         if (value) {
             setSelectedValue(value);
         }
-        console.log(value);
     }, [possibleOptions, value, id]);
 
     return (

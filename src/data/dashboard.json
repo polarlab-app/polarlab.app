@@ -13,10 +13,10 @@
             "placeholder": null
         },
         "channel-logs-channel": {
-            "name": "Channel Logs Channel ID",
-            "description": "The channel ID for channel logs",
+            "name": "Channel Logs Channel",
+            "description": "The channel for channel logs",
             "path": "config/logs/channelLogs/channelID",
-            "placeholder": 1131195719676596229
+            "placeholder": "Select Channel ..."
         },
         "role-logs-status": {
             "name": "Role Logs Status",
@@ -37,10 +37,10 @@
             "placeholder": null
         },
         "message-logs-channel": {
-            "name": "Message Logs Channel ID",
-            "description": "The channel ID for message logs",
+            "name": "Message Logs Channel",
+            "description": "The channel for message logs",
             "path": "config/logs/messageLogs/channelID",
-            "placeholder": 1131195719676596229
+            "placeholder": "Select Channel ..."
         },
         "member-logs-status": {
             "name": "Member Logs",
@@ -49,10 +49,10 @@
             "placeholder": null
         },
         "member-logs-channel": {
-            "name": "Member Logs Channel ID",
-            "description": "The channel ID for member logs",
+            "name": "Member Logs Channel",
+            "description": "The channel for member logs",
             "path": "config/logs/memberLogs/channelID",
-            "placeholder": 1131195719676596229
+            "placeholder": "Select Channel ..."
         },
         "emoji-logs-status": {
             "name": "Emoji Logs",
@@ -61,10 +61,10 @@
             "placeholder": null
         },
         "emoji-logs-channel": {
-            "name": "Emoji Logs Channel ID",
-            "description": "The channel ID for emoji logs",
+            "name": "Emoji Logs Channel",
+            "description": "The channel for emoji logs",
             "path": "config/logs/emojiLogs/channelID",
-            "placeholder": 1131195719676596229
+            "placeholder": "Select Channel ..."
         },
         "server-logs-status": {
             "name": "Server Logs",
@@ -73,10 +73,10 @@
             "placeholder": null
         },
         "server-logs-channel": {
-            "name": "Server Logs Channel ID",
-            "description": "The channel ID for server logs",
+            "name": "Server Logs Channel",
+            "description": "The channel for server logs",
             "path": "config/logs/serverLogs/channelID",
-            "placeholder": 1131195719676596229
+            "placeholder": "Select Channel ..."
         },
         "leveling-status": {
             "name": "Leveling",

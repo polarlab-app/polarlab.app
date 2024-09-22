@@ -1,0 +1,79 @@
+.container {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &.half {
+        width: 50%;
+    }
+
+    .header {
+        margin: 1.5%;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        &.half {
+            margin-left: 3%;
+        }
+
+        .heading {
+            color: white;
+            font-size: 1.2rem;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .description {
+            color: #9d9ba9;
+            margin: 0;
+        }
+    }
+}
+
+.checkboxContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: relative;
+    margin-right: 2%;
+
+    .checkboxToggle {
+        height: 40%;
+        aspect-ratio: 1/1;
+        border-radius: 6px;
+        background-color: #1e1d26;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 600ms ease;
+        cursor: pointer;
+
+        .checkboxInnerToggle {
+            width: 60%;
+            height: 60%;
+            border-radius: 3px;
+            transition: all 600ms ease;
+        }
+    }
+}
+
+.hidden {
+    visibility: hidden !important;
+    transition: all 600ms ease;
+    position: absolute;
+
+    &:checked + .checkboxToggle .checkboxInnerToggle {
+        background-color: #5959ff;
+        transition: all 600ms ease;
+    }
+
+    &:hover + .checkboxToggle {
+        border: 1px solid #5959ff;
+        transition: all 600ms ease;
+    }
+}

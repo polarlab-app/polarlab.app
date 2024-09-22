@@ -16,6 +16,8 @@ import CheckboxInput from '@components/dashboard/inputs/checkbox';
 import TextboxInput from '@components/dashboard/inputs/textbox';
 import ActivityBar from '@components/dashboard/activity/bar';
 import DropdownInput from '@/components/dashboard/inputs/dropdown';
+import SingleInput from '@/components/dashboard/inputs/singleInput';
+import MultiInput from '@/components/dashboard/inputs/multiInput';
 
 /* Miscellaneous */
 import { triggerToast } from '@/components/core/toastNotifications';
@@ -46,9 +48,10 @@ export default function Page() {
         }
     }, [selectedGuild, tabRefs.current.length]);
 
-    const discardChanges = () => {
+    const discardChanges = async () => {
         triggerToast('Changes Discarded', 'All changes successfully discarded', 'g');
         setNewData({});
+        await fetchData();
     };
 
     const saveTrigger = async () => {
@@ -122,13 +125,13 @@ export default function Page() {
                                     value={data.config.logs.channelLogs.status}
                                     onChange={(e) => handleInputChange(e.target.id, e.target.checked)}
                                 />
-                            </div>
-                            <div className='inputGroupFull'>
-                                <TextboxInput
-                                    type='number'
+                                <DropdownInput
                                     id='channel-logs-channel'
+                                    possibleOptions={data.data.channels}
+                                    onChange={handleInputChange}
+                                    exclude={'2;13;15'}
+                                    icon={'icon-hashtag'}
                                     value={data.config.logs.channelLogs.channelID}
-                                    onChange={(e) => handleInputChange(e.target.id, e.target.value)}
                                 />
                             </div>
                         </>
@@ -171,13 +174,13 @@ export default function Page() {
                                     value={data.config.logs.messageLogs.status}
                                     onChange={(e) => handleInputChange(e.target.id, e.target.value)}
                                 />
-                            </div>
-                            <div className='inputGroupFull'>
-                                <TextboxInput
-                                    type='number'
+                                <DropdownInput
                                     id='message-logs-channel'
-                                    value={data.config.logs.messageLogs.channelID}
+                                    possibleOptions={data.data.channels}
                                     onChange={handleInputChange}
+                                    exclude={'2;13;15'}
+                                    icon={'icon-hashtag'}
+                                    value={data.config.logs.messageLogs.channelID}
                                 />
                             </div>
                         </>
@@ -195,13 +198,13 @@ export default function Page() {
                                     value={data.config.logs.memberLogs.status}
                                     onChange={(e) => handleInputChange(e.target.id, e.target.value)}
                                 />
-                            </div>
-                            <div className='inputGroupFull'>
-                                <TextboxInput
-                                    type='number'
+                                <DropdownInput
                                     id='member-logs-channel'
-                                    value={data.config.logs.memberLogs.channelD}
-                                    onChange={(e) => handleInputChange(e.target.id, e.target.value)}
+                                    possibleOptions={data.data.channels}
+                                    onChange={handleInputChange}
+                                    exclude={'2;13;15'}
+                                    icon={'icon-hashtag'}
+                                    value={data.config.logs.memberLogs.channelID}
                                 />
                             </div>
                         </>
@@ -219,13 +222,13 @@ export default function Page() {
                                     value={data.config.logs.emojiLogs.status}
                                     onChange={(e) => handleInputChange(e.target.id, e.target.value)}
                                 />
-                            </div>
-                            <div className='inputGroupFull'>
-                                <TextboxInput
-                                    type='number'
+                                <DropdownInput
                                     id='emoji-logs-channel'
+                                    possibleOptions={data.data.channels}
+                                    onChange={handleInputChange}
+                                    exclude={'2;13;15'}
+                                    icon={'icon-hashtag'}
                                     value={data.config.logs.emojiLogs.channelID}
-                                    onChange={(e) => handleInputChange(e.target.id, e.target.value)}
                                 />
                             </div>
                         </>
@@ -243,13 +246,13 @@ export default function Page() {
                                     value={data.config.logs.serverLogs.status}
                                     onChange={(e) => handleInputChange(e.target.id, e.target.value)}
                                 />
-                            </div>
-                            <div className='inputGroupFull'>
-                                <TextboxInput
-                                    type='number'
+                                <DropdownInput
                                     id='server-logs-channel'
+                                    possibleOptions={data.data.channels}
+                                    onChange={handleInputChange}
+                                    exclude={'2;13;15'}
+                                    icon={'icon-hashtag'}
                                     value={data.config.logs.serverLogs.channelID}
-                                    onChange={(e) => handleInputChange(e.target.id, e.target.value)}
                                 />
                             </div>
                         </>

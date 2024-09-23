@@ -33,7 +33,7 @@ export default function GridItem({ format, type }) {
     return (
         <div className={`${styles.griditem} ${styles['gridrow' + format]}`}>
             <div className={styles.gridtextcontainer}>
-                <h4 className={styles.gridheader}>{titles[type]}</h4>
+                <p className={styles.gridheader}>{titles[type]}</p>
                 <p className={styles.gridcontent}>
                     <span>{descriptions[type]}</span>
                 </p>

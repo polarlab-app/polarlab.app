@@ -165,7 +165,6 @@
     right: 0;
     max-width: 70%;
     max-height: 60%;
-    aspect-ratio: 1/1;
 }
 
 @media screen and (max-width: 768px) {

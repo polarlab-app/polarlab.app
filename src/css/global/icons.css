@@ -3,6 +3,7 @@
     font-style: normal;
     font-weight: normal;
     src: url('../../fonts/icons.woff') format('woff'), url('../../fonts/icons.woff2') format('woff2');
+    font-display: swap;
 }
 
 [class^='icon-']:before,

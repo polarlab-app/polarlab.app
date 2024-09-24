@@ -54,14 +54,12 @@ export default function DashboardNav() {
             if (guildList.h) {
                 triggerToast(guildList.h, guildList.d, guildList.c);
                 setTimeout(() => {
-                    window.location.href =
-                        'https://discord.com/oauth2/authorize?client_id=1065350226757554237&scope=bot&permissions=8&redirect_uri=https%3A%2F%2Fpolarlab.app%2Fdashboard';
+                    window.location.href = 'https://discord.com/oauth2/authorize?client_id=1065350226757554237';
                 }, 2000);
             } else {
                 triggerToast(user.h, user.d, user.c);
                 setTimeout(() => {
-                    window.location.href =
-                        'https://discord.com/oauth2/authorize?client_id=1065350226757554237&scope=bot&permissions=8&redirect_uri=https%3A%2F%2Fpolarlab.app%2Fdashboard';
+                    window.location.href = 'https://discord.com/oauth2/authorize?client_id=1065350226757554237';
                 }, 2000);
             }
         } else {
@@ -153,7 +151,7 @@ export default function DashboardNav() {
                                 className={styles2.dropdownoption}
                                 onClick={() => {
                                     window.location.href =
-                                        'https://discord.com/oauth2/authorize?client_id=1065350226757554237&scope=bot&permissions=8&redirect_uri=https%3A%2F%2Fpolarlab.app%2Fdashboard';
+                                        'https://discord.com/oauth2/authorize?client_id=1065350226757554237';
                                 }}
                             >
                                 Add Server...

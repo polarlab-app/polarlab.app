@@ -18,6 +18,18 @@
             "path": "config/logs/channelLogs/channelID",
             "placeholder": "Select Channel ..."
         },
+        "channel-logs-filter-mode": {
+            "name": "Channel Logs Filter Mode",
+            "description": "The mode for filtering channels",
+            "path": "config/logs/channelLogs/filterMode",
+            "options": ["whitelist", "blacklist"]
+        },
+        "channel-logs-filter": {
+            "name": "Filtered Channels",
+            "description": "The channels to filter out",
+            "path": "config/logs/channelLogs/filter",
+            "placeholder": "Select Channels ..."
+        },
         "role-logs-status": {
             "name": "Role Logs Status",
             "description": "Whether to enable role logs for your server",
@@ -29,6 +41,18 @@
             "description": "The channel for role logs",
             "path": "config/logs/roleLogs/channelID",
             "placeholder": "Select Channel ..."
+        },
+        "role-logs-filter-mode": {
+            "name": "Role Logs Filter Mode",
+            "description": "The mode for filtering roles",
+            "path": "config/logs/roleLogs/filterMode",
+            "options": ["whitelist", "blacklist"]
+        },
+        "role-logs-filter": {
+            "name": "Filtered Roles",
+            "description": "The roles to filter out",
+            "path": "config/logs/roleLogs/filter",
+            "placeholder": "Select Roles ..."
         },
         "message-logs-status": {
             "name": "Message Logs",
@@ -42,6 +66,18 @@
             "path": "config/logs/messageLogs/channelID",
             "placeholder": "Select Channel ..."
         },
+        "message-logs-filter-mode": {
+            "name": "Message Logs Filter Mode",
+            "description": "The mode for filtering messages",
+            "path": "config/logs/messageLogs/filterMode",
+            "options": ["whitelist", "blacklist"]
+        },
+        "message-logs-filter": {
+            "name": "Filtered Messages",
+            "description": "The messages to filter out",
+            "path": "config/logs/messageLogs/filter",
+            "placeholder": "Select Messages ..."
+        },
         "member-logs-status": {
             "name": "Member Logs",
             "description": "Whether to enable member logs for your server",
@@ -54,6 +90,18 @@
             "path": "config/logs/memberLogs/channelID",
             "placeholder": "Select Channel ..."
         },
+        "member-logs-filter-mode": {
+            "name": "Member Logs Filter Mode",
+            "description": "The mode for filtering members",
+            "path": "config/logs/memberLogs/filterMode",
+            "options": ["whitelist", "blacklist"]
+        },
+        "member-logs-filter": {
+            "name": "Filtered Members",
+            "description": "The members to filter out",
+            "path": "config/logs/memberLogs/filter",
+            "placeholder": "Select Members ..."
+        },
         "emoji-logs-status": {
             "name": "Emoji Logs",
             "description": "Whether to enable emoji logs for your server",
@@ -65,6 +113,18 @@
             "description": "The channel for emoji logs",
             "path": "config/logs/emojiLogs/channelID",
             "placeholder": "Select Channel ..."
+        },
+        "emoji-logs-filter-mode": {
+            "name": "Emoji Logs Filter Mode",
+            "description": "The mode for filtering emojis",
+            "path": "config/logs/emojiLogs/filterMode",
+            "options": ["whitelist", "blacklist"]
+        },
+        "emoji-logs-filter": {
+            "name": "Filtered Emojis",
+            "description": "The emojis to filter out",
+            "path": "config/logs/emojiLogs/filter",
+            "placeholder": "Select Emojis ..."
         },
         "server-logs-status": {
             "name": "Server Logs",
@@ -176,18 +236,26 @@
         }
     },
     "paths": {
-        "ai-functionality": "config/general/status",
-        "ai-functionality2": "config/general/channelId",
         "channel-logs-status": "config/logs/channelLogs/status",
         "channel-logs-channel": "config/logs/channelLogs/channelID",
+        "channel-logs-filter-mode": "config/logs/channelLogs/filterMode",
+        "channel-logs-filter": "config/logs/channelLogs/filter",
         "role-logs-status": "config/logs/roleLogs/status",
         "role-logs-channel": "config/logs/roleLogs/channelID",
+        "role-logs-filter-mode": "config/logs/roleLogs/filterMode",
+        "role-logs-filter": "config/logs/roleLogs/filter",
         "message-logs-status": "config/logs/messageLogs/status",
         "message-logs-channel": "config/logs/messageLogs/channelID",
+        "message-logs-filter-mode": "config/logs/messageLogs/filterMode",
+        "message-logs-filter": "config/logs/messageLogs/filter",
         "member-logs-status": "config/logs/memberLogs/status",
         "member-logs-channel": "config/logs/memberLogs/channelID",
+        "member-logs-filter-mode": "config/logs/memberLogs/filterMode",
+        "member-logs-filter": "config/logs/memberLogs/filter",
         "emoji-logs-status": "config/logs/emojiLogs/status",
         "emoji-logs-channel": "config/logs/emojiLogs/channelID",
+        "emoji-logs-filter-mode": "config/logs/emojiLogs/filterMode",
+        "emoji-logs-filter": "config/logs/emojiLogs/filter",
         "server-logs-status": "config/logs/serverLogs/status",
         "server-logs-channel": "config/logs/serverLogs/channelID",
         "leveling-status": "config/leveling/status",

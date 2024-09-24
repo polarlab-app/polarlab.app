@@ -11,11 +11,10 @@ export default function ActivityBar({ type, onClick, id }) {
         async function fetchData() {
             const data = JSON.parse(await fetchCases(type, id));
             setData(data.slice(0, 5));
-            console.log(data);
         }
 
         fetchData();
-    }, [type]);
+    }, [type, id]);
 
     return (
         <div className={`${styles.bar} ${show ? styles.active : null}`}>

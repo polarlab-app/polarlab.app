@@ -1,14 +1,14 @@
 .griditem {
-    border: 1px solid #2a2933;
-    background-color: rgb(22, 21, 28);
+    border: 1px solid #23252a;
+    background-color: rgba(16, 16, 18);
     height: 45vh;
     border-radius: 10px;
     opacity: 0;
     transition: all 600ms ease;
+    box-shadow: 0 15px 35px rgba(255, 255, 255, 0.02);
 }
-
 .griditem:hover {
-    box-shadow: 0 0 20px 1px rgba(255, 255, 255, 0.1), 0 0 40px 2px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px 1px rgba(255, 255, 255, 0.02), 0 0 40px 2px rgba(255, 255, 255, 0.02);
     transition: all 600ms ease;
     scale: 1.007;
 }
@@ -57,12 +57,13 @@
     font-size: 1.6em;
     color: white;
     margin-bottom: 0;
+    font-weight: 600;
 }
 
 .gridbutton {
     font-weight: 600;
     border-radius: 5px;
-    background-color: #2a2933;
+    background-color: #23252a;
     padding: 6px 20px;
     text-align: center;
     transition: all 600ms ease;
@@ -75,7 +76,7 @@
 
 .gridbutton:hover {
     scale: 0.95;
-    background-color: #1b1b2a;
+    background-color: #1c1d1f;
     transition: all 600ms ease;
 }
 

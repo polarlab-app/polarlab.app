@@ -41,7 +41,11 @@ export default function GridItem({ format, type }) {
                     Check It Out
                 </Link>
             </div>
-            <img alt='gridimg' className={styles.gridimg} src={images[type]} />
+            <img
+                alt='gridimg'
+                className={styles.gridimg}
+                src={'https://cdn.polarlab.app/src/landing/polaris--v2.png'}
+            />
         </div>
     );
 }

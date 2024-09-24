@@ -11,9 +11,10 @@
     justify-content: left;
     align-items: center;
     width: 60%;
-    border: 1px solid #2a2933;
-    background-color: rgb(22, 21, 28);
-    border-radius: 10px;
+    border: 1px solid #23252a;
+    background-color: rgba(16, 16, 18);
+    box-shadow: 0 0 20px rgba(35, 37, 42, 0.3);
+    border-radius: 6px;
     height: 80%;
 }
 
@@ -53,11 +54,11 @@
     font-family: 'Nunito';
     height: 45%;
     height: 5vh;
-    background-color: #2a2933;
+    background-color: #23252a;
     color: white;
     font-weight: 600;
     padding: 0 3%;
-    border: 1px solid #2a2933;
+    border: 1px solid #23252a;
     outline: none;
     transition: all 600ms ease;
 }
@@ -116,12 +117,12 @@
 }
 
 .loginbtn {
-    background-color: #2a2933;
+    background-color: #23252a;
 }
 
 .discordloginbtn {
     background-color: #4b4ee7;
-    /*box-shadow: 0 0 12px #4b4ee780;*/
+    box-shadow: 0 0 12px #4b4ee780;
 }
 
 .strengthbars {

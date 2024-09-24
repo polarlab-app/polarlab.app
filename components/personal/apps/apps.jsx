@@ -106,7 +106,7 @@ export default function Apps() {
                 <div className={styles.header}>
                     <h1 className={styles.heading}>Applications</h1>
                     <button className={styles.create} onClick={() => setShowCreateApp(true)}>
-                        <i className={`${styles.icon} icon-check-double`}></i>Create App
+                        <i className={`${styles.icon} icon-plus`}></i>Create App
                     </button>
                 </div>
                 <div className={styles.apps}>

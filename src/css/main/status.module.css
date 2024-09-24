@@ -47,8 +47,8 @@
     width: 50%;
     margin-top: 5%;
     border-radius: 7px;
-    border: 1px solid #2a2933;
-    background-color: rgb(22, 21, 28);
+    border: 1px solid #23252a;
+    background-color: #101012;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     display: grid;

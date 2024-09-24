@@ -13,11 +13,11 @@ import saveData from '@lib/dashboard/saveData';
 
 /* Inputs */
 import CheckboxInput from '@components/dashboard/inputs/checkbox';
-import TextboxInput from '@components/dashboard/inputs/textbox';
 import ActivityBar from '@components/dashboard/activity/bar';
 import DropdownInput from '@/components/dashboard/inputs/dropdown';
 import SingleInput from '@/components/dashboard/inputs/singleInput';
 import MultiInput from '@/components/dashboard/inputs/multiInput';
+import RadioInput from '@/components/dashboard/inputs/radio';
 
 /* Miscellaneous */
 import { triggerToast } from '@/components/core/toastNotifications';
@@ -118,12 +118,13 @@ export default function Page() {
                 <div className={`section ${selectedTab === 'channelLogs' ? 'active' : null}`}>
                     {data ? (
                         <>
-                            <div className='inputGroupFull'>
-                                <CheckboxInput
-                                    type='number'
+                            <div className='inputGroupHalf'>
+                                <SingleInput
                                     id='channel-logs-status'
                                     value={data.config.logs.channelLogs.status}
-                                    onChange={(e) => handleInputChange(e.target.id, e.target.checked)}
+                                    onChange={handleInputChange}
+                                    width='half'
+                                    type='checkbox'
                                 />
                                 <DropdownInput
                                     id='channel-logs-channel'
@@ -132,6 +133,23 @@ export default function Page() {
                                     exclude={'2;13;15'}
                                     icon={'icon-hashtag'}
                                     value={data.config.logs.channelLogs.channelID}
+                                    width={'half'}
+                                />
+                            </div>
+                            <div className='inputGroupHalf'>
+                                <RadioInput
+                                    id='channel-logs-filter-mode'
+                                    width='half'
+                                    value={data.config.logs.channelLogs.filterMode}
+                                    onChange={(e) => handleInputChange(e.target.name, e.target.value)}
+                                />
+                                <MultiInput
+                                    id='channel-logs-filter'
+                                    width={'half'}
+                                    possibleOptions={data.data.channels}
+                                    icon='icon-hashtag'
+                                    onChange={handleInputChange}
+                                    values={data.config.logs.channelLogs.filter}
                                 />
                             </div>
                         </>
@@ -142,12 +160,13 @@ export default function Page() {
                 <div className={`section ${selectedTab === 'roleLogs' ? 'active' : null}`}>
                     {data ? (
                         <>
-                            <div className='inputGroupFull'>
-                                <CheckboxInput
-                                    type='number'
+                            <div className='inputGroupHalf'>
+                                <SingleInput
                                     id='role-logs-status'
                                     value={data.config.logs.roleLogs.status}
-                                    onChange={(e) => handleInputChange(e.target.id, e.target.checked)}
+                                    onChange={handleInputChange}
+                                    width='half'
+                                    type='checkbox'
                                 />
                                 <DropdownInput
                                     id='role-logs-channel'
@@ -156,9 +175,25 @@ export default function Page() {
                                     exclude={'2;13;15'}
                                     icon={'icon-hashtag'}
                                     value={data.config.logs.roleLogs.channelID}
+                                    width={'half'}
                                 />
                             </div>
-                            <div className='inputGroupFull'></div>
+                            <div className='inputGroupHalf'>
+                                <RadioInput
+                                    id='role-logs-filter-mode'
+                                    width='half'
+                                    value={data.config.logs.roleLogs.filterMode}
+                                    onChange={(e) => handleInputChange(e.target.name, e.target.value)}
+                                />
+                                <MultiInput
+                                    id='role-logs-filter'
+                                    width={'half'}
+                                    possibleOptions={data.data.roles}
+                                    icon='icon-at'
+                                    onChange={handleInputChange}
+                                    values={data.config.logs.roleLogs.filter}
+                                />
+                            </div>
                         </>
                     ) : (
                         <div>Loading...</div>
@@ -167,12 +202,13 @@ export default function Page() {
                 <div className={`section ${selectedTab === 'messageLogs' ? 'active' : null}`}>
                     {data ? (
                         <>
-                            <div className='inputGroupFull'>
-                                <CheckboxInput
-                                    type='number'
+                            <div className='inputGroupHalf'>
+                                <SingleInput
                                     id='message-logs-status'
                                     value={data.config.logs.messageLogs.status}
-                                    onChange={(e) => handleInputChange(e.target.id, e.target.value)}
+                                    onChange={handleInputChange}
+                                    width='half'
+                                    type='checkbox'
                                 />
                                 <DropdownInput
                                     id='message-logs-channel'
@@ -181,6 +217,23 @@ export default function Page() {
                                     exclude={'2;13;15'}
                                     icon={'icon-hashtag'}
                                     value={data.config.logs.messageLogs.channelID}
+                                    width={'half'}
+                                />
+                            </div>
+                            <div className='inputGroupHalf'>
+                                <RadioInput
+                                    id='message-logs-filter-mode'
+                                    width='half'
+                                    value={data.config.logs.messageLogs.filterMode}
+                                    onChange={(e) => handleInputChange(e.target.name, e.target.value)}
+                                />
+                                <MultiInput
+                                    id='message-logs-filter'
+                                    width={'half'}
+                                    possibleOptions={data.data.channels}
+                                    icon='icon-hashtag'
+                                    onChange={handleInputChange}
+                                    values={data.config.logs.messageLogs.filter}
                                 />
                             </div>
                         </>
@@ -191,12 +244,13 @@ export default function Page() {
                 <div className={`section ${selectedTab === 'memberLogs' ? 'active' : null}`}>
                     {data ? (
                         <>
-                            <div className='inputGroupFull'>
-                                <CheckboxInput
-                                    type='number'
+                            <div className='inputGroupHalf'>
+                                <SingleInput
                                     id='member-logs-status'
                                     value={data.config.logs.memberLogs.status}
-                                    onChange={(e) => handleInputChange(e.target.id, e.target.value)}
+                                    onChange={handleInputChange}
+                                    width='half'
+                                    type='checkbox'
                                 />
                                 <DropdownInput
                                     id='member-logs-channel'
@@ -205,6 +259,23 @@ export default function Page() {
                                     exclude={'2;13;15'}
                                     icon={'icon-hashtag'}
                                     value={data.config.logs.memberLogs.channelID}
+                                    width={'half'}
+                                />
+                            </div>
+                            <div className='inputGroupHalf'>
+                                <RadioInput
+                                    id='member-logs-filter-mode'
+                                    width='half'
+                                    value={data.config.logs.memberLogs.filterMode}
+                                    onChange={(e) => handleInputChange(e.target.name, e.target.value)}
+                                />
+                                <MultiInput
+                                    id='member-logs-filter'
+                                    width={'half'}
+                                    possibleOptions={data.data.members}
+                                    icon='icon-user'
+                                    onChange={handleInputChange}
+                                    values={data.config.logs.memberLogs.filter}
                                 />
                             </div>
                         </>
@@ -215,12 +286,13 @@ export default function Page() {
                 <div className={`section ${selectedTab === 'emojiLogs' ? 'active' : null}`}>
                     {data ? (
                         <>
-                            <div className='inputGroupFull'>
-                                <CheckboxInput
-                                    type='number'
+                            <div className='inputGroupHalf'>
+                                <SingleInput
                                     id='emoji-logs-status'
                                     value={data.config.logs.emojiLogs.status}
-                                    onChange={(e) => handleInputChange(e.target.id, e.target.value)}
+                                    onChange={handleInputChange}
+                                    width='half'
+                                    type='checkbox'
                                 />
                                 <DropdownInput
                                     id='emoji-logs-channel'
@@ -229,6 +301,24 @@ export default function Page() {
                                     exclude={'2;13;15'}
                                     icon={'icon-hashtag'}
                                     value={data.config.logs.emojiLogs.channelID}
+                                    width={'half'}
+                                />
+                            </div>
+                            <div className='inputGroupHalf'>
+                                <SingleInput
+                                    id='emoji-logs-filter-mode'
+                                    width={'half'}
+                                    value={data.config.logs.emojiLogs.filterMode}
+                                    type='radio'
+                                    onChange={handleInputChange}
+                                />
+                                <MultiInput
+                                    id='emoji-logs-filter'
+                                    width={'half'}
+                                    possibleOptions={data.data.emojiLogs}
+                                    icon='icon-face-awesome'
+                                    onChange={handleInputChange}
+                                    values={data.config.logs.emojiLogs.filter}
                                 />
                             </div>
                         </>

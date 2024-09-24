@@ -77,6 +77,7 @@ export default function DropdownInput({ id, value, onChange, width, possibleOpti
                                           setSelectedValue(option.id);
                                       }}
                                   >
+                                      {icon ? <i className={`${styles.icon} ${icon}`}></i> : null}
                                       {option.name}
                                   </div>
                               ))}

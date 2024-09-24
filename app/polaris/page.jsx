@@ -4,7 +4,7 @@ import Section from '@components/main/section';
 import Landing from '@components/main/landing';
 
 export const metadata = {
-    title: 'Polaris V2',
+    title: 'Polar Lab | Polaris V2',
     description: 'One bot to rule them all, one bot to surpass them all',
 };
 

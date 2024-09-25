@@ -106,7 +106,7 @@
 
 .loginbtn:hover {
     scale: 0.95;
-    background-color: #1b1b2a;
+    background-color: #1c1d1f;
     transition: all 600ms ease;
 }
 
@@ -135,7 +135,7 @@
 .strengthbar {
     height: 0.3rem;
     width: 24%;
-    background-color: #2a2933;
+    background-color: #23252a;
     border-radius: 5px;
     transition: all 600ms ease;
 }
@@ -173,35 +173,6 @@
     font-size: 0.95rem;
     font-weight: 600;
     list-style: disc;
-}
-
-.success {
-    color: #00e09c;
-    margin: 2% 3%;
-    background-color: #2a2933;
-    height: 4vh;
-    border-radius: 5px;
-    width: 84%;
-    display: flex;
-    align-items: center;
-    padding: 0 2%;
-    box-shadow: 0px 0 20px #00e09d31;
-    font-weight: 700;
-}
-
-.error {
-    color: #fe424d;
-    margin: 2% 3%;
-    background-color: #2a2933;
-    height: 4vh;
-    border-radius: 5px;
-    width: 84%;
-    text-align: left;
-    display: flex;
-    align-items: center;
-    padding: 0 2%;
-    box-shadow: 0px 0 20px #fe424f31;
-    font-weight: 700;
 }
 
 @media screen and (max-width: 768px) {

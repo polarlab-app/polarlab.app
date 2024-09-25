@@ -28,6 +28,12 @@ const nextConfig = {
                 port: '',
                 pathname: '/**',
             },
+            {
+                protocol: 'https',
+                hostname: 'images.unsplash.com',
+                port: '',
+                pathname: '/**',
+            },
         ],
     },
     devIndicators: {
@@ -47,7 +53,7 @@ const nextConfig = {
                             default-src 'self';
                             script-src 'self' 'unsafe-inline' 'unsafe-eval' https://static.cloudflareinsights.com;
                             style-src 'self' 'unsafe-inline';
-                            img-src 'self' data: https://cdn.polarlab.app https://cdn.discordapp.com https://placehold.co;
+                            img-src 'self' data: https://cdn.polarlab.app https://cdn.discordapp.com https://placehold.co https://images.unsplash.com;
                             font-src 'self';
                             connect-src 'self' https://discord.com https://api.polarlab.app;
                             frame-src 'self';

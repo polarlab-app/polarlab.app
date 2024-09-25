@@ -89,8 +89,8 @@
     border-radius: 6px;
     font-weight: 700;
     cursor: pointer;
-    border: 1px solid #2a2933;
-    background-color: #2a2933;
+    border: 1px solid #23252a;
+    background-color: #23252a;
     height: 5vh;
     width: 15%;
     margin-left: 2%;
@@ -109,21 +109,22 @@
     border-radius: 6px;
     font-weight: 700;
     cursor: pointer;
-    border: 1px solid #2a2933;
-    background-color: #2a2933;
+    border: 1px solid #23252a;
+    background-color: #23252a;
     color: white;
     height: 5vh;
     width: 76.4%;
 }
 
 .addButton:hover {
-    border: 1px solid #4b4ee7;
+    scale: 0.95;
+    background-color: #1c1d1f;
     transition: all 600ms ease;
 }
 
 .deleteButton {
     color: #d86464;
-    background-color: #2c2d36;
+    background-color: #23252a;
     height: 5vh;
     border: none;
     border-radius: 6px;
@@ -134,7 +135,7 @@
 }
 
 .deleteButton:hover {
-    background-color: #212127;
+    background-color: #1c1d1f;
     transition: all 600ms ease;
     scale: 0.95;
 }
@@ -187,11 +188,11 @@
     border-radius: 6px;
     font-family: 'Nunito';
     height: 5vh;
-    background-color: #2a2933;
+    background-color: #23252a;
     color: white;
     font-weight: 600;
     padding: 0 3%;
-    border: 1px solid #2a2933;
+    border: 1px solid #23252a;
     outline: none;
     transition: all 600ms ease;
     width: 70%;
@@ -307,8 +308,8 @@
 }
 
 .app {
-    border: 1px solid #2a2933;
-    background-color: rgb(22, 21, 28);
+    border: 1px solid #23252a;
+    background-color: #101012;
     border-radius: 6px;
 }
 
@@ -328,7 +329,7 @@
 
 .button {
     color: #d86464;
-    background-color: #2c2d36;
+    background-color: #23252a;
     height: 5vh;
     border: none;
     border-radius: 6px;
@@ -342,7 +343,7 @@
 }
 
 .button:hover {
-    background-color: #212127;
+    background-color: #1c1d1f;
     transition: all 600ms ease;
 }
 
@@ -412,7 +413,8 @@
     height: 100%;
     aspect-ratio: 1/1;
     border-radius: 6px;
-    background-color: #2c2d36;
+    background-color: #23252a;
+    border: 1px solid #23252a;
     display: flex;
     justify-content: center;
     align-items: center;

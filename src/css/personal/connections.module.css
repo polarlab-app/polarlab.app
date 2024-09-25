@@ -40,8 +40,8 @@
 }
 
 .connection {
-    background-color: #16151c;
-    border: 1px solid #2a2933;
+    background-color: #101012;
+    border: 1px solid #23252a;
     border-radius: 10px;
     grid-column: span 1;
     width: 90%;
@@ -86,7 +86,7 @@
     margin-right: 5%;
     cursor: pointer;
     color: #d86464;
-    background-color: #2a2933;
+    background-color: #23252a;
     height: 4vh;
     border: none;
     border-radius: 6px;
@@ -96,7 +96,7 @@
 }
 
 .button:hover {
-    background-color: #1b1b2a;
+    background-color: #1c1d1f;
     scale: 0.95;
     transition: all 600ms ease;
 }

@@ -1,8 +1,20 @@
 {
     "home": [
-        "https://placehold.co/800x400/1abc9c/ffffff?text=Home+Image+1",
-        "https://placehold.co/800x400/3498db/ffffff?text=Home+Image+2",
-        "https://placehold.co/800x400/9b59b6/ffffff?text=Home+Image+3"
+        {
+            "title": "Image 1",
+            "description": "Description 1",
+            "url": "https://images.unsplash.com/photo-1727108106361-a822fcbcdeed?q=80&w=2153&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+            "title": "Image 2",
+            "description": "Description 2",
+            "url": "https://images.unsplash.com/photo-1727229766396-efc10f50c169?q=80&w=1998&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+            "title": "Image 3",
+            "description": "Description 3",
+            "url": "https://images.unsplash.com/photo-1727261909598-ce67f083f858?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        }
     ],
     "products": [
         "https://placehold.co/800x400/e74c3c/ffffff?text=Product+Image+1",

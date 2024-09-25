@@ -44,7 +44,7 @@ export default function Carousel({ type }) {
     }, [manualChange]);
 
     return (
-        <div className={styles.container} style={{ boxShadow: `0 0 50px ${color}` }}>
+        <div className={styles.container} style={{ boxShadow: `5px 5px 65px 0px ${color}` }}>
             <div className={styles.innerContainer}>
                 <div className={styles.controls}>
                     {images.map((image, index) => (

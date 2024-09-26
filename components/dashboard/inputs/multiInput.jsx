@@ -111,6 +111,7 @@ export default function MultiInput({ id, values, possibleOptions, onChange, icon
                                         onChange(id, [...selectedValues, option.id]);
                                     }}
                                     id='possibleOption'
+                                    style={option.color ? { color: option.color } : null}
                                 >
                                     {icon ? <i className={`${icon} ${styles.icon}`}></i> : null}
                                     {option.name}

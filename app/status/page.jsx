@@ -16,6 +16,7 @@ export default function Page() {
                 </div>
                 <div className={styles.statusgrid}>
                     <GridHeader />
+                    <StatusGrid />
                 </div>
             </div>
         </>

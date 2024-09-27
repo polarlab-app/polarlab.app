@@ -4,14 +4,14 @@
     top: 1vh;
     height: 7vh;
     border-radius: 6px;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid #2a2933;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid #23252a;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin: 0 auto;
-    z-index: 2;
+    z-index: 6;
 }
 
 .navlinkcontainer {
@@ -76,7 +76,7 @@
     font-weight: 700;
     font-size: 25px;
     align-self: calc(center - 10px);
-    background: linear-gradient(90deg, white, #9d74e9, white);
+    background: linear-gradient(90deg, white, #7659ff, white);
     background-size: 200% 100%;
     -webkit-background-clip: text;
     background-clip: text;
@@ -96,7 +96,7 @@
 .button {
     font-weight: 600;
     border-radius: 5px;
-    background-color: #2a2933;
+    background-color: #23252a;
     padding: 6px 24px;
     text-align: center;
     width: 25%;
@@ -109,7 +109,7 @@
 
 .button:hover {
     scale: 0.95;
-    background-color: #1b1b2a;
+    background-color: #1c1d1f;
     transition: all 600ms ease;
 }
 

@@ -2,18 +2,23 @@
 import { useState, useEffect, useRef } from 'react';
 
 /*Top bar*/
-import TopBar from '@/components/dashboard/top/topbar';
+import TopBar from '@components/dashboard/top/topbar';
 import selectionStyles from '@css/dashboard/selection.module.css';
 
 /*Data Management */
 import getGuildData from '@lib/dashboard/getGuildData';
 import saveData from '@lib/dashboard/saveData';
-import { useGuild } from '../guildContext';
+import { useGuild } from '@components/context/guildContext';
 
 /*Inputs */
 import CheckboxInput from '@components/dashboard/inputs/checkbox';
 import TextboxInput from '@components/dashboard/inputs/textbox';
 import ArrayInput from '@components/dashboard/inputs/arrayInput';
+import Embed from '@/components/dashboard/embeds/embed';
+import DropdownInput from '@components/dashboard/inputs/dropdown';
+
+/* Miscellaneous */
+import { triggerToast } from '@/components/core/toastNotifications';
 
 export default function Page() {
     const { selectedGuild, setSelectedGuild } = useGuild();
@@ -27,6 +32,10 @@ export default function Page() {
 
         const fetchData = async () => {
             const guildData = JSON.parse(await getGuildData(selectedGuild.id));
+            if (guildData.h) {
+                triggerToast(guildData.h, guildData.d, guildData.c);
+                return;
+            }
             setData(guildData);
         };
 
@@ -38,16 +47,22 @@ export default function Page() {
     }, [selectedGuild, tabRefs.current.length]);
 
     const discardChanges = () => {
+        triggerToast('Changes Discarded', 'All changes successfully discarded', 'g');
         setNewData({});
     };
 
     const saveTrigger = async () => {
-        const response = await saveData(newData || 0, selectedGuild.id || 0);
-        if (response == 'true') {
+        const response = JSON.parse(await saveData(newData, selectedGuild.id));
+        triggerToast(response.h, response.d, response.c);
+        if (response.s) {
             setNewData({});
-        } else {
-            alert('fail');
+            await fetchData();
         }
+    };
+
+    const fetchData = async () => {
+        const data = JSON.parse(await getGuildData(selectedGuild.id));
+        setData(data);
     };
 
     const handleTabClick = (tabId) => {
@@ -96,25 +111,10 @@ export default function Page() {
                 ))}
             </div>
             <div className='dashboardWrapper'>
-                <div className={`section ${selectedTab === '' ? 'active' : null}`}>
+                <div className={`section ${selectedTab === 'generalSettings' ? 'active' : null}`}>
                     {data ? (
                         <>
-                            <div className='inputGroupFull'>
-                                <CheckboxInput
-                                    type='number'
-                                    id='channel-logs-status'
-                                    value={data.config.logs.channelLogs.status}
-                                    onChange={(e) => handleInputChange(e.target.id, e.target.checked)}
-                                />
-                            </div>
-                            <div className='inputGroupHalf'>
-                                <TextboxInput
-                                    type='number'
-                                    id='channel-logs-channel'
-                                    value={data.config.logs.channelLogs.channelId}
-                                    onChange={(e) => handleInputChange(e.target.id, e.target.value)}
-                                />
-                            </div>
+                            <Embed />
                         </>
                     ) : (
                         <div>Loading...</div>
@@ -122,15 +122,17 @@ export default function Page() {
                 </div>
                 <div className={`section ${selectedTab === 'dashboardAccess' ? 'active' : null}`}>
                     {data ? (
-                        <div className='inputGroupFull'>
-                            <ArrayInput
-                                id='guild-administrators'
-                                type='t'
-                                type2='d'
-                                values={data.data.staff}
-                                onChange={(newValues) => handleInputChange('guild-administrators', newValues)}
-                            />
-                        </div>
+                        <>
+                            <div className='inputGroupFull'>
+                                <ArrayInput
+                                    id='guild-administrators'
+                                    type='text'
+                                    type2='radio'
+                                    values={data.data.staff}
+                                    onChange={(newValues) => handleInputChange('guild-administrators', newValues)}
+                                />
+                            </div>
+                        </>
                     ) : (
                         <div>Loading...</div>
                     )}

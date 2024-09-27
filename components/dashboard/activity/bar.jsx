@@ -1,5 +1,5 @@
 'use client';
-import styles from '@css/dashboard/activity.module.css';
+import styles from '@css/dashboard/activity.module.scss';
 import { useState, useEffect } from 'react';
 import fetchCases from '@/lib/dashboard/fetchCases';
 import Item from './item';
@@ -11,11 +11,10 @@ export default function ActivityBar({ type, onClick, id }) {
         async function fetchData() {
             const data = JSON.parse(await fetchCases(type, id));
             setData(data.slice(0, 5));
-            console.log(data);
         }
 
         fetchData();
-    }, [type]);
+    }, [type, id]);
 
     return (
         <div className={`${styles.bar} ${show ? styles.active : null}`}>

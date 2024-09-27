@@ -19,6 +19,9 @@ import RangeInput from '@components/dashboard/inputs/range';
 import DoubleInput from '@components/dashboard/inputs/doubleInput';
 import ArrayInput from '@/components/dashboard/inputs/arrayInput';
 
+/* Miscellaneous */
+import { triggerToast } from '@/components/core/toastNotifications';
+
 export default function Page() {
     const { selectedGuild } = useGuild();
     const [newData, setNewData] = useState({});
@@ -31,6 +34,10 @@ export default function Page() {
 
         const fetchData = async () => {
             const guildData = JSON.parse(await getGuildData(selectedGuild.id));
+            if (guildData.h) {
+                triggerToast(guildData.h, guildData.d, guildData.c);
+                return;
+            }
             setData(guildData);
         };
 
@@ -42,16 +49,22 @@ export default function Page() {
     }, [selectedGuild, tabRefs.current.length]);
 
     const discardChanges = () => {
+        triggerToast('Changes Discarded', 'All changes successfully discarded', 'g');
         setNewData({});
     };
 
     const saveTrigger = async () => {
-        const response = await saveData(newData, selectedGuild.id);
-        if (response) {
+        const response = JSON.parse(await saveData(newData, selectedGuild.id));
+        triggerToast(response.h, response.d, response.c);
+        if (response.s) {
             setNewData({});
-        } else {
-            alert('fail');
+            await fetchData();
         }
+    };
+
+    const fetchData = async () => {
+        const data = JSON.parse(await getGuildData(selectedGuild.id));
+        setData(data);
     };
 
     const handleTabClick = (tabId) => {

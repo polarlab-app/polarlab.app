@@ -1,18 +1,19 @@
 .footercontainer {
     border-top: 1px solid #2a2933;
-    background-color: rgb(22, 21, 28);
+    background-color: #101012;
     border-radius: 8px 8px 0px 0px;
     margin-top: 10vh;
     margin-bottom: 0;
     z-index: 2;
     position: relative;
+    box-shadow: 0 0 60px rgba(35, 37, 42, 1);
 }
 
 .footer {
     width: 66%;
     margin-left: 17%;
     margin-top: 2%;
-    border-bottom: 1px solid #2a2933;
+    border-bottom: 1px solid rgb(35, 37, 42);
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -75,7 +76,7 @@
 
 .dbtn {
     padding: 12px 24px;
-    background-color: #2a2933;
+    background-color: #23252a;
     border-radius: 5px;
     font-weight: 700;
     color: white;
@@ -86,7 +87,7 @@
 }
 
 .dbtn:hover {
-    background-color: #1b1b2a;
+    background-color: #1c1d1f;
     transition: all 600ms ease;
     scale: 0.95;
 }
@@ -128,7 +129,7 @@
     align-items: center;
     text-align: center;
     justify-content: center;
-    background-color: #2a2933;
+    background-color: #23252a;
     transition: all 600ms ease;
 }
 

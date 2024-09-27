@@ -1,0 +1,169 @@
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: 100%;
+    background-color: #111118;
+    border-radius: 6px;
+    margin: 2% 0;
+}
+
+.inputSection {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto;
+}
+
+.top {
+    height: 10vh;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 3% 0 0 0;
+}
+
+.label {
+    color: white;
+    font-weight: 700;
+    margin: 2% 0;
+}
+
+/* Embed Lmao */
+
+.embedContainer {
+    width: 60%;
+    display: flex;
+    max-height: 60vh;
+    height: 100%;
+}
+
+.footerText::placeholder,
+.authorName::placeholder,
+.title::placeholder,
+.description::placeholder {
+    color: #9d9ba9;
+}
+.footerText,
+.author,
+.title,
+.description {
+    border: none;
+    background-color: transparent;
+    margin: 0.5% 0;
+    outline: none;
+    border-radius: 2px;
+    padding: 1% 2%;
+    transition: all 600ms ease;
+    border: 1px solid #111118;
+    color: #9d9ba9;
+    font-weight: 600;
+}
+
+.title {
+    font-size: 1.2rem;
+    margin-top: 5%;
+}
+
+.description {
+    font-size: 0.9rem;
+}
+
+.authorIcon {
+    width: 3.5vh;
+    aspect-ratio: 1/1;
+}
+
+.authorIconContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 1%;
+    border: 1px dashed #9d9ba9;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-right: 3%;
+
+    .authorIcon:hover + .authorIconContainer {
+        background-color: rgba(0, 0, 0, 1);
+    }
+}
+
+.author {
+    font-size: 1rem;
+}
+
+.thumbnailContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    position: absolute;
+    right: 3%;
+    cursor: pointer;
+    border: 2px dashed #9d9ba9;
+    border-radius: 6px;
+    max-height: 20vh;
+}
+
+.thumbnail {
+    padding: 1%;
+    transition: all 600ms ease;
+    max-width: fit-content;
+    aspect-ratio: 1/1;
+}
+
+.thumbnailOverlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 6px;
+}
+
+.thumbnail:hover + .thumbnailOverlay {
+    background-color: rgba(0, 0, 0, 1);
+    transition: all 600ms ease;
+}
+
+.textContainer {
+    background-color: #111118;
+    color: white;
+    width: 99%;
+    height: 100%;
+    border-radius: 0 6px 6px 0;
+    display: flex;
+    flex-direction: column;
+}
+.top {
+    display: flex;
+    margin: 3% 0 3% 3%;
+    position: relative;
+}
+
+.left {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+.authorContainer {
+    display: flex;
+}
+
+.essentials {
+    display: flex;
+    flex-direction: column;
+}
+
+.colorStrip {
+    border-radius: 6px 0 0 6px;
+    background-color: #5959ff;
+    width: 1%;
+    height: 100%;
+}
+
+.footer {
+    display: flex;
+    justify-content: flex-start;
+    margin: 2% 2%;
+    align-items: center;
+}

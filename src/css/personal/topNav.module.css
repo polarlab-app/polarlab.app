@@ -1,7 +1,7 @@
 .nav {
     height: 8vh;
     width: 100%;
-    background-color: rgb(22, 21, 28);
+    background-color: #101012;
     color: white;
     display: flex;
     justify-content: space-between;
@@ -22,7 +22,7 @@
 }
 
 .linkContainer {
-    border-bottom: 1px solid #2a2933;
+    border-bottom: 1px solid #23252a;
     width: 72%;
     display: flex;
     align-items: center;
@@ -54,7 +54,7 @@
 
 .button {
     color: #d86464;
-    background-color: #2a2933;
+    background-color: #23252a;
     height: 4vh;
     border: none;
     border-radius: 5px;
@@ -66,7 +66,7 @@
 }
 
 .button:hover {
-    background-color: #1b1b2a;
+    background-color: #1c1d1f;
     transition: all 600ms ease;
     scale: 0.96;
 }

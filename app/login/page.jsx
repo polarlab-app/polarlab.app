@@ -61,7 +61,7 @@ export default function Page() {
         if (strength >= 3) return '#00e09c';
         if (strength === 2) return '#fdb822';
         if (strength === 1 || (strength === 0 && password)) return '#fe424d';
-        return '#2a2933';
+        return '#23252a';
     };
 
     return (

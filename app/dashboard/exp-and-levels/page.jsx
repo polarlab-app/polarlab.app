@@ -7,7 +7,7 @@ import TopBar from '@components/dashboard/top/topbar';
 import selectionStyles from '@css/dashboard/selection.module.css';
 
 /* Data Management */
-import { useGuild } from '../guildContext';
+import { useGuild } from '@components/context/guildContext';
 import getGuildData from '@lib/dashboard/getGuildData';
 import saveData from '@lib/dashboard/saveData';
 
@@ -18,6 +18,10 @@ import RadioInput from '@components/dashboard/inputs/radio';
 import RangeInput from '@components/dashboard/inputs/range';
 import DoubleInput from '@components/dashboard/inputs/doubleInput';
 import ArrayInput from '@components/dashboard/inputs/arrayInput';
+
+/* Miscellaneous */
+import { triggerToast } from '@/components/core/toastNotifications';
+import DropdownInput from '@/components/dashboard/inputs/dropdown';
 
 export default function Page() {
     const { selectedGuild } = useGuild();
@@ -31,6 +35,10 @@ export default function Page() {
 
         const fetchData = async () => {
             const guildData = JSON.parse(await getGuildData(selectedGuild.id));
+            if (guildData.h) {
+                triggerToast(guildData.h, guildData.d, guildData.c);
+                return;
+            }
             setData(guildData);
         };
 
@@ -42,16 +50,22 @@ export default function Page() {
     }, [selectedGuild, tabRefs.current.length]);
 
     const discardChanges = () => {
+        triggerToast('Changes Discarded', 'All changes successfully discarded', 'g');
         setNewData({});
     };
 
     const saveTrigger = async () => {
-        const response = await saveData(newData, selectedGuild.id || '');
-        if (!response) {
-            alert('fail');
-        } else {
+        const response = JSON.parse(await saveData(newData, selectedGuild.id));
+        triggerToast(response.h, response.d, response.c);
+        if (response.s) {
             setNewData({});
+            await fetchData();
         }
+    };
+
+    const fetchData = async () => {
+        const data = JSON.parse(await getGuildData(selectedGuild.id));
+        setData(data);
     };
 
     const handleTabClick = (tabId) => {
@@ -151,10 +165,12 @@ export default function Page() {
                                 />
                                 <ArrayInput
                                     id='leveling-rewards'
-                                    type='t'
-                                    type2='t'
+                                    type='text'
+                                    type2='dropdown'
                                     values={data.config.leveling.rewards.rewards}
+                                    possibleOptions={data.data.roles}
                                     onChange={(newValues) => handleInputChange('leveling-rewards', newValues)}
+                                    icon='icon-at'
                                 />
                             </div>
                         </>
@@ -175,26 +191,30 @@ export default function Page() {
                             <div className='inputGroupFull'>
                                 <ArrayInput
                                     id='leveling-role-boosters'
-                                    type='t'
-                                    type2='r'
+                                    type='dropdown'
+                                    type2='range'
                                     values={data.config.leveling.boosters.roleBoosters}
+                                    possibleOptions={data.data.roles}
+                                    icon={'icon-at'}
                                     onChange={(newValues) => handleInputChange('leveling-role-boosters', newValues)}
                                 />
                             </div>
                             <div className='inputGroupFull'>
                                 <ArrayInput
                                     id='leveling-channel-boosters'
-                                    type='t'
-                                    type2='r'
+                                    type='dropdown'
+                                    type2='range'
                                     values={data.config.leveling.boosters.channelBoosters}
+                                    possibleOptions={data.data.channels}
+                                    icon={'icon-hashtag'}
                                     onChange={(newValues) => handleInputChange('leveling-channel-boosters', newValues)}
                                 />
                             </div>
                             <div className='inputGroupFull'>
                                 <ArrayInput
                                     id='leveling-member-boosters'
-                                    type='t'
-                                    type2='r'
+                                    type='text'
+                                    type2='range'
                                     values={data.config.leveling.boosters.memberBoosters}
                                     onChange={(newValues) => handleInputChange('leveling-member-boosters', newValues)}
                                 />
@@ -224,11 +244,14 @@ export default function Page() {
                                 (!newData['leveling-display-type'] &&
                                     data &&
                                     data.config.leveling.display.type === 'dedicated') ? (
-                                    <TextboxInput
+                                    <DropdownInput
                                         id='leveling-display-channel'
                                         value={data.config.leveling.display.channelID}
-                                        onChange={(e) => handleInputChange(e.target.id, e.target.value)}
+                                        onChange={handleInputChange}
                                         width={'half'}
+                                        possibleOptions={data.data.channels}
+                                        icon='icon-hashtag'
+                                        exclude={'2'}
                                     />
                                 ) : null}
                             </div>

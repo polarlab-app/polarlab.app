@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import { getMongoConnection } from '@/lib/global/db';
 
 const appSchema = new mongoose.Schema(
     {
@@ -14,6 +15,7 @@ const appSchema = new mongoose.Schema(
         collection: 'apps',
     }
 );
+const connection = await getMongoConnection('primary');
 
-const app = mongoose.models.app || mongoose.model('app', appSchema);
+const app = connection.mongoose.models.app || connection.mongoose.model('app', appSchema);
 export default app;

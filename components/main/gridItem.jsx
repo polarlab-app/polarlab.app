@@ -10,12 +10,12 @@ import $ from 'jquery';
 export default function GridItem({ format, type }) {
     useEffect(() => {
         const checkVisibility = () => {
-            $(`.${styles.griditem}, .${styles.siteheading}`).each(function () {
+            $(`.${styles.griditem}`).each(function () {
                 const elementTop = $(this).offset().top;
                 const windowTop = $(window).scrollTop();
                 const windowHeight = $(window).height();
 
-                if (elementTop < windowTop + windowHeight * 0.9) {
+                if (elementTop < windowTop + windowHeight * 0.8) {
                     $(this).addClass(styles.animate);
                 } else {
                     $(this).removeClass(styles.animate);

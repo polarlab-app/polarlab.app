@@ -6,19 +6,23 @@
     margin-top: 10vh;
 }
 
-.sectionheader {
-    font-size: 2rem;
-    color: transparent;
-    background-image: linear-gradient(90deg, #b1aad4, #582eff);
-    background-clip: text;
+.siteheading {
     opacity: 0;
 }
 
+.sectionheader {
+    font-size: 2.4rem;
+    color: transparent;
+    background-image: linear-gradient(90deg, #b1aad4, #582eff);
+    background-clip: text;
+    margin-bottom: 0;
+}
+
 .sectionsubheader {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: #727272;
     font-weight: 500;
-    opacity: 0;
+    margin-top: 0;
 }
 
 .featuregrid {
@@ -86,7 +90,8 @@
 }
 
 .animate {
-    animation: appear 0.6s linear both;
+    animation: appear 0.6s ease-in-out both;
+    -moz-animation: appear 0.6s ease-in-out both;
     transform-style: preserve-3d;
     will-change: transform, opacity;
 }

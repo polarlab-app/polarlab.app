@@ -3,7 +3,8 @@
         "overview": "General information about your server",
         "settings": "The general settings for your server",
         "logging": "Logs to review your servers' activity",
-        "exp-and-leveling": "The best engagement system on Discord"
+        "exp-and-leveling": "The best engagement system on Discord",
+        "server-guard": "Protect your server from unwanted guests"
     },
     "inputs": {
         "channel-logs-status": {
@@ -233,6 +234,23 @@
             "placeholder": "User ID",
             "limit": 10,
             "options": ["dashboardAdministrator", "botAdministrator"]
+        },
+        "verification-status": {
+            "name": "Verification Status",
+            "description": "Whether to enable verification for your server",
+            "path": "config/verification/status"
+        },
+        "verification-channel": {
+            "name": "Verification Channel",
+            "description": "The channel for verification",
+            "path": "config/verification/channelID",
+            "placeholder": "Select Channel ..."
+        },
+        "verification-roles": {
+            "name": "Verification Roles",
+            "description": "The roles to give upon verification",
+            "path": "config/verification/roles",
+            "placeholder": "Select Roles ..."
         }
     },
     "paths": {

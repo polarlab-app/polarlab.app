@@ -24,6 +24,11 @@
         transition: all 600ms ease-out;
     }
 
+    &:hover .icons {
+        transform: translateX(0);
+        transition: all 600ms ease;
+    }
+
     .carousel {
         width: 100%;
         border-radius: 8px;
@@ -47,6 +52,41 @@
 
             &.active {
                 opacity: 1;
+            }
+        }
+    }
+
+    .icons {
+        position: absolute;
+        top: 1vh;
+        left: 1vh;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        backdrop-filter: blur(24px);
+        background-color: rgba(0, 0, 0, 0.5);
+        border: 1px solid #23252a;
+        z-index: 2;
+        transition: all 600ms ease;
+        transform: translateX(-140%);
+        padding: 0.2% 0.4%;
+        border-radius: 6px;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.6);
+            transition: all 600ms ease;
+        }
+
+        .icon {
+            margin: 0 0.6vh;
+            color: #a1a0a9;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 600ms ease;
+
+            &:hover {
+                color: white;
+                transition: all 600ms ease;
             }
         }
     }

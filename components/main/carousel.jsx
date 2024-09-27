@@ -9,6 +9,7 @@ export default function Carousel({ type }) {
     const [manualChange, setManualChange] = useState(false);
     const images = data[type] || [];
     const [color, setColor] = useState(null);
+    const [isPaused, setIsPaused] = useState(false);
 
     const nextSlide = () => {
         setCurrentIndex((prevIndex) => {
@@ -31,8 +32,11 @@ export default function Carousel({ type }) {
 
     useEffect(() => {
         const timer = setInterval(() => {
-            nextSlide();
-            setManualChange(false);
+            console.log(isPaused);
+            if (!isPaused) {
+                nextSlide();
+                setManualChange(false);
+            }
         }, 5000);
 
         if (manualChange) {
@@ -41,7 +45,7 @@ export default function Carousel({ type }) {
         }
 
         return () => clearInterval(timer);
-    }, [manualChange]);
+    }, [manualChange, isPaused]);
 
     return (
         <div className={styles.container} style={{ boxShadow: `5px 5px 65px 0px ${color}` }}>
@@ -58,6 +62,12 @@ export default function Carousel({ type }) {
                             <p className={styles.description}>{image.description}</p>
                         </div>
                     ))}
+                </div>
+                <div className={styles.icons}>
+                    <i
+                        className={`${styles.icon} ${isPaused ? 'icon-play' : 'icon-pause'}`}
+                        onClick={() => setIsPaused(!isPaused)}
+                    ></i>
                 </div>
                 <div className={styles.carousel}>
                     {images.map((image, index) => (

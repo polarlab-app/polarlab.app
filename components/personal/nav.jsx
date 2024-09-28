@@ -4,11 +4,14 @@ import { useState, useEffect } from 'react';
 import styles from '@css/personal/nav.module.css';
 import logout from '@lib/auth/sessionManagement/logout';
 import findUser from '@/lib/personal/findUser';
+import { useNav } from './navContext';
+import { triggerToast } from '../core/toastNotifications';
 
 export default function NavBar() {
     const router = useRouter();
     const [activeItem, setActiveItem] = useState('accountDetails');
     const [account, setAccount] = useState(null);
+    const { openStatus, setOpenStatus } = useNav();
 
     useEffect(() => {
         const loadAccount = async () => {
@@ -26,10 +29,19 @@ export default function NavBar() {
     const handleNavItemClick = (item) => {
         setActiveItem(item);
         router.push(`/personal?page=${item}`);
+        setOpenStatus(false);
+    };
+
+    const handleLogout = async () => {
+        const res = JSON.parse(await logout());
+        triggerToast(res.h, res.d, res.c);
+        if (res.s) {
+            router.push('/login');
+        }
     };
 
     return (
-        <div className={styles.nav}>
+        <div className={`${styles.nav} ${openStatus ? styles.active : null}`}>
             <h2 className={styles.header}>👋 Welcome, {account?.username}</h2>
             <div
                 className={`${styles.navitem} ${activeItem === 'accountDetails' ? styles.active : ''}`}
@@ -56,7 +68,7 @@ export default function NavBar() {
                 className={`${styles.navitem} ${activeItem === 'connections' ? styles.active : ''}`}
                 onClick={() => handleNavItemClick('connections')}
             >
-                <i className={`icon-grid-2 ${styles.navicon}`}></i>
+                <i className={`icon-link ${styles.navicon}`}></i>
                 <p className={styles.navtext}>Connections</p>
             </div>
             <div
@@ -66,7 +78,7 @@ export default function NavBar() {
                 <i className={`icon-triangle-exclamation ${styles.navicon}`}></i>
                 <p className={styles.navtext}>Danger Zone</p>
             </div>
-            <button className={styles.logout} onClick={() => logout()}>
+            <button className={styles.logout} onClick={handleLogout}>
                 Log Out
             </button>
         </div>

@@ -1,0 +1,118 @@
+body {
+    margin: 0;
+    overflow: hidden;
+}
+.navbar_nav__yXto3 {
+    display: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.mainWrapper {
+    display: flex;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+
+.dashboard {
+    width: 82%;
+    float: left;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: #0d0c13;
+    position: relative;
+    height: 100vh;
+}
+
+.dashboardWrapper {
+    margin: 1% 2%;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    height: 100%;
+}
+
+.smallinfocard {
+    background-color: #111118;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 12px;
+}
+
+.inputGroupFull {
+    background-color: #111118;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    margin: 2vh 0;
+}
+
+.inputGroupHalf {
+    background-color: #111118;
+    border-radius: 12px;
+    display: inline-flex;
+    flex-direction: column;
+    margin: 2vh 0;
+    width: 49%;
+    float: left;
+}
+
+.inputGroupHalf:nth-child(2n of .inputGroupHalf) {
+    margin-left: 2%;
+}
+
+.section.active {
+    animation: appear 0.6s ease forwards;
+    animation-delay: 0.6s;
+    height: 0;
+    opacity: 0;
+}
+.section:not(.active) {
+    animation: disappear 0.6s ease forwards;
+    transform: translateY(0);
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        height: 0;
+
+        transform: translateY(-100%);
+    }
+    1% {
+        height: auto;
+    }
+    to {
+        height: auto;
+
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes disappear {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+        height: auto;
+    }
+    99% {
+        height: auto;
+    }
+    100% {
+        height: 0;
+        opacity: 0;
+        transform: translateY(100%);
+        overflow: hidden;
+    }
+}
+
+nav,
+footer {
+    display: none;
+}

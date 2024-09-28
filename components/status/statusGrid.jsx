@@ -38,7 +38,7 @@ export default function StatusGrid() {
         <>
             {loading ? (
                 <div className={styles.skeletonGrid}>
-                    {Array.from({ length: 6 }).map((_, index) => (
+                    {Array.from({ length: 11 }).map((_, index) => (
                         <Skeleton key={index} height={96} width={96} />
                     ))}
                 </div>

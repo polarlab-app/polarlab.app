@@ -3,7 +3,8 @@ import Landing from '@components/main/landing';
 import Stars from '@components/main/stars';
 import Section from '@components/main/section';
 import Carousel from '@components/main/carousel';
-export default function Home() {
+
+export default async function Home() {
     return (
         <>
             <Stars />

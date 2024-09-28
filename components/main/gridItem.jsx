@@ -10,12 +10,12 @@ import $ from 'jquery';
 export default function GridItem({ format, type }) {
     useEffect(() => {
         const checkVisibility = () => {
-            $(`.${styles.griditem}, .${styles.siteheading}`).each(function () {
+            $(`.${styles.griditem}`).each(function () {
                 const elementTop = $(this).offset().top;
                 const windowTop = $(window).scrollTop();
                 const windowHeight = $(window).height();
 
-                if (elementTop < windowTop + windowHeight * 0.9) {
+                if (elementTop < windowTop + windowHeight * 0.8) {
                     $(this).addClass(styles.animate);
                 } else {
                     $(this).removeClass(styles.animate);
@@ -33,7 +33,7 @@ export default function GridItem({ format, type }) {
     return (
         <div className={`${styles.griditem} ${styles['gridrow' + format]}`}>
             <div className={styles.gridtextcontainer}>
-                <h4 className={styles.gridheader}>{titles[type]}</h4>
+                <p className={styles.gridheader}>{titles[type]}</p>
                 <p className={styles.gridcontent}>
                     <span>{descriptions[type]}</span>
                 </p>
@@ -41,7 +41,11 @@ export default function GridItem({ format, type }) {
                     Check It Out
                 </Link>
             </div>
-            <img alt='gridimg' className={styles.gridimg} src={images[type]} />
+            <img
+                alt='gridimg'
+                className={styles.gridimg}
+                src={'https://cdn.polarlab.app/src/landing/polaris--v2.png'}
+            />
         </div>
     );
 }

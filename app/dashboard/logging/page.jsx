@@ -1,18 +1,29 @@
 'use client';
-import TopBar from '@components/dashboard/topbar';
-import { useGuild } from '../guildContext';
-import styles from '@css/dashboard/settings.module.css';
-import DiscardButton from '@components/dashboard/discardButton';
-import SaveButton from '@components/dashboard/saveButton';
+
 import { useState, useEffect, useRef } from 'react';
+
+/* Top bar */
+import TopBar from '@components/dashboard/top/topbar';
 import selectionStyles from '@css/dashboard/selection.module.css';
-import CheckboxInput from '@components/dashboard/inputs/checkbox';
+
+/* Data Management */
+import { useGuild } from '@components/context/guildContext';
 import getGuildData from '@lib/dashboard/getGuildData';
 import saveData from '@lib/dashboard/saveData';
-import TextboxInput from '@components/dashboard/inputs/textbox';
+
+/* Inputs */
+import CheckboxInput from '@components/dashboard/inputs/checkbox';
+import ActivityBar from '@components/dashboard/activity/bar';
+import DropdownInput from '@/components/dashboard/inputs/dropdown';
+import SingleInput from '@/components/dashboard/inputs/singleInput';
+import MultiInput from '@/components/dashboard/inputs/multiInput';
+import RadioInput from '@/components/dashboard/inputs/radio';
+
+/* Miscellaneous */
+import { triggerToast } from '@/components/core/toastNotifications';
 
 export default function Page() {
-    const { selectedGuild, setSelectedGuild } = useGuild();
+    const { selectedGuild } = useGuild();
     const [newData, setNewData] = useState({});
     const [selectedTab, setSelectedTab] = useState('');
     const [data, setData] = useState(null);
@@ -23,6 +34,10 @@ export default function Page() {
 
         const fetchData = async () => {
             const guildData = JSON.parse(await getGuildData(selectedGuild.id));
+            if (guildData.h) {
+                triggerToast(guildData.h, guildData.d, guildData.c);
+                return;
+            }
             setData(guildData);
         };
 
@@ -33,160 +48,108 @@ export default function Page() {
         }
     }, [selectedGuild, tabRefs.current.length]);
 
-    const handleCheckboxChange = (id, value) => {
-        const updatedCheckboxValues = { ...newData };
-        updatedCheckboxValues[id] = value;
-        setNewData(updatedCheckboxValues);
-        console.log(newData);
-    };
-
-    const discardChanges = () => {
+    const discardChanges = async () => {
+        triggerToast('Changes Discarded', 'All changes successfully discarded', 'g');
         setNewData({});
+        await fetchData();
     };
 
     const saveTrigger = async () => {
-        const response = await saveData(newData || 0, selectedGuild.id || 0);
-        if (response === 'success') {
+        const response = JSON.parse(await saveData(newData, selectedGuild.id));
+        triggerToast(response.h, response.d, response.c);
+        if (response.s) {
             setNewData({});
-        } else {
-            alert('fail');
+            await fetchData();
         }
+    };
+
+    const fetchData = async () => {
+        const data = JSON.parse(await getGuildData(selectedGuild.id));
+        setData(data);
     };
 
     const handleTabClick = (tabId) => {
         setSelectedTab(tabId);
     };
 
-    const handleTextboxChange = (id, value) => {
-        const updatedTextboxValues = { ...newData };
-        updatedTextboxValues[id] = value;
-        setNewData(updatedTextboxValues);
+    const handleInputChange = (id, value, value2) => {
+        if (value2) {
+            const updatedValues = { ...newData, [id]: `${value}/${value2}` };
+            setNewData(updatedValues);
+        } else {
+            const updatedValues = { ...newData, [id]: value };
+            setNewData(updatedValues);
+        }
     };
 
     if (!selectedGuild) {
         return <div>Loading...</div>;
     }
 
+    const tabs = ['channelLogs', 'roleLogs', 'memberLogs', 'serverLogs', 'emojiLogs', 'messageLogs', 'caseHistory'];
+
     return (
-        <div className="dashboard">
-            <TopBar type="logging">
-                {' '}
-                {Object.keys(newData).length > 0 && (
-                    <>
-                        <DiscardButton onClick={() => discardChanges()} />
-                        <SaveButton onClick={() => saveTrigger()} />
-                    </>
-                )}
-            </TopBar>
+        <div className='dashboard'>
+            <TopBar
+                type='logging'
+                showButtons={Object.keys(newData).length > 0}
+                onDiscard={discardChanges}
+                onSave={saveTrigger}
+            />
             <div className={selectionStyles.bar}>
-                <div
-                    id="channelLogs"
-                    ref={(el) => (tabRefs.current[0] = el)}
-                    className={`${selectionStyles.item} ${
-                        selectedTab === 'channelLogs'
-                            ? selectionStyles.selected
-                            : ''
-                    }`}
-                    onClick={() => handleTabClick('channelLogs')}
-                >
-                    <p>Channel Logs</p>
-                </div>
-                <div
-                    id="roleLogs"
-                    ref={(el) => (tabRefs.current[1] = el)}
-                    className={`${selectionStyles.item} ${
-                        selectedTab === 'roleLogs'
-                            ? selectionStyles.selected
-                            : ''
-                    }`}
-                    onClick={() => handleTabClick('roleLogs')}
-                >
-                    <p>Role Logs</p>
-                </div>
-                <div
-                    id="messageLogs"
-                    ref={(el) => (tabRefs.current[2] = el)}
-                    className={`${selectionStyles.item} ${
-                        selectedTab === 'messageLogs'
-                            ? selectionStyles.selected
-                            : ''
-                    }`}
-                    onClick={() => handleTabClick('messageLogs')}
-                >
-                    <p>Message Logs</p>
-                </div>
-                <div
-                    id="memberLogs"
-                    ref={(el) => (tabRefs.current[3] = el)}
-                    className={`${selectionStyles.item} ${
-                        selectedTab === 'memberLogs'
-                            ? selectionStyles.selected
-                            : ''
-                    }`}
-                    onClick={() => handleTabClick('memberLogs')}
-                >
-                    <p>Member Logs</p>
-                </div>
-                <div
-                    id="emojiLogs"
-                    ref={(el) => (tabRefs.current[4] = el)}
-                    className={`${selectionStyles.item} ${
-                        selectedTab === 'emojiLogs'
-                            ? selectionStyles.selected
-                            : ''
-                    }`}
-                    onClick={() => handleTabClick('emojiLogs')}
-                >
-                    <p>Emoji Logs</p>
-                </div>
-                <div
-                    id="serverLogs"
-                    ref={(el) => (tabRefs.current[5] = el)}
-                    className={`${selectionStyles.item} ${
-                        selectedTab === 'serverLogs'
-                            ? selectionStyles.selected
-                            : ''
-                    }`}
-                    onClick={() => handleTabClick('serverLogs')}
-                >
-                    <p>Server Logs</p>
-                </div>
+                {tabs.map((tabId, index) => (
+                    <div
+                        key={tabId}
+                        id={tabId}
+                        ref={(el) => (tabRefs.current[index] = el)}
+                        className={`${selectionStyles.item} ${selectedTab === tabId ? selectionStyles.selected : ''}`}
+                        onClick={() => handleTabClick(tabId)}
+                    >
+                        <p>
+                            {tabId
+                                .split(/(?=[A-Z])/)
+                                .join(' ')
+                                .replace(/\b\w/g, (char) => char.toUpperCase())}
+                        </p>
+                    </div>
+                ))}
             </div>
-            <div className="dashboardwrapper">
-                <div
-                    style={{
-                        display:
-                            selectedTab === 'channelLogs' ? 'block' : 'none',
-                    }}
-                >
+            <div className='dashboardWrapper'>
+                <div className={`section ${selectedTab === 'channelLogs' ? 'active' : null}`}>
                     {data ? (
                         <>
-                            <div className={styles.togglegroup}>
-                                <CheckboxInput
-                                    type="number"
-                                    id="channel-logs-status"
+                            <div className='inputGroupHalf'>
+                                <SingleInput
+                                    id='channel-logs-status'
                                     value={data.config.logs.channelLogs.status}
-                                    onChange={(e) =>
-                                        handleCheckboxChange(
-                                            e.target.id,
-                                            e.target.checked
-                                        )
-                                    }
+                                    onChange={handleInputChange}
+                                    width='half'
+                                    type='checkbox'
+                                />
+                                <DropdownInput
+                                    id='channel-logs-channel'
+                                    possibleOptions={data.data.channels}
+                                    onChange={handleInputChange}
+                                    exclude={'2;13;15'}
+                                    icon={'icon-hashtag'}
+                                    value={data.config.logs.channelLogs.channelID}
+                                    width={'half'}
                                 />
                             </div>
-                            <div className={styles.togglegroup}>
-                                <TextboxInput
-                                    type="number"
-                                    id="channel-logs-channel"
-                                    value={
-                                        data.config.logs.channelLogs.channelId
-                                    }
-                                    onChange={(e) =>
-                                        handleTextboxChange(
-                                            e.target.id,
-                                            e.target.value
-                                        )
-                                    }
+                            <div className='inputGroupHalf'>
+                                <RadioInput
+                                    id='channel-logs-filter-mode'
+                                    width='half'
+                                    value={data.config.logs.channelLogs.filterMode}
+                                    onChange={(e) => handleInputChange(e.target.name, e.target.value)}
+                                />
+                                <MultiInput
+                                    id='channel-logs-filter'
+                                    width={'half'}
+                                    possibleOptions={data.data.channels}
+                                    icon='icon-hashtag'
+                                    onChange={handleInputChange}
+                                    values={data.config.logs.channelLogs.filter}
                                 />
                             </div>
                         </>
@@ -194,37 +157,41 @@ export default function Page() {
                         <div>Loading...</div>
                     )}
                 </div>
-                <div
-                    style={{
-                        display: selectedTab === 'roleLogs' ? 'block' : 'none',
-                    }}
-                >
+                <div className={`section ${selectedTab === 'roleLogs' ? 'active' : null}`}>
                     {data ? (
                         <>
-                            <div className={styles.togglegroup}>
-                                <CheckboxInput
-                                    type="number"
-                                    id="role-logs-status"
+                            <div className='inputGroupHalf'>
+                                <SingleInput
+                                    id='role-logs-status'
                                     value={data.config.logs.roleLogs.status}
-                                    onChange={(e) =>
-                                        handleCheckboxChange(
-                                            e.target.id,
-                                            e.target.value
-                                        )
-                                    }
+                                    onChange={handleInputChange}
+                                    width='half'
+                                    type='checkbox'
+                                />
+                                <DropdownInput
+                                    id='role-logs-channel'
+                                    possibleOptions={data.data.channels}
+                                    onChange={handleInputChange}
+                                    exclude={'2;13;15'}
+                                    icon={'icon-hashtag'}
+                                    value={data.config.logs.roleLogs.channelID}
+                                    width={'half'}
                                 />
                             </div>
-                            <div className={styles.togglegroup}>
-                                <TextboxInput
-                                    type="number"
-                                    id="role-logs-channel"
-                                    value={data.config.logs.roleLogs.channelId}
-                                    onChange={(e) =>
-                                        handleTextboxChange(
-                                            e.target.id,
-                                            e.target.value
-                                        )
-                                    }
+                            <div className='inputGroupHalf'>
+                                <RadioInput
+                                    id='role-logs-filter-mode'
+                                    width='half'
+                                    value={data.config.logs.roleLogs.filterMode}
+                                    onChange={(e) => handleInputChange(e.target.name, e.target.value)}
+                                />
+                                <MultiInput
+                                    id='role-logs-filter'
+                                    width={'half'}
+                                    possibleOptions={data.data.roles}
+                                    icon='icon-at'
+                                    onChange={handleInputChange}
+                                    values={data.config.logs.roleLogs.filter}
                                 />
                             </div>
                         </>
@@ -232,40 +199,41 @@ export default function Page() {
                         <div>Loading...</div>
                     )}
                 </div>
-                <div
-                    style={{
-                        display:
-                            selectedTab === 'messageLogs' ? 'block' : 'none',
-                    }}
-                >
+                <div className={`section ${selectedTab === 'messageLogs' ? 'active' : null}`}>
                     {data ? (
                         <>
-                            <div className={styles.togglegroup}>
-                                <CheckboxInput
-                                    type="number"
-                                    id="message-logs-status"
+                            <div className='inputGroupHalf'>
+                                <SingleInput
+                                    id='message-logs-status'
                                     value={data.config.logs.messageLogs.status}
-                                    onChange={(e) =>
-                                        handleCheckboxChange(
-                                            e.target.id,
-                                            e.target.value
-                                        )
-                                    }
+                                    onChange={handleInputChange}
+                                    width='half'
+                                    type='checkbox'
+                                />
+                                <DropdownInput
+                                    id='message-logs-channel'
+                                    possibleOptions={data.data.channels}
+                                    onChange={handleInputChange}
+                                    exclude={'2;13;15'}
+                                    icon={'icon-hashtag'}
+                                    value={data.config.logs.messageLogs.channelID}
+                                    width={'half'}
                                 />
                             </div>
-                            <div className={styles.togglegroup}>
-                                <TextboxInput
-                                    type="number"
-                                    id="message-logs-channel"
-                                    value={
-                                        data.config.logs.messageLogs.channelId
-                                    }
-                                    onChange={(e) =>
-                                        handleTextboxChange(
-                                            e.target.id,
-                                            e.target.value
-                                        )
-                                    }
+                            <div className='inputGroupHalf'>
+                                <RadioInput
+                                    id='message-logs-filter-mode'
+                                    width='half'
+                                    value={data.config.logs.messageLogs.filterMode}
+                                    onChange={(e) => handleInputChange(e.target.name, e.target.value)}
+                                />
+                                <MultiInput
+                                    id='message-logs-filter'
+                                    width={'half'}
+                                    possibleOptions={data.data.channels}
+                                    icon='icon-hashtag'
+                                    onChange={handleInputChange}
+                                    values={data.config.logs.messageLogs.filter}
                                 />
                             </div>
                         </>
@@ -273,40 +241,41 @@ export default function Page() {
                         <div>Loading...</div>
                     )}
                 </div>
-                <div
-                    style={{
-                        display:
-                            selectedTab === 'memberLogs' ? 'block' : 'none',
-                    }}
-                >
+                <div className={`section ${selectedTab === 'memberLogs' ? 'active' : null}`}>
                     {data ? (
                         <>
-                            <div className={styles.togglegroup}>
-                                <CheckboxInput
-                                    type="number"
-                                    id="member-logs-status"
+                            <div className='inputGroupHalf'>
+                                <SingleInput
+                                    id='member-logs-status'
                                     value={data.config.logs.memberLogs.status}
-                                    onChange={(e) =>
-                                        handleCheckboxChange(
-                                            e.target.id,
-                                            e.target.value
-                                        )
-                                    }
+                                    onChange={handleInputChange}
+                                    width='half'
+                                    type='checkbox'
+                                />
+                                <DropdownInput
+                                    id='member-logs-channel'
+                                    possibleOptions={data.data.channels}
+                                    onChange={handleInputChange}
+                                    exclude={'2;13;15'}
+                                    icon={'icon-hashtag'}
+                                    value={data.config.logs.memberLogs.channelID}
+                                    width={'half'}
                                 />
                             </div>
-                            <div className={styles.togglegroup}>
-                                <TextboxInput
-                                    type="number"
-                                    id="member-logs-channel"
-                                    value={
-                                        data.config.logs.memberLogs.channelId
-                                    }
-                                    onChange={(e) =>
-                                        handleTextboxChange(
-                                            e.target.id,
-                                            e.target.value
-                                        )
-                                    }
+                            <div className='inputGroupHalf'>
+                                <RadioInput
+                                    id='member-logs-filter-mode'
+                                    width='half'
+                                    value={data.config.logs.memberLogs.filterMode}
+                                    onChange={(e) => handleInputChange(e.target.name, e.target.value)}
+                                />
+                                <MultiInput
+                                    id='member-logs-filter'
+                                    width={'half'}
+                                    possibleOptions={data.data.members}
+                                    icon='icon-user'
+                                    onChange={handleInputChange}
+                                    values={data.config.logs.memberLogs.filter}
                                 />
                             </div>
                         </>
@@ -314,37 +283,42 @@ export default function Page() {
                         <div>Loading...</div>
                     )}
                 </div>
-                <div
-                    style={{
-                        display: selectedTab === 'emojiLogs' ? 'block' : 'none',
-                    }}
-                >
+                <div className={`section ${selectedTab === 'emojiLogs' ? 'active' : null}`}>
                     {data ? (
                         <>
-                            <div className={styles.togglegroup}>
-                                <CheckboxInput
-                                    type="number"
-                                    id="emoji-logs-status"
+                            <div className='inputGroupHalf'>
+                                <SingleInput
+                                    id='emoji-logs-status'
                                     value={data.config.logs.emojiLogs.status}
-                                    onChange={(e) =>
-                                        handleCheckboxChange(
-                                            e.target.id,
-                                            e.target.value
-                                        )
-                                    }
+                                    onChange={handleInputChange}
+                                    width='half'
+                                    type='checkbox'
+                                />
+                                <DropdownInput
+                                    id='emoji-logs-channel'
+                                    possibleOptions={data.data.channels}
+                                    onChange={handleInputChange}
+                                    exclude={'2;13;15'}
+                                    icon={'icon-hashtag'}
+                                    value={data.config.logs.emojiLogs.channelID}
+                                    width={'half'}
                                 />
                             </div>
-                            <div className={styles.togglegroup}>
-                                <TextboxInput
-                                    type="number"
-                                    id="emoji-logs-channel"
-                                    value={data.config.logs.emojiLogs.channelId}
-                                    onChange={(e) =>
-                                        handleTextboxChange(
-                                            e.target.id,
-                                            e.target.value
-                                        )
-                                    }
+                            <div className='inputGroupHalf'>
+                                <SingleInput
+                                    id='emoji-logs-filter-mode'
+                                    width={'half'}
+                                    value={data.config.logs.emojiLogs.filterMode}
+                                    type='radio'
+                                    onChange={handleInputChange}
+                                />
+                                <MultiInput
+                                    id='emoji-logs-filter'
+                                    width={'half'}
+                                    possibleOptions={data.data.emojiLogs}
+                                    icon='icon-face-awesome'
+                                    onChange={handleInputChange}
+                                    values={data.config.logs.emojiLogs.filter}
                                 />
                             </div>
                         </>
@@ -352,40 +326,23 @@ export default function Page() {
                         <div>Loading...</div>
                     )}
                 </div>
-                <div
-                    style={{
-                        display:
-                            selectedTab === 'serverLogs' ? 'block' : 'none',
-                    }}
-                >
+                <div className={`section ${selectedTab === 'serverLogs' ? 'active' : null}`}>
                     {data ? (
                         <>
-                            <div className={styles.togglegroup}>
+                            <div className='inputGroupFull'>
                                 <CheckboxInput
-                                    type="number"
-                                    id="server-logs-status"
+                                    type='number'
+                                    id='server-logs-status'
                                     value={data.config.logs.serverLogs.status}
-                                    onChange={(e) =>
-                                        handleCheckboxChange(
-                                            e.target.id,
-                                            e.target.value
-                                        )
-                                    }
+                                    onChange={(e) => handleInputChange(e.target.id, e.target.value)}
                                 />
-                            </div>
-                            <div className={styles.togglegroup}>
-                                <TextboxInput
-                                    type="number"
-                                    id="server-logs-channel"
-                                    value={
-                                        data.config.logs.serverLogs.channelId
-                                    }
-                                    onChange={(e) =>
-                                        handleTextboxChange(
-                                            e.target.id,
-                                            e.target.value
-                                        )
-                                    }
+                                <DropdownInput
+                                    id='server-logs-channel'
+                                    possibleOptions={data.data.channels}
+                                    onChange={handleInputChange}
+                                    exclude={'2;13;15'}
+                                    icon={'icon-hashtag'}
+                                    value={data.config.logs.serverLogs.channelID}
                                 />
                             </div>
                         </>
@@ -393,6 +350,10 @@ export default function Page() {
                         <div>Loading...</div>
                     )}
                 </div>
+                <div className={`section ${selectedTab === 'caseHistory' ? 'active' : null}`}>
+                    <div className='inputGroupFull'></div>
+                </div>
+                {selectedTab == 'caseHistory' ? null : <ActivityBar type={selectedTab} id={selectedGuild.id} />}
             </div>
         </div>
     );

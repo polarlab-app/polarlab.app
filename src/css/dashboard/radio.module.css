@@ -1,0 +1,82 @@
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    color: white;
+}
+
+.textContainer {
+    margin-left: 3%;
+    margin-top: 3%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.header {
+    color: white;
+    font-size: 1.2rem;
+    margin: 0;
+    font-weight: 700;
+}
+
+.description {
+    color: #9d9ba9;
+    margin: 0;
+}
+
+.options {
+    margin: 3%;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    gap: 1vh;
+    width: 94%;
+}
+.input {
+    display: none;
+}
+
+.option {
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 600ms ease;
+    cursor: pointer;
+}
+
+.label {
+    margin-left: 1vh;
+    font-weight: 600;
+}
+
+.toggle {
+    background-color: #1e1d26;
+    height: 3vh;
+    width: 3vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: all 600ms ease;
+    border: 1px solid #1e1d26;
+}
+
+.innertoggle {
+    width: 60%;
+    height: 60%;
+    border-radius: 50%;
+    transition: all 600ms ease;
+}
+.input:checked + .toggle .innertoggle {
+    background-color: #5959ff;
+    transition: all 600ms ease;
+}
+
+.input:hover + .toggle {
+    border: 1px solid #5959ff;
+    transition: all 600ms ease;
+}

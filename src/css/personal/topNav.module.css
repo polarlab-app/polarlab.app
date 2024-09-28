@@ -1,0 +1,169 @@
+.nav {
+    height: 8vh;
+    width: 100%;
+    background-color: #101012;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header {
+    width: 18%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    margin-right: 5%;
+    height: 5vh;
+    width: auto;
+}
+
+.linkContainer {
+    border-bottom: 1px solid #23252a;
+    width: 72%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+}
+
+.link {
+    margin-right: 5%;
+    transition: all 600ms ease;
+    color: #a1a0a9;
+    font-weight: 700;
+}
+
+.link:hover {
+    color: white;
+    transition: all 600ms ease;
+}
+
+.right {
+    width: 10%;
+    border-bottom: 1px solid #2a2933;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.button {
+    color: #d86464;
+    background-color: #23252a;
+    height: 4vh;
+    border: none;
+    border-radius: 5px;
+    padding: 0 15px;
+    transition: all 600ms ease;
+    cursor: pointer;
+    font-weight: 700;
+    width: 80%;
+}
+
+.button:hover {
+    background-color: #1c1d1f;
+    transition: all 600ms ease;
+    scale: 0.96;
+}
+
+.icon {
+    display: none;
+    font-size: 1.5rem;
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@media screen and (max-width: 620px) {
+    .nav {
+        border-bottom: 1px solid #2a2933;
+    }
+
+    .icon {
+        display: block;
+        right: 30%;
+    }
+
+    .right,
+    .header {
+        display: flex;
+        width: 20%;
+        justify-content: center;
+        border: none;
+    }
+    .linkContainer {
+        border: none;
+        width: 50%;
+        justify-content: space-between;
+    }
+
+    .button {
+        width: 70%;
+    }
+
+    .right {
+        justify-content: flex-start;
+    }
+
+    .heading,
+    .button {
+        display: none;
+    }
+    .icon.hidden {
+        scale: 0;
+        opacity: 0;
+    }
+}
+
+@media screen and (min-width: 620px) and (max-width: 820px) {
+    .header {
+        width: 35%;
+    }
+
+    .nav {
+        border-bottom: 1px solid #2a2933;
+    }
+
+    .icon {
+        display: block;
+    }
+
+    .linkContainer,
+    .right {
+        width: 30%;
+        border: none;
+    }
+
+    .linkContainer {
+        justify-content: space-between;
+    }
+
+    .button {
+        width: 70%;
+    }
+
+    .right {
+        justify-content: flex-start;
+    }
+
+    .icon.hidden {
+        scale: 0;
+        opacity: 0;
+    }
+}
+
+@media screen and (min-width: 820px) and (max-width: 1000px) {
+    .header {
+        width: 35%;
+    }
+
+    .right {
+        width: 20%;
+    }
+}

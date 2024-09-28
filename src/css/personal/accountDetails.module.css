@@ -1,0 +1,163 @@
+.main {
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+}
+
+.header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button {
+    color: white;
+    background-color: #4b4ee7;
+    height: 5vh;
+    border: none;
+    border-radius: 6px;
+    padding: 0 1.3vw;
+    transition: all 600ms ease;
+    cursor: pointer;
+    font-weight: 700;
+    animation: floatUp 600ms linear forwards;
+}
+
+.button:hover {
+    background-color: #27288f;
+    transition: all 600ms ease;
+    scale: 0.95;
+}
+
+@keyframes floatUp {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.account {
+    margin-top: 1.5vw;
+    background-color: #101012;
+    border: 1px solid #2a2933;
+    border-radius: 6px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2vh 0;
+}
+
+.inputs {
+    width: 50%;
+}
+
+.inputcontainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.icon {
+    max-width: 85%;
+    height: auto;
+}
+
+.iconContainer {
+    width: 20%;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    margin-left: 1vw;
+    margin-right: 2vw;
+    border: 1px dashed #4b4ee7;
+    position: relative;
+}
+
+.fileInput {
+    display: none;
+}
+
+.icon {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.editWrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: all 600ms ease;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.editIcon {
+    opacity: 0;
+    font-size: 5rem;
+    color: white;
+    transition: all 600ms ease;
+}
+
+.iconContainer:hover .editIcon,
+.iconContainer:hover .editWrapper {
+    opacity: 1;
+    transition: all 600ms ease;
+}
+
+.label {
+    color: white;
+    font-weight: 700;
+    margin: 1vh 0;
+    text-align: left;
+}
+
+.input {
+    border-radius: 6px;
+    font-family: 'Nunito';
+    height: 5vh;
+    background-color: #2a2933;
+    color: white;
+    font-weight: 600;
+    padding: 0 3%;
+    border: 1px solid #2a2933;
+    outline: none;
+    transition: all 600ms ease;
+    width: 60%;
+    float: left;
+    margin-bottom: 2%;
+}
+
+.input:focus {
+    border: 1px solid #4b4ee7;
+    transition: all 600ms ease;
+}
+
+@media screen and (max-width: 620px) {
+    .account {
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+    .iconContainer,
+    .inputs {
+        width: 90%;
+        margin-left: 5%;
+    }
+    .input {
+        width: 93%;
+    }
+    .button {
+        padding: 0 4vw;
+    }
+}

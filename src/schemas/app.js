@@ -1,17 +1,21 @@
 import mongoose from 'mongoose';
+import { getMongoConnection } from '@/lib/global/db';
 
 const appSchema = new mongoose.Schema(
     {
         id: String,
-        ownerId: String,
-        pfp: String,
         name: String,
-        redirectUri: [],
+        ownerID: String,
+        date: String,
+        userCount: String,
+        scopes: [],
+        redirectURIs: [],
     },
     {
         collection: 'apps',
     }
 );
+const connection = await getMongoConnection('primary');
 
-const app = mongoose.models.app || mongoose.model('app', appSchema);
+const app = connection.models.app || connection.model('app', appSchema);
 export default app;

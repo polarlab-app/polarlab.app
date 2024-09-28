@@ -7,7 +7,7 @@ import data from '@data/sections.json';
 export default function Section({ children, name, type }) {
     useEffect(() => {
         const checkVisibility = () => {
-            $(`.${styles.sectionheader}, .${styles.sectionsubheader}`).each(function () {
+            $(`.${styles.siteheading}`).each(function () {
                 const elementTop = $(this).offset().top;
                 const windowTop = $(window).scrollTop();
                 const windowHeight = $(window).height();

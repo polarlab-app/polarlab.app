@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import styles from '@css/login/login.module.css';
 import validatePassword from '@lib/auth/validation/validatePassword';
+import { triggerToast } from '@/components/core/toastNotifications';
 
 export default function Page() {
     const [username, setUsername] = useState('');
@@ -31,26 +32,28 @@ export default function Page() {
     }, [password]);
 
     const handleLogin = async (username, password) => {
-        const res = await login(username, password);
-        if (res !== true) {
-            setSuccess('');
-            setError(res);
-        } else {
-            setError('');
-            setSuccess('You have successfully logged in!');
-            router.push('/personal');
+        if (!username || !password) {
+            triggerToast('Failed To Login', 'Invalid login details entered', 'r');
+            return;
+        }
+        const res = JSON.parse(await login(username, password));
+        if (res) {
+            triggerToast(res.h, res.d, res.c);
+            if (res.s) {
+                router.push('/personal');
+                return;
+            }
+            setPassword(null);
         }
     };
 
     const handleRegister = async (username, email, password) => {
-        const res = await register(username, email, password);
-        if (res !== true) {
-            setSuccess('');
-            setError(res);
-        } else {
-            setError('');
-            setSuccess('You have successfully registered to Polar Lab!');
-            router.push('/login');
+        const res = JSON.parse(await register(username, email, password));
+        if (res) {
+            triggerToast(res.h, res.d, res.c);
+            if (res.s) {
+                router.push('/personal');
+            }
         }
     };
 
@@ -58,7 +61,7 @@ export default function Page() {
         if (strength >= 3) return '#00e09c';
         if (strength === 2) return '#fdb822';
         if (strength === 1 || (strength === 0 && password)) return '#fe424d';
-        return '#2a2933';
+        return '#23252a';
     };
 
     return (

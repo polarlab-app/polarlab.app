@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useMemo, useState } from 'react';
 import Particles, { initParticlesEngine } from '@tsparticles/react';
-import { loadSlim } from '@tsparticles/slim'; // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
+import { loadSlim } from '@tsparticles/slim';
 import styles from '@css/main/stars.module.css';
 
 export default function Stars() {
@@ -50,7 +50,7 @@ export default function Stars() {
                 },
                 links: {
                     color: '#ffffff',
-                    distance: 150,
+                    distance: 15,
                     enable: false,
                     opacity: 0.5,
                     width: 1,
@@ -69,7 +69,7 @@ export default function Stars() {
                     density: {
                         enable: true,
                     },
-                    value: 100,
+                    value: 50,
                 },
                 opacity: {
                     value: 1,

@@ -1,10 +1,11 @@
-import '@src/global.css';
-import '@src/icons.css';
+import '@css/global/global.css';
+import '@css/global/icons.css';
 import NavBar from '@components/core/NavBar.jsx';
 import Footer from '@components/core/footer.jsx';
 import { cookies } from 'next/headers';
-import CookieConsent from '@/components/core/cookieConsent';
+import CookieConsent from '@components/core/cookieConsent';
 import { WebVitals } from '@components/core/webVitals';
+import { Toast } from '@components/core/toastNotifications';
 
 export const metadata = {
     title: 'Polar Lab',
@@ -37,6 +38,7 @@ export default function RootLayout({ children }) {
             <body className='body' id='body'>
                 <WebVitals />
                 <NavBar />
+                <Toast />
                 {cookieConsent ? '' : <CookieConsent />}
                 {children}
                 <Footer />

@@ -16,7 +16,7 @@ export default function CookieConsent() {
                 Privacy Policy
             </Link>
             <button className={styles.button} onClick={() => updateConsent()}>
-                <i className={`icon-check-double ${styles.icon}`}></i>Accept
+                <i className={`icon-check ${styles.icon}`}></i>Accept
             </button>
         </div>
     );

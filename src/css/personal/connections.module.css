@@ -1,24 +1,54 @@
 .main {
-    display: flex !important;
     width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
+
+.header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.connect {
+    color: white;
+    background-color: #4b4ee7;
+    height: 5vh;
+    border: none;
+    border-radius: 6px;
+    padding: 0 1.3vw;
+    transition: all 600ms ease;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.connect:hover {
+    background-color: #27288f;
+    transition: all 600ms ease;
+    scale: 0.95;
+}
+
 .connections {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
     width: 100%;
     text-align: left;
+    row-gap: 1vh;
 }
 
 .connection {
-    background-color: #16151c;
-    border: 1px solid #2a2933;
+    background-color: #101012;
+    border: 1px solid #23252a;
     border-radius: 10px;
     grid-column: span 1;
-    width: 92%;
-    margin-left: 4%;
-    height: 25vh;
+    width: 90%;
+    height: 27vh;
     position: relative;
+    animation: appear 600ms linear forwards;
+    opacity: 0;
 }
 
 .top {
@@ -26,11 +56,22 @@
     align-items: center;
     height: 6vh;
     width: 100%;
+    margin: 1vh;
 }
 
-.icon:nth-child(1) {
-    margin-left: 3%;
-    font-size: 1.3rem;
+.logo {
+    font-size: 1.8rem;
+    margin-left: 2%;
+}
+
+.item {
+    font-size: 1rem;
+}
+
+.icon {
+    font-size: 1.4rem;
+    padding: 0 8px;
+    border-radius: 2px;
 }
 
 .name {
@@ -42,11 +83,10 @@
 .button {
     justify-self: end;
     margin-left: auto;
-    margin-top: 2vh;
-    margin-right: 3%;
+    margin-right: 5%;
     cursor: pointer;
     color: #d86464;
-    background-color: #2a2933;
+    background-color: #23252a;
     height: 4vh;
     border: none;
     border-radius: 6px;
@@ -56,7 +96,7 @@
 }
 
 .button:hover {
-    background-color: #1b1b2a;
+    background-color: #1c1d1f;
     scale: 0.95;
     transition: all 600ms ease;
 }
@@ -64,7 +104,7 @@
 .list {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0 3%;
 }
 
 .info {
@@ -80,4 +120,48 @@
     left: 3%;
     font-size: 0.7rem;
     color: #a1a0a9;
+}
+
+@media screen and (max-width: 767px) {
+    .connections {
+        grid-template-columns: auto;
+    }
+    .connection {
+        width: 99.5%;
+    }
+    .connect {
+        padding: 0 4vw;
+    }
+}
+
+@media screen and (max-width: 1000px) and (min-width: 768px) {
+    .connections {
+        grid-template-columns: auto;
+    }
+
+    .connection {
+        width: 99.5%;
+    }
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+        transform: translate3d(0px, 24px, 0px) scale3d(0.96, 0.96, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+            skew(0deg);
+    }
+    30% {
+        opacity: 0;
+        transform: translate3d(0px, 20px, 0px) scale3d(0.96, 0.96, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+            skew(0deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg);
+    }
+}
+
+.connection:nth-child(2n) {
+    justify-self: end;
+    animation-delay: 300ms;
 }

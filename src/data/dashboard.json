@@ -1,28 +1,12 @@
 {
     "topBar": {
-        "settings": "The general settings for your server (Module specific settings can be found inside their respective pages)",
         "overview": "General information about your server",
-        "logging": "Logs to review your servers' activity"
+        "settings": "The general settings for your server",
+        "logging": "Logs to review your servers' activity",
+        "exp-and-leveling": "The best engagement system on Discord",
+        "server-guard": "Protect your server from unwanted guests"
     },
     "inputs": {
-        "ai-functionality": {
-            "name": "AI Functionality",
-            "description": "Whether to enable AI empowered analytics for your server",
-            "path": "config/general/ai-functionality",
-            "placeholder": null
-        },
-        "ai-functionality2": {
-            "name": "AI Functionality",
-            "description": "Whether to enable AI empowered analytics for your server",
-            "path": "config/general/ai-functionality",
-            "placeholder": null
-        },
-        "ai-functionality3": {
-            "name": "AI Functionality",
-            "description": "Whether to enable AI empowered analytics for your server",
-            "path": "config/general/ai-functionality",
-            "placeholder": null
-        },
         "channel-logs-status": {
             "name": "Channel Logs",
             "description": "Whether to enable channel logs for your server",
@@ -30,22 +14,46 @@
             "placeholder": null
         },
         "channel-logs-channel": {
-            "name": "Channel Logs Channel ID",
-            "description": "The channel ID for channel logs",
-            "path": "config/logs/channelLogs/channelId",
-            "placeholder": 1131195719676596229
+            "name": "Channel Logs Channel",
+            "description": "The channel for channel logs",
+            "path": "config/logs/channelLogs/channelID",
+            "placeholder": "Select Channel ..."
+        },
+        "channel-logs-filter-mode": {
+            "name": "Channel Logs Filter Mode",
+            "description": "The mode for filtering channels",
+            "path": "config/logs/channelLogs/filterMode",
+            "options": ["whitelist", "blacklist"]
+        },
+        "channel-logs-filter": {
+            "name": "Filtered Channels",
+            "description": "The channels to filter out",
+            "path": "config/logs/channelLogs/filter",
+            "placeholder": "Select Channels ..."
         },
         "role-logs-status": {
-            "name": "Role Logs",
+            "name": "Role Logs Status",
             "description": "Whether to enable role logs for your server",
             "path": "config/logs/roleLogs/status",
             "placeholder": null
         },
         "role-logs-channel": {
-            "name": "Role Logs Channel ID",
-            "description": "The channel ID for role logs",
-            "path": "config/logs/roleLogs/channelId",
-            "placeholder": 1131195719676596229
+            "name": "Role Logs Channel",
+            "description": "The channel for role logs",
+            "path": "config/logs/roleLogs/channelID",
+            "placeholder": "Select Channel ..."
+        },
+        "role-logs-filter-mode": {
+            "name": "Role Logs Filter Mode",
+            "description": "The mode for filtering roles",
+            "path": "config/logs/roleLogs/filterMode",
+            "options": ["whitelist", "blacklist"]
+        },
+        "role-logs-filter": {
+            "name": "Filtered Roles",
+            "description": "The roles to filter out",
+            "path": "config/logs/roleLogs/filter",
+            "placeholder": "Select Roles ..."
         },
         "message-logs-status": {
             "name": "Message Logs",
@@ -54,10 +62,22 @@
             "placeholder": null
         },
         "message-logs-channel": {
-            "name": "Message Logs Channel ID",
-            "description": "The channel ID for message logs",
-            "path": "config/logs/messageLogs/channelId",
-            "placeholder": 1131195719676596229
+            "name": "Message Logs Channel",
+            "description": "The channel for message logs",
+            "path": "config/logs/messageLogs/channelID",
+            "placeholder": "Select Channel ..."
+        },
+        "message-logs-filter-mode": {
+            "name": "Message Logs Filter Mode",
+            "description": "The mode for filtering messages",
+            "path": "config/logs/messageLogs/filterMode",
+            "options": ["whitelist", "blacklist"]
+        },
+        "message-logs-filter": {
+            "name": "Filtered Messages",
+            "description": "The messages to filter out",
+            "path": "config/logs/messageLogs/filter",
+            "placeholder": "Select Messages ..."
         },
         "member-logs-status": {
             "name": "Member Logs",
@@ -66,10 +86,22 @@
             "placeholder": null
         },
         "member-logs-channel": {
-            "name": "Member Logs Channel ID",
-            "description": "The channel ID for member logs",
-            "path": "config/logs/memberLogs/channelId",
-            "placeholder": 1131195719676596229
+            "name": "Member Logs Channel",
+            "description": "The channel for member logs",
+            "path": "config/logs/memberLogs/channelID",
+            "placeholder": "Select Channel ..."
+        },
+        "member-logs-filter-mode": {
+            "name": "Member Logs Filter Mode",
+            "description": "The mode for filtering members",
+            "path": "config/logs/memberLogs/filterMode",
+            "options": ["whitelist", "blacklist"]
+        },
+        "member-logs-filter": {
+            "name": "Filtered Members",
+            "description": "The members to filter out",
+            "path": "config/logs/memberLogs/filter",
+            "placeholder": "Select Members ..."
         },
         "emoji-logs-status": {
             "name": "Emoji Logs",
@@ -78,10 +110,22 @@
             "placeholder": null
         },
         "emoji-logs-channel": {
-            "name": "Emoji Logs Channel ID",
-            "description": "The channel ID for emoji logs",
-            "path": "config/logs/emojiLogs/channelId",
-            "placeholder": 1131195719676596229
+            "name": "Emoji Logs Channel",
+            "description": "The channel for emoji logs",
+            "path": "config/logs/emojiLogs/channelID",
+            "placeholder": "Select Channel ..."
+        },
+        "emoji-logs-filter-mode": {
+            "name": "Emoji Logs Filter Mode",
+            "description": "The mode for filtering emojis",
+            "path": "config/logs/emojiLogs/filterMode",
+            "options": ["whitelist", "blacklist"]
+        },
+        "emoji-logs-filter": {
+            "name": "Filtered Emojis",
+            "description": "The emojis to filter out",
+            "path": "config/logs/emojiLogs/filter",
+            "placeholder": "Select Emojis ..."
         },
         "server-logs-status": {
             "name": "Server Logs",
@@ -90,26 +134,160 @@
             "placeholder": null
         },
         "server-logs-channel": {
-            "name": "Server Logs Channel ID",
-            "description": "The channel ID for server logs",
-            "path": "config/logs/serverLogs/channelId",
-            "placeholder": 1131195719676596229
+            "name": "Server Logs Channel",
+            "description": "The channel for server logs",
+            "path": "config/logs/serverLogs/channelID",
+            "placeholder": "Select Channel ..."
+        },
+        "leveling-status": {
+            "name": "Leveling",
+            "description": "Whether to enable Leveling for your server",
+            "path": "config/leveling/status",
+            "placeholder": null
+        },
+
+        "leveling-exp-amount": {
+            "name": "EXP Amount",
+            "description": "The amount of EXP to give",
+            "path": "config/leveling/amount",
+            "min": 0,
+            "max": 80,
+            "step": 5,
+            "placeholder": "Minimum EXP",
+            "placeholder2": "Maximum EXP"
+        },
+        "leveling-exp-type": {
+            "name": "EXP Type",
+            "description": "The type of EXP to give",
+            "path": "config/leveling/type",
+            "options": ["static", "range"]
+        },
+        "leveling-channel-boosters": {
+            "name": "Channel Boosters",
+            "description": "Per channel EXP Boosters",
+            "path": "config/leveling/boosters/channelBoosters",
+            "min": "0",
+            "max": "6",
+            "step": "0.5",
+            "limit": "10",
+            "placeholder": "Select Channel ..."
+        },
+        "leveling-role-boosters": {
+            "name": "Role Boosters",
+            "description": "Per role EXP Boosters",
+            "path": "config/leveling/boosters/roleBoosters",
+            "min": "0",
+            "max": "6",
+            "step": ".5",
+            "limit": "10",
+            "placeholder": "Select Role ..."
+        },
+        "leveling-member-boosters": {
+            "name": "Member Boosters",
+            "description": "Per member EXP Boosters",
+            "path": "config/leveling/boosters/memberBoosters",
+            "min": "0",
+            "max": "6",
+            "step": ".5",
+            "limit": "10",
+            "placeholder": "Member ID"
+        },
+        "leveling-rewards": {
+            "name": "Leveling Reward Roles",
+            "description": "Per level role rewards",
+            "path": "config/leveling/rewards/rewards",
+            "limit": "25",
+            "placeholder2": "Select Role ...",
+            "placeholder": "Level"
+        },
+        "leveling-reward-status": {
+            "name": "Leveling Reward Status",
+            "description": "Whether to enable level rewards for your server",
+            "path": "config/leveling/rewards/status"
+        },
+        "leveling-display-status": {
+            "name": "Leveling Displaying",
+            "description": "Whether to enable level up displaying for your server",
+            "path": "config/leveling/display/status"
+        },
+        "leveling-display-type": {
+            "name": "Leveling Channel",
+            "description": "The channel for displaying level ups",
+            "path": "config/leveling/display/type",
+            "options": ["dedicated", "current"]
+        },
+        "leveling-display-channel": {
+            "name": "Leveling Reward Channel",
+            "description": "The channel  in which to post level-ups",
+            "path": "config/leveling/display/channelID",
+            "placeholder": "1131195719676596229"
+        },
+        "leveling-boosters-status": {
+            "name": "Leveling Multipliers",
+            "description": "Whether to enable level multipliers for your server",
+            "path": "config/leveling/boosters/status"
+        },
+        "guild-administrators": {
+            "name": "Guild Administrators",
+            "description": "The users who have access to the dashboard",
+            "path": "data/staff",
+            "placeholder": "User ID",
+            "limit": 10,
+            "options": ["dashboardAdministrator", "botAdministrator"]
+        },
+        "verification-status": {
+            "name": "Verification Status",
+            "description": "Whether to enable verification for your server",
+            "path": "config/verification/status"
+        },
+        "verification-channel": {
+            "name": "Verification Channel",
+            "description": "The channel for verification",
+            "path": "config/verification/channelID",
+            "placeholder": "Select Channel ..."
+        },
+        "verification-roles": {
+            "name": "Verification Roles",
+            "description": "The roles to give upon verification",
+            "path": "config/verification/roles",
+            "placeholder": "Select Roles ..."
         }
     },
     "paths": {
-        "ai-functionality": "config/general/status",
-        "ai-functionality2": "config/general/channelId",
         "channel-logs-status": "config/logs/channelLogs/status",
-        "channel-logs-channel": "config/logs/channelLogs/channelId",
+        "channel-logs-channel": "config/logs/channelLogs/channelID",
+        "channel-logs-filter-mode": "config/logs/channelLogs/filterMode",
+        "channel-logs-filter": "config/logs/channelLogs/filter",
         "role-logs-status": "config/logs/roleLogs/status",
-        "role-logs-channel": "config/logs/roleLogs/channelId",
+        "role-logs-channel": "config/logs/roleLogs/channelID",
+        "role-logs-filter-mode": "config/logs/roleLogs/filterMode",
+        "role-logs-filter": "config/logs/roleLogs/filter",
         "message-logs-status": "config/logs/messageLogs/status",
-        "message-logs-channel": "config/logs/messageLogs/channelId",
+        "message-logs-channel": "config/logs/messageLogs/channelID",
+        "message-logs-filter-mode": "config/logs/messageLogs/filterMode",
+        "message-logs-filter": "config/logs/messageLogs/filter",
         "member-logs-status": "config/logs/memberLogs/status",
-        "member-logs-channel": "config/logs/memberLogs/channelId",
+        "member-logs-channel": "config/logs/memberLogs/channelID",
+        "member-logs-filter-mode": "config/logs/memberLogs/filterMode",
+        "member-logs-filter": "config/logs/memberLogs/filter",
         "emoji-logs-status": "config/logs/emojiLogs/status",
-        "emoji-logs-channel": "config/logs/emojiLogs/channelId",
+        "emoji-logs-channel": "config/logs/emojiLogs/channelID",
+        "emoji-logs-filter-mode": "config/logs/emojiLogs/filterMode",
+        "emoji-logs-filter": "config/logs/emojiLogs/filter",
         "server-logs-status": "config/logs/serverLogs/status",
-        "server-logs-channel": "config/logs/serverLogs/channelId"
+        "server-logs-channel": "config/logs/serverLogs/channelID",
+        "leveling-status": "config/leveling/status",
+        "leveling-exp-amount": "config/leveling/amount",
+        "leveling-exp-type": "config/leveling/type",
+        "leveling-boosters-status": "config/leveling/boosters/status",
+        "leveling-role-boosters": "config/leveling/boosters/roleBoosters",
+        "leveling-channel-boosters": "config/leveling/boosters/channelBoosters",
+        "leveling-member-boosters": "config/leveling/boosters/memberBoosters",
+        "leveling-rewards": "config/leveling/rewards/rewards",
+        "leveling-reward-status": "config/leveling/rewards/status",
+        "leveling-display-status": "config/leveling/display/status",
+        "leveling-display-type": "config/leveling/display/type",
+        "leveling-display-channel": "config/leveling/display/channelID",
+        "guild-administrators": "data/staff"
     }
 }

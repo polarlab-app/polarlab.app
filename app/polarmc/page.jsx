@@ -4,7 +4,7 @@ import Landing from '@components/main/landing';
 import Section from '@components/main/section';
 
 export const metadata = {
-    title: 'Polar MC',
+    title: 'Polar Lab | Polar MC',
     description: 'The official Polar MC Season 2 landing page',
 };
 

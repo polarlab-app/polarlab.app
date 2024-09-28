@@ -1,0 +1,440 @@
+.main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vh;
+}
+
+.app {
+    height: 22vh;
+    transition: all 600ms ease;
+    -webkit-transition: all 600ms ease;
+    -moz-transition: all 600ms ease;
+    -ms-transition: all 600ms ease;
+    -o-transition: all 600ms ease;
+}
+
+.app.active {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 30vh;
+    transition: all 600ms ease;
+    -webkit-transition: all 600ms ease;
+    -moz-transition: all 600ms ease;
+    -ms-transition: all 600ms ease;
+    -o-transition: all 600ms ease;
+}
+
+.editLeft {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 95%;
+    width: 25%;
+    flex-direction: column;
+}
+
+.editLeft .inputContainer,
+.editLeft .input {
+    width: 90%;
+}
+
+.editRight {
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 80%;
+}
+
+.buttonContainer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.editMiddle {
+    height: 100%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    overflow-y: scroll;
+}
+
+.appID {
+    font-size: 0.9rem;
+    color: #a1a0a9;
+}
+
+.redirecturi {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.redirecturi:hover .removeButton {
+    opacity: 1;
+    transition: all 600ms ease;
+}
+
+.removeButton {
+    opacity: 0;
+    transition: all 600ms ease;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+    border: 1px solid #23252a;
+    background-color: #23252a;
+    height: 5vh;
+    width: 15%;
+    margin-left: 2%;
+    margin-bottom: 2%;
+    color: #d86464;
+}
+
+.removeButton:hover {
+    border: 1px solid #d86464;
+    transition: all 600ms ease;
+}
+
+.addButton {
+    float: left;
+    transition: all 600ms ease;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+    border: 1px solid #23252a;
+    background-color: #23252a;
+    color: white;
+    height: 5vh;
+    width: 76.4%;
+}
+
+.addButton:hover {
+    scale: 0.95;
+    background-color: #1c1d1f;
+    transition: all 600ms ease;
+}
+
+.deleteButton {
+    color: #d86464;
+    background-color: #23252a;
+    height: 5vh;
+    border: none;
+    border-radius: 6px;
+    padding: 0 1.3vw;
+    transition: all 600ms ease;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.deleteButton:hover {
+    background-color: #1c1d1f;
+    transition: all 600ms ease;
+    scale: 0.95;
+}
+
+.saveButton {
+    color: white;
+    background-color: #4b4ee7;
+    height: 5vh;
+    border: none;
+    border-radius: 6px;
+    padding: 0 1.3vw;
+    transition: all 600ms ease;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.saveButton:hover {
+    background-color: #27288f;
+    transition: all 600ms ease;
+    scale: 0.95;
+}
+
+.inputLabel {
+    color: white;
+    margin: 0;
+    font-weight: 700;
+    margin: 2vh 0;
+    text-align: left;
+}
+
+.create {
+    color: white;
+    background-color: #4b4ee7;
+    height: 5vh;
+    border: none;
+    border-radius: 6px;
+    padding: 0 1.3vw;
+    transition: all 600ms ease;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.create:hover {
+    background-color: #27288f;
+    transition: all 600ms ease;
+    scale: 0.95;
+}
+
+.input {
+    border-radius: 6px;
+    font-family: 'Nunito';
+    height: 5vh;
+    background-color: #23252a;
+    color: white;
+    font-weight: 600;
+    padding: 0 3%;
+    border: 1px solid #23252a;
+    outline: none;
+    transition: all 600ms ease;
+    width: 70%;
+    float: left;
+    margin-bottom: 2%;
+}
+
+.input:focus {
+    border: 1px solid #4b4ee7;
+    transition: all 600ms ease;
+}
+
+.fileInput {
+    display: none;
+}
+
+.header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.middle {
+    margin-left: 2%;
+    color: #a1a0a9;
+    text-align: left;
+    margin-left: 2%;
+}
+
+.info {
+    list-style: none;
+    padding-left: 0;
+}
+
+.infoItem {
+    margin: 0.5vh 0;
+}
+
+.create {
+    color: white;
+    background-color: #4b4ee7;
+    height: 5vh;
+    border: none;
+    border-radius: 6px;
+    padding: 0 1.3vw;
+    transition: all 600ms ease;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.create:hover {
+    background-color: #27288f;
+    transition: all 600ms ease;
+    scale: 0.95;
+}
+
+.icon {
+    margin-right: 0.5vw;
+}
+
+.iconContainer {
+    height: 50%;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    border: 1px dashed #4b4ee7;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.appIcon {
+    max-width: 98%;
+    max-height: 98%;
+    border-radius: 6px;
+}
+
+.editWrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: all 600ms ease;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.editIcon {
+    opacity: 0;
+    font-size: 5rem;
+    color: white;
+    transition: all 600ms ease;
+}
+
+.iconContainer:hover .editIcon,
+.iconContainer:hover .editWrapper {
+    opacity: 1;
+    transition: all 600ms ease;
+}
+
+.apps {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vh;
+    overflow: scroll;
+}
+
+.app {
+    border: 1px solid #23252a;
+    background-color: #101012;
+    border-radius: 6px;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 2%;
+}
+
+.logo {
+    height: 4vh;
+    width: auto;
+    margin-right: 1%;
+    border-radius: 6px;
+}
+
+.button {
+    color: #d86464;
+    background-color: #23252a;
+    height: 5vh;
+    border: none;
+    border-radius: 6px;
+    padding: 0 1.3vw;
+    transition: all 600ms ease;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: 1%;
+    animation: appear 0.6s ease-out forwards;
+    font-weight: 700;
+}
+
+.button:hover {
+    background-color: #1c1d1f;
+    transition: all 600ms ease;
+}
+
+@media screen and (max-width: 620px) {
+    .app.active {
+        flex-direction: column;
+        justify-content: space-between;
+        height: 40vh;
+    }
+
+    .editRight,
+    .editLeft,
+    .editMiddle {
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    .icon {
+        margin-right: 6%;
+    }
+
+    .create {
+        width: 35vw;
+        padding: 0 4vw;
+    }
+}
+
+.scopes {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+
+.scope {
+    color: white;
+    font-weight: 700;
+    margin: 2% 0;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    height: auto;
+}
+
+.scopeLabel {
+    margin: 0 2vh;
+}
+
+.scopeContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3vh;
+    width: 1vh;
+    position: relative;
+}
+
+.hidden {
+    visibility: hidden !important;
+    transition: all 600ms ease;
+    position: absolute;
+}
+
+.toggle {
+    height: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 6px;
+    background-color: #23252a;
+    border: 1px solid #23252a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 600ms ease;
+    cursor: pointer;
+    position: absolute;
+}
+
+.innerToggle {
+    width: 60%;
+    height: 60%;
+    border-radius: 2px;
+    transition: all 600ms ease;
+}
+.hidden:checked + .toggle .innerToggle {
+    background-color: #5959ff;
+    transition: all 600ms ease;
+}
+
+.hidden:hover + .toggle {
+    border: 1px solid #5959ff;
+    transition: all 600ms ease;
+}

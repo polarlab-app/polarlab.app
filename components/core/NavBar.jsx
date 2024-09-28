@@ -5,10 +5,10 @@ import Image from 'next/image';
 import findUser from '@/lib/personal/findUser';
 
 export default async function NavBar() {
-    const user = await findUser();
+    const user = JSON.parse(await findUser());
 
     return (
-        <nav className={styles.nav}>
+        <nav className={styles.nav} id='nav'>
             <div className={styles.logocontainer}>
                 <Image
                     className={styles.logo}
@@ -36,7 +36,7 @@ export default async function NavBar() {
                 </Link>
             </div>
             <div className={styles.usercontainer}>
-                {user ? (
+                {user.c != 'r' ? (
                     <Link className={styles.button} href='/personal'>
                         My Account
                     </Link>

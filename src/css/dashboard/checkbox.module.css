@@ -30,8 +30,8 @@
     justify-content: center;
     align-items: center;
     height: 100%;
-    width: 7%;
     position: relative;
+    margin-right: 2%;
 }
 
 .hidden {
@@ -43,20 +43,19 @@
 .toggle {
     height: 40%;
     aspect-ratio: 1/1;
-    border-radius: 8px;
-    background-color: #2c2d36;
+    border-radius: 6px;
+    background-color: #1e1d26;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: all 600ms ease;
     cursor: pointer;
-    position: absolute;
 }
 
 .innertoggle {
     width: 60%;
     height: 60%;
-    border-radius: 2px;
+    border-radius: 3px;
     transition: all 600ms ease;
 }
 .hidden:checked + .toggle .innertoggle {

@@ -2,6 +2,7 @@
     "name": "mainsite",
     "version": "0.1.0",
     "private": true,
+    "type": "module",
     "scripts": {
         "dev": "next dev --experimental-https",
         "build": "next build",
@@ -16,11 +17,11 @@
         "@zxcvbn-ts/core": "^3.0.4",
         "@zxcvbn-ts/language-common": "^3.0.4",
         "@zxcvbn-ts/language-en": "^3.0.2",
-        "bcrypt": "^5.1.1",
+        "argon2": "^0.41.1",
         "dotenv": "^16.3.2",
         "jquery": "^3.7.1",
         "mongoose": "^8.5.2",
-        "next": "^14.2.5",
+        "next": "^14.2.11",
         "qs": "^6.11.2",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
@@ -32,6 +33,7 @@
     },
     "devDependencies": {
         "eslint": "^8",
-        "eslint-config-next": "^14.1.4"
+        "eslint-config-next": "^14.1.4",
+        "sass": "^1.79.1"
     }
 }

@@ -17,5 +17,5 @@ const appSchema = new mongoose.Schema(
 );
 const connection = await getMongoConnection('primary');
 
-const app = connection.mongoose.models.app || connection.mongoose.model('app', appSchema);
+const app = connection.models.app || connection.model('app', appSchema);
 export default app;

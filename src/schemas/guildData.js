@@ -16,5 +16,5 @@ const guildDataSchema = new mongoose.Schema(
 );
 const connection = await getMongoConnection('secondary');
 
-const guildData = connection.mongoose.models.guildData || connection.mongoose.model('guildData', guildDataSchema);
+const guildData = connection.models.guildData || connection.model('guildData', guildDataSchema);
 export default guildData;

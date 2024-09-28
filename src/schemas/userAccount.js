@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 const { Schema, model, models } = mongoose;
+import { getMongoConnection } from '@/lib/global/db';
 
 let userAccountSchema = new Schema(
     {
@@ -35,6 +36,6 @@ let userAccountSchema = new Schema(
         collection: 'accounts',
     }
 );
-
-const userAccount = models.userAccount || model('userAccount', userAccountSchema);
+const connection = await getMongoConnection('primary');
+const userAccount = connection.models.userAccount || connection.model('userAccount', userAccountSchema);
 export default userAccount;

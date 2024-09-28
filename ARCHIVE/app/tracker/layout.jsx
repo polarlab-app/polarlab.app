@@ -1,5 +1,5 @@
 import TrackerBar from '@components/tracker/nav.jsx';
-import BugList from '@components/tracker/buglist.jsx';
+import BugList from '@/ARCHIVE/components/tracker/buglist.jsx';
 
 import styles from '@css/tracker/global.module.css';
 import '@css/tracker/dis.css';

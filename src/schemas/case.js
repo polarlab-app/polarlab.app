@@ -1,4 +1,5 @@
 import { Schema, model, models } from 'mongoose';
+import { getMongoConnection } from '@/lib/global/db';
 
 const caseSchema = new Schema(
     {
@@ -26,5 +27,6 @@ const caseSchema = new Schema(
     }
 );
 
-const caseModel = models.caseModel || model('caseModel', caseSchema);
+const connection = await getMongoConnection('primary');
+const caseModel = connection.models.caseModel || connection.model('caseModel', caseSchema);
 export default caseModel;

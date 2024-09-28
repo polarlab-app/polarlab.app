@@ -1,19 +1,20 @@
 import mongoose from 'mongoose';
-const { Schema, model, models } = mongoose;
+import { getMongoConnection } from '@/lib/global/db';
 
-const guildDataSchema = new Schema(
+const guildDataSchema = new mongoose.Schema(
     {
         id: String,
         name: String,
         icon: String,
         description: String,
-        data: Schema.Types.Mixed,
-        config: Schema.Types.Mixed,
+        data: mongoose.Schema.Types.Mixed,
+        config: mongoose.Schema.Types.Mixed,
     },
     {
         collection: 'guildData',
     }
 );
+const connection = await getMongoConnection('secondary');
 
-const guildData = models.guildData || model('guildData', guildDataSchema);
+const guildData = connection.models.guildData || connection.model('guildData', guildDataSchema);
 export default guildData;

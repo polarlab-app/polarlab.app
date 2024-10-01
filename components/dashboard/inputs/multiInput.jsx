@@ -122,21 +122,23 @@ export default function MultiInput({ id, values, possibleOptions, onChange, icon
                                     </div>
                                 ))
                         ) : (
-                            options.map((option, index) => (
-                                <div
-                                    className={styles.dropdownOption}
-                                    key={index}
-                                    onClick={() => {
-                                        setSelectedValues([...selectedValues, option.id]);
-                                        onChange(id, [...selectedValues, option.id]);
-                                    }}
-                                    id='possibleOption'
-                                    style={option.color ? { color: option.color } : null}
-                                >
-                                    {icon ? <i className={`${icon} ${styles.icon}`}></i> : null}
-                                    {option.name}
-                                </div>
-                            ))
+                            options
+                                .filter((option) => !selectedValues.includes(option.id))
+                                .map((option, index) => (
+                                    <div
+                                        className={styles.dropdownOption}
+                                        key={index}
+                                        onClick={() => {
+                                            setSelectedValues([...selectedValues, option.id]);
+                                            onChange(id, [...selectedValues, option.id]);
+                                        }}
+                                        id='possibleOption'
+                                        style={option.color ? { color: option.color } : null}
+                                    >
+                                        {icon ? <i className={`${icon} ${styles.icon}`}></i> : null}
+                                        {option.name}
+                                    </div>
+                                ))
                         )
                     ) : (
                         <div className={styles.dropdownOption}>No Data Found</div>

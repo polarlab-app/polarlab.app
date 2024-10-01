@@ -315,7 +315,7 @@ export default function Page() {
                                 <MultiInput
                                     id='emoji-logs-filter'
                                     width={'half'}
-                                    possibleOptions={data.data.emojiLogs}
+                                    possibleOptions={data.data.emojis}
                                     icon='icon-face-awesome'
                                     onChange={handleInputChange}
                                     values={data.config.logs.emojiLogs.filter}

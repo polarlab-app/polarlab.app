@@ -27,6 +27,6 @@ const caseSchema = new Schema(
     }
 );
 
-const connection = await getMongoConnection('primary');
+const connection = await getMongoConnection('secondary');
 const caseModel = connection.models.caseModel || connection.model('caseModel', caseSchema);
 export default caseModel;

@@ -3,7 +3,7 @@ import styles from '@css/dashboard/multiInput.module.scss';
 import { useState, useEffect, useRef } from 'react';
 const { inputs } = require('@data/dashboard.json');
 
-export default function MultiInput({ id, values, possibleOptions, onChange, icon, width }) {
+export default function MultiInput({ id, values, possibleOptions, onChange, icon, width, filter }) {
     const [selectedValues, setSelectedValues] = useState([]);
     const [options, setOptions] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
@@ -101,22 +101,45 @@ export default function MultiInput({ id, values, possibleOptions, onChange, icon
                 <div className={`${styles.dropdownOptions} ${isOpen ? styles.active : null}`}>
                     {options ? (
                         options
+                            .filter((option) => !filter || !filter.split(';').includes(option.type.toString()))
                             .filter((option) => !selectedValues.includes(option.id))
-                            .map((option, index) => (
-                                <div
-                                    className={styles.dropdownOption}
-                                    key={index}
-                                    onClick={() => {
-                                        setSelectedValues([...selectedValues, option.id]);
-                                        onChange(id, [...selectedValues, option.id]);
-                                    }}
-                                    id='possibleOption'
-                                    style={option.color ? { color: option.color } : null}
-                                >
-                                    {icon ? <i className={`${icon} ${styles.icon}`}></i> : null}
-                                    {option.name}
-                                </div>
-                            ))
+                            .some((option) => option.position) ? (
+                            options
+                                .sort((a, b) => (a.position || 0) - (b.position || 0))
+                                .map((option, index) => (
+                                    <div
+                                        className={styles.dropdownOption}
+                                        key={index}
+                                        onClick={() => {
+                                            setSelectedValues([...selectedValues, option.id]);
+                                            onChange(id, [...selectedValues, option.id]);
+                                        }}
+                                        id='possibleOption'
+                                        style={option.color ? { color: option.color } : null}
+                                    >
+                                        {icon ? <i className={`${icon} ${styles.icon}`}></i> : null}
+                                        {option.name}
+                                    </div>
+                                ))
+                        ) : (
+                            options
+                                .filter((option) => !selectedValues.includes(option.id))
+                                .map((option, index) => (
+                                    <div
+                                        className={styles.dropdownOption}
+                                        key={index}
+                                        onClick={() => {
+                                            setSelectedValues([...selectedValues, option.id]);
+                                            onChange(id, [...selectedValues, option.id]);
+                                        }}
+                                        id='possibleOption'
+                                        style={option.color ? { color: option.color } : null}
+                                    >
+                                        {icon ? <i className={`${icon} ${styles.icon}`}></i> : null}
+                                        {option.name}
+                                    </div>
+                                ))
+                        )
                     ) : (
                         <div className={styles.dropdownOption}>No Data Found</div>
                     )}

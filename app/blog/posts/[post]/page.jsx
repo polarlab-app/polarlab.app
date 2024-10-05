@@ -1,6 +1,7 @@
 'use server';
 import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
+import findPost from '@/lib/blog/findPost';
 
 export async function generateMetadata({ params }) {
     const id = params.post;
@@ -16,16 +17,14 @@ export async function generateMetadata({ params }) {
 export default async function Page({ params }) {
     const post = params.post;
 
-    const BlogPost = dynamic(
+    /*const BlogPost = dynamic(
         () => import(`@components/blog/posts/${post}.jsx`),
         { suspense: true }
-    );
+    );*/
 
-    return (
-        <Suspense fallback={<p>Loading...</p>}>
-            <BlogPost />
-        </Suspense>
-    );
+    const BlogPost = JSON.parse(await findPost(post));
+
+    return <Suspense fallback={<p>Loading...</p>}>{JSON.stringify(BlogPost)}</Suspense>;
 }
 
 function formatString(str) {

@@ -1,13 +1,15 @@
 'use server';
-
 import styles from '@css/blog/blog.module.css';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default async function BlogPostGrid(props) {
+    console.log(props);
+
     return (
         <Link href={`/blog/posts/${props.href}`} className={styles.post}>
             <div className={styles.postimgcontainer}>
-                <img className={styles.postimg} src={props.coverimg} alt='alt' />
+                <Image className={styles.postimg} src={props.coverimg} alt='alt' fill />
             </div>
             <div className={styles.posttext}>
                 <div className={styles.textcontainer}>

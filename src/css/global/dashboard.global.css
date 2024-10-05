@@ -62,6 +62,10 @@ body {
     float: left;
 }
 
+.inputGroupHalf div:first-child {
+    margin-top: 1.5%;
+}
+
 .inputGroupHalf:nth-child(2n of .inputGroupHalf) {
     margin-left: 2%;
 }

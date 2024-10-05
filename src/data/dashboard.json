@@ -162,6 +162,12 @@
             "path": "config/leveling/type",
             "options": ["static", "range"]
         },
+        "leveling-booster-mode": {
+            "name": "Booster Mode",
+            "description": "The mode for EXP Boosters",
+            "path": "config/leveling/boosters/mode",
+            "options": ["multiply", "add", "maximum"]
+        },
         "leveling-channel-boosters": {
             "name": "Channel Boosters",
             "description": "Per channel EXP Boosters",
@@ -288,6 +294,10 @@
         "leveling-display-status": "config/leveling/display/status",
         "leveling-display-type": "config/leveling/display/type",
         "leveling-display-channel": "config/leveling/display/channelID",
-        "guild-administrators": "data/staff"
+        "guild-administrators": "data/staff",
+        "verification-status": "config/verification/status",
+        "verification-channel": "config/verification/channelID",
+        "verification-roles": "config/verification/roles",
+        "leveling-booster-mode": "config/leveling/boosters/mode"
     }
 }

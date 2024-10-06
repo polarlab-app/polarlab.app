@@ -196,7 +196,7 @@
             "max": "6",
             "step": ".5",
             "limit": "10",
-            "placeholder": "Member ID"
+            "placeholder": "Select Member ..."
         },
         "leveling-rewards": {
             "name": "Leveling Reward Roles",

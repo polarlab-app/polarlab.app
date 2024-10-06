@@ -22,6 +22,7 @@ import ArrayInput from '@components/dashboard/inputs/arrayInput';
 /* Miscellaneous */
 import { triggerToast } from '@/components/core/toastNotifications';
 import DropdownInput from '@/components/dashboard/inputs/dropdown';
+import SingleInput from '@/components/dashboard/inputs/singleInput';
 
 export default function Page() {
     const { selectedGuild } = useGuild();
@@ -187,6 +188,13 @@ export default function Page() {
                                     value={data.config.leveling.boosters.status}
                                     onChange={(e) => handleInputChange(e.target.id, e.target.checked)}
                                 />
+                                <SingleInput
+                                    id='leveling-booster-mode'
+                                    value={data.config.leveling.boosters.mode}
+                                    type='radio'
+                                    onChange={handleInputChange}
+                                    width='full'
+                                />
                             </div>
                             <div className='inputGroupFull'>
                                 <ArrayInput
@@ -213,9 +221,11 @@ export default function Page() {
                             <div className='inputGroupFull'>
                                 <ArrayInput
                                     id='leveling-member-boosters'
-                                    type='text'
+                                    type='dropdown'
                                     type2='range'
                                     values={data.config.leveling.boosters.memberBoosters}
+                                    possibleOptions={data.data.members}
+                                    icon={'icon-user'}
                                     onChange={(newValues) => handleInputChange('leveling-member-boosters', newValues)}
                                 />
                             </div>

@@ -145,7 +145,12 @@
             "path": "config/leveling/status",
             "placeholder": null
         },
-
+        "leveling-filter": {
+            "name": "Leveling Filter",
+            "description": "The channels to filter out",
+            "path": "config/leveling/filter",
+            "placeholder": "Select Channels ..."
+        },
         "leveling-exp-amount": {
             "name": "EXP Amount",
             "description": "The amount of EXP to give",
@@ -257,6 +262,18 @@
             "description": "The roles to give upon verification",
             "path": "config/verification/roles",
             "placeholder": "Select Roles ..."
+        },
+        "bot-moderator-roles": {
+            "name": "Bot Moderator Roles",
+            "description": "The roles that can moderate the bot",
+            "path": "config/permissions/botModeratorRoles",
+            "placeholder": "Select Roles ..."
+        },
+        "bot-administrator-roles": {
+            "name": "Bot Administrator Roles",
+            "description": "The roles that can administrate the bot",
+            "path": "config/permissions/botAdministratorRoles",
+            "placeholder": "Select Roles ..."
         }
     },
     "paths": {
@@ -298,6 +315,9 @@
         "verification-status": "config/verification/status",
         "verification-channel": "config/verification/channelID",
         "verification-roles": "config/verification/roles",
-        "leveling-booster-mode": "config/leveling/boosters/mode"
+        "leveling-booster-mode": "config/leveling/boosters/mode",
+        "leveling-filter": "config/leveling/filter",
+        "bot-moderator-roles": "config/permissions/botModeratorRoles",
+        "bot-administrator-roles": "config/permissions/botAdministratorRoles"
     }
 }

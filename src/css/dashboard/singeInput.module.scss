@@ -14,6 +14,7 @@
 
         .header {
             margin: 3%;
+            margin-top: 0;
         }
     }
 
@@ -88,6 +89,15 @@
     gap: 1vh;
     width: 94%;
     height: 100%;
+
+    &.full {
+        width: 50%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin: 0;
+        margin-right: 3%;
+    }
 
     .option {
         border-radius: 6px;

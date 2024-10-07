@@ -145,7 +145,12 @@
             "path": "config/leveling/status",
             "placeholder": null
         },
-
+        "leveling-filter": {
+            "name": "Leveling Filter",
+            "description": "The channels to filter out",
+            "path": "config/leveling/filter",
+            "placeholder": "Select Channels ..."
+        },
         "leveling-exp-amount": {
             "name": "EXP Amount",
             "description": "The amount of EXP to give",
@@ -161,6 +166,12 @@
             "description": "The type of EXP to give",
             "path": "config/leveling/type",
             "options": ["static", "range"]
+        },
+        "leveling-booster-mode": {
+            "name": "Booster Mode",
+            "description": "The mode for EXP Boosters",
+            "path": "config/leveling/boosters/mode",
+            "options": ["multiply", "add", "maximum"]
         },
         "leveling-channel-boosters": {
             "name": "Channel Boosters",
@@ -190,7 +201,7 @@
             "max": "6",
             "step": ".5",
             "limit": "10",
-            "placeholder": "Member ID"
+            "placeholder": "Select Member ..."
         },
         "leveling-rewards": {
             "name": "Leveling Reward Roles",
@@ -251,6 +262,18 @@
             "description": "The roles to give upon verification",
             "path": "config/verification/roles",
             "placeholder": "Select Roles ..."
+        },
+        "bot-moderator-roles": {
+            "name": "Bot Moderator Roles",
+            "description": "The roles that can moderate the bot",
+            "path": "config/permissions/botModeratorRoles",
+            "placeholder": "Select Roles ..."
+        },
+        "bot-administrator-roles": {
+            "name": "Bot Administrator Roles",
+            "description": "The roles that can administrate the bot",
+            "path": "config/permissions/botAdministratorRoles",
+            "placeholder": "Select Roles ..."
         }
     },
     "paths": {
@@ -288,6 +311,13 @@
         "leveling-display-status": "config/leveling/display/status",
         "leveling-display-type": "config/leveling/display/type",
         "leveling-display-channel": "config/leveling/display/channelID",
-        "guild-administrators": "data/staff"
+        "guild-administrators": "data/staff",
+        "verification-status": "config/verification/status",
+        "verification-channel": "config/verification/channelID",
+        "verification-roles": "config/verification/roles",
+        "leveling-booster-mode": "config/leveling/boosters/mode",
+        "leveling-filter": "config/leveling/filter",
+        "bot-moderator-roles": "config/permissions/botModeratorRoles",
+        "bot-administrator-roles": "config/permissions/botAdministratorRoles"
     }
 }

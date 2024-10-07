@@ -42,7 +42,7 @@ export default function SingleInput({ id, value, onChange, width, exclude, icon,
             ) : type == 'range' ? (
                 <></>
             ) : type == 'radio' ? (
-                <div className={styles.radioContainer}>
+                <div className={`${styles.radioContainer} ${width == 'full' ? styles.full : null}`}>
                     {inputs[id].options.map((option, index) => (
                         <label className={styles.option} key={index}>
                             <input

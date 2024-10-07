@@ -13,15 +13,16 @@ import saveData from '@lib/dashboard/saveData';
 
 /* Inputs */
 import CheckboxInput from '@components/dashboard/inputs/checkbox';
-import TextboxInput from '@components/dashboard/inputs/textbox';
 import RadioInput from '@components/dashboard/inputs/radio';
 import RangeInput from '@components/dashboard/inputs/range';
 import DoubleInput from '@components/dashboard/inputs/doubleInput';
 import ArrayInput from '@components/dashboard/inputs/arrayInput';
+import MultiInput from '@components/dashboard/inputs/multiInput';
 
 /* Miscellaneous */
 import { triggerToast } from '@/components/core/toastNotifications';
 import DropdownInput from '@/components/dashboard/inputs/dropdown';
+import SingleInput from '@/components/dashboard/inputs/singleInput';
 
 export default function Page() {
     const { selectedGuild } = useGuild();
@@ -149,6 +150,16 @@ export default function Page() {
                                     />
                                 )}
                             </div>
+                            <div className='inputGroupHalf'>
+                                <MultiInput
+                                    id='leveling-filter'
+                                    possibleOptions={data.data.channels}
+                                    values={data.config.leveling.filter}
+                                    width='half'
+                                    icon='icon-hashtag'
+                                    onChange={handleInputChange}
+                                />
+                            </div>
                         </>
                     ) : (
                         <div>Loading...</div>
@@ -187,6 +198,13 @@ export default function Page() {
                                     value={data.config.leveling.boosters.status}
                                     onChange={(e) => handleInputChange(e.target.id, e.target.checked)}
                                 />
+                                <SingleInput
+                                    id='leveling-booster-mode'
+                                    value={data.config.leveling.boosters.mode}
+                                    type='radio'
+                                    onChange={handleInputChange}
+                                    width='full'
+                                />
                             </div>
                             <div className='inputGroupFull'>
                                 <ArrayInput
@@ -213,9 +231,11 @@ export default function Page() {
                             <div className='inputGroupFull'>
                                 <ArrayInput
                                     id='leveling-member-boosters'
-                                    type='text'
+                                    type='dropdown'
                                     type2='range'
                                     values={data.config.leveling.boosters.memberBoosters}
+                                    possibleOptions={data.data.members}
+                                    icon={'icon-user'}
                                     onChange={(newValues) => handleInputChange('leveling-member-boosters', newValues)}
                                 />
                             </div>

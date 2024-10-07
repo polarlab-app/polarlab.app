@@ -125,14 +125,14 @@ export default function ArrayInput({ id, values, type, type2, onChange, possible
                                                 (option) =>
                                                     !exclude || !exclude.split(';').includes(option.type.toString())
                                             )
-                                            .some((option) => option.rawPosition)
+                                            .some((option) => option.position)
                                             ? options
                                                   .filter(
                                                       (option) =>
                                                           !exclude ||
                                                           !exclude.split(';').includes(option.type.toString())
                                                   )
-                                                  .sort((a, b) => (b.rawPosition || 0) - (a.rawPosition || 0))
+                                                  .sort((a, b) => (a.position || 0) - (b.position || 0))
                                                   .map((option, idx) => (
                                                       <div
                                                           className={styles.dropdownOption}
@@ -155,6 +155,7 @@ export default function ArrayInput({ id, values, type, type2, onChange, possible
                                                           !exclude ||
                                                           !exclude.split(';').includes(option.type.toString())
                                                   )
+                                                  .sort((a, b) => a.name.localeCompare(b.name))
                                                   .map((option, idx) => (
                                                       <div
                                                           className={styles.dropdownOption}
@@ -257,14 +258,14 @@ export default function ArrayInput({ id, values, type, type2, onChange, possible
                                                 (option) =>
                                                     !exclude || !exclude.split(';').includes(option.type.toString())
                                             )
-                                            .some((option) => option.rawPosition)
+                                            .some((option) => option.position)
                                             ? options
                                                   .filter(
                                                       (option) =>
                                                           !exclude ||
                                                           !exclude.split(';').includes(option.type.toString())
                                                   )
-                                                  .sort((a, b) => (b.rawPosition || 0) - (a.rawPosition || 0))
+                                                  .sort((a, b) => (a.position || 0) - (b.position || 0))
                                                   .map((option, idx) => (
                                                       <div
                                                           className={styles.dropdownOption}
@@ -287,6 +288,7 @@ export default function ArrayInput({ id, values, type, type2, onChange, possible
                                                           !exclude ||
                                                           !exclude.split(';').includes(option.type.toString())
                                                   )
+                                                  .sort((a, b) => a.name.localeCompare(b.name))
                                                   .map((option, idx) => (
                                                       <div
                                                           className={styles.dropdownOption}

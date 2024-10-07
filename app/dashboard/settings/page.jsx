@@ -11,11 +11,9 @@ import saveData from '@lib/dashboard/saveData';
 import { useGuild } from '@components/context/guildContext';
 
 /*Inputs */
-import CheckboxInput from '@components/dashboard/inputs/checkbox';
-import TextboxInput from '@components/dashboard/inputs/textbox';
 import ArrayInput from '@components/dashboard/inputs/arrayInput';
 import Embed from '@/components/dashboard/embeds/embed';
-import DropdownInput from '@components/dashboard/inputs/dropdown';
+import MultiInput from '@/components/dashboard/inputs/multiInput';
 
 /* Miscellaneous */
 import { triggerToast } from '@/components/core/toastNotifications';
@@ -123,13 +121,36 @@ export default function Page() {
                 <div className={`section ${selectedTab === 'dashboardAccess' ? 'active' : null}`}>
                     {data ? (
                         <>
+                            <div className='inputGroupHalf'>
+                                <MultiInput
+                                    id='bot-administrator-roles'
+                                    possibleOptions={data.data.roles}
+                                    values={data.config.permissions.botAdministratorRoles}
+                                    icon='icon-at'
+                                    onChange={handleInputChange}
+                                    width='half'
+                                />
+                            </div>
+
+                            <div className='inputGroupHalf'>
+                                <MultiInput
+                                    id='bot-moderator-roles'
+                                    possibleOptions={data.data.roles}
+                                    values={data.config.permissions.botModeratorRoles}
+                                    icon='icon-at'
+                                    onChange={handleInputChange}
+                                    width='half'
+                                />
+                            </div>
                             <div className='inputGroupFull'>
                                 <ArrayInput
                                     id='guild-administrators'
-                                    type='text'
+                                    type='dropdown'
                                     type2='radio'
                                     values={data.data.staff}
                                     onChange={(newValues) => handleInputChange('guild-administrators', newValues)}
+                                    possibleOptions={data.data.members}
+                                    icon='icon-user'
                                 />
                             </div>
                         </>

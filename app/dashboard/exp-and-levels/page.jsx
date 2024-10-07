@@ -13,11 +13,11 @@ import saveData from '@lib/dashboard/saveData';
 
 /* Inputs */
 import CheckboxInput from '@components/dashboard/inputs/checkbox';
-import TextboxInput from '@components/dashboard/inputs/textbox';
 import RadioInput from '@components/dashboard/inputs/radio';
 import RangeInput from '@components/dashboard/inputs/range';
 import DoubleInput from '@components/dashboard/inputs/doubleInput';
 import ArrayInput from '@components/dashboard/inputs/arrayInput';
+import MultiInput from '@components/dashboard/inputs/multiInput';
 
 /* Miscellaneous */
 import { triggerToast } from '@/components/core/toastNotifications';
@@ -149,6 +149,16 @@ export default function Page() {
                                         onChange={(e) => handleInputChange(e.target.id, e.target.value)}
                                     />
                                 )}
+                            </div>
+                            <div className='inputGroupHalf'>
+                                <MultiInput
+                                    id='leveling-filter'
+                                    possibleOptions={data.data.channels}
+                                    values={data.config.leveling.filter}
+                                    width='half'
+                                    icon='icon-hashtag'
+                                    onChange={handleInputChange}
+                                />
                             </div>
                         </>
                     ) : (

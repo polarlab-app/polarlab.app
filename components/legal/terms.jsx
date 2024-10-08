@@ -1,3 +1,3 @@
-import styles from '@css/main/legal.module.scss';
+import styles from '@css/legal/legal.module.scss';
 
 export default async function Terms() {}

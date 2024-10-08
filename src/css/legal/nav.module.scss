@@ -1,0 +1,81 @@
+.container {
+    width: 8%;
+    margin: 0 1%;
+    border-radius: 6px;
+    border: 1px solid #23252a;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: min-content;
+    position: sticky;
+    top: 40vh;
+    height: 20vh;
+    transition: all 600ms ease;
+    background: linear-gradient(to bottom, rgba(16, 16, 18, 0.7), rgba(16, 16, 18, 0.3));
+    overflow: hidden;
+
+    &:hover {
+        transition: all 600ms ease;
+        width: 28%;
+
+        .item {
+            .description {
+                opacity: 1;
+                transition: all 600ms ease;
+                transition-delay: 200ms;
+            }
+
+            .icon {
+                margin: 5% 10%;
+            }
+        }
+    }
+    .item {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        overflow: hidden;
+        max-width: 100%;
+        cursor: pointer;
+        .icon {
+            font-size: 1.4rem;
+            margin: 10% 1.2rem;
+            color: #a1a0a9;
+            cursor: pointer;
+            transition: all 600ms ease;
+        }
+
+        .description {
+            transition: all 400ms ease;
+            margin: 0;
+            opacity: 0;
+            color: #a1a0a9;
+            font-weight: 600;
+        }
+
+        &.active {
+            .icon {
+                color: white;
+                transition: all 600ms ease;
+            }
+            .description {
+                color: white;
+                transition: all 600ms ease;
+            }
+        }
+
+        &:hover {
+            .icon {
+                color: white;
+                transition: all 600ms ease;
+            }
+            .description {
+                color: white;
+                transition: all 600ms ease;
+            }
+        }
+    }
+}

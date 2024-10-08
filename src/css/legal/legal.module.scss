@@ -1,0 +1,72 @@
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    margin: 2% 5%;
+    text-align: left;
+    color: white;
+}
+
+.date {
+    color: #a1a0a9;
+    font-weight: 700;
+    font-size: 1rem;
+}
+.chapter {
+    width: 100%;
+    color: white;
+    border: 1px solid #23252a;
+    background-color: rgba(16, 16, 18);
+    border-radius: 6px;
+    margin-bottom: 2%;
+    transition: all 600ms ease;
+    box-shadow: 0 0 35px rgba(255, 255, 255, 0.05);
+}
+
+.chapter:hover {
+    scale: 1.02;
+    transition: all 600ms ease;
+}
+
+.chapterHeader {
+    font-weight: 600;
+    font-size: 1.3rem;
+    margin: 2% 2%;
+    margin-bottom: 1%;
+}
+
+.chapterSubHeader {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 1% 2%;
+}
+
+.chapterText {
+    margin: 1% 2%;
+    color: #a1a0a9;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.link {
+    color: #7778b8;
+    transition: all 600ms ease;
+    font-weight: 600;
+}
+
+.link:hover {
+    color: white;
+    transition: all 600ms ease;
+}

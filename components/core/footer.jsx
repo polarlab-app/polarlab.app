@@ -76,12 +76,12 @@ export default async function Footer() {
                                 <p className={styles.listheader}>Legal</p>
                             </li>
                             <li className={styles.listcontent}>
-                                <Link className={styles.listcontent} href='/legal#privacy' prefetch={false}>
+                                <Link className={styles.listcontent} href='/legal?page=privacy' prefetch={false}>
                                     Privacy Policy
                                 </Link>
                             </li>
                             <li className={styles.listcontent}>
-                                <Link className={styles.listcontent} href='/legal#terms' prefetch={false}>
+                                <Link className={styles.listcontent} href='/legal?page=terms' prefetch={false}>
                                     Terms of Service
                                 </Link>
                             </li>

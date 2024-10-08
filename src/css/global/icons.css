@@ -126,7 +126,7 @@
 .icon-at:before {
     content: '\e823';
 } /* '' */
-.icon-user:before {
+.icon-user-1:before {
     content: '\e824';
 } /* '' */
 .icon-face-awesome:before {
@@ -138,3 +138,15 @@
 .icon-pause:before {
     content: '\e827';
 } /* '' */
+.icon-cookie:before {
+    content: '\e828';
+} /* '' */
+.icon-shield-halved:before {
+    content: '\e829';
+} /* '' */
+.icon-bars-light:before {
+    content: '\e82a';
+} /* '' */
+.icon-xmark-light:before {
+    content: '\e82b';
+} /* '' */

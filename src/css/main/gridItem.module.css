@@ -6,6 +6,7 @@
     opacity: 0;
     transition: all 600ms ease;
     box-shadow: 0 15px 35px rgba(255, 255, 255, 0.02);
+    min-height: 366px;
 }
 .griditem:hover {
     box-shadow: 0 0 20px 1px rgba(255, 255, 255, 0.02), 0 0 40px 2px rgba(255, 255, 255, 0.02);

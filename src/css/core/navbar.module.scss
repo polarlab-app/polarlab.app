@@ -10,6 +10,7 @@
     margin: 0 auto;
     z-index: 6;
     transition: all 600ms ease;
+    min-height: 55px;
 
     .top {
         height: 7vh;
@@ -167,6 +168,7 @@
             transition: all 600ms ease;
             align-items: flex-start;
             flex-direction: column;
+            min-height: 166px;
 
             .logocontainer {
                 margin-top: 5%;

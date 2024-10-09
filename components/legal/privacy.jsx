@@ -5,7 +5,7 @@ export default async function Privacy() {
         <div className={styles.container}>
             <div className={styles.header}>
                 <h1 className={styles.heading}>Privacy Policy</h1>
-                <p className={styles.date}>Last Updated: October 8th, 2024</p>
+                <p className={styles.date}>Last Updated: October 9th, 2024</p>
             </div>
             <div className={styles.chapter}>
                 <p className={styles.chapterText}>
@@ -42,7 +42,7 @@ export default async function Privacy() {
             </div>
             <div className={styles.chapter}>
                 <p className={styles.chapterHeader}>
-                    <span className={styles.bold}>SUMMARY OF KEY POINTS</span>
+                    <span className={styles.bold}>Summary of key points</span>
                 </p>
 
                 <p className={styles.chapterText}>
@@ -140,7 +140,7 @@ export default async function Privacy() {
                 </p>
             </div>
             <div className={styles.chapter}>
-                <p className={styles.chapterHeader}>TABLE OF CONTENTS</p>
+                <p className={styles.chapterHeader}>Table of contents</p>
 
                 <ul className={styles.list}>
                     <li className={styles.listItem}>
@@ -221,7 +221,7 @@ export default async function Privacy() {
                 </ul>
             </div>
             <div className={styles.chapter}>
-                <p className={styles.chapterHeader}>1. WHAT INFORMATION DO WE COLLECT?</p>
+                <p className={styles.chapterHeader}>1. What information do we collect?</p>
 
                 <p className={styles.chapterSubHeader}>Personal information you disclose to us</p>
 
@@ -268,6 +268,115 @@ export default async function Privacy() {
                 <p className={styles.chapterText}>
                     All personal information that you provide to us must be true, complete, and accurate, and you must
                     notify us of any changes to such personal information.
+                </p>
+            </div>
+            <div className={styles.chapter}>
+                <p className={styles.chapterHeader}>2. How do we process your information?</p>
+
+                <p className={styles.chapterText}>
+                    <span className={styles.italic}>In Short:</span> We process your information to provide, improve,
+                    and administer our Services, communicate with you, for security and fraud prevention, and to comply
+                    with law. We may also process your information for other purposes with your consent.
+                </p>
+
+                <p className={styles.chapterText}>
+                    We process your personal information for a variety of reasons, depending on how you interact with
+                    our Services, including:
+                </p>
+
+                <ul className={styles.list}>
+                    <li className={styles.listItem}>
+                        <span className={styles.bold}>
+                            To facilitate account creation and authentication and otherwise manage user accounts.
+                        </span>{' '}
+                        We may process your information so you can create and log in to your account, as well as keep
+                        your account in working order.
+                    </li>
+                    <li className={styles.listItem}>
+                        <span className={styles.bold}>To deliver and facilitate delivery of services to the user.</span>{' '}
+                        We may process your information to provide you with the requested service.
+                    </li>
+                    <li className={styles.listItem}>
+                        <span className={styles.bold}>To respond to user inquiries&sol;offer support to users.</span> We
+                        may process your information to respond to your inquiries and solve any potential issues you
+                        might have with the requested service.
+                    </li>
+                    <li className={styles.listItem}>
+                        <span className={styles.bold}>To send administrative information to you.</span> We may process
+                        your information to send you details about our products and services, changes to our terms and
+                        policies, and other similar information.
+                    </li>
+                    <li className={styles.listItem}>
+                        <span className={styles.bold}>To enable user-to-user communications.</span> We may process your
+                        information if you choose to use any of our offerings that allow for communication with another
+                        user.
+                    </li>
+                    <li className={styles.listItem}>
+                        <span className={styles.bold}>To save or protect an individual&#39;s vital interest.</span> We
+                        may process your information when necessary to save or protect an individual&#39;s vital
+                        interest, such as to prevent harm.
+                    </li>
+                </ul>
+            </div>
+            <div className={styles.chapter}>
+                <p className={styles.chapterHeader}>4. When and with whom do we share your personal information?</p>
+
+                <p className={styles.chapterText}>
+                    <span className={styles.italic}>In Short:</span> We may share information in specific situations
+                    described in this section and/or with the following third parties.
+                </p>
+
+                <p className={styles.chapterText}>
+                    We may need to share your personal information in the following situations:
+                </p>
+
+                <ul className={styles.list}>
+                    <li className={styles.listItem}>
+                        <span className={styles.bold}>Business Transfers.</span> We may share or transfer your
+                        information in connection with, or during negotiations of, any merger, sale of company assets,
+                        financing, or acquisition of all or a portion of our business to another company.
+                    </li>
+                </ul>
+            </div>
+            <div className={styles.chapter}>
+                <p className={styles.chapterHeader}>5. Do we use cookies and other tracking technologies?</p>
+
+                <p className={styles.chapterText}>
+                    <span className={styles.italic}>In Short:</span> We may use cookies and other tracking technologies
+                    to collect and store your information.
+                </p>
+
+                <p className={styles.chapterText}>
+                    We may use cookies and similar tracking technologies (like web beacons and pixels) to gather
+                    information when you interact with our Services. Some online tracking technologies help us maintain
+                    the security of our Services and your account, prevent crashes, fix bugs, save your preferences, and
+                    assist with basic site functions.
+                </p>
+
+                <p className={styles.chapterText}>
+                    We also permit third parties and service providers to use online tracking technologies on our
+                    Services for analytics and advertising, including to help manage and display advertisements, to
+                    tailor advertisements to your interests, or to send abandoned shopping cart reminders (depending on
+                    your communication preferences). The third parties and service providers use their technology to
+                    provide advertising about products and services tailored to your interests which may appear either
+                    on our Services or on other websites.
+                </p>
+
+                <p className={styles.chapterText}>
+                    To the extent these online tracking technologies are deemed to be a
+                    &quot;sale&quot;/&quot;sharing&quot; (which includes targeted advertising, as defined under the
+                    applicable laws) under applicable US state laws, you can opt out of these online tracking
+                    technologies by submitting a request as described below under section &quot;DO UNITED STATES
+                    RESIDENTS HAVE SPECIFIC PRIVACY RIGHTS?&quot;
+                </p>
+
+                <p className={styles.chapterText}>
+                    Specific information about how we use such technologies and how you can refuse certain cookies is
+                    set out in our Cookie Notice:{' '}
+                    <a href='https://polarlab.app/legal' className={styles.link}>
+                        https://polarlab.app/legal
+                    </a>
+                    .
                 </p>
             </div>
         </div>

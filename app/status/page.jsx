@@ -25,5 +25,23 @@ export default function Page() {
 
 export const metadata = {
     title: 'Polar Lab | Status',
-    description: 'The official Polar Lab status page',
+    description:
+        'Stay updated with the latest status of Polar Lab services, Polaris & Polar MC. Check the operational status of our platforms and services.',
+    keywords: ['status', 'Polar Lab', 'service status', 'uptime', 'monitoring'],
+    authors: [{ name: 'Aertic', url: 'https://polarlab.app' }],
+    creator: 'Aertic',
+    formatDetection: {
+        email: false,
+        address: false,
+        telephone: false,
+    },
+    openGraph: {
+        images: [
+            {
+                url: 'https://cdn.polarlab.app/src/img/polarlogo.png',
+                width: 1200,
+                height: 630,
+            },
+        ],
+    },
 };

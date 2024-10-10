@@ -8,11 +8,12 @@ import { WebVitals } from '@components/core/webVitals';
 import { Toast } from '@components/core/toastNotifications';
 
 export const metadata = {
-    title: 'Polar Lab',
-    description: 'Free and Open Source software',
-    keywords: ['Polaris', 'open source', 'Polar Lab'],
+    title: 'Polar Lab | Home',
+    description:
+        'Welcome to Polar Lab, your source for innovative services and tools designed to enhance your online experience. Explore our offerings and join our vibrant community today!',
+    keywords: ['Polaris', 'open source', 'Polar Lab', 'Discord', 'bot', 'dashboard', 'community', 'tools', 'services'],
     authors: [{ name: 'Aertic', url: 'https://polarlab.app' }],
-    creator: 'Aetic',
+    creator: 'Aertic',
     publisher: 'Aertic',
     formatDetection: {
         email: false,

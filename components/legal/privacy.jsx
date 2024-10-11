@@ -1,3 +1,4 @@
+'use server';
 import styles from '@css/legal/legal.module.scss';
 
 export default async function Privacy() {
@@ -294,7 +295,7 @@ export default async function Privacy() {
                     <p className={styles.chapterText}>
                         Like many businesses, we also collect information through cookies and similar technologies. You
                         can find out more about this in our Cookie Notice:{' '}
-                        <a href='https://polarlab.app/legal' className={styles.link}>
+                        <a href='https://polarlab.app/legal?page=cookies' className={styles.link}>
                             https://polarlab.app/legal
                         </a>
                         .
@@ -1142,14 +1143,7 @@ export default async function Privacy() {
                     <p className={styles.chapterSubHeader}>14. How Can You Contact Us About This Notice?</p>
 
                     <p className={styles.chapterText}>
-                        If you have questions or comments about this notice, you may email us at privacy@polarlab.app or
-                        contact us by post at:
-                    </p>
-
-                    <p className={styles.chapterText}>
-                        Polar Lab
-                        <br />
-                        Czechia
+                        If you have questions or comments about this notice, you may email us at privacy@polarlab.app
                     </p>
                 </div>
                 <div className={styles.chapter}>
@@ -1177,27 +1171,11 @@ export default async function Privacy() {
                         <a className={styles.link} href='#what-information-do-we-collect'>
                             What information do we collect?
                         </a>
-                        <ul className={styles.overviewSubHeaders}>
-                            <li className={styles.overviewSubHeader}>Personal information you disclose to us</li>
-                            <li className={styles.overviewSubHeader}>Information Automatically Collected</li>
-                        </ul>
                     </li>
                     <li className={styles.overviewListItem}>
                         <a className={styles.link} href='#how-do-we-process-your-information'>
                             How do we process your information?
                         </a>
-                        <ul className={styles.overviewSubHeaders}>
-                            <li className={styles.overviewSubHeader}>
-                                To facilitate account creation and authentication
-                            </li>
-                            <li className={styles.overviewSubHeader}>To deliver and facilitate delivery of services</li>
-                            <li className={styles.overviewSubHeader}>To respond to user inquiries/offer support</li>
-                            <li className={styles.overviewSubHeader}>To send administrative information</li>
-                            <li className={styles.overviewSubHeader}>To enable user-to-user communications</li>
-                            <li className={styles.overviewSubHeader}>
-                                To save or protect an individual&apos;s vital interest
-                            </li>
-                        </ul>
                     </li>
                     <li className={styles.overviewListItem}>
                         <a
@@ -1206,110 +1184,61 @@ export default async function Privacy() {
                         >
                             What legal bases do we rely on to process your personal information?
                         </a>
-                        <ul className={styles.overviewSubHeaders}>
-                            <li className={styles.overviewSubHeader}>Consent</li>
-                            <li className={styles.overviewSubHeader}>Performance of a Contract</li>
-                            <li className={styles.overviewSubHeader}>Legal Obligations</li>
-                            <li className={styles.overviewSubHeader}>Vital Interests</li>
-                        </ul>
                     </li>
                     <li className={styles.overviewListItem}>
                         <a className={styles.link} href='#when-and-with-whom-do-we-share-your-personal-information'>
                             When and with whom do we share your personal information?
                         </a>
-                        <ul className={styles.overviewSubHeaders}>
-                            <li className={styles.overviewSubHeader}>Business Transfers</li>
-                        </ul>
                     </li>
                     <li className={styles.overviewListItem}>
                         <a className={styles.link} href='#do-we-use-cookies-and-other-tracking-technologies'>
                             Do we use cookies and other tracking technologies?
                         </a>
-                        <ul className={styles.overviewSubHeaders}>
-                            <li className={styles.overviewSubHeader}>Cookies and similar tracking technologies</li>
-                        </ul>
                     </li>
                     <li className={styles.overviewListItem}>
                         <a className={styles.link} href='#how-do-we-handle-your-social-logins'>
                             How do we handle your social logins?
                         </a>
-                        <ul className={styles.overviewSubHeaders}>
-                            <li className={styles.overviewSubHeader}>Social media account details</li>
-                        </ul>
                     </li>
                     <li className={styles.overviewListItem}>
                         <a className={styles.link} href='#how-long-do-we-keep-your-information'>
                             How long do we keep your information?
                         </a>
-                        <ul className={styles.overviewSubHeaders}>
-                            <li className={styles.overviewSubHeader}>Retention period</li>
-                        </ul>
                     </li>
                     <li className={styles.overviewListItem}>
                         <a className={styles.link} href='#how-do-we-keep-your-information-safe'>
                             How do we keep your information safe?
                         </a>
-                        <ul className={styles.overviewSubHeaders}>
-                            <li className={styles.overviewSubHeader}>Security measures</li>
-                        </ul>
                     </li>
                     <li className={styles.overviewListItem}>
                         <a className={styles.link} href='#what-are-your-privacy-rights'>
                             What are your privacy rights?
                         </a>
-                        <ul className={styles.overviewSubHeaders}>
-                            <li className={styles.overviewSubHeader}>Rights under applicable data protection laws</li>
-                            <li className={styles.overviewSubHeader}>Withdrawing your consent</li>
-                            <li className={styles.overviewSubHeader}>Account Information</li>
-                        </ul>
                     </li>
                     <li className={styles.overviewListItem}>
                         <a className={styles.link} href='#controls-for-do-not-track-features'>
                             Controls for do-not-track features
                         </a>
-                        <ul className={styles.overviewSubHeaders}>
-                            <li className={styles.overviewSubHeader}>Do-Not-Track (DNT) feature</li>
-                        </ul>
                     </li>
                     <li className={styles.overviewListItem}>
                         <a className={styles.link} href='#do-united-states-residents-have-specific-privacy-rights'>
                             Do United States residents have specific privacy rights?
                         </a>
-                        <ul className={styles.overviewSubHeaders}>
-                            <li className={styles.overviewSubHeader}>Categories of Personal Information We Collect</li>
-                            <li className={styles.overviewSubHeader}>Sources of Personal Information</li>
-                            <li className={styles.overviewSubHeader}>How We Use and Share Personal Information</li>
-                            <li className={styles.overviewSubHeader}>Your Rights</li>
-                            <li className={styles.overviewSubHeader}>How to Exercise Your Rights</li>
-                            <li className={styles.overviewSubHeader}>Request Verification</li>
-                            <li className={styles.overviewSubHeader}>Appeals</li>
-                            <li className={styles.overviewSubHeader}>California &quot;Shine the Light&quot; Law</li>
-                        </ul>
                     </li>
                     <li className={styles.overviewListItem}>
                         <a className={styles.link} href='#do-other-regions-have-specific-privacy-rights'>
                             Do other regions have specific privacy rights?
                         </a>
-                        <ul className={styles.overviewSubHeaders}>
-                            <li className={styles.overviewSubHeader}>Australia and New Zealand</li>
-                            <li className={styles.overviewSubHeader}>Republic of South Africa</li>
-                        </ul>
                     </li>
                     <li className={styles.overviewListItem}>
                         <a className={styles.link} href='#do-we-make-updates-to-this-notice'>
                             Do we make updates to this notice?
                         </a>
-                        <ul className={styles.overviewSubHeaders}>
-                            <li className={styles.overviewSubHeader}>Updates to the Privacy Notice</li>
-                        </ul>
                     </li>
                     <li className={styles.overviewListItem}>
                         <a className={styles.link} href='#how-can-you-contact-us-about-this-notice'>
                             How can you contact us about this notice?
                         </a>
-                        <ul className={styles.overviewSubHeaders}>
-                            <li className={styles.overviewSubHeader}>Contact Information</li>
-                        </ul>
                     </li>
                     <li className={styles.overviewListItem}>
                         <a
@@ -1318,11 +1247,6 @@ export default async function Privacy() {
                         >
                             How can you review, update, or delete the data we collect from you?
                         </a>
-                        <ul className={styles.overviewSubHeaders}>
-                            <li className={styles.overviewSubHeader}>
-                                Request to review, update, or delete information
-                            </li>
-                        </ul>
                     </li>
                 </ol>
             </div>

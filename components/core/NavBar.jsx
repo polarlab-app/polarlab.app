@@ -94,7 +94,7 @@ export default function NavBar() {
                     </li>
                 </ul>
                 <div className={styles.mobileButtonContainer}>
-                    <a className={styles.mobileButton}>{user ? 'My Account' : 'Login'}</a>
+                    <a className={styles.mobileButton}>{user.c != 'r' ? 'My Account' : 'Login'}</a>
                     <a className={styles.mobileButton}>Polaris Dashboard</a>
                 </div>
             </div>

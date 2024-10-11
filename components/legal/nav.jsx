@@ -21,28 +21,9 @@ export default function Nav() {
 
     return (
         <div className={styles.container}>
-            <div
-                className={`${styles.item} ${active == 'terms' ? styles.active : null}`}
-                onClick={() => handleClick('terms')}
-            >
-                <i className={`${styles.icon} icon-scroll`}></i>
-                <p className={styles.description}>Terms Of Service</p>
-            </div>
-
-            <div
-                className={`${styles.item} ${active == 'privacy' ? styles.active : null}`}
-                onClick={() => handleClick('privacy')}
-            >
-                <i className={`${styles.icon} icon-shield-halved`}></i>
-                <p className={styles.description}>Privacy Policy</p>
-            </div>
-            <div
-                className={`${styles.item} ${active == 'cookies' ? styles.active : null}`}
-                onClick={() => handleClick('cookies')}
-            >
-                <i className={`${styles.icon} icon-cookie`}></i>
-                <p className={styles.description}>Cookie Policy</p>
-            </div>
+            <p className={`${styles.option} ${active == 'terms' ? styles.active : null}`}>Terms Of Service</p>
+            <p className={`${styles.option} ${active == 'privacy' ? styles.active : null}`}>Privacy Policy</p>
+            <p className={`${styles.option} ${active == 'cookies' ? styles.active : null}`}>Cookie Policy</p>
         </div>
     );
 }

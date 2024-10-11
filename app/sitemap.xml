@@ -7,7 +7,7 @@
 	<priority>1.0</priority>
 </url>
 <url>
-	<loc>https://polarlab.app/tracker</loc>
+	<loc>https://polarlab.app/personal</loc>
 	<lastmod>2024-03-22T19:37:25+01:00</lastmod>
 	<priority>1.0</priority>
 </url>
@@ -38,6 +38,21 @@
 </url>
 <url>
 	<loc>https://polarlab.app/status</loc>
+	<lastmod>2024-03-22T19:37:25+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://polarlab.app/legal</loc>
+	<lastmod>2024-03-22T19:37:25+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://polarlab.app/dashboard</loc>
+	<lastmod>2024-03-22T19:37:25+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://polarlab.app/login</loc>
 	<lastmod>2024-03-22T19:37:25+01:00</lastmod>
 	<priority>1.0</priority>
 </url>

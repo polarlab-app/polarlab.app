@@ -10,7 +10,7 @@
     border: 1px solid #23252a;
     transition: all 600ms ease;
     min-height: 55px;
-    z-index: 7;
+    z-index: 2;
     color: white;
     display: flex;
     flex-direction: column;
@@ -38,9 +38,10 @@
     .container {
         top: 9vh;
         width: 96%;
-        right: 2%;
+        left: 2%;
         justify-content: space-evenly;
         align-items: center;
         min-height: 55px;
+        flex-direction: row;
     }
 }

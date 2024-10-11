@@ -32,40 +32,19 @@
     }
 
     .overviewList {
-        color: white;
         padding: 0;
         margin: 5%;
         margin-left: 10%;
+        transition: all 600ms ease;
 
         .overviewListItem {
             margin: 5% 0;
             transition: all 600ms ease;
-
-            .overviewSubHeaders {
-                max-height: 0;
-                opacity: 0;
-                transition: all 600ms ease;
-                list-style: none;
-                padding: 0;
-
-                .overviewSubHeader .link {
-                    color: #a1a0a9;
-                    font-weight: 600;
-                    transition: all 600ms ease;
-
-                    &:hover {
-                        color: white;
-                        transition: all 600ms ease;
-                    }
-                }
-            }
+            color: #a1a0a9;
 
             &:hover {
-                .overviewSubHeaders {
-                    opacity: 1;
-                    max-height: 40vh;
-                    transition: all 600ms ease;
-                }
+                transition: all 600ms ease;
+                color: white;
             }
 
             .link {
@@ -106,6 +85,12 @@
     &:hover {
         scale: 1.02;
         transition: all 600ms ease;
+    }
+
+    .bullets,
+    .list,
+    .chapterList {
+        color: #a1a0a9;
     }
 
     .chapterHeader {
@@ -160,5 +145,25 @@
                 color: #a1a0a9;
             }
         }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        width: 96%;
+        margin: 0 2%;
+
+        .chapter {
+            margin-bottom: 5%;
+
+            .chapterHeader,
+            .chapterSubHeader,
+            .chapterText {
+                margin: 4%;
+            }
+        }
+    }
+    .overview {
+        display: none;
     }
 }

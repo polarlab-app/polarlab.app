@@ -107,6 +107,10 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: #08090a;
     position: relative;

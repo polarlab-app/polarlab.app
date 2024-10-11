@@ -21,15 +21,12 @@ export default function TopNav() {
                 <h1 className={styles.heading}>Polar Lab</h1>
             </div>
             <div className={styles.linkContainer}>
-                <Link href='https://polarlab.app' className={styles.link}>
+                <a className={styles.link} href='https://polarlab.app'>
                     Home
-                </Link>
-                <Link href='https://polarlab.app/blog' className={styles.link}>
-                    Blog
-                </Link>
-                <Link href='https://polarlab.app/plus' className={styles.link}>
-                    Polar Plus
-                </Link>
+                </a>
+                <a className={styles.link} href='https://polarlab.app/dashboard/logging'>
+                    Polaris Dashboard
+                </a>
             </div>
             <div className={styles.right}>
                 <button className={styles.button} onClick={logout}>

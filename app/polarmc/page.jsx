@@ -6,6 +6,23 @@ import Section from '@components/main/section';
 export const metadata = {
     title: 'Polar Lab | Polar MC',
     description: 'The official Polar MC Season 2 landing page',
+    keywords: ['PolarMC', 'gaming', 'community', 'Polar Lab'],
+    authors: [{ name: 'Aertic', url: 'https://polarlab.app' }],
+    creator: 'Aertic',
+    formatDetection: {
+        email: false,
+        address: false,
+        telephone: false,
+    },
+    openGraph: {
+        images: [
+            {
+                url: 'https://cdn.polarlab.app/src/img/polarlogo.png',
+                width: 1200,
+                height: 630,
+            },
+        ],
+    },
 };
 
 export default function Page() {

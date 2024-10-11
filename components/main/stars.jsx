@@ -100,7 +100,7 @@ export default function Stars() {
     );
 
     if (init) {
-        return <Particles id='tsparticles' options={options} className={styles.styles} />;
+        return <Particles id='tsparticles' options={options} className={styles.stars} />;
     }
 
     return <></>;

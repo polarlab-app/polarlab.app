@@ -138,3 +138,15 @@
 .icon-pause:before {
     content: '\e827';
 } /* '' */
+.icon-cookie:before {
+    content: '\e828';
+} /* '' */
+.icon-shield-halved:before {
+    content: '\e829';
+} /* '' */
+.icon-bars-light:before {
+    content: '\e82a';
+} /* '' */
+.icon-xmark-light:before {
+    content: '\e82b';
+} /* '' */

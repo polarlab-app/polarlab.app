@@ -99,6 +99,7 @@
     height: 7vh;
     display: flex;
     justify-content: space-between;
+    min-height: 50px;
 }
 
 .copyr {

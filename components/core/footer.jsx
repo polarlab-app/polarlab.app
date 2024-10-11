@@ -59,8 +59,8 @@ export default async function Footer() {
                                 </Link>
                             </li>
                             <li className={styles.listcontent}>
-                                <Link className={styles.listcontent} href='/tracker' prefetch={false}>
-                                    Issue Tracker
+                                <Link className={styles.listcontent} href='/dashboard/logging' prefetch={false}>
+                                    Polaris Dashboard
                                 </Link>
                             </li>
                             <li className={styles.listcontent}>
@@ -76,13 +76,18 @@ export default async function Footer() {
                                 <p className={styles.listheader}>Legal</p>
                             </li>
                             <li className={styles.listcontent}>
-                                <Link className={styles.listcontent} href='/privacy' prefetch={false}>
+                                <Link className={styles.listcontent} href='/legal?page=terms' prefetch={false}>
+                                    Terms of Service
+                                </Link>
+                            </li>
+                            <li className={styles.listcontent}>
+                                <Link className={styles.listcontent} href='/legal?page=privacy' prefetch={false}>
                                     Privacy Policy
                                 </Link>
                             </li>
                             <li className={styles.listcontent}>
-                                <Link className={styles.listcontent} href='/terms' prefetch={false}>
-                                    Terms of Service
+                                <Link className={styles.listcontent} href='/legal?page=cookies' prefetch={false}>
+                                    Cookie Policy
                                 </Link>
                             </li>
                         </ul>

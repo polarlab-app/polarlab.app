@@ -1,0 +1,47 @@
+.container {
+    width: 14%;
+    position: sticky;
+    left: 1%;
+    top: 1vh;
+    height: auto;
+    border-radius: 6px;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid #23252a;
+    transition: all 600ms ease;
+    min-height: 55px;
+    z-index: 2;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    font-weight: 700;
+
+    .option {
+        color: #a1a0a9;
+        margin: 5%;
+        cursor: pointer;
+        transition: all 600ms ease;
+
+        &:hover {
+            color: white;
+            transition: all 600ms ease;
+        }
+
+        &.active {
+            color: white;
+            transition: all 600ms ease;
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        top: 9vh;
+        width: 96%;
+        left: 2%;
+        justify-content: space-evenly;
+        align-items: center;
+        min-height: 55px;
+        flex-direction: row;
+    }
+}

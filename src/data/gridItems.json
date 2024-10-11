@@ -51,12 +51,12 @@
         "landing-gdk": "https://placehold.co/1200x800"
     },
     "buttons": {
-        "polaris-landing-freemium": "/polaris",
-        "polaris-landing-open-source": "/polaris",
-        "polaris-landing-accessible": "/polaris",
-        "polaris-landing-web-dashboard": "/polaris",
-        "polaris-landing-ease-of-use": "/polaris",
-        "polaris-landing-professional-execution": "/polaris",
+        "polaris-landing-freemium": "/dashboard",
+        "polaris-landing-open-source": "/dashboard",
+        "polaris-landing-accessible": "/dashboard",
+        "polaris-landing-web-dashboard": "/dashboard",
+        "polaris-landing-ease-of-use": "/dashboard",
+        "polaris-landing-professional-execution": "/dashboard",
         "polarmc-landing-community": "https://map.polarlab.app",
         "polarmc-landing-compatibility": "https://map.polarlab.app",
         "polarmc-landing-live-map": "https://map.polarlab.app",

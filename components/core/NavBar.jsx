@@ -59,11 +59,11 @@ export default function NavBar() {
                 </div>
                 <div className={styles.usercontainer}>
                     {user.c != 'r' ? (
-                        <Link className={styles.button} href='/personal'>
+                        <Link className={styles.button} href='/personal' prefetch={false}>
                             My Account
                         </Link>
                     ) : (
-                        <Link className={styles.button} href='/login'>
+                        <Link className={styles.button} href='/login' prefetch={false}>
                             Login
                         </Link>
                     )}
@@ -73,29 +73,49 @@ export default function NavBar() {
             <div className={styles.menu}>
                 <ul className={styles.list}>
                     <li className={styles.listItem}>
-                        <a className={styles.link}>Home</a>
+                        <Link className={styles.link} href='/'>
+                            Home
+                        </Link>
                     </li>
                     <li className={styles.listItem}>
-                        <a className={styles.link}>Docs</a>
+                        <Link className={styles.link} href='https://docs.polarlab.app' prefetch={false}>
+                            Docs
+                        </Link>
                     </li>
                     <li className={styles.listItem}>
-                        <a className={styles.link}>Blog</a>
+                        <Link className={styles.link} href='/blog'>
+                            Blog
+                        </Link>
                     </li>
                 </ul>
                 <ul className={styles.list}>
                     <li className={styles.listItem}>
-                        <a className={styles.link}>Status</a>
+                        <Link className={styles.link} href='/status' prefetch={false}>
+                            Status
+                        </Link>
                     </li>
                     <li className={styles.listItem}>
-                        <a className={styles.link}>Contact</a>
+                        <Link className={styles.link} href='/contact' prefetch={false}>
+                            Contact
+                        </Link>
                     </li>
                     <li className={styles.listItem}>
-                        <a className={styles.link}>Legal</a>
+                        <Link className={styles.link} href='/legal' prefetch={false}>
+                            Legal
+                        </Link>
                     </li>
                 </ul>
                 <div className={styles.mobileButtonContainer}>
-                    <a className={styles.mobileButton}>{user.c != 'r' ? 'My Account' : 'Login'}</a>
-                    <a className={styles.mobileButton}>Polaris Dashboard</a>
+                    <Link
+                        className={styles.mobileButton}
+                        href={user.c != 'r' ? '/personal' : '/login'}
+                        prefetch={false}
+                    >
+                        {user.c != 'r' ? 'My Account' : 'Login'}
+                    </Link>
+                    <Link className={styles.mobileButton} href='/dashboard' prefetch={false}>
+                        Polaris Dashboard
+                    </Link>
                 </div>
             </div>
         </nav>

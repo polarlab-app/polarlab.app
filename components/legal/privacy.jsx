@@ -7,7 +7,7 @@ export default async function Privacy() {
             <div className={styles.container}>
                 <div className={styles.header}>
                     <h1 className={styles.heading}>Privacy Policy</h1>
-                    <p className={styles.date}>Last Updated: October 10th, 2024</p>
+                    <p className={styles.date}>Last Updated: October 11th, 2024</p>
                 </div>
                 <div className={styles.chapter}>
                     <p className={styles.chapterText}>

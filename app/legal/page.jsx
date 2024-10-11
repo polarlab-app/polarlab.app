@@ -3,6 +3,7 @@ import Terms from '@components/legal/terms';
 import Privacy from '@components/legal/privacy';
 import Nav from '@components/legal/nav';
 import styles from '@css/legal/legal.module.scss';
+import Cookies from '@components/legal/cookies';
 
 export async function generateMetadata({ searchParams }) {
     const page = searchParams.page;
@@ -51,7 +52,7 @@ export default async function Page({ searchParams }) {
         <>
             <Nav />
             <div className={styles.wrapper}>
-                <div>{page === 'terms' ? <Terms /> : page === 'privacy' ? <Privacy /> : <></>}</div>
+                <div>{page === 'terms' ? <Terms /> : page === 'privacy' ? <Privacy /> : <Cookies />}</div>
             </div>
         </>
     );

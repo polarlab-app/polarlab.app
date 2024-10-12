@@ -1,0 +1,185 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    margin-left: 20%;
+    color: white;
+
+    .header {
+        width: 100%;
+        margin: 5% 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .heading {
+            font-size: 2.3rem;
+        }
+
+        .subHeading {
+            margin-top: 0;
+            color: #a1a0a9;
+            font-size: 1.4rem;
+            width: 50%;
+        }
+    }
+
+    .options {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        width: 100%;
+        .option {
+            width: 43%;
+            border-radius: 12px;
+            border: 1px solid #23252a;
+            background-color: #101012;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+            .optionHeader {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                margin-top: 0.6rem;
+                font-size: 0.8rem;
+
+                .optionIcon {
+                    margin: 0 0.8rem 0 1.6rem;
+                    font-size: 1.5rem;
+                }
+            }
+
+            .optionText {
+                color: #a1a0a9;
+                margin: 0 1.6rem;
+                font-size: 1rem;
+                text-align: left;
+            }
+
+            .button {
+                margin: 1.6rem 1.6rem;
+                padding: 0.5rem 1rem;
+                border-radius: 6px;
+                background-color: #23252a;
+                color: white;
+                cursor: pointer;
+                transition: all 0.6s ease;
+                font-weight: 600;
+
+                &:hover {
+                    scale: 0.95;
+                    background-color: #1c1d1f;
+                }
+            }
+        }
+    }
+
+    .links {
+        display: flex;
+        flex-direction: column;
+        margin: 5%;
+        width: 90%;
+        align-items: center;
+
+        .linkContainer {
+            display: flex;
+            justify-content: space-between;
+            .link {
+                text-align: left;
+                width: 45%;
+                font-size: 1rem;
+                .linkText {
+                    margin: 0.6rem 0;
+                }
+
+                .linkButton {
+                    color: #a1a0a9;
+                    font-weight: 600;
+                    transition: all 600ms ease;
+                    font-size: 0.9rem;
+                    &:hover {
+                        cursor: pointer;
+                        color: white;
+                        transition: all 600ms ease;
+                    }
+                }
+            }
+        }
+
+        .divider {
+            border: 1px solid #23252a;
+            border-radius: 6px;
+            width: 90%;
+            margin: 3% 0;
+        }
+    }
+
+    .statusContainer {
+        background-color: #101012;
+        display: flex;
+        border-radius: 6px;
+        border: 1px solid #23252a;
+        width: 25%;
+        margin-top: 5%;
+        padding: 0 1rem;
+        display: flex;
+        align-items: center;
+        font-weight: 600;
+        justify-content: center;
+        box-shadow: 0 0 20px rgba(0, 224, 156, 0.4);
+
+        .statusIcon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            margin: 0.5rem;
+            background-color: #00e09c;
+            border-radius: 50%;
+            aspect-ratio: 1/1;
+            width: 5%;
+            padding: 1%;
+            color: #101012;
+        }
+
+        .status {
+            color: #00e09c;
+            margin: 0.8rem 0;
+            transition: all 600ms ease;
+
+            &:hover {
+                cursor: pointer;
+                color: white;
+                transition: all 600ms ease;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        width: 98%;
+        margin: 0 1%;
+
+        .header {
+            .subHeading {
+                width: 90%;
+            }
+        }
+
+        .options {
+            flex-direction: column;
+            align-items: center;
+            .option {
+                margin-bottom: 5%;
+                width: 90%;
+            }
+        }
+
+        .statusContainer {
+            width: 70%;
+        }
+    }
+}

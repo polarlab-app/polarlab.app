@@ -4,9 +4,9 @@ import Section from '@components/main/section';
 import Landing from '@components/main/landing';
 
 export const metadata = {
-    title: 'Polar Lab | Polaris V2',
+    title: 'Polar Lab | Polaris | Singularity at its Core',
     description:
-        'Welcome to Polaris V2, the all-in-one Discord bot that empowers server owners with advanced features, user-friendly interfaces, and unparalleled support for a seamless experience.',
+        'Welcome to Polaris, the all-in-one Discord bot that empowers server owners with advanced features, user-friendly interfaces, and unparalleled support for a seamless experience.',
     keywords: ['Polaris', 'discord', 'bot', 'discord bot', 'Polar Lab', 'community', 'tools', 'services'],
     authors: [{ name: 'Aertic', url: 'https://polarlab.app' }],
     creator: 'Aertic',

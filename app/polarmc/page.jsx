@@ -5,7 +5,8 @@ import Section from '@components/main/section';
 
 export const metadata = {
     title: 'Polar Lab | Polar MC',
-    description: 'The official Polar MC Season 2 landing page',
+    description:
+        'Dive into an immersive gaming community with PolarMC Season 2. Explore vast, custom biomes and a pre-generated world. Join now for a unique gaming experience and connect with fellow gamers.',
     keywords: ['PolarMC', 'gaming', 'community', 'Polar Lab'],
     authors: [{ name: 'Aertic', url: 'https://polarlab.app' }],
     creator: 'Aertic',

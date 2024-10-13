@@ -16,7 +16,7 @@ export default function Nav() {
 
     const handleClick = (page) => {
         setActive(page);
-        router.push(`/legal?page=${page}`, undefined, { shallow: true });
+        router.push(`/legal/${page}`, undefined, { shallow: true });
     };
 
     return (

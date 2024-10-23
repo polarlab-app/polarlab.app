@@ -6,6 +6,7 @@ import { cookies } from 'next/headers';
 import CookieConsent from '@components/core/cookieConsent';
 import { WebVitals } from '@components/core/webVitals';
 import { Toast } from '@components/core/toastNotifications';
+import { CSPostHogProvider } from './providers';
 
 export const metadata = {
     title: 'Polar Lab | Home',
@@ -36,14 +37,16 @@ export default function RootLayout({ children }) {
 
     return (
         <html lang='en'>
-            <body className='body' id='body'>
-                <WebVitals />
-                <NavBar />
-                <Toast />
-                {cookieConsent ? '' : <CookieConsent />}
-                {children}
-                <Footer />
-            </body>
+            <CSPostHogProvider>
+                <body className='body' id='body'>
+                    <WebVitals />
+                    <NavBar />
+                    <Toast />
+                    {cookieConsent ? '' : <CookieConsent />}
+                    {children}
+                    <Footer />
+                </body>
+            </CSPostHogProvider>
         </html>
     );
 }
